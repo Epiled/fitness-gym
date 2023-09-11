@@ -1,0 +1,37 @@
+.cabecalho__navegacao {
+  background-color: var(--cor-fundo-menu-mobile);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4.2rem 2.4rem 2.4rem 2.4rem;
+  gap: .8rem;
+  z-index: 2;
+  opacity: 0;
+  transition: all .3s;
+}
+
+.cabecalho__navegacao--ativo {
+  opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .cabecalho__navegacao {
+    display: flex;
+    flex-direction: row;
+    position: initial;
+    opacity: initial;
+    background-color: transparent;
+    padding: 0;
+    gap: 2rem;
+    margin-left: 2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .cabecalho__navegacao {
+    gap: 4rem;
+    margin-left: 4rem;
+  }
+}

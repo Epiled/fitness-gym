@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Gym</title>
+
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="base.css">
+
+  <link rel="stylesheet" href="./css/cabecalho/cabecalho.css">
+  <link rel="stylesheet" href="./css/cabecalho/cabecalho-bloco.css">
+  <link rel="stylesheet" href="./css/cabecalho/cabecalho-navegacao.css">
+  <link rel="stylesheet" href="./css/cabecalho/cabecalho-link.css">
+  <link rel="stylesheet" href="./css/cabecalho/cabecalho-ipt.css">
+  <link rel="stylesheet" href="./css/cabecalho/cabecalho-btn.css">
+  <link rel="stylesheet" href="./css/cabecalho/cabecalho-burguer.css">
+  <link rel="stylesheet" href="./css/cabecalho/cabecalho-linha.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="cabecalho__bloco">
+      <picture>
+        <source media="(min-width: 1440px)" srcset="./assets/images/Desktop/Logo-desktop.png">
+        <source media="(min-width: 768px)" srcset="./assets/images/Tablet/Logo-tablet.png">
+        <img src="./assets/images/Mobile/Logo-mobile.png" alt="">
+      </picture>
+
+      <button class="cabecalho__burguer" data-burguer type="button">
+        <span class="cabecalho__linha" data-burguer-linha></span>
+        <span class="cabecalho__linha" data-burguer-linha></span>
+        <span class="cabecalho__linha" data-burguer-linha></span>
+      </button>
+
+      <nav class="cabecalho__navegacao" data-navegacao>
+        <a class="cabecalho__link" href="#home">Home</a>
+        <a class="cabecalho__link" href="#nossa_loja">Nossas Lojas</a>
+        <a class="cabecalho__link" href="#novidades">Novidades</a>
+        <a class="cabecalho__link" href="#promocoes">Promoções</a>
+      </nav>
+    </div>
+
+    <div class="cabecalho__bloco cabecalho__bloco--busca">
+      <input class="cabecalho__ipt" type="text" data-campo-busca placeholder="Digite o produto">
+      <button class="cabecalho__btn" type="button" data-btn-busca>Buscar</button>
+    </div>
+  </header>
+
+  <main>
+
+  </main>
+
+  <footer>
+
+  </footer>
+
+</body>
+</html>

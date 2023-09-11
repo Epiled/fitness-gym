@@ -1,0 +1,22 @@
+.cabecalho__ipt {
+  background: var(--cor-fundo-1);
+  border: .1rem solid var(--cor-principal);
+  color: var(--cor-fonte);
+  padding: .75rem 0 .65rem 1.2rem;
+  width: 100%;
+  font-size: 1.3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .cabecalho__ipt {
+    width: 10%;
+    min-width: 14.5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .cabecalho__ipt {
+    min-width: 17rem;
+    font-size: 1.5rem;
+  }
+}

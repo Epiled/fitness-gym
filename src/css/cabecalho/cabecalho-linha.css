@@ -1,0 +1,23 @@
+.cabecalho__linha {
+  display: inline-block;
+  width: 1.8rem;
+  height: .3rem;
+  background: var(--cor-logo);
+  opacity: 1;
+  transition: all .3s;
+}
+
+.cabecalho__linha[data-burguer-linha-ativo]:nth-child(1) {
+  transform:
+    translateY(.6rem) rotate(45deg);
+}
+
+.cabecalho__linha[data-burguer-linha-ativo]:nth-child(2) {
+  opacity: 0;
+}
+
+.cabecalho__linha[data-burguer-linha-ativo]:nth-child(3) {
+  transform:
+    translateY(-.6rem) rotate(-45deg);
+}
+
