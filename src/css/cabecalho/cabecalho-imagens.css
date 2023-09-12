@@ -1,0 +1,21 @@
+@media screen and (min-width: 1440px) {
+  .cabecalho__imagens {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+  }
+
+  .cabecalho__imagens::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 33rem;
+    height: 14.5rem;
+    background-color: var(--cor-principal);
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+}

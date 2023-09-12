@@ -1,14 +1,7 @@
 .cabecalho {
-  background: var(--cor-principal);
+  background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-}
-
-@media screen and (min-width: 768px) {
-  .cabecalho {
-    padding: 1rem 2.3rem 1rem 2.3rem;
-    flex-direction: row;
-  }
 }

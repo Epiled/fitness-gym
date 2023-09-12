@@ -1,25 +1,13 @@
 .cabecalho__bloco {
   display: flex;
   align-items: center;
-  background: var(--cor-principal);
-  padding: 2rem 2.2rem 2rem 2.1rem;
-}
-
-.cabecalho__bloco--busca {
-  align-items: stretch;
-  background: var(--cor-fundo-1);
-  padding: 2.4rem 2.6rem 2.4rem 2.7rem;
-  gap: .82rem;
+  margin-top: 10rem;
+  margin-left: 6rem;
+  margin-right: 6rem;
 }
 
 @media screen and (min-width: 768px) {
   .cabecalho__bloco {
     padding: 0;
-  }
-  
-  .cabecalho__bloco--busca {
-    background-color: var(--cor-princiapl);
-    gap: 1.6rem;
-    justify-content: flex-end;
   }
 }

@@ -1,0 +1,9 @@
+.cabecalho__logo {
+  width: 12rem;
+}
+
+@media screen and (min-width: 1440px) {
+  .cabecalho__logo {
+    width: 15rem;
+  }
+}
