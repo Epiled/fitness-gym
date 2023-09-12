@@ -1,0 +1,5 @@
+.banner {
+  position: relative;
+  background-image: url(../../assets/img/banner-fitness-gym.jpg);
+  height: 100vh;
+}
