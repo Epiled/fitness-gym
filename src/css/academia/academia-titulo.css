@@ -1,0 +1,8 @@
+.academia__titulo {
+  border-bottom: .1rem solid var(--cor-principal);
+  color: var(--cor-principal);
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+}

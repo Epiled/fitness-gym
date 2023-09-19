@@ -12,6 +12,7 @@
   --cor-fonte: #6C757D;
 
   --cor-fundo-1: #FFF;
+  --cor-fundo-2: #F4F4FB;
   --cor-fundo-menu-mobile: #343A40;
 
   --cor-fundo-25: #00000040;
@@ -27,7 +28,7 @@
   --cor-sombra: #292d3275;
   --cor-place: #333333d6;
 
-    --branco: #ffffff;
+  --branco: #ffffff;
 
   font-family: 'Fira Sans', sans-serif;
 }

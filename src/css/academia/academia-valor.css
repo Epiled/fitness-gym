@@ -1,0 +1,9 @@
+.academia__valor {
+  color: var(--cor-titulo);
+  font-size: 2rem;
+}
+
+.academia__valor--alt {
+  color: var(--cor-principal);
+  font-weight: 700;
+}

@@ -1,0 +1,6 @@
+.academia__planos {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3.3rem;
+  margin-bottom: 2.1rem;
+}

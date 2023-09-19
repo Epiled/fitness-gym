@@ -1,11 +1,16 @@
 .btn {
+  color: var(--cor-escura);
   background: var(--cor-principal);
+  border: 0;
+  border-radius: 4rem;
   font-size: 1.6rem;
   height: 4rem;
-  border-radius: 4rem;
   margin-top: 2rem;
   outline: 0;
-  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 
 .btn--banner {
