@@ -6,7 +6,7 @@
   font-size: 1.6rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 834px) {
   .cabecalho__btn {
     border-color: var(--cor-fundo-1);
     background-color: var(--cor-principal);

@@ -1,0 +1,24 @@
+.infos__icon {
+  width: 4rem;
+  height: auto;
+}
+
+.infos__icon--alt {
+  fill: var(--cor-principal);
+}
+
+@media screen and (min-width: 834px) {
+  .infos__icon {
+    width: 6rem;
+  }
+
+  .infos__icon--alt {
+    fill: var(--branco);
+  }
+}
+
+@media screen and (min-width: 834px) {
+  .infos__icon {
+    width: 7.5rem;
+  }
+}

@@ -1,0 +1,31 @@
+.infos__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 18rem;
+  height: 18rem;
+}
+
+@media screen and (min-width: 834px) {
+  .infos__box {
+    width: 27rem;
+    height: 27rem;
+  }
+
+  .infos__box--alt {
+    background-color: var(--cor-principal);
+  }
+}
+
+
+@media screen and (min-width: 1440px) {
+  .infos__box {
+    width: 32.8rem;
+    height: 32.8rem;
+  }
+
+  .infos__box--alt {
+    background-color: var(--cor-principal);
+  }
+}

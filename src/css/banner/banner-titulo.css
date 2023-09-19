@@ -19,7 +19,7 @@
   vertical-align: bottom;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 834px) {
   .banner__titulo--monstro {
     font-size: 8rem;
   }
