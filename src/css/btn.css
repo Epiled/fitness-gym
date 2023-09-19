@@ -1,0 +1,13 @@
+.btn {
+  background: var(--cor-principal);
+  font-size: 1.6rem;
+  height: 4rem;
+  border-radius: 4rem;
+  margin-top: 2rem;
+  outline: 0;
+  border: 0;
+}
+
+.btn--banner {
+  max-width: 28.4rem;
+}

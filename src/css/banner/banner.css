@@ -1,5 +1,9 @@
 .banner {
   position: relative;
-  background-image: url(../../assets/img/banner-fitness-gym.jpg);
-  height: 100vh;
+  background-image: 
+  linear-gradient(0deg, var(--cor-fundo-65), var(--cor-fundo-65)),
+  url(../../assets/img/banner-fitness-gym.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 64.2rem;
 }

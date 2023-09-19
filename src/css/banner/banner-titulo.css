@@ -1,12 +1,30 @@
 .banner__titulo {
-  font-size: 3.2rem;
-  text-transform: uppercase;
-  line-height: normal;
+  margin: 0;
 }
 
-@media screen and (min-width: 1440px) {
-  .banner__titulo {
-    font-size: 4.8rem;
+.banner__titulo--monstro {
+  font-size: 6.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--cor-principal);
+  margin: 0;
+}
+
+.banner__titulo--min {
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 600;
+  text-transform: none;
+  color: var(--cor-fundo-1);
+  vertical-align: bottom;
+}
+
+@media screen and (min-width: 768px) {
+  .banner__titulo--monstro {
+    font-size: 8rem;
   }
 
+  .banner__titulo--min {
+    font-size: 2.4rem;
+  }
 }
