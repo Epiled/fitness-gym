@@ -1,0 +1,20 @@
+.buscador__btn {
+  position: absolute;
+  top: 50%;
+  left: 1.8rem;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: .25rem;
+  border: 0;
+  border-radius: 100%;
+  background: transparent;
+  fill: var(--cor-principal);
+  transition: fill .5s, background .5s;
+  cursor: pointer;
+}
+
+.buscador__btn:hover {
+  fill: var(--branco);
+  background-color: var(--cor-principal);
+}

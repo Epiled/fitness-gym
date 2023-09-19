@@ -1,0 +1,27 @@
+.titulo {
+  color: var(--cor-titulo);
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.titulo--dest {
+  color: var(--cor-principal);
+  text-decoration: underline;
+  text-underline-offset: .5rem
+}
+
+.titulo--alt {
+
+}
+
+@media screen and (min-width: 834px) {
+  .titulo{
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .titulo{
+    font-size: 4rem;
+  }
+}

@@ -2,6 +2,9 @@
   font-size: 62.5%;
 
   --cor-principal: #F79517;
+  --cor-principal-0: #f7951700;
+  --cor-principal-23: #f795173b;
+
   --cor-principal-claro: #CCC;
   --cor-logo: #DAFF01;
   --cor-principal-alt: #9353FF;
@@ -18,9 +21,13 @@
   --cor-complementar-1: #EE6471;
   --cor-complementar-2: #F87F46;
 
-  --cor-titulo: #212529;
+  --cor-titulo: #575757;
 
   --cor-escura: #000000;
+  --cor-sombra: #292d3275;
+  --cor-place: #333333d6;
+
+    --branco: #ffffff;
 
   font-family: 'Fira Sans', sans-serif;
 }

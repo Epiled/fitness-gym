@@ -1,0 +1,8 @@
+.buscador__container {
+  position: relative;
+  border-radius: .5rem;
+  background-color: var(--cor-principal);
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 59rem;
+}
