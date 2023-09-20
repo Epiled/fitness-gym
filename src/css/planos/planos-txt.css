@@ -1,0 +1,10 @@
+.planos__txt {
+  color: var(--cor-titulo);
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 834px) {
+  .planos__txt {
+    font-size: 1.4rem;
+  }
+}

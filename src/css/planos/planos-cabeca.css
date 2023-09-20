@@ -1,0 +1,11 @@
+.planos__cabeca {
+  width: 13rem;
+  padding: 1.5rem .5rem .5rem .5rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 834px) {
+  .planos__cabeca {
+    width: 18rem;
+  }
+}

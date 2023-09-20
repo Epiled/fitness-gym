@@ -1,0 +1,21 @@
+.planos__icon {
+  fill: var(--cor-principal);
+  width: 2.5rem;
+  min-width: 2.5rem;
+}
+
+.planos__icon--check {
+  fill: none;
+  width: 2rem;
+  min-width: auto;
+}
+
+@media screen and (min-width: 834px) {
+  .planos__icon {
+    width: 3rem;
+  }
+  
+  .planos__icon--check {
+    width: 2.5rem;
+  }
+}

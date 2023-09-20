@@ -1,0 +1,12 @@
+.planos__titulo {
+  color: var(--cor-escura);
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@media screen and (min-width: 834px) {
+  .planos__titulo {
+    font-size: 2.4rem;
+  }
+}

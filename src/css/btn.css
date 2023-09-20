@@ -11,8 +11,15 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  max-width: 35.7rem;
+  width: 100%;
 }
 
 .btn--banner {
   max-width: 28.4rem;
+}
+
+.btn--planos {
+  align-self: center;
+  margin-top: 3.5rem;
 }

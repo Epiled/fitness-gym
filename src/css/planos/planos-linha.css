@@ -1,0 +1,11 @@
+.planos__linha {
+  border-bottom: .1rem solid var(--cor-escura);
+  color: var(--cor-titulo);
+  font-size: 1.4rem;
+}
+
+@media screen and (min-width: 834px) {
+  .planos__linha {
+    font-size: 1.8rem;
+  }
+}
