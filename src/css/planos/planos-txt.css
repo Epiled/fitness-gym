@@ -8,3 +8,9 @@
     font-size: 1.4rem;
   }
 }
+
+@media screen and (min-width: 1440px) {
+  .planos__txt {
+    font-size: 1.6rem;
+  }
+}

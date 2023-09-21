@@ -8,6 +8,7 @@
   fill: none;
   width: 2rem;
   min-width: auto;
+  vertical-align: middle;
 }
 
 @media screen and (min-width: 834px) {
@@ -17,5 +18,15 @@
   
   .planos__icon--check {
     width: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .planos__icon {
+    width: 3.5rem;
+  }
+  
+  .planos__icon--check {
+    width: 3rem;
   }
 }

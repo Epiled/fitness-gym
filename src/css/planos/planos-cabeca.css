@@ -7,5 +7,13 @@
 @media screen and (min-width: 834px) {
   .planos__cabeca {
     width: 18rem;
+    padding: 1.5rem .5rem 1.5rem .5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .planos__cabeca {
+    width: 27rem;
+    padding: 1.5rem 2.5rem;
   }
 }

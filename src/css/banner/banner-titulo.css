@@ -3,7 +3,7 @@
 }
 
 .banner__titulo--monstro {
-  font-size: 6.4rem;
+  font-size: clamp(3.2rem, 15vw, 6.4rem);
   font-weight: 900;
   text-transform: uppercase;
   color: var(--cor-principal);

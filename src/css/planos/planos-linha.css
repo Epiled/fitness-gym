@@ -4,8 +4,22 @@
   font-size: 1.4rem;
 }
 
+.planos__linha:first-of-type {
+  border-top: .1rem solid var(--cor-escura);
+}
+
+.planos__linha:last-of-type {
+  border: 0;
+}
+
 @media screen and (min-width: 834px) {
   .planos__linha {
     font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .planos__linha {
+    font-size: 2.2rem;
   }
 }

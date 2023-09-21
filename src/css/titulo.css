@@ -17,13 +17,21 @@
 }
 
 @media screen and (min-width: 834px) {
-  .titulo{
+  .titulo {
     font-size: 3.2rem;
+  }
+
+  .titulo--dest {
+    text-underline-offset: .75rem
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .titulo{
+  .titulo {
     font-size: 4rem;
+  }
+
+  .titulo--dest {
+    text-underline-offset: 1.25rem;
   }
 }
