@@ -1,0 +1,22 @@
+.rodape__opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  margin-top: 5.6rem;
+  text-align: left;
+}
+
+@media screen and (min-width: 834px) {
+  .rodape__opcoes {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .rodape__opcoes {
+    justify-content: flex-start;
+    gap: 9rem;
+  }
+}

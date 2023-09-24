@@ -1,0 +1,8 @@
+.rodape__link {
+  color: var(--branco);
+  font-size: 1.6rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

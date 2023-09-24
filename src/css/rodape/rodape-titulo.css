@@ -1,0 +1,8 @@
+.rodape__titulo {
+  color: var(--cor-principal);
+  font-size: 3.6rem;
+  font-weight: 700;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 1rem;
+}

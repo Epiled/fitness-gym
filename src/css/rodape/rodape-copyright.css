@@ -1,0 +1,15 @@
+.rodape__copyright {
+  border-top: .1rem solid var(--cor-principal);
+  color: var(--branco);
+  font-size: 1.6rem;
+  margin-top: 10rem;
+  padding: 1.5rem 0 3rem 0;
+}
+
+
+@media screen and (min-width: 1440px) {
+  .rodape__copyright {
+    font-size: 2rem;
+    padding-bottom: 5rem;
+  }
+}

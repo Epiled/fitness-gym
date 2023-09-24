@@ -1,0 +1,11 @@
+.rodape__itens {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 834px) {
+  .rodape__itens {
+    gap: 1rem;
+  }
+}
