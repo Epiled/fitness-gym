@@ -1,0 +1,24 @@
+.newsletter__formulario {
+  display: flex;
+  flex-direction: column;
+  background: var(--cor-principal);
+  border-radius: 1rem;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem 1.5rem;
+  max-width: 59rem;
+}
+
+@media screen and (min-width: 834px) {
+  .newsletter__formulario {
+    margin-top: 6rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .newsletter__formulario {
+    flex: 1;
+    align-self: center;
+  }
+}

@@ -24,3 +24,9 @@
   margin-top: 3.5rem;
   height: 5rem;
 }
+
+.btn--formulario {
+  background: var(--cor-escura);
+  color: var(--cor-principal);
+  margin-top: 0;
+}

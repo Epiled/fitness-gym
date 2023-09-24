@@ -1,0 +1,30 @@
+.modalidade__card {
+  position: relative;
+  min-height: 40rem;
+  max-width: 31.8rem;
+}
+
+.modalidade__card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--cor-principal-75);
+}
+
+@media screen and (min-width: 834px) {
+  .modalidade__card {
+    gap: 2rem;
+    min-height: 48.5rem;
+    max-width: 38.5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .modalidade__card {
+    min-height: 39.5rem;
+    flex: 1;
+  }
+}

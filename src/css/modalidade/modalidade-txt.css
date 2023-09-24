@@ -1,0 +1,15 @@
+.modalidade__txt {
+  margin: 5rem 0;
+}
+
+@media screen and (min-width: 834px) {
+  .modalidade__txt {
+    margin: 4rem 0 6rem 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .modalidade__txt {
+    margin: 6rem 0;
+  }
+}

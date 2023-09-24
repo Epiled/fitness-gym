@@ -64,6 +64,22 @@
   <link rel="stylesheet" href="./css/planos/planos-dado.css">
   <link rel="stylesheet" href="./css/planos/planos-icon.css">
 
+  <link rel="stylesheet" href="./css/newsletter/newsletter.css">
+  <link rel="stylesheet" href="./css/newsletter/newsletter-topo.css">
+  <link rel="stylesheet" href="./css/newsletter/newsletter-titulo.css">
+  <link rel="stylesheet" href="./css/newsletter/newsletter-txt.css">
+  <link rel="stylesheet" href="./css/newsletter/newsletter-lista.css">
+  <link rel="stylesheet" href="./css/newsletter/newsletter-item.css">
+  <link rel="stylesheet" href="./css/newsletter/newsletter-formulario.css">
+  <link rel="stylesheet" href="./css/newsletter/newsletter-campos.css">
+  <link rel="stylesheet" href="./css/newsletter/newsletter-ipt.css">
+
+  <link rel="stylesheet" href="./css/modalidade/modalidade.css">
+  <link rel="stylesheet" href="./css/modalidade/modalidade-cards.css">
+  <link rel="stylesheet" href="./css/modalidade/modalidade-card.css">
+  <link rel="stylesheet" href="./css/modalidade/modalidade-imagem.css">
+  <link rel="stylesheet" href="./css/modalidade/modalidade-titulo.css">
+  <link rel="stylesheet" href="./css/modalidade/modalidade-txt.css">
 
 </head>
 
@@ -72,8 +88,8 @@
   <header class="cabecalho">
     <div class="cabecalho__bloco">
       <picture class="cabecalho__imagens">
-        <source media="(min-width: 1440px)" srcset="./assets/svg/logo-black.svg">
-        <img src="./assets/svg/logo.svg" class="cabecalho__logo" alt="">
+        <source media="(min-width: 1440px)" srcset="./assets/svg/logo-black-min.svg">
+        <img src="./assets/svg/logo-min.svg" class="cabecalho__logo" alt="">
       </picture>
 
       <button class="cabecalho__burguer" data-burguer type="button">
@@ -188,9 +204,11 @@
     </section>
 
     <section class="academia respiro" id="academias">
+      
       <h2 class="titulo titulo--alt">
         Academias
       </h2>
+
       <div class="academia__cards">
         <div class="academia__card">
           <img src="./assets/img/academia-1.jpg" alt="" class="academia__imagem">
@@ -438,8 +456,72 @@
           </tr>
         </tbody>
       </table>
-<!-- https://www.figma.com/file/FodXub9KWw9YjUF2Zfl1GZ/Linkdlin-Projeto-%2F-GitHub-Organizar?type=design&node-id=33%3A1139&mode=design&t=AAmdEbKVM7FRLoXK-1 -->
+      <!-- https://www.figma.com/file/FodXub9KWw9YjUF2Zfl1GZ/Linkdlin-Projeto-%2F-GitHub-Organizar?type=design&node-id=33%3A1139&mode=design&t=AAmdEbKVM7FRLoXK-1 -->
       <button class="btn btn--planos" type="button">Escolher Plano!</button>
+    </section>
+
+    <aside class="newsletter respiro">
+      <div class="newsletter__topo">
+        <h3 class="newsletter__titulo">
+          Torne-se um
+          <span class="newsletter__titulo--dest">
+            Bodybuilder
+          </span>
+        </h3>
+        <p class="newsletter__txt">
+          Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!
+        </p>
+
+        <ul class="newsletter__lista">
+          <li class="newsletter__item">Lorem Impsum</li>
+          <li class="newsletter__item">Lorem Impsum</li>
+          <li class="newsletter__item">Lorem Impsum</li>
+          <li class="newsletter__item">Lorem Impsum</li>
+        </ul>
+      </div>
+
+      <form class="newsletter__formulario" action="">
+        <fieldset class="newsletter__campos">
+          <input class="newsletter__ipt" placeholder="Nome:" type="text">
+          <input class="newsletter__ipt" placeholder="E-mail:" type="email" name="" id="">
+          <button class="btn btn--formulario">Fazer Cadastro!</button>
+        </fieldset>
+      </form>
+    </aside>
+
+    <section class="modalidade respiro">
+      <h2 class="titulo titulo--alt">
+        Academias
+      </h2>
+
+      <p class="titulo modalidade__txt">Conheça <span class="titulo--dest">mais</span> sobre cada <span class="titulo--dest">modalidade</span></p>
+
+      <div class="modalidade__cards">
+        <div class="modalidade__card">
+          <img class="modalidade__imagem" src="./assets/img/modalidade-musculacao.jpg" alt="">
+          <h3 class="modalidade__titulo">
+            Musculação
+          </h3>
+        </div>
+        <div class="modalidade__card">
+          <img class="modalidade__imagem" src="./assets/img/modalidade-fitdance.jpg" alt="">
+          <h3 class="modalidade__titulo">
+            Fitdance
+          </h3>
+        </div>
+        <div class="modalidade__card">
+          <img class="modalidade__imagem" src="./assets/img/modalidade-pilates.jpg" alt="">
+          <h3 class="modalidade__titulo">
+            Pilates
+          </h3>
+        </div>
+        <div class="modalidade__card">
+          <img class="modalidade__imagem" src="./assets/img/modalidade-cardio.jpg" alt="">
+          <h3 class="modalidade__titulo">
+            Cardio
+          </h3>
+        </div>
+      </div>
     </section>
   </main>
 

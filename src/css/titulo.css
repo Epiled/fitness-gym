@@ -35,3 +35,10 @@
     text-underline-offset: 1.25rem;
   }
 }
+
+@media screen and (min-width: 834px) and (min-width: 1440px) {
+
+  .titulo--alt {
+    font-size: 5.2rem;
+  }
+}

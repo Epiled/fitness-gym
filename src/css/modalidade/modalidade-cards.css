@@ -1,0 +1,12 @@
+.modalidade__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5rem;
+}
+
+@media screen and (min-width: 834px) {
+  .modalidade__cards {
+    gap: 2rem;
+  }
+}

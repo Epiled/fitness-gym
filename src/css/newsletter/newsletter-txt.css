@@ -1,0 +1,16 @@
+.newsletter__txt {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 834px) {
+  .newsletter__txt {
+    font-size: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .newsletter__txt {
+    font-size: 3.6rem;
+  }
+}

@@ -1,0 +1,26 @@
+.newsletter {
+  background:
+    linear-gradient(0deg, var(--cor-fundo-50), var(--cor-fundo-50)),
+    url(../../assets/img/newsletter.jpg);
+  background-size: cover;
+  color: var(--cor-fundo-1);
+  margin-top: 4.5rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+@media screen and (min-width: 834px) {
+  .newsletter {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .newsletter {
+    display: flex;
+    gap: 5rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}

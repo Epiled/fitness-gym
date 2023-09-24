@@ -1,0 +1,32 @@
+.newsletter__titulo {
+  display: flex;
+  flex-direction: column;
+  color: var(--branco);
+  font-size: 3.2rem;
+}
+
+.newsletter__titulo--dest {
+  color: var(--cor-principal);
+  font-size: clamp(3.2rem, 15vw, 4rem);
+  font-weight: 900;
+}
+
+@media screen and (min-width: 834px) {
+  .newsletter__titulo {
+  font-size: 4rem;
+  }
+  
+  .newsletter__titulo--dest {
+  font-size: 6.4rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .newsletter__titulo {
+    font-size: 6.4rem;
+  }
+  
+  .newsletter__titulo--dest {
+  font-size: 9.6rem;
+  }
+}
