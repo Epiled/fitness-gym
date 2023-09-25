@@ -66,6 +66,7 @@
   <link rel="stylesheet" href="./css/planos/planos-icon.css">
 
   <link rel="stylesheet" href="./css/newsletter/newsletter.css">
+  <link rel="stylesheet" href="./css/newsletter/newsletter-wrapper.css">
   <link rel="stylesheet" href="./css/newsletter/newsletter-topo.css">
   <link rel="stylesheet" href="./css/newsletter/newsletter-titulo.css">
   <link rel="stylesheet" href="./css/newsletter/newsletter-txt.css">
@@ -251,7 +252,7 @@
                 </span>
               </li>
             </ul>
-            <a href="" class="btn">
+            <a href="" class="btn btn--academia">
               Assinar Plano!
             </a>
           </main>
@@ -283,7 +284,7 @@
                 </span>
               </li>
             </ul>
-            <a href="" class="btn">
+            <a href="" class="btn btn--academia">
               Assinar Plano!
             </a>
           </main>
@@ -315,7 +316,39 @@
                 </span>
               </li>
             </ul>
-            <a href="" class="btn">
+            <a href="" class="btn btn--academia">
+              Assinar Plano!
+            </a>
+          </main>
+        </div>
+        <div class="academia__card">
+          <img src="./assets/img/academia-1.jpg" alt="" class="academia__imagem">
+          <main class="academia__conteudo">
+            <h3 class="academia__titulo">
+              Praça do Forró
+            </h3>
+            <p class="academia__txt">
+              Praça Padre Aleixo Monteiro Mafra, 19 - São Miguel Paulista, São Paulo - SP
+            </p>
+            <ul class="academia__planos">
+              <li class="academia__item">
+                <h4 class="academia__plano">
+                  Fit
+                </h4>
+                <span class="academia__valor">
+                  <span class="academia__valor academia__valor--alt">R$</span> 9,90
+                </span>
+              </li>
+              <li class="academia__item">
+                <h4 class="academia__plano">
+                  Body
+                </h4>
+                <span class="academia__valor">
+                  <span class="academia__valor academia__valor--alt">R$</span> 99,90
+                </span>
+              </li>
+            </ul>
+            <a href="" class="btn btn--academia">
               Assinar Plano!
             </a>
           </main>
@@ -475,37 +508,39 @@
     </section>
 
     <aside class="newsletter respiro">
-      <div class="newsletter__topo">
-        <h3 class="newsletter__titulo">
-          Torne-se um
-          <span class="newsletter__titulo--dest">
-            Bodybuilder
-          </span>
-        </h3>
-        <p class="newsletter__txt">
-          Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!
-        </p>
+      <div class="newsletter__wrapper">
+        <div class="newsletter__topo">
+          <h3 class="newsletter__titulo">
+            Torne-se um
+            <span class="newsletter__titulo--dest">
+              Bodybuilder
+            </span>
+          </h3>
+          <p class="newsletter__txt">
+            Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!
+          </p>
 
-        <ul class="newsletter__lista">
-          <li class="newsletter__item">Lorem Impsum</li>
-          <li class="newsletter__item">Lorem Impsum</li>
-          <li class="newsletter__item">Lorem Impsum</li>
-          <li class="newsletter__item">Lorem Impsum</li>
-        </ul>
+          <ul class="newsletter__lista">
+            <li class="newsletter__item">Lorem Impsum</li>
+            <li class="newsletter__item">Lorem Impsum</li>
+            <li class="newsletter__item">Lorem Impsum</li>
+            <li class="newsletter__item">Lorem Impsum</li>
+          </ul>
+        </div>
+
+        <form class="newsletter__formulario" action="">
+          <fieldset class="newsletter__campos">
+            <input class="newsletter__ipt" placeholder="Nome:" type="text">
+            <input class="newsletter__ipt" placeholder="E-mail:" type="email" name="" id="">
+            <button class="btn btn--formulario">Fazer Cadastro!</button>
+          </fieldset>
+        </form>
       </div>
-
-      <form class="newsletter__formulario" action="">
-        <fieldset class="newsletter__campos">
-          <input class="newsletter__ipt" placeholder="Nome:" type="text">
-          <input class="newsletter__ipt" placeholder="E-mail:" type="email" name="" id="">
-          <button class="btn btn--formulario">Fazer Cadastro!</button>
-        </fieldset>
-      </form>
     </aside>
 
     <section class="modalidade respiro">
       <h2 class="titulo titulo--alt">
-        Academias
+        Modalidades
       </h2>
 
       <p class="titulo modalidade__txt">Conheça <span class="titulo--dest">mais</span> sobre cada <span class="titulo--dest">modalidade</span></p>

@@ -5,3 +5,9 @@
   gap: 3.5rem;
   padding: 0;
 }
+
+@media screen and (min-width: 834px) {
+  .newsletter__campos {
+    gap: 2.5rem;
+  }
+}

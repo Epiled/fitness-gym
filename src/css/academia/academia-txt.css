@@ -2,3 +2,9 @@
   color: var(--cor-titulo);
   font-size: 1.6rem;
 }
+
+@media screen and (min-width: 1440px) {
+  .academia__txt {
+    font-size: 1.8rem;
+  }
+}

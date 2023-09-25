@@ -21,6 +21,10 @@
     font-size: 3.2rem;
   }
 
+  .titulo--alt {
+    font-size: 5.2rem;
+  }
+
   .titulo--dest {
     text-underline-offset: .75rem
   }

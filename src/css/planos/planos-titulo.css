@@ -14,5 +14,6 @@
 @media screen and (min-width: 1440px) {
   .planos__titulo {
     font-size: 3.2rem;
+    margin-bottom: .5rem;
   }
 }

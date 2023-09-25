@@ -3,3 +3,15 @@
   flex-direction: column;
   margin-top: 7rem;
 }
+
+@media screen and (min-width: 834px) {
+  .planos {
+    margin-top: 6rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .planos {
+    margin-top: 10rem;
+  }
+}

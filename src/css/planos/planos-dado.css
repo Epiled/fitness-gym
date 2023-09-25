@@ -25,7 +25,7 @@
 
 @media screen and (min-width: 834px) {
   .planos__dado {
-    padding: .7rem 0;
+    padding: 1.2rem 0;
   }
 
   .planos__dado--valor {
@@ -44,5 +44,6 @@
 
   .planos__dado--valor {
     padding: 2.8rem;
+    font-size: 2.8rem;
   }
 }

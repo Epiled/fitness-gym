@@ -5,3 +5,15 @@
   max-width: 36rem;
   overflow: hidden;
 }
+
+@media screen and (min-width: 834px) {
+  .academia__card {
+    max-width: 38.7rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .academia__card {
+    max-width: 42.7rem;
+  }
+}

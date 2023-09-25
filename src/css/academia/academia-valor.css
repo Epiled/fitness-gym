@@ -7,3 +7,9 @@
   color: var(--cor-principal);
   font-weight: 700;
 }
+
+@media screen and (min-width: 1440px) {
+  .academia__valor {
+    font-size: 2.4rem;
+  }
+}

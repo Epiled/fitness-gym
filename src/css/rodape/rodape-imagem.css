@@ -3,8 +3,8 @@
   width: 12.5rem;
 }
 
-@media screen and (min-width: 834px){
-.rodape__imagem {
-  width: 16.7rem;
-}
+@media screen and (min-width: 834px) {
+  .rodape__imagem {
+    width: 16.7rem;
+  }
 }

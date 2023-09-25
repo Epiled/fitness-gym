@@ -5,3 +5,18 @@
   gap: 4rem;
   margin-top: 4rem;
 }
+
+@media screen and (min-width: 834px) {
+  .academia__cards {
+    gap: 5rem 2rem;
+    margin-top: 5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .academia__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}

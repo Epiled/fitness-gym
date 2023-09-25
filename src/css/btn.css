@@ -23,10 +23,38 @@
   align-self: center;
   margin-top: 3.5rem;
   height: 5rem;
+  font-size: 2rem;
 }
 
 .btn--formulario {
   background: var(--cor-escura);
   color: var(--cor-principal);
   margin-top: 0;
+}
+
+@media screen and (min-width: 834px) {
+  .btn--planos {
+    margin-top: 3rem;
+  }
+
+  .btn--formulario {
+    font-size: 2.4rem;
+    height: 5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .btn--academia {
+    font-size: 2rem;
+    height: 5rem;
+    max-width: none;
+  }
+
+  .btn--planos {
+    margin-top: 5rem;
+  }
+
+  .btn--formulario {
+    font-size: 2.4rem;
+  }
 }

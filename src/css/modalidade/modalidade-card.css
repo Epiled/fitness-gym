@@ -25,6 +25,7 @@
 @media screen and (min-width: 1440px) {
   .modalidade__card {
     min-height: 39.5rem;
+    max-width: 31.6rem;
     flex: 1;
   }
 }

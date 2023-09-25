@@ -7,6 +7,12 @@
 
 @media screen and (min-width: 834px) {
   .modalidade__cards {
+    gap: 5rem 2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .modalidade__cards {
     gap: 2rem;
   }
 }

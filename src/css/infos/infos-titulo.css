@@ -2,13 +2,15 @@
   color: var(--cor-titulo);
   font-weight: 600;
   font-size: 2.4rem;
-  margin-top: 1.9rem;
-  margin-bottom: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 @media screen and (min-width: 834px) {
   .infos__titulo {
     font-size: 3.2rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
   }
 
   .infos__titulo--alt {

@@ -2,3 +2,15 @@
   max-height: 16rem;
   object-fit: cover;
 }
+
+@media screen and (min-width: 834px) {
+  .academia__imagem {
+    max-height: 17rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .academia__imagem {
+    max-height: 19rem;
+  }
+}

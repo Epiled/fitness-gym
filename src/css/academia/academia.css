@@ -1,3 +1,15 @@
 .academia {
   margin-top: 3.5rem;
 }
+
+@media screen and (min-width: 834px) {
+  .academia {
+    margin-top: 6rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .academia {
+    margin-top: 10rem;
+  }
+}

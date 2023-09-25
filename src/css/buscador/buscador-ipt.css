@@ -1,7 +1,13 @@
 .buscador__ipt {
-  padding: .8rem .2rem .8rem 4rem;
+  padding: .8rem 1rem .8rem 4rem;
   box-shadow: 0 -.1rem .2rem .2rem var(--cor-sombra) inset;
   border: 0;
   width: 100%;
   font-size: 1.6rem;
+  border-radius: 0.5rem;
+  height: 4rem;
+}
+
+.buscador__ipt::placeholder {
+  color: var(--cor-place);
 }
