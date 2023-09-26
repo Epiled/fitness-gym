@@ -13,5 +13,6 @@
 @media screen and (min-width: 1440px) {
   .planos {
     margin-top: 10rem;
+    align-items: center;
   }
 }

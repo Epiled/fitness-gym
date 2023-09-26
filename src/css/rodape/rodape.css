@@ -1,17 +1,4 @@
 .rodape {
   background: var(--cor-escura);
-  margin-top: 8.5rem;
   text-align: center;
-}
-
-@media screen and (min-width: 834px) {
-  .rodape {
-    margin-top: 6rem;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .rodape {
-    margin-top: 10rem;
-  }
 }

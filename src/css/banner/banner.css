@@ -7,3 +7,10 @@
   background-position: center;
   height: 64.2rem;
 }
+
+@media screen and (min-width: 1440px){
+  .banner {
+    display: flex;
+    justify-content: center;
+  }
+}

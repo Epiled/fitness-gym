@@ -6,4 +6,11 @@
   position: fixed;
   z-index: 5;
   width: 100%;
+  top: 3rem;
+}
+
+@media screen and (min-width: 1440px) {
+  .cabecalho {
+  top: 10rem;
+  }
 }

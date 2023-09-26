@@ -8,6 +8,7 @@
   text-transform: uppercase;
   color: var(--cor-principal);
   margin: 0;
+  display: block;
 }
 
 .banner__titulo--min {

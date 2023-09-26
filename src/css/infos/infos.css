@@ -3,11 +3,32 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 5rem;
+  position: relative;
+}
+
+.infos::after {
+  position: absolute;
+  left: -7.5rem;
+  bottom: 0;
+  content: '';
+  display: block;
+  background: url(../../assets/svg/decoracao-principal.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 16rem;
+  height: 15rem;
+  z-index: -1;
 }
 
 @media screen and (min-width: 834px) {
   .infos {
     flex-wrap: nowrap;
     margin-top: 6rem;
+  }
+
+  .infos::after {
+    width: 21.5rem;
+    height: 20.5rem;
+    bottom: -15rem;
   }
 }
