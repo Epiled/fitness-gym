@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
   margin-top: 7rem;
+  opacity: 0;
+}
+
+.planos.active {
+  animation: topRevel .5s forwards;
 }
 
 @media screen and (min-width: 834px) {

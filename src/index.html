@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/animations.css">
   <link rel="stylesheet" href="./css/utils.css">
   <link rel="stylesheet" href="./css/respiro.css">
   <link rel="stylesheet" href="./css/titulo.css">
@@ -87,7 +88,6 @@
   <link rel="stylesheet" href="./css/rodape/rodape-wrapper.css">
   <link rel="stylesheet" href="./css/rodape/rodape-imagem.css">
   <link rel="stylesheet" href="./css/rodape/rodape-opcoes.css">
-  <link rel="stylesheet" href="./css/rodape/rodape-contatos.css">
   <link rel="stylesheet" href="./css/rodape/rodape-titulo.css">
   <link rel="stylesheet" href="./css/rodape/rodape-opcoes.css">
   <link rel="stylesheet" href="./css/rodape/rodape-opcao.css">
@@ -147,7 +147,7 @@
 
   <main>
     <section class="banner">
-      <div class="banner__conteudo banner__conteudo--alt">
+      <div class="banner__conteudo banner__conteudo--alt" data-animation="revel">
         <h1 class="banner__titulo">
           <span class="banner__titulo--min">
             Torne-se um
@@ -166,8 +166,8 @@
       </div>
     </section>
 
-    <aside class="infos respiro">
-      <div class="infos__box">
+    <aside class="infos respiro" data-animation="revel">
+      <div class="infos__box" >
         <svg class="infos__icon" width="44" height="43" viewBox="0 0 44 43" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1.71777 41.3975H42.2987" stroke="#F79517" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M3.64502 41.3975L3.74647 16.988C3.74647 15.7503 4.33489 14.5736 5.30884 13.8025L19.5123 2.74423C20.9732 1.60796 23.0225 1.60796 24.5037 2.74423L38.707 13.7822C39.7013 14.5533 40.2694 15.73 40.2694 16.988V41.3975" stroke="#F79517" stroke-width="3" stroke-miterlimit="10" stroke-linejoin="round" />
@@ -176,7 +176,7 @@
           <path d="M18.9644 11.9764H25.0515" stroke="#F79517" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <h2 class="infos__titulo">Academias</h2>
-        <span class="infos__contador">+0</span>
+        <span class="infos__contador" data-contador="4">+0</span>
       </div>
 
       <div class="infos__box infos__box--alt">
@@ -189,7 +189,7 @@
           <path d="M14.9025 33.2308C11.8476 35.2741 11.8476 38.6324 14.9025 40.6555C18.3822 42.982 24.0873 42.982 27.567 40.6555C30.6218 38.6122 30.6218 35.2538 27.567 33.2308C24.1075 30.9042 18.4024 30.9042 14.9025 33.2308Z" />
         </svg>
         <h2 class="infos__titulo infos__titulo--alt">Instrutores</h2>
-        <span class="infos__contador">+0</span>
+        <span class="infos__contador" data-contador="12">+0</span>
       </div>
 
       <div class="infos__box">
@@ -199,14 +199,14 @@
           <path d="M23.3941 10.2371L24.5931 12.635C24.7556 12.9602 25.1824 13.2853 25.5685 13.3463L27.7429 13.7121C29.1248 13.9356 29.4499 14.9517 28.4542 15.9475L26.7675 17.6341C26.483 17.9186 26.3204 18.4673 26.422 18.8738L26.9097 20.9669C27.2958 22.6129 26.422 23.2632 24.9589 22.3894L22.9267 21.1904C22.5609 20.9669 21.9513 20.9669 21.5855 21.1904L19.5533 22.3894C18.0901 23.2429 17.2163 22.6129 17.6024 20.9669L18.0901 18.8738C18.1715 18.4876 18.0292 17.9186 17.7447 17.6341L16.058 15.9475C15.0622 14.9517 15.3874 13.9559 16.7692 13.7121L18.9437 13.3463C19.3095 13.2853 19.7362 12.9602 19.8988 12.635L21.0978 10.2371C21.6871 8.93654 22.7438 8.93654 23.3941 10.2371Z" stroke="#F79517" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <h2 class="infos__titulo">Prêmios</h2>
-        <span class="infos__contador">0</span>
+        <span class="infos__contador" data-contador="7" data-contador-alt="true">0</span>
       </div>
     </aside>
 
     <section class="buscador">
       <h2 class="titulo respiro">Encontre uma <span class="titulo--dest">unidade</span> perto de <span class="titulo--dest">você</span></h2>
       <div class="buscador__bot respiro">
-        <fieldset class="buscador__container">
+        <fieldset class="buscador__container" data-animation="revel">
           <input class="buscador__ipt" type="text" placeholder="Busque uma unidade">
           <button class="buscador__btn" data-buscar type="button">
             <svg height="50" width="50" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve" class="buscador__icon">
@@ -218,7 +218,7 @@
       </div>
     </section>
 
-    <section class="academia respiro" id="academias">
+    <section class="academia respiro" data-animation="revel" id="academias">
 
       <h2 class="titulo titulo--alt">
         Academias
@@ -324,7 +324,7 @@
       </div>
     </section>
 
-    <section class="planos respiro" id="planos">
+    <section class="planos respiro" data-animation="revel" id="planos">
 
       <h2 class="titulo">Conheça nossos <span class="titulo--dest">planos</span> e suas <span class="titulo--dest">vantagens</span></h2>
 
@@ -475,7 +475,7 @@
     </section>
 
     <aside class="newsletter respiro">
-      <div class="newsletter__wrapper">
+      <div class="newsletter__wrapper" data-animation="revel">
         <div class="newsletter__topo">
           <h3 class="newsletter__titulo">
             Torne-se um
@@ -505,7 +505,7 @@
       </div>
     </aside>
 
-    <section class="modalidade respiro">
+    <section class="modalidade respiro" data-animation="revel">
       <h2 class="titulo titulo--alt">
         Modalidades
       </h2>
@@ -542,7 +542,7 @@
   </main>
 
   <footer class="rodape respiro">
-    <div class="rodape__wrapper">
+    <div class="rodape__wrapper" data-animation="revel">
       <img class="rodape__imagem" src="./assets/svg/logo-min.svg" alt="">
 
       <div class="rodape__opcoes">
@@ -625,6 +625,9 @@
   </footer>
 
   <script src="./js/menu-burguer.js"></script>
+  <script src="./js/revel.js"></script>
+  <script src="./js/contador.js"></script>
+  <script src="./js/flipe.js"></script>
 </body>
 
 </html>

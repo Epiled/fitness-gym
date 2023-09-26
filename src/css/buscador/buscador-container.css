@@ -5,4 +5,9 @@
   padding: 2rem 1rem;
   width: 100%;
   max-width: 59rem;
+  opacity: 0;
+}
+
+.buscador__container.active {
+  animation: topRevel .5s forwards;
 }

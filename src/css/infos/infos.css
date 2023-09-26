@@ -18,6 +18,11 @@
   width: 16rem;
   height: 15rem;
   z-index: -1;
+  opacity: 0;
+}
+
+.infos.active {
+  animation: topRevel .5s forwards;
 }
 
 @media screen and (min-width: 834px) {

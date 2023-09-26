@@ -11,6 +11,11 @@
     16rem;
   margin-top: 6rem;
   padding-bottom: 8.5rem;
+  opacity: 0;
+}
+
+.modalidade.active {
+  animation: topRevel .5s forwards;
 }
 
 @media screen and (min-width: 834px) {

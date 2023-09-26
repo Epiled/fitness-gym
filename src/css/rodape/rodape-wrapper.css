@@ -1,4 +1,9 @@
 .rodape__wrapper {
   max-width: 132rem;
   margin: 0 auto;
+  opacity: 0;
+}
+
+.rodape__wrapper.active {
+  animation: topRevel .5s forwards;
 }

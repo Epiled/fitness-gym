@@ -5,20 +5,22 @@
   color: var(--cor-fundo-1);
   display: flex;
   flex-direction: column;
-  transform: translate(0%, -50%);
   max-width: 31.5rem;
+  opacity: 0;
+}
+
+.banner__conteudo.active {
+  animation: topRevelBanner .5s forwards;
 }
 
 @media screen and (min-width: 1440px) {
   .banner__conteudo {
     position: relative;
-    top: 0;
+    top: 40rem;
     left: 0;
     max-width: 132rem;
     width: 100%;
     align-items: flex-start;
     justify-content: center;
-    margin-top: 10%;
-    transform: translate(0%, 0%);
   }
 }
