@@ -80,9 +80,15 @@
   <link rel="stylesheet" href="./css/modalidade/modalidade.css">
   <link rel="stylesheet" href="./css/modalidade/modalidade-cards.css">
   <link rel="stylesheet" href="./css/modalidade/modalidade-card.css">
+  <link rel="stylesheet" href="./css/modalidade/modalidade-rotate.css">
   <link rel="stylesheet" href="./css/modalidade/modalidade-imagem.css">
   <link rel="stylesheet" href="./css/modalidade/modalidade-titulo.css">
   <link rel="stylesheet" href="./css/modalidade/modalidade-txt.css">
+  <link rel="stylesheet" href="./css/modalidade/modalidade-front.css">
+  <link rel="stylesheet" href="./css/modalidade/modalidade-back.css">
+  <link rel="stylesheet" href="./css/modalidade/modalidade-subtitulo.css">
+  <link rel="stylesheet" href="./css/modalidade/modalidade-lista.css">
+  <link rel="stylesheet" href="./css/modalidade/modalidade-desc.css">
 
   <link rel="stylesheet" href="./css/rodape/rodape.css">
   <link rel="stylesheet" href="./css/rodape/rodape-wrapper.css">
@@ -166,8 +172,8 @@
       </div>
     </section>
 
-    <aside class="infos respiro" data-animation="revel">
-      <div class="infos__box" >
+    <aside class="infos respiro" data-contador-box data-animation="revel">
+      <div class="infos__box">
         <svg class="infos__icon" width="44" height="43" viewBox="0 0 44 43" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1.71777 41.3975H42.2987" stroke="#F79517" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M3.64502 41.3975L3.74647 16.988C3.74647 15.7503 4.33489 14.5736 5.30884 13.8025L19.5123 2.74423C20.9732 1.60796 23.0225 1.60796 24.5037 2.74423L38.707 13.7822C39.7013 14.5533 40.2694 15.73 40.2694 16.988V41.3975" stroke="#F79517" stroke-width="3" stroke-miterlimit="10" stroke-linejoin="round" />
@@ -192,7 +198,7 @@
         <span class="infos__contador" data-contador="12">+0</span>
       </div>
 
-      <div class="infos__box">
+      <div class="infos__box" data-contador-box>
         <svg class="infos__icon" width="45" height="44" viewBox="0 0 45 44" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M36.4408 16.3742C36.4408 19.3208 35.567 22.0236 34.0632 24.2793C31.8685 27.5307 28.3935 29.8271 24.3495 30.4164C23.6586 30.5383 22.9474 30.5993 22.2158 30.5993C21.4842 30.5993 20.773 30.5383 20.082 30.4164C16.038 29.8271 12.5631 27.5307 10.3683 24.2793C8.86455 22.0236 7.99072 19.3208 7.99072 16.3742C7.99072 8.5098 14.3514 2.14917 22.2158 2.14917C30.0802 2.14917 36.4408 8.5098 36.4408 16.3742Z" stroke="#F79517" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M41.0134 35.6188L37.6603 36.4113C36.9084 36.5942 36.3191 37.1632 36.1565 37.9151L35.4453 40.9024C35.0592 42.5281 32.9864 43.0158 31.9093 41.7355L22.216 30.5993L12.5225 41.7559C11.4455 43.0361 9.37269 42.5484 8.98658 40.9227L8.27533 37.9354C8.09243 37.1835 7.50311 36.5942 6.77154 36.4316L3.41849 35.6391C1.87405 35.2733 1.32537 33.3428 2.44305 32.2251L10.3684 24.2997C12.5632 27.5511 16.0381 29.8475 20.0822 30.4368C20.7731 30.5587 21.4844 30.6197 22.216 30.6197C22.9475 30.6197 23.6588 30.5587 24.3497 30.4368C28.3937 29.8475 31.8687 27.5511 34.0634 24.2997L41.9888 32.2251C43.1065 33.3224 42.5578 35.253 41.0134 35.6188Z" stroke="#F79517" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
@@ -513,29 +519,96 @@
       <p class="titulo modalidade__txt">Conheça <span class="titulo--dest">mais</span> sobre cada <span class="titulo--dest">modalidade</span></p>
 
       <div class="modalidade__cards">
-        <div class="modalidade__card">
-          <img class="modalidade__imagem" src="./assets/img/modalidade-musculacao.jpg" alt="">
-          <h3 class="modalidade__titulo">
-            Musculação
-          </h3>
+        <div class="modalidade__card" data-flip="true">
+          <div class="modalidate__rotate">
+            <img class="modalidade__imagem" src="./assets/img/modalidade-musculacao.jpg" alt="">
+            <div class="modalidade__front">
+              <h3 class="modalidade__titulo">
+                Musculação
+              </h3>
+            </div>
+
+            <div class="modalidade__back">
+              <h4 class="modalidade__subtitulo">Lorem Impsum</h4>
+              <ul class="modalidade__lista">
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+              </ul>
+              <p class="modalidade__desc">
+                Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="modalidade__card">
-          <img class="modalidade__imagem" src="./assets/img/modalidade-fitdance.jpg" alt="">
-          <h3 class="modalidade__titulo">
-            Fitdance
-          </h3>
+
+        <div class="modalidade__card" data-flip="true">
+          <div class="modalidate__rotate">
+            <div class="modalidade__front">
+              <img class="modalidade__imagem" src="./assets/img/modalidade-fitdance.jpg" alt="">
+              <h3 class="modalidade__titulo">
+                Fitdance
+              </h3>
+            </div>
+
+            <div class="modalidade__back">
+              <h4 class="modalidade__subtitulo">Lorem Impsum</h4>
+              <ul class="modalidade__lista">
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+              </ul>
+              <p class="modalidade__desc">
+                Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="modalidade__card">
-          <img class="modalidade__imagem" src="./assets/img/modalidade-pilates.jpg" alt="">
-          <h3 class="modalidade__titulo">
-            Pilates
-          </h3>
+
+        <div class="modalidade__card" data-flip="true">
+          <div class="modalidate__rotate">
+            <div class="modalidade__front">
+              <img class="modalidade__imagem" src="./assets/img/modalidade-pilates.jpg" alt="">
+              <h3 class="modalidade__titulo">
+                Pilates
+              </h3>
+            </div>
+
+            <div class="modalidade__back">
+              <h4 class="modalidade__subtitulo">Lorem Impsum</h4>
+              <ul class="modalidade__lista">
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+              </ul>
+              <p class="modalidade__desc">
+                Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="modalidade__card">
-          <img class="modalidade__imagem" src="./assets/img/modalidade-cardio.jpg" alt="">
-          <h3 class="modalidade__titulo">
-            Cardio
-          </h3>
+
+        <div class="modalidade__card" data-flip="true">
+          <div class="modalidate__rotate">
+            <div class="modalidade__front">
+              <img class="modalidade__imagem" src="./assets/img/modalidade-cardio.jpg" alt="">
+              <h3 class="modalidade__titulo">
+                Cardio
+              </h3>
+            </div>
+
+            <div class="modalidade__back">
+              <h4 class="modalidade__subtitulo">Lorem Impsum</h4>
+              <ul class="modalidade__lista">
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+              </ul>
+              <p class="modalidade__desc">
+                Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -625,9 +698,10 @@
   </footer>
 
   <script src="./js/menu-burguer.js"></script>
-  <script src="./js/revel.js"></script>
-  <script src="./js/contador.js"></script>
-  <script src="./js/flipe.js"></script>
+  <script src="./js/gatilhoAnimacao.js" type="module"></script>
+  <!-- <script src="./js/revel.js"></script> -->
+  <!-- <script src="./js/contador.js"></script> -->
+  <!-- <script src="./js/flipe.js"></script> -->
 </body>
 
 </html>

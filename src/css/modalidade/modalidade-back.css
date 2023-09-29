@@ -1,0 +1,26 @@
+.modalidade__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: var(--cor-principal);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transform: rotateY(180deg);
+}
+
+@media screen and (min-width: 834px) {
+  .modalidade__back {
+    padding: 3.25rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .modalidade__back {
+    padding: 2rem;
+  }
+}

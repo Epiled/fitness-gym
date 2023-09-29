@@ -1,22 +1,17 @@
 .modalidade__card {
-  position: relative;
+  display: flex;
   min-height: 40rem;
   max-width: 31.8rem;
-}
-
-.modalidade__card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background: var(--cor-principal-75);
+}
+
+.modalidade__card.active .modalidate__rotate {
+  transform: rotateY(180deg);
 }
 
 @media screen and (min-width: 834px) {
   .modalidade__card {
-    gap: 2rem;
     min-height: 48.5rem;
     max-width: 38.5rem;
   }

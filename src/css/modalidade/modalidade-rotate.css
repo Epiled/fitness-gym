@@ -1,0 +1,6 @@
+.modalidate__rotate{
+  position: relative;
+  width: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}

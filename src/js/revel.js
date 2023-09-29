@@ -1,20 +1,19 @@
-let revels = '';
+const revels = document.querySelectorAll('[data-animation]');
 
-window.addEventListener('scroll', revelAnimation);
-
-revels = document.querySelectorAll('[data-animation]');
-
-function revelAnimation() {
-  const alturaDeAtivacao = window.innerHeight * .8;
-
+function revelAnimation(gatilho) {
   revels.forEach((item, i) => {
     const itemPosicao = item.getBoundingClientRect().top;
-    let controleAnimacao = itemPosicao <= alturaDeAtivacao;
+    let controleAnimacao = itemPosicao <= gatilho;
 
     if(controleAnimacao) {
       item.classList.add('active');
     }
   });
+}
+
+export const revelsMarcados = {
+  revels,
+  revelAnimation,
 }
 
 revelAnimation();

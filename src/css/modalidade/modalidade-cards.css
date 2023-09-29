@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 5rem;
+  transform: rotateY(0deg);
 }
 
 @media screen and (min-width: 834px) {

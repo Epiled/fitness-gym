@@ -1,0 +1,11 @@
+.modalidade__subtitulo {
+  font-size: 2.4rem;
+  color: var(--branco);
+  font-weight: 700;
+}
+
+@media screen and (min-width: 834px) {
+  .modalidade__subtitulo {
+    font-size: 3rem;
+  }
+}

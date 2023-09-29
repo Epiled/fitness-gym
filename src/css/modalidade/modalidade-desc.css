@@ -1,0 +1,9 @@
+.modalidade__desc {
+  font-size: 1.4rem;
+}
+
+@media screen and (min-width: 834px) {
+  .modalidade__desc {
+    font-size: 1.6rem;
+  }
+}

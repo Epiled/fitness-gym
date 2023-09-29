@@ -4,6 +4,7 @@
   justify-content: center;
   margin-top: 5rem;
   position: relative;
+  opacity: 0;
 }
 
 .infos::after {
