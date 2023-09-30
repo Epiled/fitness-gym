@@ -76,7 +76,7 @@
 <h2 id="demonstracao"> 👀 Demonstração </h2>
 
 <p>No link abaixo você pode ver a página no ar e rodar seus próprios teste de perfomance ou desempenho</p>
-<p>Alura Books: <a href="https://epiled.github.io/alura-books/">epiled.github.io/alura-books/</a></p>
+<p>Fitness Gym: <a href="https://epiled.github.io/fitness-gym/dist/">https://epiled.github.io/fitness-gym/dist/</a></p>
 
 ![html_e_css_mobile_first_desktop](https://user-images.githubusercontent.com/55258483/178686221-71cee3a8-6b47-4006-afbc-71ab3e001565.gif)
 ![html_e_css_mobile_first_mobile](https://user-images.githubusercontent.com/55258483/178686235-efd3fcbf-81cb-432a-ba79-e38ba89bdd14.gif)
@@ -88,14 +88,14 @@
 <h2 id="instalacao"> ⚙ Instalação </h2>
 
 ```
-1. git clone https://github.com/Epiled/alura-books.git
-2. cd alura-books
+1. git clone --single-branch --branch dist https://github.com/username/project.git
+2. cd fitness-gym
 ```
 
 <h2 id="como-usar"> 👩‍🏫 Como usar </h2>
 
 <h3 id="arquivos_locais">Arquivos Locais</h3>
-<p>O projeto pode ser executado atraves do arquivo index.html, clicando duas vezes sobre ele ou abrindo diretamnete sobre o navegador</p>
+<p>O projeto pode ser executado atraves do arquivo index.html que se encontra na pasta dist que é o que recomendo usar, clicando duas vezes sobre ele ou abrindo diretamnete sobre o navegador</p>
 
 <h2 id="tecnologias"> 🛠 Tecnologias </h2>
 
