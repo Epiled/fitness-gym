@@ -3,19 +3,19 @@
 <h1 align="center" id="sobre"> 🔸 💪 Fitness Gym 🦵 🔸 </h1>
 
 <p>
-  Projeto pessoal, este reposítorio foi um dos primeiros que criei no GitHub e ele era básicamente uma página HTML com alguns textos aletorios, sem qualquer estilo ou proprosito
+  Projeto pessoal, este repositório foi um dos primeiros que criei no GitHub e ele era basicamente uma página HTML com alguns textos aleto rios, sem qualquer estilo ou propósito
 </p>
 <p>
-  Decidi criar algo novo para esse repósitorio afinal ele é um dos mais antigos aqui, e merece um projeto de valor
+  Decidi criar algo novo para esse repositório, afinal ele é um dos mais antigos aqui, e merece um projeto de valor
 </p>
 <p>
-  Escolhi fazer um site autoral sobre academia, originalmente o projeto seria bem mais simples nem precisaria de Javascript e o layout tambem seria simples sua otimização praticamnete não exsitiria, pórem não me continve e fiz um projeto do qual sentiria orgulho em fazer, com grandes níveis de otimização e animações para torna o site mais interativo e convidativo.
+  Escolhi fazer um site autoral sobre academia, originalmente o projeto seria bem mais simples, nem precisaria de Javascript e o layout também seria simples, sua otimização praticamente não existiria, porém, não me contive e fiz um projeto do qual sentiria orgulho em fazer, com grandes níveis de otimização e animações para torna o site mais interativo e convidativo.
 </p>
 <p>
-  Para se ter uma noção do nível de otimização configurei uma serie de Tasks no Gulp para automatizar certos processos
+  Para se ter uma noção do nível de otimização configurei uma série de Tasks no Gulp para automatizar certos processos
 </p>
 <p>
-  Utilizei o conhecimento de diversar áreas para adicionar melhorias com o objetivo de extrair o máximo de perfomance e qualidade da página.
+  Utilizei o conhecimento de diversas áreas para adicionar melhorias e extrair o máximo de performance e qualidade da página.
 </p>
 
 ![Badge](https://img.shields.io/github/last-commit/Epiled/fitness-gym?style=for-the-badge)
@@ -48,7 +48,7 @@
 
 <h2 id="referencia"> 🔖 Referência </h2>
 <p>
-  Os arquivos de wireframes podem ser visto ou editador no seguinte link do Figma, você tambem encontrara os sites que usei como refêrencia para criar meus wireframes.
+  Os arquivos de wireframes podem ser visto ou editador no seguinte link do Figma, você também encontrara os sites que usei como referência para criar meus wireframes.
 <p>
 <p>
   Figma: <a target="_blank" href="https://www.figma.com/file/FodXub9KWw9YjUF2Zfl1GZ/Linkdlin-Projeto-%2F-GitHub-Organizar?type=design&node-id=0%3A1&mode=design&t=RONnshCJTvwMx9t2-1">
@@ -113,7 +113,7 @@ As seguintes tecnologias foram usadas na construção deste projeto:
   Também foi usado o modelo de organização CSS Atomic Design e a escrita do CSS foi feita seguindo o padrão BEM
 </p>
 <p>
-  Ao final do propjeto é gerado um um diretorio de dist para distribuição e homologação no qual ocorre a minificação e concatenação do CSS
+  Ao final do projeto é gerado um diretório de 'dist' para distribuição e homologação no qual ocorre a minificação e concatenação do CSS
 </p>
 
 <h2 id="autor"> 👨‍💻 Autor </h2>
