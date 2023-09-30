@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Gym</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/budles.css">
+
+</head>
+
+<body>
+
+  <header class="cabecalho">
+    <div class="cabecalho__bloco">
+      <picture class="cabecalho__imagens">
+        <source media="(min-width: 1440px)" srcset="./assets/svg/logo-black-min.svg">
+        <img src="./assets/svg/logo-min.svg" class="cabecalho__logo" alt="">
+      </picture>
+
+      <button class="cabecalho__burguer" data-burguer type="button">
+      </button>
+
+      <nav class="cabecalho__navegacao" data-navegacao>
+        <a class="cabecalho__link" href="#plano">
+          <svg class="cabecalho__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464.99 465.65">
+            <path d="M918.21,173.61c0-18-1.93-19.75-20.77-19.77q-150.54-.21-301.06,0c-21.21,0-22,1-22.13,23.51-.15,32-.46,64.1.17,96.13.25,12.69-1.86,20.65-14.92,27.7-28.75,15.51-39.63,44.67-32.58,77.14,2.17,10,3.17,19.59-1.19,29.57-4.89,11.2-1.69,23.48,6.55,30.21,13.37,10.93,17,26.68,24.4,40.31,9.73,17.89,3.09,34.69-14.76,43.7C526.19,530,509.8,536.69,494.31,545,476,554.89,462.5,568.75,456.73,590c-6.94,25.49-4.91,29.26,21.95,29.28q135.34.11,270.7,0c4.22,0,8.46.29,12.65-.1,8.71-.81,13.15-6.11,11.78-15-2.18-14.25-6.6-27.39-17.12-38.35-12-12.47-26.09-21-41.86-27.28-14.77-5.89-29.57-11.7-44.32-17.65-9-3.63-16.3-8.91-18.16-21.17,9-3.32,17.47-1.73,25.78-1.75,72.52-.14,145,0,217.57-.13,21,0,22.49-1.32,22.52-20.59Q918.43,325.41,918.21,173.61ZM809.6,219.24c3.6-4.3,8-6.12,12.92-2.19,4.37,3.49,8.4,7.4,12.48,11,10.9-7,14.31-19.24,22.92-27.16,4.38-4,8.23-9.09,14.79-4.34,5.84,4.24,5.92,9.42,1.63,15.06-9.52,12.56-18.79,25.31-28.45,37.77-5.07,6.55-10.88,6.85-16.82.67-6.34-6.61-13-13-19.22-19.66C806.61,227,806.52,222.92,809.6,219.24Zm.44,90.59c6.5-7.21,11.67-3,16.74,2,2.36,2.34,4.81,4.6,7.93,7.58,11.45-7.95,15.06-20,23.65-27.93,4.48-4.14,8.52-8.49,14.84-3.41,5.87,4.71,4.81,9.82.77,15.18-9,11.92-17.42,24.3-27,35.76-7.54,9.08-10.15,8.92-18.35,1.59-5.59-5-10.71-10.51-16-15.85C808.43,320.43,804.57,315.9,810,309.83ZM662.14,426.77c-7.21,3.23-9.94,9-11.43,15.42-2.37,10.11-8,18.07-13.52,26.58-14.69,22.63-6.3,54.19,17.88,66.63,14,7.24,29.25,12.23,43.89,18.36,19.38,8.11,38.92,16,49.72,36,1.24,2.29,2.06,4.4.62,7.91H477.61c1.85-18.57,13.81-27.46,27.13-34.78,12.47-6.85,25.53-12.61,38.18-19.15,7.41-3.83,14.63-8.07,21.74-12.43,11-6.74,15.69-16.53,15.33-29.58-.43-15.85.81-31.18-11-44.94-8.2-9.55-6.28-26.15-22-31.75-4.66-1.66-4.52-10.9-1.83-13.68,10.42-10.79,4.45-22.07,2.11-32.77-7.39-33.71,8.16-59.81,41.5-68.15,4.86-1.21,9.62-2.92,14.52-3.86s10.61-1.29,14,3.36c5.36,7.44,12.41,9.52,21.2,11.31,19.82,4,32.15,24.76,29.09,45.64-.85,5.8-.82,11.93-2.82,17.31-3.4,9.14-4.71,17.34,1.71,25.87C671.56,416.86,669.26,423.58,662.14,426.77ZM649.72,244.84c-5.05,0-10.2.42-15.1-.45-5.22-.93-9.55-4.2-9.08-10.18.45-5.72,4.65-8.58,10.12-9.34a55.82,55.82,0,0,1,7.55-.25q63.09,0,126.17,0c2.52,0,5.15-.25,7.54.37,5.17,1.36,9.54,4.28,9.08,10.26-.45,5.72-4.69,9-10.13,9.26-11.76.48-23.54.29-35.31.33s-23.55,0-35.33,0Q677.48,244.86,649.72,244.84ZM786,325.8c0,5.86-4.24,9.38-9.56,9.7-10,.6-20.13.18-30.2.18s-20.16.42-30.19-.17c-5.33-.32-9.56-3.85-9.56-9.7a9.35,9.35,0,0,1,9.54-9.69q30.19-.66,60.41,0A9.37,9.37,0,0,1,786,325.8Zm-8.37,100.57c-10.83.93-21.79.29-32.7.29-10.06,0-20.16.46-30.18-.23-4.11-.29-7.69-3.86-8.27-8.35-.78-6,3.49-10.54,8.36-10.7,20.95-.67,41.94-.52,62.91,0,4,.09,7.69,3.85,8.26,8.34A9.22,9.22,0,0,1,777.63,426.37Zm98-34.52c-9.79,14.43-19.4,29-31.62,41.58-4.14,4.25-8.8,4.5-13.12.3-7.16-7-14.26-14-21.13-21.28-3.23-3.43-3.18-7.53,0-11.18,3.69-4.29,8.09-5.91,12.95-2,4.31,3.5,8.32,7.37,12.38,11,11.44-7.91,15.23-20.9,24.68-29.2,4.06-3.56,8.07-6.23,13.12-2.26C877.22,382.3,879.14,386.65,875.62,391.85Z" transform="translate(-453.33 -153.74)" />
+          </svg>
+          Planos
+        </a>
+        <a class="cabecalho__link" href="#academias">
+          <svg class="cabecalho__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.06 71.75">
+            <path d="M717.21,372c-4.14-2.16-4.46-5.73-4.11-9.71a39.72,39.72,0,0,0,0-5,3.17,3.17,0,0,0-3.53-3.34c-1.31,0-2.65-.25-3.9.47-2.44,1.4-1,4.15-1.95,6.46-5.9-4.8-11.53-9.2-16.92-13.87-2.63-2.28-4.6-2.4-7.33-.07-7.34,6.27-14.92,12.28-22.4,18.39-2.84,2.32-5.72,4.6-8.52,6.95-1,.88-1.88,2-1.34,3.49a3.14,3.14,0,0,0,3.06,2.16c.8,0,1.6.07,2.74.13,0,10.6,0,20.59,0,30.58,0,6.46,1.86,8.33,8.27,8.34q21.76,0,43.54,0c6.4,0,8.28-1.9,8.3-8.32,0-10.14,0-20.29,0-30.41,2.28-.57,4.87.23,5.8-2.47A3.06,3.06,0,0,0,717.21,372Zm-16.35,16.62c-3.29,2.3-3.67,6.46-6.27,9.18-1.6,1.67-3.36.9-5.13,1.19-.85-2.9,0-5.76-.58-8.76H677.21v8.39c-3.18.78-4.75-.17-6.83-2.47s-1.7-6.26-5.16-7.64c-.39-.15-.51-2.84,0-3.22,3.3-2.29,3.63-6.49,6.28-9.16,1.58-1.6,3.31-1.1,5.15-1.07.88,2.76-.07,5.62.65,8.77h11.57v-8.55c3.17-.74,4.75.16,6.83,2.48s1.69,6.27,5.17,7.64C701.3,385.55,701.41,388.23,700.86,388.62Z" transform="translate(-647.03 -345.25)" />
+          </svg>
+          Academias
+        </a>
+        <a class="cabecalho__link" href="#matricule-se">
+          <svg class="cabecalho__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.95 84.09">
+            <path d="M647.05,416.77c0-7.15,2.91-12.3,9.45-15.06a87.81,87.81,0,0,1,9.86-3.44c5.48-1.58,9.13-4.26,7.09-11.44-3-2.06-5.3-6.28-6.44-9.9-2.33-7.47-3.61-15.64,0-23.32,3.07-6.51,8.9-8.7,15.64-8.68,12.36,0,19.66,9.91,17.92,22.11-.71,5-.54,9.78-3.84,13.89a21,21,0,0,1-2.38,3.14c-13.88,11.63-15.61,15.77-13.29,32.7Z" transform="translate(-647.05 -344.93)" />
+            <path d="M725.77,398.55a20.77,20.77,0,0,0-4.26-5.77c-.13-.14-.27-.27-.4-.39a21.15,21.15,0,0,0-8.9-4.81c-.22-.05-.45-.11-.68-.15a20.35,20.35,0,0,0-4.58-.51,20.79,20.79,0,0,0-5.72.79l-.54.16a21,21,0,0,0-9,5.64l0,0a20.92,20.92,0,0,0-5.7,13.52c0,.3,0,.6,0,.91v.17c0,.67,0,1.33.11,2,0,.23,0,.46.08.68a21,21,0,0,0,13.8,17,20.79,20.79,0,0,0,6.34,1.2c.24,0,.48,0,.72,0s.48,0,.72,0a20.61,20.61,0,0,0,8.07-1.91,21,21,0,0,0,10-28.54Zm-15.3,12.72c-2,2.47,2,8.65-3.82,8.37-4.69-.23-1.65-5.56-2.94-8.23-2.75-1.68-8.45,1.86-8.38-3.54.06-5,5.39-1.81,8.34-3.39,1.35-2.77-1.77-8.08,3.17-8.18,5.45-.11,1.94,5.58,3.5,8.27,2.66,1.66,8.37-1.91,8.3,3.49C718.58,413.05,713.3,410,710.47,411.27Z" transform="translate(-647.05 -344.93)" />
+          </svg>
+          Matricule-se
+        </a>
+        <a class="cabecalho__link" href="#modalidades">
+          <svg class="cabecalho__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 386.8 384.86">
+            <circle cx="181.27" cy="34.62" r="34.62" />
+            <path d="M877.22,320.61c-17.47,15.94-23.66,31.51-27.67,52.26-9.2,47.61-20.17,94.87-30.36,142,22.07,35.1,8.26,50.2-8.46,57.5-15.93,6.95-34.34-2.51-39.87-19.48-6.37-19.53,5.9-35.16,33.41-41.75q15.3-71.38,30.86-144c-10.64.6-12.89,16.16-25,11.81-5.63-5.55-2.8-10.09,1.67-14.55,16.3-16.26,32.74-32.4,48.77-48.94,5.27-5.44,11.38-8.15,16.6-2.52C880.11,316,879.11,318.88,877.22,320.61Z" transform="translate(-492.24 -189.76)" />
+            <path d="M750.31,320.64c-12.71-.1-25.42,0-37.91,0-7.09-11.35-13.41-21.7-20-31.92-16.12-25.12-38.54-33.81-67.6-27.66-40.52,8.57-75.16,24.09-87.52,68.42-.5,1.8-8.65,26.7,3,33.21,12.66,7,22.08.8,28.42-10.81,6.72-12.31,13.18-24.75,19.6-36.83,8.37-2.43,15-7.72,23.52-7.3,0,2.11.31,3.45,0,4.58-4.37,14-8.85,28-13.29,42-7.83,24.7-5,33.58,16.13,49.26C630.61,415.41,646.69,427,663,439c9.18,27.43,13.74,54.33,25.26,79.92-56.46,3.17-111.46,6.29-166.47,9.32-19.38,1.07-29.3,8.66-29.54,22.91-.24,15.12,10.35,23.41,30.72,23.44q98.13.15,196.27,0h46.45c-15-20-14-38.77-4.06-58.34H715.36c10.48-26.93-8.06-49.3-10.83-73.82-3.28-28.94-24.76-43.13-45.33-58.77,5-16.5,9.74-31.88,16-52.44,8.7,27.33,26.13,29.85,46.14,28,9.54-.87,19.23-.21,28.85-.14,12.55.1,22.15-5,22.61-18.14C773.31,326.89,763.81,320.74,750.31,320.64ZM515,561.27a9.8,9.8,0,1,1,9.79-9.79A9.79,9.79,0,0,1,515,561.27Z" transform="translate(-492.24 -189.76)" />
+            <path d="M582.65,425.91,593.93,406l28.25,22.68c-3.31,7.56-6.34,14.36-9.28,21.19-4.29,10-11.61,14.61-22.62,13.75-19.75-1.54-39.53-2.76-59.29-4.16-12.23-.87-19.39-8-18.67-19.74.75-12.17,9.64-17.28,21.47-16.69C549.71,423.8,565.62,424.88,582.65,425.91Z" transform="translate(-492.24 -189.76)" />
+          </svg>
+          Modalidades
+        </a>
+      </nav>
+    </div>
+
+  </header>
+
+  <main>
+    <section class="banner">
+      <div class="banner__conteudo banner__conteudo--alt" data-animation="revel">
+        <h1 class="banner__titulo">
+          <span class="banner__titulo--min">
+            Torne-se um
+          </span>
+          <span class="banner__titulo--monstro">
+            Monstro
+          </span>
+        </h1>
+        <p class="banner__txt">
+          Conheça hoje mesmo uma de
+          nossas unidades e mude de vida
+        </p>
+        <button class="btn btn--banner">
+          Matricule-se!
+        </button>
+      </div>
+    </section>
+
+    <aside class="infos respiro" data-contador-box data-animation="revel">
+      <div class="infos__box">
+        <svg class="infos__icon" width="44" height="43" viewBox="0 0 44 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.71777 41.3975H42.2987" stroke="#F79517" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3.64502 41.3975L3.74647 16.988C3.74647 15.7503 4.33489 14.5736 5.30884 13.8025L19.5123 2.74423C20.9732 1.60796 23.0225 1.60796 24.5037 2.74423L38.707 13.7822C39.7013 14.5533 40.2694 15.73 40.2694 16.988V41.3975" stroke="#F79517" stroke-width="3" stroke-miterlimit="10" stroke-linejoin="round" />
+          <path d="M29.1097 19.078H14.9064C13.2223 19.078 11.8628 20.4375 11.8628 22.1216V41.3975H32.1532V22.1216C32.1532 20.4375 30.7938 19.078 29.1097 19.078Z" stroke="#F79517" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M17.9497 29.7305V32.7741" stroke="#F79517" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M18.9644 11.9764H25.0515" stroke="#F79517" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <h2 class="infos__titulo">Academias</h2>
+        <span class="infos__contador" data-contador="4">+0</span>
+      </div>
+
+      <div class="infos__box infos__box--alt">
+        <svg class="infos__icon infos__icon--alt" width="42" height="43" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32.4186 12.6548C32.277 12.6346 32.1354 12.6346 31.9938 12.6548C28.858 12.5537 26.3696 9.98438 26.3696 6.82838C26.3696 3.61169 28.9794 0.981689 32.2163 0.981689C35.433 0.981689 38.063 3.59146 38.063 6.82838C38.0428 9.98438 35.5544 12.5537 32.4186 12.6548Z" />
+          <path d="M39.0192 26.6756C36.7533 28.1929 33.5771 28.7593 30.6436 28.3749C31.4124 26.716 31.817 24.875 31.8372 22.9329C31.8372 20.9098 31.3922 18.9879 30.5425 17.3087C33.5366 16.9041 36.7129 17.4706 38.9989 18.9879C42.1954 21.0919 42.1954 24.5513 39.0192 26.6756Z" />
+          <path d="M9.98499 12.6548C10.1266 12.6346 10.2682 12.6346 10.4098 12.6548C13.5456 12.5537 16.034 9.98438 16.034 6.82838C16.034 3.59146 13.4242 0.981689 10.1873 0.981689C6.97061 0.981689 4.36084 3.59146 4.36084 6.82838C4.36084 9.98438 6.84922 12.5537 9.98499 12.6548Z" />
+          <path d="M10.2097 22.9333C10.2097 24.8956 10.6346 26.7569 11.4034 28.436C8.55082 28.7395 5.5769 28.1326 3.39197 26.6962C0.195514 24.572 0.195514 21.1125 3.39197 18.9883C5.55666 17.5317 8.61151 16.9449 11.4843 17.2687C10.6548 18.968 10.2097 20.89 10.2097 22.9333Z" />
+          <path d="M21.4778 29.0417C21.3159 29.0215 21.1339 29.0215 20.9518 29.0417C17.2293 28.9203 14.2554 25.8655 14.2554 22.1026C14.2756 18.2587 17.3709 15.1432 21.235 15.1432C25.0789 15.1432 28.1944 18.2587 28.1944 22.1026C28.1742 25.8655 25.2205 28.9203 21.4778 29.0417Z" />
+          <path d="M14.9025 33.2308C11.8476 35.2741 11.8476 38.6324 14.9025 40.6555C18.3822 42.982 24.0873 42.982 27.567 40.6555C30.6218 38.6122 30.6218 35.2538 27.567 33.2308C24.1075 30.9042 18.4024 30.9042 14.9025 33.2308Z" />
+        </svg>
+        <h2 class="infos__titulo infos__titulo--alt">Instrutores</h2>
+        <span class="infos__contador" data-contador="12">+0</span>
+      </div>
+
+      <div class="infos__box" data-contador-box>
+        <svg class="infos__icon" width="45" height="44" viewBox="0 0 45 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M36.4408 16.3742C36.4408 19.3208 35.567 22.0236 34.0632 24.2793C31.8685 27.5307 28.3935 29.8271 24.3495 30.4164C23.6586 30.5383 22.9474 30.5993 22.2158 30.5993C21.4842 30.5993 20.773 30.5383 20.082 30.4164C16.038 29.8271 12.5631 27.5307 10.3683 24.2793C8.86455 22.0236 7.99072 19.3208 7.99072 16.3742C7.99072 8.5098 14.3514 2.14917 22.2158 2.14917C30.0802 2.14917 36.4408 8.5098 36.4408 16.3742Z" stroke="#F79517" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M41.0134 35.6188L37.6603 36.4113C36.9084 36.5942 36.3191 37.1632 36.1565 37.9151L35.4453 40.9024C35.0592 42.5281 32.9864 43.0158 31.9093 41.7355L22.216 30.5993L12.5225 41.7559C11.4455 43.0361 9.37269 42.5484 8.98658 40.9227L8.27533 37.9354C8.09243 37.1835 7.50311 36.5942 6.77154 36.4316L3.41849 35.6391C1.87405 35.2733 1.32537 33.3428 2.44305 32.2251L10.3684 24.2997C12.5632 27.5511 16.0381 29.8475 20.0822 30.4368C20.7731 30.5587 21.4844 30.6197 22.216 30.6197C22.9475 30.6197 23.6588 30.5587 24.3497 30.4368C28.3937 29.8475 31.8687 27.5511 34.0634 24.2997L41.9888 32.2251C43.1065 33.3224 42.5578 35.253 41.0134 35.6188Z" stroke="#F79517" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M23.3941 10.2371L24.5931 12.635C24.7556 12.9602 25.1824 13.2853 25.5685 13.3463L27.7429 13.7121C29.1248 13.9356 29.4499 14.9517 28.4542 15.9475L26.7675 17.6341C26.483 17.9186 26.3204 18.4673 26.422 18.8738L26.9097 20.9669C27.2958 22.6129 26.422 23.2632 24.9589 22.3894L22.9267 21.1904C22.5609 20.9669 21.9513 20.9669 21.5855 21.1904L19.5533 22.3894C18.0901 23.2429 17.2163 22.6129 17.6024 20.9669L18.0901 18.8738C18.1715 18.4876 18.0292 17.9186 17.7447 17.6341L16.058 15.9475C15.0622 14.9517 15.3874 13.9559 16.7692 13.7121L18.9437 13.3463C19.3095 13.2853 19.7362 12.9602 19.8988 12.635L21.0978 10.2371C21.6871 8.93654 22.7438 8.93654 23.3941 10.2371Z" stroke="#F79517" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <h2 class="infos__titulo">Prêmios</h2>
+        <span class="infos__contador" data-contador="7" data-contador-alt="true">0</span>
+      </div>
+    </aside>
+
+    <section class="buscador">
+      <h2 class="titulo respiro">Encontre uma <span class="titulo--dest">unidade</span> perto de <span class="titulo--dest">você</span></h2>
+      <div class="buscador__bot respiro">
+        <fieldset class="buscador__container" data-animation="revel">
+          <input class="buscador__ipt" type="text" placeholder="Busque uma unidade">
+          <button class="buscador__btn" data-buscar type="button">
+            <svg height="50" width="50" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve" class="buscador__icon">
+              <path d="M172.625 102.4c-42.674 0-77.392 34.739-77.392 77.438 0 5.932 4.806 10.74 10.733 10.74 5.928 0 10.733-4.808 10.733-10.74 0-30.856 25.088-55.959 55.926-55.959 5.928 0 10.733-4.808 10.733-10.74 0-5.931-4.805-10.739-10.733-10.739z" />
+              <path d="M361.657 301.511c19.402-30.436 30.645-66.546 30.645-105.244C392.302 88.036 304.318 0 196.151 0c-38.676 0-74.765 11.25-105.182 30.663a197.588 197.588 0 0 0-60.31 60.345C11.257 121.444 0 157.568 0 196.267c0 108.217 87.998 196.266 196.151 196.266 38.676 0 74.779-11.264 105.197-30.677a197.596 197.596 0 0 0 60.309-60.345zm-101.899 18.731c-19.075 9.842-40.708 15.403-63.607 15.403-76.797 0-139.296-62.535-139.296-139.378 0-22.912 5.558-44.558 15.394-63.644 13.318-25.856 34.483-47.019 60.323-60.331 19.075-9.842 40.694-15.403 63.578-15.403 76.812 0 139.296 62.521 139.296 139.378 0 22.898-5.558 44.53-15.394 63.616-13.303 25.856-34.454 47.033-60.294 60.359zM499.516 439.154 386.275 326.13c-16.119 23.552-36.771 44.202-60.309 60.345l113.241 113.024c8.329 8.334 19.246 12.501 30.148 12.501 10.916 0 21.833-4.167 30.162-12.501 16.644-16.669 16.644-43.677-.001-60.345z" />
+            </svg>
+          </button>
+        </fieldset>
+      </div>
+    </section>
+
+    <section class="academia respiro" data-animation="revel" id="academias">
+
+      <h2 class="titulo titulo--alt">
+        Academias
+      </h2>
+
+      <div class="academia__cards">
+        <div class="academia__card">
+          <img src="./assets/img/academia-1.jpg" alt="" class="academia__imagem">
+          <main class="academia__conteudo">
+            <h3 class="academia__titulo">
+              Praça do Forró
+            </h3>
+            <p class="academia__txt">
+              Praça Padre Aleixo Monteiro Mafra, 19 - São Miguel Paulista, São Paulo - SP
+            </p>
+            <ul class="academia__planos">
+              <li class="academia__item">
+                <h4 class="academia__plano">
+                  Fit
+                </h4>
+                <span class="academia__valor">
+                  <span class="academia__valor academia__valor--alt">R$</span> 9,90
+                </span>
+              </li>
+              <li class="academia__item">
+                <h4 class="academia__plano">
+                  Body
+                </h4>
+                <span class="academia__valor">
+                  <span class="academia__valor academia__valor--alt">R$</span> 99,90
+                </span>
+              </li>
+            </ul>
+            <a href="" class="btn btn--academia">
+              Assinar Plano!
+            </a>
+          </main>
+        </div>
+        <div class="academia__card">
+          <img src="./assets/img/academia-1.jpg" alt="" class="academia__imagem">
+          <main class="academia__conteudo">
+            <h3 class="academia__titulo">
+              Praça do Forró
+            </h3>
+            <p class="academia__txt">
+              Praça Padre Aleixo Monteiro Mafra, 19 - São Miguel Paulista, São Paulo - SP
+            </p>
+            <ul class="academia__planos">
+              <li class="academia__item">
+                <h4 class="academia__plano">
+                  Fit
+                </h4>
+                <span class="academia__valor">
+                  <span class="academia__valor academia__valor--alt">R$</span> 9,90
+                </span>
+              </li>
+              <li class="academia__item">
+                <h4 class="academia__plano">
+                  Body
+                </h4>
+                <span class="academia__valor">
+                  <span class="academia__valor academia__valor--alt">R$</span> 99,90
+                </span>
+              </li>
+            </ul>
+            <a href="" class="btn btn--academia">
+              Assinar Plano!
+            </a>
+          </main>
+        </div>
+        <div class="academia__card">
+          <img src="./assets/img/academia-1.jpg" alt="" class="academia__imagem">
+          <main class="academia__conteudo">
+            <h3 class="academia__titulo">
+              Praça do Forró
+            </h3>
+            <p class="academia__txt">
+              Praça Padre Aleixo Monteiro Mafra, 19 - São Miguel Paulista, São Paulo - SP
+            </p>
+            <ul class="academia__planos">
+              <li class="academia__item">
+                <h4 class="academia__plano">
+                  Fit
+                </h4>
+                <span class="academia__valor">
+                  <span class="academia__valor academia__valor--alt">R$</span> 9,90
+                </span>
+              </li>
+              <li class="academia__item">
+                <h4 class="academia__plano">
+                  Body
+                </h4>
+                <span class="academia__valor">
+                  <span class="academia__valor academia__valor--alt">R$</span> 99,90
+                </span>
+              </li>
+            </ul>
+            <a href="" class="btn btn--academia">
+              Assinar Plano!
+            </a>
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <section class="planos respiro" data-animation="revel" id="planos">
+
+      <h2 class="titulo">Conheça nossos <span class="titulo--dest">planos</span> e suas <span class="titulo--dest">vantagens</span></h2>
+
+      <table class="planos__tabela" data-tabela>
+        <thead>
+          <tr>
+            <th class="sr-only">Vantagens do Plano</th>
+            <th class="planos__cabeca" data-tabela-cabeca>
+              <h3 class="planos__titulo plano__titulo--alt">Fit</h3>
+              <p class="planos__txt">
+                Começe hoje mesmo a ter uma visa saudavel
+              </p>
+            </th>
+            <th class="planos__cabeca" data-tabela-cabeca>
+              <h3 class="planos__titulo">Body</h3>
+              <p class="planos__txt">
+                O plano mais completo que existe
+              </p>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="planos__linha">
+            <td class="planos__dado">
+              <span class="planos__alinhamento">
+                <svg class="planos__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.98 40.95">
+                  <path d="M48.98 14.52v6.86c-1.66 1.71-3.1 3.76-5 5a12 12 0 0 0-4.44 4.91c-4 7.9-9.84 10.71-18.51 9.27-1.59-.26-3.44-.8-4.79-.27-3.25 1.3-5.44-.17-7.38-2.23a24.43 24.43 0 0 1-4.65-6.22A47.92 47.92 0 0 1 .1 9.9c.21-4.73 3-7.83 7.21-9.65 2.64-1.15 7.63 1.42 9 4.37.84 1.85-.75 4.89-3.62 6.14-1.31.58-3 .41-4.52.58 1.13 4.36 4.81 6.71 7.58 10.45 2.83-4.86 7.18-5.44 11.53-5.51.31-.89.54-1.5.75-2.12 1.57-4.76 5-7.13 9.86-7.45s8.12 1.9 10.15 6.19a15.85 15.85 0 0 0 .94 1.62z" />
+                </svg>
+                Musculação
+              </span>
+            </td>
+            <td class="planos__dado">
+              <svg class="planos__icon planos__icon--check" viewBox="0 0 30 30" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Sim</title>
+                <path d="M15 0C6.735 0 0 6.735 0 15s6.735 15 15 15 15-6.735 15-15S23.265 0 15 0zm7.17 11.55-8.505 8.505a1.124 1.124 0 0 1-1.59 0L7.83 15.81a1.132 1.132 0 0 1 0-1.59 1.132 1.132 0 0 1 1.59 0l3.45 3.45 7.71-7.71a1.132 1.132 0 0 1 1.59 0c.435.435.435 1.14 0 1.59z" fill="#F79517" />
+              </svg>
+            </td>
+            <td class="planos__dado">
+              <svg class="planos__icon planos__icon--check" viewBox="0 0 30 30" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Sim</title>
+                <path d="M15 0C6.735 0 0 6.735 0 15s6.735 15 15 15 15-6.735 15-15S23.265 0 15 0zm7.17 11.55-8.505 8.505a1.124 1.124 0 0 1-1.59 0L7.83 15.81a1.132 1.132 0 0 1 0-1.59 1.132 1.132 0 0 1 1.59 0l3.45 3.45 7.71-7.71a1.132 1.132 0 0 1 1.59 0c.435.435.435 1.14 0 1.59z" fill="#F79517" />
+              </svg>
+            </td>
+          </tr>
+          <tr class="planos__linha">
+            <td class="planos__dado">
+              <span class="planos__alinhamento">
+                <svg class="planos__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.49 45.84">
+                  <path d="M674.38 382.4c-.54 3-.5 5.63-1.5 7.75a15.22 15.22 0 0 0-.52 12.06c.65 1.87.26 4.76 3.45 4.63 2-.08 2.35-1.7 1.3-5.81-.71-2.78-1.43-5.52 1.09-7.6 1.89 2.84 3.68 5.75 5.71 8.49 1.19 1.61 2.38 4.33 5 2.34 2.37-1.78.2-3.54-.78-5.14-.87-1.42-2-2.7-2.81-4.13a7.31 7.31 0 0 1-1.26-3.16c-.14-4.72-.06-9.46-.06-14.6l4.71 2.82a54.81 54.81 0 0 0 6.71-2.48 3.09 3.09 0 0 0 1.2-2.78 3.21 3.21 0 0 0-2.65-1.56c-1.59.13-3.13.93-4.94 1.52-2.68-3.26-5.86-3.72-10.09-2.93-4.52.85-6.78 3.62-8.8 6.88a30.39 30.39 0 0 0-5.76-.49 3.45 3.45 0 0 0-2.18 2.18 2.66 2.66 0 0 0 1.42 2.22c3.38.52 6.66 2.39 10.76-.21zm23.86 7.22c-1.48.21-2.27.3-3.06.43-2.09.36-3.41 1.44-2.91 3.72.4 1.84 2.91 2.81 4.94 2a4.29 4.29 0 0 0 2.81-4.28c0-2 0-4 .08-6a3.67 3.67 0 0 1 .48-1.18l4.11.54v-3.57l-6.45-1.4zm-20.75-19.68a4.47 4.47 0 1 0-4.47-4.47 4.63 4.63 0 0 0 4.47 4.47z" transform="translate(-662.2 -361)" />
+                  <path d="M12.18 21.4c-4.1 2.63-7.43.73-10.74.21a2.66 2.66 0 0 1-1.42-2.22 3.45 3.45 0 0 1 2.18-2.18 30.39 30.39 0 0 1 5.76.49c2-3.26 4.28-6 8.8-6.88 4.23-.79 7.41-.33 10.09 2.93 1.81-.59 3.35-1.39 4.94-1.52a3.21 3.21 0 0 1 2.65 1.56 3.09 3.09 0 0 1-1.2 2.78 54.81 54.81 0 0 1-6.71 2.48l-4.73-2.82c0 5.14-.08 9.88.06 14.6a7.31 7.31 0 0 0 1.26 3.16c.85 1.43 1.94 2.71 2.81 4.13 1 1.6 3.15 3.36.78 5.14-2.64 2-3.83-.73-5-2.34-2-2.74-3.82-5.65-5.71-8.49-2.52 2.08-1.8 4.82-1.09 7.6 1 4.11.7 5.73-1.3 5.81-3.19.13-2.8-2.76-3.45-4.63a15.22 15.22 0 0 1 .52-12.06c1-2.15.96-4.74 1.5-7.75z" />
+                  <path d="M36.04 28.62v-9.73l6.45 1.4v3.57l-4.11-.54a3.67 3.67 0 0 0-.48 1.18c-.07 2-.09 4-.08 6a4.29 4.29 0 0 1-2.81 4.28c-2 .83-4.54-.14-4.94-2-.5-2.28.82-3.36 2.91-3.72.82-.14 1.58-.23 3.06-.44zM15.29 8.94a4.47 4.47 0 1 1 4.46-4.47 4.61 4.61 0 0 1-4.46 4.47z" />
+                </svg>
+                Fitdance
+              </span>
+            </td>
+            <td class="planos__dado">
+              <svg class="planos__icon planos__icon--check" viewBox="0 0 30 30" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Sim</title>
+                <path d="M15 0C6.735 0 0 6.735 0 15s6.735 15 15 15 15-6.735 15-15S23.265 0 15 0zm7.17 11.55-8.505 8.505a1.124 1.124 0 0 1-1.59 0L7.83 15.81a1.132 1.132 0 0 1 0-1.59 1.132 1.132 0 0 1 1.59 0l3.45 3.45 7.71-7.71a1.132 1.132 0 0 1 1.59 0c.435.435.435 1.14 0 1.59z" fill="#F79517" />
+              </svg>
+            </td>
+            <td class="planos__dado">
+              <svg class="planos__icon planos__icon--check" viewBox="0 0 30 30" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Sim</title>
+                <path d="M15 0C6.735 0 0 6.735 0 15s6.735 15 15 15 15-6.735 15-15S23.265 0 15 0zm7.17 11.55-8.505 8.505a1.124 1.124 0 0 1-1.59 0L7.83 15.81a1.132 1.132 0 0 1 0-1.59 1.132 1.132 0 0 1 1.59 0l3.45 3.45 7.71-7.71a1.132 1.132 0 0 1 1.59 0c.435.435.435 1.14 0 1.59z" fill="#F79517" />
+              </svg>
+            </td>
+          </tr>
+          <tr class="planos__linha">
+            <td class="planos__dado">
+              <span class="planos__alinhamento">
+                <svg class="planos__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.51 35.43">
+                  <path d="m17.05 15.7 5.7 7c4.75-2.58 9.1-4.95 13.47-7.3a22.21 22.21 0 0 1 2.28-1c1.54-.61 3-.57 3.92 1s.13 2.86-1.22 3.8a18.48 18.48 0 0 1-3 1.79c-5.79 2.55-9.84 7.18-14.75 11.91 7.78.12 14.92-.06 22 .78-3.37 2.63-7.17 1.4-10.74 1.61-4 .23-8 .05-12 .05H0c2.4-3.62 5.63-2.08 8.48-2.34s5.91-.06 9.36-.06c-3.66-4.52-7.06-8.58-10.31-12.77s-2.45-6.73 2.53-8.56c5.14-1.88 10.29-3.76 15.38-5.76 2-.77 4-1.66 5.11.87s-1.2 3.48-3 4.32c-3.31 1.57-6.68 2.98-10.5 4.66zM13.88 5.37A5.15 5.15 0 1 1 9.18.02a5.15 5.15 0 0 1 4.7 5.35z" />
+                </svg>
+                Pilates
+              </span>
+            </td>
+            <td class="planos__dado">
+              <svg class="planos__icon planos__icon--check" viewBox="0 0 30 30" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Sim</title>
+                <path d="M15 0C6.735 0 0 6.735 0 15s6.735 15 15 15 15-6.735 15-15S23.265 0 15 0zm7.17 11.55-8.505 8.505a1.124 1.124 0 0 1-1.59 0L7.83 15.81a1.132 1.132 0 0 1 0-1.59 1.132 1.132 0 0 1 1.59 0l3.45 3.45 7.71-7.71a1.132 1.132 0 0 1 1.59 0c.435.435.435 1.14 0 1.59z" fill="#F79517" />
+              </svg>
+            </td>
+            <td class="planos__dado">
+              <svg class="planos__icon planos__icon--check" viewBox="0 0 30 30" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Sim</title>
+                <path d="M15 0C6.735 0 0 6.735 0 15s6.735 15 15 15 15-6.735 15-15S23.265 0 15 0zm7.17 11.55-8.505 8.505a1.124 1.124 0 0 1-1.59 0L7.83 15.81a1.132 1.132 0 0 1 0-1.59 1.132 1.132 0 0 1 1.59 0l3.45 3.45 7.71-7.71a1.132 1.132 0 0 1 1.59 0c.435.435.435 1.14 0 1.59z" fill="#F79517" />
+              </svg>
+            </td>
+          </tr>
+          <tr class="planos__linha">
+            <td class="planos__dado">
+              <span class="planos__alinhamento">
+                <svg class="planos__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.51 37.79">
+                  <path d="M26.04 17.23c-5.45 2.1-6.45 6.23-6.21 11.68.35 8.14-5.59 9.13-11.9 8.84s-9.06-3.2-7.49-10C2.55 18.59 5.49 9.93 11.68 2.69c1.16-1.36 2.69-3.22 4.51-2.37 1.12.52 1.79 2.65 2.09 4.17.73 3.82 1.13 7.7 1.7 11.86 4.63-2.85 3.94-7 4-10.91 0-1.51 0-3.32 2-3.3s2 1.81 2 3.33c.06 3.88-.68 8.05 3.89 10.77.72-4.62 1.29-9 2.11-13.31.62-3.31 2.74-3.75 4.89-1.52a43.69 43.69 0 0 1 12.66 31.9c-.11 5.2-6.52 4.52-10.62 4.43-5.2-.12-9.34-2.53-8.82-8.42.47-5.66-.76-9.88-6.05-12.09z" />
+                </svg>
+                Cardio
+              </span>
+            </td>
+            <td class="planos__dado">
+              <svg class="planos__icon planos__icon--check" viewBox="0 0 35 35" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Não</title>
+                <path d="M17 32c8.25 0 15-6.75 15-15S25.25 2 17 2 2 8.75 2 17s6.75 15 15 15zM12.755 21.245l8.49-8.49M21.245 21.245l-8.49-8.49" stroke="#F79517" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </td>
+            <td class="planos__dado">
+              <svg class="planos__icon planos__icon--check" viewBox="0 0 30 30" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Sim</title>
+                <path d="M15 0C6.735 0 0 6.735 0 15s6.735 15 15 15 15-6.735 15-15S23.265 0 15 0zm7.17 11.55-8.505 8.505a1.124 1.124 0 0 1-1.59 0L7.83 15.81a1.132 1.132 0 0 1 0-1.59 1.132 1.132 0 0 1 1.59 0l3.45 3.45 7.71-7.71a1.132 1.132 0 0 1 1.59 0c.435.435.435 1.14 0 1.59z" fill="#F79517" />
+              </svg>
+            </td>
+          </tr>
+          <tr class="planos__linha">
+            <td class="planos__dado">
+              <span class="planos__alinhamento">
+                <svg class="planos__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.66 28.84">
+                  <path d="M656.93 346.15c-5.91 0-10.85-4.74-14.28-13.71-2.64-6.87-5.32-11.13-10.55-11.13a10.42 10.42 0 1 0 7.36 17.78 2 2 0 0 1 2.83 2.83 14.41 14.41 0 1 1-10.19-24.61c9 0 12.45 8.91 14.28 13.7 1.6 4.16 5.08 11.14 10.55 11.14a10.42 10.42 0 1 0-7-18.13 2 2 0 0 1-2.69-3 14.42 14.42 0 1 1 9.7 25.09z" transform="translate(-617.69 -317.31)" />
+                </svg>
+                Acesso ilimitado a todas as unidades
+              </span>
+            </td>
+            <td class="planos__dado">
+              <svg class="planos__icon planos__icon--check" viewBox="0 0 35 35" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Não</title>
+                <path d="M17 32c8.25 0 15-6.75 15-15S25.25 2 17 2 2 8.75 2 17s6.75 15 15 15zM12.755 21.245l8.49-8.49M21.245 21.245l-8.49-8.49" stroke="#F79517" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </td>
+            <td class="planos__dado">
+              <svg class="planos__icon planos__icon--check" viewBox="0 0 30 30" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <title>Sim</title>
+                <path d="M15 0C6.735 0 0 6.735 0 15s6.735 15 15 15 15-6.735 15-15S23.265 0 15 0zm7.17 11.55-8.505 8.505a1.124 1.124 0 0 1-1.59 0L7.83 15.81a1.132 1.132 0 0 1 0-1.59 1.132 1.132 0 0 1 1.59 0l3.45 3.45 7.71-7.71a1.132 1.132 0 0 1 1.59 0c.435.435.435 1.14 0 1.59z" fill="#F79517" />
+              </svg>
+            </td>
+          </tr>
+          <tr class="planos__linha">
+            <td class="planos__dado planos__dado--alt">
+              Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis! </td>
+            <td class="planos__dado planos__dado--valor">
+              <span class="planos__dado--dest">R$</span> 9,90
+            </td>
+            <td class="planos__dado planos__dado--valor">
+              <span class="planos__dado--dest">R$</span> 99,90
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn--planos" type="button">Escolher Plano!</button>
+    </section>
+
+    <aside class="newsletter respiro">
+      <div class="newsletter__wrapper" data-animation="revel">
+        <div class="newsletter__topo">
+          <h3 class="newsletter__titulo">
+            Torne-se um
+            <span class="newsletter__titulo--dest">
+              Bodybuilder
+            </span>
+          </h3>
+          <p class="newsletter__txt">
+            Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!
+          </p>
+
+          <ul class="newsletter__lista">
+            <li class="newsletter__item">Lorem Impsum</li>
+            <li class="newsletter__item">Lorem Impsum</li>
+            <li class="newsletter__item">Lorem Impsum</li>
+            <li class="newsletter__item">Lorem Impsum</li>
+          </ul>
+        </div>
+
+        <form class="newsletter__formulario" action="">
+          <fieldset class="newsletter__campos">
+            <input class="newsletter__ipt" placeholder="Nome:" type="text">
+            <input class="newsletter__ipt" placeholder="E-mail:" type="email" name="" id="">
+            <button class="btn btn--formulario">Fazer Cadastro!</button>
+          </fieldset>
+        </form>
+      </div>
+    </aside>
+
+    <section class="modalidade respiro" data-animation="revel">
+      <h2 class="titulo titulo--alt">
+        Modalidades
+      </h2>
+
+      <p class="titulo modalidade__txt">Conheça <span class="titulo--dest">mais</span> sobre cada <span class="titulo--dest">modalidade</span></p>
+
+      <div class="modalidade__cards">
+        <div class="modalidade__card" data-flip="true">
+          <div class="modalidate__rotate">
+            <img class="modalidade__imagem" src="./assets/img/modalidade-musculacao.jpg" alt="">
+            <div class="modalidade__front">
+              <h3 class="modalidade__titulo">
+                Musculação
+              </h3>
+            </div>
+
+            <div class="modalidade__back">
+              <h4 class="modalidade__subtitulo">Lorem Impsum</h4>
+              <ul class="modalidade__lista">
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+              </ul>
+              <p class="modalidade__desc">
+                Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modalidade__card" data-flip="true">
+          <div class="modalidate__rotate">
+            <div class="modalidade__front">
+              <img class="modalidade__imagem" src="./assets/img/modalidade-fitdance.jpg" alt="">
+              <h3 class="modalidade__titulo">
+                Fitdance
+              </h3>
+            </div>
+
+            <div class="modalidade__back">
+              <h4 class="modalidade__subtitulo">Lorem Impsum</h4>
+              <ul class="modalidade__lista">
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+              </ul>
+              <p class="modalidade__desc">
+                Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modalidade__card" data-flip="true">
+          <div class="modalidate__rotate">
+            <div class="modalidade__front">
+              <img class="modalidade__imagem" src="./assets/img/modalidade-pilates.jpg" alt="">
+              <h3 class="modalidade__titulo">
+                Pilates
+              </h3>
+            </div>
+
+            <div class="modalidade__back">
+              <h4 class="modalidade__subtitulo">Lorem Impsum</h4>
+              <ul class="modalidade__lista">
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+              </ul>
+              <p class="modalidade__desc">
+                Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="modalidade__card" data-flip="true">
+          <div class="modalidate__rotate">
+            <div class="modalidade__front">
+              <img class="modalidade__imagem" src="./assets/img/modalidade-cardio.jpg" alt="">
+              <h3 class="modalidade__titulo">
+                Cardio
+              </h3>
+            </div>
+
+            <div class="modalidade__back">
+              <h4 class="modalidade__subtitulo">Lorem Impsum</h4>
+              <ul class="modalidade__lista">
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+                <li>Lorem Impsum</li>
+              </ul>
+              <p class="modalidade__desc">
+                Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape respiro">
+    <div class="rodape__wrapper" data-animation="revel">
+      <img class="rodape__imagem" src="./assets/svg/logo-min.svg" alt="">
+
+      <div class="rodape__opcoes">
+        <div class="rodape__opcao">
+          <h3 class="rodape__titulo">Links</h3>
+          <nav class="rodape__itens">
+            <a href="" class="rodape__link">
+              <svg class="rodape__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72.06 71.75">
+                <path d="M70.18 26.75c-4.14-2.16-4.46-5.73-4.11-9.71a39.72 39.72 0 0 0 0-5 3.17 3.17 0 0 0-3.53-3.34c-1.31 0-2.65-.25-3.9.47-2.44 1.4-1 4.15-1.95 6.46-5.9-4.8-11.53-9.2-16.92-13.87-2.63-2.28-4.6-2.4-7.33-.07-7.34 6.27-14.92 12.28-22.4 18.39-2.84 2.32-5.72 4.6-8.52 6.95-1 .88-1.88 2-1.34 3.49a3.14 3.14 0 0 0 3.06 2.16c.8 0 1.6.07 2.74.13v30.58c0 6.46 1.86 8.33 8.27 8.34h43.54c6.4 0 8.28-1.9 8.3-8.32V33c2.28-.57 4.87.23 5.8-2.47a3.06 3.06 0 0 0-1.71-3.78zM53.83 43.37c-3.29 2.3-3.67 6.46-6.27 9.18-1.6 1.67-3.36.9-5.13 1.19-.85-2.9 0-5.76-.58-8.76H30.18v8.39c-3.18.78-4.75-.17-6.83-2.47s-1.7-6.26-5.16-7.64c-.39-.15-.51-2.84 0-3.22 3.3-2.29 3.63-6.49 6.28-9.16 1.58-1.6 3.31-1.1 5.15-1.07.88 2.76-.07 5.62.65 8.77h11.57v-8.55c3.17-.74 4.75.16 6.83 2.48s1.69 6.27 5.17 7.64c.43.15.54 2.83-.01 3.22z" />
+              </svg>
+              Academias
+            </a>
+            <a href="" class="rodape__link">
+              <svg class="rodape__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464.99 465.65">
+                <path d="M464.88 19.87c0-18-1.93-19.75-20.77-19.77Q293.57-.11 143.05.1c-21.21 0-22 1-22.13 23.51-.15 32-.46 64.1.17 96.13.25 12.69-1.86 20.65-14.92 27.7-28.75 15.51-39.63 44.67-32.58 77.14 2.17 10 3.17 19.59-1.19 29.57-4.89 11.2-1.69 23.48 6.55 30.21 13.37 10.93 17 26.68 24.4 40.31 9.73 17.89 3.09 34.69-14.76 43.7-15.73 7.89-32.12 14.58-47.61 22.89-18.31 9.89-31.81 23.75-37.58 45-6.94 25.49-4.91 29.26 21.95 29.28q135.34.11 270.7 0c4.22 0 8.46.29 12.65-.1 8.71-.81 13.15-6.11 11.78-15-2.18-14.25-6.6-27.39-17.12-38.35-12-12.47-26.09-21-41.86-27.28-14.77-5.89-29.57-11.7-44.32-17.65-9-3.63-16.3-8.91-18.16-21.17 9-3.32 17.47-1.73 25.78-1.75 72.52-.14 145 0 217.57-.13 21 0 22.49-1.32 22.52-20.59q.21-151.85-.01-303.65zM356.27 65.5c3.6-4.3 8-6.12 12.92-2.19 4.37 3.49 8.4 7.4 12.48 11 10.9-7 14.31-19.24 22.92-27.16 4.38-4 8.23-9.09 14.79-4.34 5.84 4.24 5.92 9.42 1.63 15.06-9.52 12.56-18.79 25.31-28.45 37.77-5.07 6.55-10.88 6.85-16.82.67-6.34-6.61-13-13-19.22-19.66-3.24-3.39-3.33-7.47-.25-11.15zm.44 90.59c6.5-7.21 11.67-3 16.74 2 2.36 2.34 4.81 4.6 7.93 7.58 11.45-7.95 15.06-20 23.65-27.93 4.48-4.14 8.52-8.49 14.84-3.41 5.87 4.71 4.81 9.82.77 15.18-9 11.92-17.42 24.3-27 35.76-7.54 9.08-10.15 8.92-18.35 1.59-5.59-5-10.71-10.51-16-15.85-4.19-4.32-8.05-8.85-2.62-14.92zm-147.9 116.94c-7.21 3.23-9.94 9-11.43 15.42-2.37 10.11-8 18.07-13.52 26.58-14.69 22.63-6.3 54.19 17.88 66.63 14 7.24 29.25 12.23 43.89 18.36 19.38 8.11 38.92 16 49.72 36 1.24 2.29 2.06 4.4.62 7.91H24.28c1.85-18.57 13.81-27.46 27.13-34.78 12.47-6.85 25.53-12.61 38.18-19.15 7.41-3.83 14.63-8.07 21.74-12.43 11-6.74 15.69-16.53 15.33-29.58-.43-15.85.81-31.18-11-44.94-8.2-9.55-6.28-26.15-22-31.75-4.66-1.66-4.52-10.9-1.83-13.68 10.42-10.79 4.45-22.07 2.11-32.77-7.39-33.71 8.16-59.81 41.5-68.15 4.86-1.21 9.62-2.92 14.52-3.86s10.61-1.29 14 3.36c5.36 7.44 12.41 9.52 21.2 11.31 19.82 4 32.15 24.76 29.09 45.64-.85 5.8-.82 11.93-2.82 17.31-3.4 9.14-4.71 17.34 1.71 25.87 5.09 6.79 2.79 13.51-4.33 16.7zM196.39 91.1c-5.05 0-10.2.42-15.1-.45-5.22-.93-9.55-4.2-9.08-10.18.45-5.72 4.65-8.58 10.12-9.34a55.82 55.82 0 0 1 7.55-.25h126.17c2.52 0 5.15-.25 7.54.37 5.17 1.36 9.54 4.28 9.08 10.26-.45 5.72-4.69 9-10.13 9.26-11.76.48-23.54.29-35.31.33s-23.55 0-35.33 0q-27.75.02-55.51 0zm136.28 80.96c0 5.86-4.24 9.38-9.56 9.7-10 .6-20.13.18-30.2.18s-20.16.42-30.19-.17c-5.33-.32-9.56-3.85-9.56-9.7a9.35 9.35 0 0 1 9.54-9.69q30.19-.66 60.41 0a9.37 9.37 0 0 1 9.56 9.68zm-8.37 100.57c-10.83.93-21.79.29-32.7.29-10.06 0-20.16.46-30.18-.23-4.11-.29-7.69-3.86-8.27-8.35-.78-6 3.49-10.54 8.36-10.7 20.95-.67 41.94-.52 62.91 0 4 .09 7.69 3.85 8.26 8.34a9.22 9.22 0 0 1-8.38 10.65zm98-34.52c-9.79 14.43-19.4 29-31.62 41.58-4.14 4.25-8.8 4.5-13.12.3-7.16-7-14.26-14-21.13-21.28-3.23-3.43-3.18-7.53 0-11.18 3.69-4.29 8.09-5.91 12.95-2 4.31 3.5 8.32 7.37 12.38 11 11.44-7.91 15.23-20.9 24.68-29.2 4.06-3.56 8.07-6.23 13.12-2.26 4.33 3.49 6.25 7.84 2.73 13.04z" />
+              </svg>
+              Planos
+            </a>
+            <a href="" class="rodape__link">
+              <svg class="rodape__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.95 84.09">
+                <path d="M0 71.84c0-7.15 2.91-12.3 9.45-15.06a87.81 87.81 0 0 1 9.86-3.44c5.48-1.58 9.13-4.26 7.09-11.44-3-2.06-5.3-6.28-6.44-9.9-2.33-7.47-3.61-15.64 0-23.32C23.03 2.17 28.86-.02 35.6 0c12.36 0 19.66 9.91 17.92 22.11-.71 5-.54 9.78-3.84 13.89a21 21 0 0 1-2.38 3.14c-13.88 11.63-15.61 15.77-13.29 32.7z" />
+                <path d="M78.72 53.62a20.77 20.77 0 0 0-4.26-5.77c-.13-.14-.27-.27-.4-.39a21.15 21.15 0 0 0-8.9-4.81c-.22-.05-.45-.11-.68-.15a20.35 20.35 0 0 0-4.58-.51 20.79 20.79 0 0 0-5.72.79l-.54.16a21 21 0 0 0-9 5.64 20.92 20.92 0 0 0-5.7 13.52v1.08c0 .67 0 1.33.11 2 0 .23 0 .46.08.68a21 21 0 0 0 13.8 17 20.79 20.79 0 0 0 6.34 1.2h1.44a20.61 20.61 0 0 0 8.07-1.91 21 21 0 0 0 10-28.54zm-15.3 12.72c-2 2.47 2 8.65-3.82 8.37-4.69-.23-1.65-5.56-2.94-8.23-2.75-1.68-8.45 1.86-8.38-3.54.06-5 5.39-1.81 8.34-3.39 1.35-2.77-1.77-8.08 3.17-8.18 5.45-.11 1.94 5.58 3.5 8.27 2.66 1.66 8.37-1.91 8.3 3.49-.06 4.99-5.34 1.94-8.17 3.21z" />
+              </svg>
+              Matricule-se
+            </a>
+            <a href="" class="rodape__link">
+              <svg class="rodape__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 386.8 384.86">
+                <circle cx="181.27" cy="34.62" r="34.62" />
+                <path d="M384.98 130.85c-17.47 15.94-23.66 31.51-27.67 52.26-9.2 47.61-20.17 94.87-30.36 142 22.07 35.1 8.26 50.2-8.46 57.5-15.93 6.95-34.34-2.51-39.87-19.48-6.37-19.53 5.9-35.16 33.41-41.75q15.3-71.38 30.86-144c-10.64.6-12.89 16.16-25 11.81-5.63-5.55-2.8-10.09 1.67-14.55 16.3-16.26 32.74-32.4 48.77-48.94 5.27-5.44 11.38-8.15 16.6-2.52 2.94 3.06 1.94 5.94.05 7.67zM258.07 130.88c-12.71-.1-25.42 0-37.91 0-7.09-11.35-13.41-21.7-20-31.92-16.12-25.12-38.54-33.81-67.6-27.66-40.52 8.57-75.16 24.09-87.52 68.42-.5 1.8-8.65 26.7 3 33.21 12.66 7 22.08.8 28.42-10.81 6.72-12.31 13.18-24.75 19.6-36.83 8.37-2.43 15-7.72 23.52-7.3 0 2.11.31 3.45 0 4.58-4.37 14-8.85 28-13.29 42-7.83 24.7-5 33.58 16.13 49.26 15.95 11.82 32.03 23.41 48.34 35.41 9.18 27.43 13.74 54.33 25.26 79.92-56.46 3.17-111.46 6.29-166.47 9.32-19.38 1.07-29.3 8.66-29.54 22.91-.24 15.12 10.35 23.41 30.72 23.44q98.13.15 196.27 0h46.45c-15-20-14-38.77-4.06-58.34h-46.27c10.48-26.93-8.06-49.3-10.83-73.82-3.28-28.94-24.76-43.13-45.33-58.77 5-16.5 9.74-31.88 16-52.44 8.7 27.33 26.13 29.85 46.14 28 9.54-.87 19.23-.21 28.85-.14 12.55.1 22.15-5 22.61-18.14.51-14.05-8.99-20.2-22.49-20.3zM22.76 371.51a9.8 9.8 0 1 1 9.79-9.79 9.79 9.79 0 0 1-9.79 9.79z" />
+                <path d="m90.41 236.15 11.28-19.91 28.25 22.68c-3.31 7.56-6.34 14.36-9.28 21.19-4.29 10-11.61 14.61-22.62 13.75-19.75-1.54-39.53-2.76-59.29-4.16-12.23-.87-19.39-8-18.67-19.74.75-12.17 9.64-17.28 21.47-16.69 15.92.77 31.83 1.85 48.86 2.88z" />
+              </svg>
+              Modalidades
+            </a>
+          </nav>
+        </div>
+
+        <address class="rodape__opcao">
+          <h3 class="rodape__titulo">Sociais</h3>
+          <div class="rodape__itens">
+            <a href="" class="rodape__link">
+              <svg class="rodape__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <path d="M16 3C8.83 3 3 8.83 3 16v18c0 7.17 5.83 13 13 13h18c7.17 0 13-5.83 13-13V16c0-7.17-5.83-13-13-13H16zm21 8c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm-12 3c6.07 0 11 4.93 11 11s-4.93 11-11 11-11-4.93-11-11 4.93-11 11-11zm0 2c-4.96 0-9 4.04-9 9s4.04 9 9 9 9-4.04 9-9-4.04-9-9-9z" />
+              </svg>
+              Instagram
+            </a>
+            <a href="" class="rodape__link">
+              <svg class="rodape__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                <path d="M24 4H6a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-1.311 9.474a4.27 4.27 0 0 1-3.967-1.911v6.577a4.861 4.861 0 1 1-4.861-4.862c.102 0 .201.009.3.015v2.396c-.1-.012-.197-.03-.3-.03a2.481 2.481 0 0 0 0 4.962c1.371 0 2.581-1.08 2.581-2.45l.024-11.17h2.289a4.268 4.268 0 0 0 3.934 3.811v2.662z" />
+              </svg>
+              Tiktok
+            </a>
+          </div>
+        </address>
+
+        <address class="rodape__opcao rodape__opcao--contatos">
+          <h3 class="rodape__titulo">Contato</h3>
+          <div class="rodape__itens">
+            <a href="" class="rodape__link">
+              <svg class="rodape__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                <path d="M15 3C8.373 3 3 8.373 3 15c0 2.251.632 4.35 1.71 6.15L3.108 27l5.975-1.568A11.935 11.935 0 0 0 15 27c6.627 0 12-5.373 12-12S21.627 3 15 3zm-4.107 6.402c.195 0 .395 0 .568.008.214.005.447.02.67.514.265.586.842 2.056.916 2.205.074.149.126.324.023.52-.098.2-.149.32-.293.497-.149.172-.312.386-.447.516-.149.15-.303.312-.13.61.171.296.769 1.27 1.652 2.056 1.135 1.014 2.092 1.326 2.39 1.475.298.149.47.126.643-.074.177-.195.743-.865.943-1.163.195-.298.394-.246.664-.148.274.098 1.735.818 2.033.967.298.149.494.223.569.344.077.125.077.72-.17 1.414-.247.693-1.46 1.363-2.004 1.41-.55.05-1.061.246-3.568-.74-3.024-1.191-4.932-4.289-5.08-4.489-.15-.195-1.211-1.61-1.211-3.07 0-1.465.768-2.183 1.037-2.48.274-.299.595-.372.795-.372z" />
+              </svg>
+              (XX) X XXXX-XXXX
+            </a>
+            <a href="" class="rodape__link">
+              <svg class="rodape__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 64.02">
+                <path d="M0 15.01c12.07 7.53 23.31 14.3 34.27 21.51 4 2.65 7.13 2.9 11.25.15 9.68-6.46 19.68-12.45 29.56-18.61 1.36-.85 2.79-1.59 4.81-2.72 0 14.23.21 27.81-.11 41.38-.11 4.57-3.44 7.19-8.06 7.21q-31.71.12-63.42 0c-4.87 0-8.16-3-8.23-7.59C-.08 42.92 0 29.47 0 15.01z" />
+                <path d="M.09 7.01c1.37-5.09 4.4-7 9-7h62c4.56 0 7.57 2 8.89 7.05q-10.2 6.4-20.54 12.88c-5.5 3.44-10.94 7-16.57 10.21-1.28.74-3.63 1.14-4.74.46C25.39 22.94 12.89 15.01.09 7.01z" />
+              </svg>
+              academia@academia.com
+            </a>
+          </div>
+        </address>
+      </div>
+    </div>
+
+    <div class="rodape__copyright">
+      <p>Qui quia nemo sed dolores nesciunt qui placeat voluptatem a maiores Quis!</p>
+    </div>
+
+  </footer>
+
+  <script src="./js/menu-burguer.js"></script>
+  <script src="./js/gatilhoAnimacao.js" type="module"></script>
+  <script src="./js/planosFlutuante.js"></script>
+</body>
+
+</html>
