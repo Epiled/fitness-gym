@@ -84,7 +84,7 @@ https://github.com/Epiled/fitness-gym/assets/55258483/94fb9968-dc94-4427-8ae4-bb
 
 <h2 id="performance"> 📈 Performance Lighthouse </h2>
 
-![mobile_first](https://user-images.githubusercontent.com/55258483/179240575-f83027c0-5781-4333-a16c-2ba3f89b9a57.png)
+![lighthouse-01](https://github.com/Epiled/fitness-gym/assets/55258483/eb26375c-1257-458f-ad1c-34e03948ed17)
 
 <h2 id="instalacao"> ⚙ Instalação </h2>
 
