@@ -4,11 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fitness Gym a maior fabrica de monstro de São Paulo / SP, venha tranforma-se em mosntro também.">
   <title>Fitness Gym</title>
 
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  
+  <link rel="icon" type="image/png" sizes="16x16"  href="./assets/favicon/favicon-16x16.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet preload prefetch" as="style" href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap" crossorigin="anonymous">
+
+  <link rel="preload" href="./assets/img/mobile/banner-fitness-gym.webp" media="(min-width: 390px)" as="image">
+  <link rel="preload" href="./assets/img/tablet/banner-fitness-gym.webp" media="(min-width: 840px)" as="image">
+  <link rel="preload" href="./assets/img/desktop/banner-fitness-gym.webp" media="(min-width: 1440px)" as="image">
 
   <!-- build -->
   <link rel="stylesheet" href="./css/reset.css">
@@ -106,6 +115,8 @@
   <link rel="stylesheet" href="./css/rodape/rodape-icon.css">
   <link rel="stylesheet" href="./css/rodape/rodape-link.css">
   <link rel="stylesheet" href="./css/rodape/rodape-copyright.css">
+
+  <link rel="stylesheet" href="./css/scroll.css">
   <!-- endBuild -->
 
 </head>
@@ -702,9 +713,17 @@
 
   </footer>
 
+  <button class="scroll" type="button" data-scroll>
+    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="48" height="48" rx="4" fill="black" fill-opacity="0.35" stroke="#F79517" stroke-width="2"/>
+      <path d="M12.2455 34L25.1766 34L36.8209 34C38.8135 34 39.8098 31.2567 38.3984 29.6486L27.6466 17.3985C25.9238 15.4357 23.1218 15.4357 21.399 17.3985L17.31 22.0574L10.6472 29.6486C9.25657 31.2567 10.2529 34 12.2455 34Z" fill="#F79517"/>
+      </svg>
+  </button>
+
   <script src="./js/menu-burguer.js"></script>
   <script src="./js/gatilhoAnimacao.js" type="module"></script>
   <script src="./js/planosFlutuante.js"></script>
+  <script async src="./js/scrollTopo.js"></script>
 </body>
 
 </html>

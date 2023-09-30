@@ -4,16 +4,23 @@ const tabelaCabecas = tabela.querySelectorAll('[data-tabela-cabeca]');
 const flutuante = document.createElement('span');
 flutuante.classList.add('planos__flutuante');
 
-const posicaoFlutuante = (tabelaCabecas[1].offsetLeft * 100) / window.innerWidth;
-flutuante.style.transform = `translateX(${posicaoFlutuante + 'vw'}`;
-
+const posicaoFlutuante = calculaDistanciaEsquerdaDaTela(tabelaCabecas[1]);
 
 tabelaCabecas.forEach(item => {
   item.addEventListener('click', () => {
-    const posicaoFlutuante = (item.offsetLeft * 100) / window.innerWidth;
-    flutuante.style.transform = `translateX(${posicaoFlutuante + 'vw'}`;
+    calculaDistanciaEsquerdaDaTela(item);
   })
+});
+
+window.addEventListener('resize', () => {
+  calculaDistanciaEsquerdaDaTela(tabelaCabecas[1]);
 })
 
+function calculaDistanciaEsquerdaDaTela(item) {
+  const distanciaPorcentagem = (item.offsetLeft / window.innerWidth) * 100;
+  const novaPosicao = flutuante.style.transform = `translateX(${distanciaPorcentagem + 'vw'})`;
+
+  return novaPosicao;
+}
+
 tabela.appendChild(flutuante);
-console.log(tabelaCabecas[0].offsetLeft);
