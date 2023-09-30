@@ -4,6 +4,7 @@
   box-shadow: 0 .3rem .3rem .2rem var(--cor-fundo-25);
   max-width: 36rem;
   overflow: hidden;
+  text-align: left;
 }
 
 @media screen and (min-width: 834px) {

@@ -1,6 +1,7 @@
 .academia__valor {
   color: var(--cor-titulo);
   font-size: 2rem;
+  font-family: 'Overpass', sans-serif;
 }
 
 .academia__valor--alt {

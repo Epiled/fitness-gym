@@ -4,6 +4,7 @@
   font-style: italic;
   font-weight: 700;
   text-transform: uppercase;
+  font-family: 'Overpass', sans-serif;
 }
 
 @media screen and (min-width: 1440px) {

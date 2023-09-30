@@ -19,6 +19,12 @@
     margin-right: 7rem;
     color: var(--cor-escura);
     fill: var(--cor-escura);
+    transition: color .5s, fill .5s;
+  }
+
+  .cabecalho__link:hover {
+    color: var(--cor-fundo-1);
+    fill: var(--cor-fundo-1);
   }
 
   .cabecalho__link:nth-child(2) {

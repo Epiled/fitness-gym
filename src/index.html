@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fitness Gym</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap" rel="stylesheet">
+
   <!-- build -->
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/normalize.css">
@@ -58,6 +62,7 @@
 
   <link rel="stylesheet" href="./css/planos/planos.css">
   <link rel="stylesheet" href="./css/planos/planos-tabela.css">
+  <link rel="stylesheet" href="./css/planos/planos-flutuante.css">
   <link rel="stylesheet" href="./css/planos/planos-cabeca.css">
   <link rel="stylesheet" href="./css/planos/planos-titulo.css">
   <link rel="stylesheet" href="./css/planos/planos-txt.css">
@@ -334,17 +339,17 @@
 
       <h2 class="titulo">Conheça nossos <span class="titulo--dest">planos</span> e suas <span class="titulo--dest">vantagens</span></h2>
 
-      <table class="planos__tabela">
+      <table class="planos__tabela" data-tabela>
         <thead>
           <tr>
             <th class="sr-only">Vantagens do Plano</th>
-            <th class="planos__cabeca">
+            <th class="planos__cabeca" data-tabela-cabeca>
               <h3 class="planos__titulo plano__titulo--alt">Fit</h3>
               <p class="planos__txt">
                 Começe hoje mesmo a ter uma visa saudavel
               </p>
             </th>
-            <th class="planos__cabeca">
+            <th class="planos__cabeca" data-tabela-cabeca>
               <h3 class="planos__titulo">Body</h3>
               <p class="planos__txt">
                 O plano mais completo que existe
@@ -699,9 +704,7 @@
 
   <script src="./js/menu-burguer.js"></script>
   <script src="./js/gatilhoAnimacao.js" type="module"></script>
-  <!-- <script src="./js/revel.js"></script> -->
-  <!-- <script src="./js/contador.js"></script> -->
-  <!-- <script src="./js/flipe.js"></script> -->
+  <script src="./js/planosFlutuante.js"></script>
 </body>
 
 </html>

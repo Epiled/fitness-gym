@@ -21,9 +21,6 @@
   --cor-fundo-50: #00000080;
   --cor-fundo-65: #000000a6;
 
-  --cor-complementar-1: #EE6471;
-  --cor-complementar-2: #F87F46;
-
   --cor-titulo: #575757;
 
   --cor-escura: #000000;
@@ -32,7 +29,7 @@
 
   --branco: #ffffff;
 
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Kokoro', sans-serif;
 }
 
 * {

@@ -12,6 +12,7 @@
   margin-top: 6rem;
   padding-bottom: 8.5rem;
   opacity: 0;
+  text-align: center;
 }
 
 .modalidade.active {

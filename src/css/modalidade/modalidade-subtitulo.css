@@ -2,6 +2,7 @@
   font-size: 2.4rem;
   color: var(--branco);
   font-weight: 700;
+  font-family: 'Overpass', sans-serif;
 }
 
 @media screen and (min-width: 834px) {

@@ -3,6 +3,7 @@
   font-size: 2.4rem;
   font-weight: 700;
   text-align: center;
+  font-family: 'Overpass', sans-serif;
 }
 
 .titulo--dest {
@@ -14,6 +15,26 @@
 .titulo--alt {
   color: var(--cor-principal);
   font-size: 4rem;
+  position: relative;
+  line-height: 1;
+  display: inline-block;
+}
+
+.titulo--alt::before {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  height: 3rem;
+  width: calc(100% + 4rem);
+  content: "";
+  background-image: 
+    url(../assets/svg/halter-barra.svg),
+    url(../assets/svg/halter-barra-esq.svg),
+    url(../assets/svg/halter-barra-dir.svg);
+  background-size: 100%, contain, contain;
+  background-position: center, left, right;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  transform: translateX(-50%);
 }
 
 @media screen and (min-width: 834px) {

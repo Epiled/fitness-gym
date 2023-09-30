@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Kokoro';
+  src: local('Kokoro'), local('Kokoro')
+  url('../fonts/Kokoro-Font/Kokoro-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kokoro';
+  src: local('Kokoro'), local('Kokoro')
+  url('../fonts/Kokoro-Font/Kokoro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}

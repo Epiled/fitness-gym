@@ -5,6 +5,7 @@
   background-position: calc(100% + 7rem) center;
   background-size: 16rem;
   opacity: 0;
+  text-align: center;
 }
 
 .academia.active {

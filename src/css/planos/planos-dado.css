@@ -8,6 +8,10 @@
   text-align: left;
 }
 
+.planos__dado--valor {
+  font-family: 'Overpass', sans-serif;
+}
+
 .planos__dado--dest {
   color: var(--cor-principal);
   font-weight: 700;

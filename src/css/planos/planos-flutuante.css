@@ -1,0 +1,22 @@
+.planos__flutuante {
+  position: absolute;
+  top: 0;
+  border-radius: .5rem;
+  border: .3rem solid var(--cor-principal);
+  height: 100%;
+  width: 13rem;
+  will-change: transform;
+  transition: transform 1s;
+}
+
+@media screen and (min-width: 834px) {
+  .planos__flutuante {
+    width: 18rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .planos__flutuante {
+    width: 27rem;
+  }
+}

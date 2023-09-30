@@ -6,7 +6,7 @@
   flex-direction: column;
   position: fixed;
   top: 10rem;
-  right: 2rem;
+  right: -20rem;
   padding: 2rem 1.5rem;
   gap: 3rem;
   z-index: 2;
@@ -18,6 +18,8 @@
 
 .cabecalho__navegacao--ativo {
   opacity: 1;
+  right: 2rem;
+  transition: opacity .3s;
 }
 
 @media screen and (min-width: 1440px) {

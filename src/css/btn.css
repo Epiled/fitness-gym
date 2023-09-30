@@ -13,6 +13,13 @@
   text-decoration: none;
   max-width: 35.7rem;
   width: 100%;
+  cursor: pointer;
+  transition: background .5s;
+}
+
+.btn:hover {
+  color: var(--cor-principal);
+  background: var(--cor-escura);
 }
 
 .btn--banner {
@@ -30,6 +37,11 @@
   background: var(--cor-escura);
   color: var(--cor-principal);
   margin-top: 0;
+}
+
+.btn--formulario:hover {
+  background: var(--cor-fundo-1);
+  color: var(--cor-escura);
 }
 
 @media screen and (min-width: 834px) {
