@@ -78,8 +78,9 @@
 <p>No link abaixo você pode ver a página no ar e rodar seus próprios teste de perfomance ou desempenho</p>
 <p>Fitness Gym: <a href="https://epiled.github.io/fitness-gym/dist/">https://epiled.github.io/fitness-gym/dist/</a></p>
 
-![html_e_css_mobile_first_desktop](https://user-images.githubusercontent.com/55258483/178686221-71cee3a8-6b47-4006-afbc-71ab3e001565.gif)
-![html_e_css_mobile_first_mobile](https://user-images.githubusercontent.com/55258483/178686235-efd3fcbf-81cb-432a-ba79-e38ba89bdd14.gif)
+https://github.com/Epiled/fitness-gym/assets/55258483/5e89e3d0-5481-4a02-8140-23fe7e54c18a
+
+https://github.com/Epiled/fitness-gym/assets/55258483/94fb9968-dc94-4427-8ae4-bb6061ee46fa
 
 <h2 id="performance"> 📈 Performance Lighthouse </h2>
 
