@@ -89,7 +89,7 @@ https://github.com/Epiled/fitness-gym/assets/55258483/94fb9968-dc94-4427-8ae4-bb
 <h2 id="instalacao"> ⚙ Instalação </h2>
 
 ```
-1. git clone --single-branch --branch dist https://github.com/username/project.git
+1. git clone https://github.com/Epiled/fitness-gym.git
 2. cd fitness-gym
 ```
 
