@@ -6,10 +6,6 @@
   --cor-principal-23: #f795173b;
   --cor-principal-75: #f79517bf;
 
-  --cor-principal-claro: #CCC;
-  --cor-logo: #DAFF01;
-  --cor-principal-alt: #9353FF;
-
   --cor-fonte: #6C757D;
 
   --cor-fundo-1: #FFF;
@@ -35,6 +31,10 @@
 * {
   box-sizing: border-box;
   line-height: normal;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 img {

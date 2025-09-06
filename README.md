@@ -30,20 +30,20 @@
 ![Badge](https://img.shields.io/badge/-JS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Badge](https://img.shields.io/badge/-Gulp-CF4647?style=for-the-badge&logo=gulp&logoColor=white)
 
-
 <h2> 📑 Tabela de Conteúdos </h2>
 
 <!--ts-->
-   * [Sobre](#sobre)
-   * [Referência](#referencia)
-      * [Sites de inspiração](#inspiracao)
-   * [Demonstração](#demonstracao)
-   * [Performance](#performance)
-   * [Instalação](#instalacao)
-   * [Como usar](#como-usar)
-      * [Arquivos Locais](#arquivos_locais)
-   * [Tecnologias](#tecnologias)
-   * [Autor](#autor)
+
+- [Sobre](#sobre)
+- [Referência](#referencia)
+  - [Sites de inspiração](#inspiracao)
+- [Demonstração](#demonstracao)
+- [Performance](#performance)
+- [Instalação](#instalacao)
+- [Como usar](#como-usar)
+  - [Arquivos Locais](#arquivos_locais)
+- [Tecnologias](#tecnologias)
+- [Autor](#autor)
 <!--te-->
 
 <h2 id="referencia"> 🔖 Referência </h2>
@@ -71,7 +71,6 @@
      Koatch
    </a>
 </p>
-
 
 <h2 id="demonstracao"> 👀 Demonstração </h2>
 
@@ -121,8 +120,8 @@ As seguintes tecnologias foram usadas na construção deste projeto:
 <a href="https://github.com/Epiled">
 
 ![Felindo](https://user-images.githubusercontent.com/55258483/178338085-2cea8bf2-6d0c-409a-9d0e-23359b7d303e.png)
- <br />
- <sub><b>Felipe De Andrade</b></sub></a>
+<br />
+<sub><b>Felipe De Andrade</b></sub></a>
 
 Feito com ❤️ por Felipe De Andrade 👋🏽 Entre em contato!
 

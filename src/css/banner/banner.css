@@ -2,15 +2,26 @@
   position: relative;
   background-image: 
   linear-gradient(0deg, var(--cor-fundo-65), var(--cor-fundo-65)),
-  url(../../assets/img/banner-fitness-gym.jpg);
+  url(../../assets/img/mobile/banner-fitness-gym.jpg);
   background-size: cover;
   background-position: center;
   height: 64.2rem;
+}
+
+@media screen and (min-width: 834px){
+  .banner {
+    background-image: 
+    linear-gradient(0deg, var(--cor-fundo-65), var(--cor-fundo-65)),
+    url(../../assets/img/tablet/banner-fitness-gym.jpg);
+  }
 }
 
 @media screen and (min-width: 1440px){
   .banner {
     display: flex;
     justify-content: center;
+    background-image: 
+    linear-gradient(0deg, var(--cor-fundo-65), var(--cor-fundo-65)),
+    url(../../assets/img/desktop/banner-fitness-gym.jpg);
   }
 }
