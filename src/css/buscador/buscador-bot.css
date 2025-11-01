@@ -5,9 +5,12 @@
   padding-top: 9rem;
   padding-bottom: 9rem;
   margin-top: 4.5rem;
-  background-image:
-    linear-gradient(270deg, var(--cor-principal-23) 0%, var(--cor-principal-0) 100%),
-    url(../../assets/img/mobile/buscador.jpg);
+  background-image: linear-gradient(
+      270deg,
+      var(--cor-principal-23) 0%,
+      var(--cor-principal-0) 100%
+    ),
+    url(./assets/img/mobile/buscador.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -15,17 +18,23 @@
 @media screen and (min-width: 834px) {
   .buscador__bot {
     margin-top: 6rem;
-    background-image:
-    linear-gradient(270deg, var(--cor-principal-23) 0%, var(--cor-principal-0) 100%),
-    url(../../assets/img/tablet/buscador.jpg);
+    background-image: linear-gradient(
+        270deg,
+        var(--cor-principal-23) 0%,
+        var(--cor-principal-0) 100%
+      ),
+      url(./assets/img/tablet/buscador.jpg);
   }
 }
 
 @media screen and (min-width: 1440px) {
   .buscador__bot {
     margin-top: 9rem;
-    background-image:
-    linear-gradient(270deg, var(--cor-principal-23) 0%, var(--cor-principal-0) 100%),
-    url(../../assets/img/desktop/buscador.jpg);
+    background-image: linear-gradient(
+        270deg,
+        var(--cor-principal-23) 0%,
+        var(--cor-principal-0) 100%
+      ),
+      url(./assets/img/desktop/buscador.jpg);
   }
 }
