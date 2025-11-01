@@ -1,0 +1,31 @@
+{{!--
+  Template customizado de ícones (Handlebars)
+  -------------------------------------------
+  {{fontName}}    → Nome da fonte (ex: studio-icons)
+  {{fontPath}}    → Caminho relativo para os arquivos de fonte (ex: ../fonts/)
+  {{cssClass}}    → Prefixo usado nas classes (ex: icon)
+  {{../cssClass}} → Sobe um nível no contexto (dentro do each)
+  {{name}}        → Nome do arquivo SVG
+  {{code}}        → Código Unicode gerado automaticamente (\e900, \e901, etc.)
+--}}
+
+{{> base-icons}}
+
+%{{cssClass}} {
+  font-family: '{{fontName}}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+{{#each glyphs}}
+.{{../cssClass}}-{{name}}::before {
+  @extend %{{../cssClass}};
+  content: "{{code}}";
+}
+{{/each}}

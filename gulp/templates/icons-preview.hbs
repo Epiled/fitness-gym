@@ -1,0 +1,70 @@
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Preview — {{fontName}}</title>
+    <link rel="stylesheet" href="./css/{{fontName}}.css" />
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #fafafa;
+        padding: 32px;
+      }
+      h1 {
+        font-size: 20px;
+        margin-bottom: 24px;
+      }
+      input {
+        padding: 8px;
+        font-size: 14px;
+        width: 300px;
+        margin-bottom: 24px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 16px;
+      }
+      .icon-box {
+        text-align: center;
+        background: #fff;
+        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid #eee;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+      }
+      .icon-box i {
+        font-size: 32px;
+        color: #333;
+      }
+      .icon-name {
+        font-size: 12px;
+        color: #666;
+        margin-top: 6px;
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pré-visualização: {{fontName}}</h1>
+    <input
+      type="text"
+      id="search"
+      placeholder="Buscar ícone..."
+      onkeyup="filterIcons()"
+    />
+    <div class="grid" id="icons">
+      {{#each glyphs}}
+        <div class="icon-box" data-name="{{name}}">
+          <i class="icon icon-{{name}}"></i>
+          <div class="icon-name">{{name}}</div>
+        </div>
+      {{/each}}
+    </div>
+    <script>
+      function filterIcons() { const term =
+      document.getElementById('search').value.toLowerCase();
+      document.querySelectorAll('.icon-box').forEach(box => { box.style.display
+      = box.dataset.name.toLowerCase().includes(term) ? '' : 'none'; }); }
+    </script>
+  </body>
+</html>
