@@ -1,64 +1,26 @@
-const gulp = require('gulp');
-const cleanCSS = require('gulp-clean-css');
-const concatCSS = require('gulp-concat-css');
-const clean = require('gulp-clean');
-const replace = require('gulp-replace');
+// ← arquivo principal (carrega as tasks)
 
-function defaultTask(cb) {
-  cb();
-}
+const gulp = require("gulp");
 
-gulp.task('clean', function () {
-  return gulp.src(['dist'], { read: false })
-    .pipe(clean());
+const requireDir = require("require-dir");
+
+// Carrega todas as tasks da pasta gulp/tasks
+requireDir("./gulp/tasks", { recurse: true });
+
+gulp.task("copy", () => {
+  return gulp.src("src/**/*").pipe(gulp.dest("dist"));
 });
 
-gulp.task('copy', () => {
-  return gulp.src('src/**/*')
-    .pipe(gulp.dest('dist'));
+gulp.task("static-files", async function () {
+  return gulp
+    .src(["src/**/*.html", "src/**/*", "!src/css/**/*"])
+    .pipe(gulp.dest("dist"));
 });
 
-gulp.task('static-files', async function () {
-  return gulp.src([
-    'src/**/*.html',
-    'src/**/*',
-    '!src/css/**/*',])
-    .pipe(gulp.dest('dist'));
-})
+// gulp.task(
+//   "build",
+//   gulp.series("clean", "static-files", "css:build", "html:replace:css"),
+// );
 
-gulp.task('minify-css', () => {
-  return gulp.src('src/css/**/*.css')
-    .pipe(cleanCSS({ compatibility: 'ie8' }))
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('concat-css', () => {
-  return gulp.src('src/**/*.css')
-    .pipe(concatCSS('css/budles.css'))
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('otimiza-css', () => {
-  return gulp.src('src/css/**/*.css')
-    .pipe(concatCSS('css/budles.css'))
-    .pipe(cleanCSS({ compatibility: 'ie8' }))
-    .pipe(replace(/(\.\.\/)+/g, '../'))
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('replace-css', () => {
-  return gulp.src('src/**/*.html')
-    .pipe(replace(
-      /<!-- build -->([\s\S]*?)<!-- endBuild -->/g, 
-      '<link rel="stylesheet" href="./css/budles.css">'))
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('build', gulp.series(
-  'clean',
-  'static-files',
-  'otimiza-css',
-  'replace-css',
-))
-
-exports.default = defaultTask
+// // Task padrão (executada ao rodar apenas "gulp")
+// gulp.task("default", gulp.series("build"));
