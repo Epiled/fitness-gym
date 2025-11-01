@@ -1,6 +1,6 @@
 .banner__titulo {
   margin: 0;
-  font-family: 'Overpass', sans-serif;
+  font-family: "Overpass", sans-serif;
 }
 
 .banner__titulo--monstro {
@@ -9,7 +9,8 @@
   text-transform: uppercase;
   color: var(--cor-principal);
   margin: 0;
-  display: block;line-height: 1;
+  display: block;
+  line-height: 1;
 }
 
 .banner__titulo--min {
