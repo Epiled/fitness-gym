@@ -1,0 +1,17 @@
+.scroll {
+  position: fixed;
+  bottom: 3rem;
+  right: 2rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.scroll--revel {
+  opacity: 1;
+}

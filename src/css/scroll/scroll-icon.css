@@ -1,0 +1,5 @@
+.scroll__icon {
+  color: var(--cor-principal);
+  font-size: 5rem;
+  background: rgba(0, 0, 0, 0.35);
+}
