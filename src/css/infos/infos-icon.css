@@ -1,24 +1,24 @@
 .infos__icon {
-  width: 4rem;
-  height: auto;
+  font-size: 4rem;
+  color: var(--cor-principal);
 }
 
 .infos__icon--alt {
-  fill: var(--cor-principal);
+  color: var(--cor-principal);
 }
 
 @media screen and (min-width: 834px) {
   .infos__icon {
-    width: 6rem;
+    font-size: 6rem;
   }
 
   .infos__icon--alt {
-    fill: var(--branco);
+    color: var(--branco);
   }
 }
 
 @media screen and (min-width: 1440px) {
   .infos__icon {
-    width: 7.5rem;
+    font-size: 7.5rem;
   }
 }

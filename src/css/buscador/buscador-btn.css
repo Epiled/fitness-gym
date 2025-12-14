@@ -5,16 +5,20 @@
   transform: translateY(-50%);
   width: 2.5rem;
   height: 2.5rem;
-  padding: .25rem;
+  padding: 0.25rem;
   border: 0;
   border-radius: 100%;
   background: transparent;
-  fill: var(--cor-principal);
-  transition: fill .5s, background .5s;
+  color: var(--cor-principal);
+  transition:
+    color 0.5s,
+    background 0.5s;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .buscador__btn:hover {
-  fill: var(--branco);
+  color: var(--branco);
   background-color: var(--cor-principal);
 }

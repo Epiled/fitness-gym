@@ -2,14 +2,11 @@
   background-image:
     url(../../assets/svg/decoracao-white.svg),
     linear-gradient(0deg, var(--cor-fundo-50), var(--cor-fundo-50)),
-    url(../../assets/img/mobile/newsletter.jpg);
-  background-size:
-    16rem,
-    cover,
-    cover;
+    url(../../assets/img/newsletter.jpg);
+  background-size: 16rem, cover, cover;
   background-repeat: no-repeat;
   background-position:
-    calc(100% + 5.75rem) calc(0px - 4rem),
+    calc(100% + 5.75rem) calc(0 - 4rem),
     center,
     right bottom;
   color: var(--cor-fundo-1);
@@ -21,13 +18,10 @@
 @media screen and (min-width: 834px) {
   .newsletter {
     background-image:
-    url(../../assets/svg/decoracao-white.svg),
-    linear-gradient(0deg, var(--cor-fundo-50), var(--cor-fundo-50)),
-    url(../../assets/img/tablet/newsletter.jpg);
-    background-size:
-      21.7rem,
-      cover,
-      cover;
+      url(../../assets/svg/decoracao-white.svg),
+      linear-gradient(0deg, var(--cor-fundo-50), var(--cor-fundo-50)),
+      url(../../assets/img/newsletter.jpg);
+    background-size: 21.7rem, cover, cover;
     background-position:
       calc(100% + 5.75rem) 1rem,
       center,
@@ -40,14 +34,11 @@
 @media screen and (min-width: 1440px) {
   .newsletter {
     background-image:
-    url(../../assets/svg/decoracao-white.svg),
-    linear-gradient(0deg, var(--cor-fundo-50), var(--cor-fundo-50)),
-    url(../../assets/img/desktop/newsletter.jpg);
-    background-size:
-      23.5rem,
-      cover,
-      cover;
-      background-position:
+      url(../../assets/svg/decoracao-white.svg),
+      linear-gradient(0deg, var(--cor-fundo-50), var(--cor-fundo-50)),
+      url(../../assets/img/newsletter.jpg);
+    background-size: 23.5rem, cover, cover;
+    background-position:
       calc(100% + 5.75rem) 1rem,
       center,
       right top;

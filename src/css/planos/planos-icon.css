@@ -1,32 +1,29 @@
 .planos__icon {
-  fill: var(--cor-principal);
-  width: 2.5rem;
-  min-width: 2.5rem;
+  color: var(--cor-principal);
+  font-size: 2.5rem;
 }
 
 .planos__icon--check {
-  fill: none;
-  width: 2rem;
-  min-width: auto;
+  font-size: 2rem;
   vertical-align: middle;
 }
 
 @media screen and (min-width: 834px) {
   .planos__icon {
-    width: 3rem;
+    font-size: 3rem;
   }
-  
+
   .planos__icon--check {
-    width: 2.5rem;
+    font-size: 2.5rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .planos__icon {
-    width: 3.5rem;
+    font-size: 3.5rem;
   }
-  
+
   .planos__icon--check {
-    width: 3rem;
+    font-size: 3rem;
   }
 }

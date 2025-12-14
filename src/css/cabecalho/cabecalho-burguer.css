@@ -5,8 +5,6 @@
   top: 4rem;
   right: 2rem;
   background-color: var(--cor-fundo-35);
-  background-image: url(../../assets/svg/dumbbell-min.svg);
-  background-size: 100%;
   padding: 0;
   margin: 0;
   display: flex;
@@ -14,8 +12,11 @@
   justify-content: space-around;
   outline: 0;
   border: 0.2rem solid var(--cor-principal);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (min-width: 1440px) {
