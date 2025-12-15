@@ -2,19 +2,21 @@
 
 const gulp = require("gulp");
 const cleanCSS = require("gulp-clean-css");
-const fs = require("fs");
 const path = require("path");
 
 const paths = require("../../paths");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
+const { fileExists } = require("../../utils/fileExists");
 
-const useSrcFlag = process.argv.includes("--src");
+const { getBuildContext } = require("../utils/context");
+const ctx = getBuildContext();
 
-const label = useSrcFlag ? "source files" : "bundle";
+const baseDir = ctx.isDebug ? "src/css" : "temp/css";
+const label = ctx.isDebug ? "source files" : "bundle";
 const bundlePath = path.join(paths.css.temp, "bundle.css");
-const inputPath = useSrcFlag ? paths.css.src : bundlePath;
+const inputPath = ctx.isDebug ? paths.css.src : bundlePath;
 
 let timer;
 
@@ -25,7 +27,7 @@ function logStart(cb) {
   log.verbose(`→ Output directory: ${paths.css.dist}`);
   cb();
 }
-logStart.displayName = "css:concat:log:start";
+logStart.displayName = "css:minify:log:start";
 
 function logEnd(cb) {
   log.success(
@@ -33,20 +35,20 @@ function logEnd(cb) {
   );
   cb();
 }
-logEnd.displayName = "css:concat:log:end";
+logEnd.displayName = "css:minify:log:end";
 
 function minifyTask() {
-  if (!useSrcFlag && !fs.existsSync(bundlePath)) {
+  if (!ctx.isDebug && !fileExists(bundlePath)) {
     log.warn(
-      `Bundle file not found at ${bundlePath}. Please run 'css:concat' first or use the '--src' flag to minify directly from source files.`,
+      `Bundle file not found at ${bundlePath}. Please run 'css:concat' first or use the '--debug' flag to minify directly from source files.`,
     );
     return Promise.resolve();
   }
 
   return gulp
-    .src(inputPath, { allowEmpty: true })
+    .src(inputPath, { allowEmpty: true, base: baseDir })
     .pipe(cleanCSS({ compatibility: "ie8", level: 2 }))
-    .pipe(gulp.dest(paths.css.dist))
+    .pipe(gulp.dest(paths.css.dist, { relative: false }))
     .on("error", (err) => {
       log.error(`CSS minification failed: ${err.message}`);
       throw err;
@@ -60,9 +62,9 @@ cssMinify.displayName = "css:minify";
 cssMinify.description =
   "Minify CSS files and output/saves to the dist directory/folder.";
 cssMinify.flags = {
-  "--silent": "Hides informational logs, showing only warnings and errors.",
+  "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
-  "--src": "Minify directly from the source files instead of temp.",
+  "--debug": "Run task in isolation using source files instead of temp bundle.",
 };
 
 gulp.task(cssMinify.displayName, cssMinify);
