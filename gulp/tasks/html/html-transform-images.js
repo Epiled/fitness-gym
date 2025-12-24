@@ -3,10 +3,16 @@
 const gulp = require("gulp");
 const cheerio = require("gulp-cheerio");
 
-const paths = require("../../paths");
-
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
+
+const { getBuildContext } = require("../utils/context");
+const ctx = getBuildContext();
+
+const baseDir = ctx.isDebug
+  ? ctx.paths.html.src
+  : `${ctx.paths.html.temp}/**/*.html`;
+const outputDir = ctx.isDebug ? ctx.paths.html.dist : ctx.paths.html.temp;
 
 let timer;
 
@@ -25,24 +31,24 @@ const parseSizes = (str = "") => {
 
 function logStart(cb) {
   timer = startTimer();
-  log.info(`Start transform images in the HTML`);
-  log.verbose(`→ Source: ${paths.html.src}`);
-  log.verbose(`→ Output directory: ${paths.html.dist}`);
+  log.info("Start transform images in the HTML...");
+  log.verbose(`→ Source: ${baseDir}`);
+  log.verbose(`→ Output directory: ${outputDir}`);
   cb();
 }
-logStart.displayName = "html:transform:images:start";
+logStart.displayName = "html:transform:images:log:start";
 
 function logEnd(cb) {
   log.success(
-    `Finished transform images in the HTML ${timer.end()} → ${paths.html.dist}`,
+    `Finished transforming images in HTML! ${timer.end()} → ${outputDir}`,
   );
   cb();
 }
-logEnd.displayName = "html:transform:images:end";
+logEnd.displayName = "html:transform:images:log:end";
 
 function htmlTransformImagesTask() {
   return gulp
-    .src(paths.html.src)
+    .src(baseDir)
     .pipe(
       cheerio(($) => {
         $("[data-gulp-cheerio]").each((_, el) => {
@@ -61,7 +67,7 @@ function htmlTransformImagesTask() {
             .map(([k, v]) => ` ${k}="${v}"`)
             .join("");
 
-          const imgs = (sizesKeys || []).reduceRight((acc, key, index) => {
+          const imgs = sizesKeys.reduceRight((acc, key, index) => {
             if (!sizes[key]) {
               return acc;
             }
@@ -103,7 +109,7 @@ function htmlTransformImagesTask() {
         });
       }),
     )
-    .pipe(gulp.dest(paths.html.dist))
+    .pipe(gulp.dest(outputDir))
     .on("error", (err) => {
       log.error(`Transform images failed: ${err.message}`);
       throw err;
@@ -121,8 +127,10 @@ htmlTransformImages.displayName = "html:transform:images";
 htmlTransformImages.description =
   "Transform marked images in the HTML to responsive <picture> structure and save to dist.";
 htmlTransformImages.flags = {
-  "--silent": "Hides informational logs, showing only warnings and errors.",
+  "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
+  "--debug":
+    "Outputs transformed HTML files directly to the distribution directory instead of a temporary location.",
 };
 
 gulp.task(htmlTransformImages.displayName, htmlTransformImages);
