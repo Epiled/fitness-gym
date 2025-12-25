@@ -2,43 +2,45 @@
 
 const gulp = require("gulp");
 const sharpResponsive = require("gulp-sharp-responsive");
-const fs = require("fs");
-
-const paths = require("../../paths");
+const path = require("path");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
+const { fileExists } = require("../../utils/fileExists");
+
+const { getBuildContext } = require("../utils/context");
+const ctx = getBuildContext();
 
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
-  log.info(`Start resize to tablet size`);
-  log.verbose(`→ Source: ${paths.images.src}`);
-  log.verbose(`→ Output directory: ${paths.images.tablet}`);
-  log.verbose(`→ Format: 840x560 (png)`);
+  log.info("Start resize to tablet size...");
+  log.verbose(`→ Source: ${ctx.paths.images.src}`);
+  log.verbose(`→ Output directory: ${ctx.paths.images.tablet}`);
+  log.verbose("→ Format: 840x560 (png)");
   cb();
 }
-logStart.displayName = "resize:tablet:start";
+logStart.displayName = "resize:tablet:log:start";
 
 function logEnd(cb) {
   log.success(
-    `Finished resize to tablet size! ${timer.end()} → ${paths.images.tablet}`,
+    `Finished resize to tablet size! ${timer.end()} → ${ctx.paths.images.tablet}`,
   );
   cb();
 }
-logEnd.displayName = "resize:tablet:end";
+logEnd.displayName = "resize:tablet:log:end";
 
 function resizeTabletTask() {
-  const srcDir = paths.images.src.split("/*")[0];
+  const srcDir = path.dirname(ctx.paths.images.src);
 
-  if (!fs.existsSync(srcDir)) {
+  if (!fileExists(srcDir)) {
     log.warn(`Source directory not found: ${srcDir}`);
     return Promise.resolve();
   }
 
   return gulp
-    .src(paths.images.src)
+    .src(ctx.paths.images.src)
     .pipe(
       sharpResponsive({
         formats: [
@@ -50,7 +52,7 @@ function resizeTabletTask() {
         ],
       }),
     )
-    .pipe(gulp.dest(paths.images.tablet))
+    .pipe(gulp.dest(ctx.paths.images.tablet))
     .on("error", (err) => {
       log.error(`Resize images to tablet failed: ${err.message}`);
       throw err;
@@ -63,7 +65,7 @@ const resizeTablet = gulp.series(logStart, resizeTabletTask, logEnd);
 resizeTablet.displayName = "resize:tablet";
 resizeTablet.description = "Resize source images to 840x560 for tablet output.";
 resizeTablet.flags = {
-  "--silent": "Hides informational logs, showing only warnings and errors.",
+  "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
 };
 

@@ -2,43 +2,45 @@
 
 const gulp = require("gulp");
 const sharpResponsive = require("gulp-sharp-responsive");
-const fs = require("fs");
-
-const paths = require("../../paths");
+const path = require("path");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
+const { fileExists } = require("../../utils/fileExists");
+
+const { getBuildContext } = require("../utils/context");
+const ctx = getBuildContext();
 
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
-  log.info(`Start resizing to desktop size`);
-  log.verbose(`→ Source: ${paths.images.src}`);
-  log.verbose(`→ Output directory: ${paths.images.desktop}`);
-  log.verbose(`→ Format: 1920x1080 (png)`);
+  log.info("Start resize to desktop size...");
+  log.verbose(`→ Source: ${ctx.paths.images.src}`);
+  log.verbose(`→ Output directory: ${ctx.paths.images.desktop}`);
+  log.verbose("→ Format: 1920x1080 (png)");
   cb();
 }
-logStart.displayName = "resize:desktop:start";
+logStart.displayName = "resize:desktop:log:start";
 
 function logEnd(cb) {
   log.success(
-    `Finished resize to desktop size! ${timer.end()} → ${paths.images.desktop}`,
+    `Finished resize to desktop size! ${timer.end()} → ${ctx.paths.images.desktop}`,
   );
   cb();
 }
-logEnd.displayName = "resize:desktop:end";
+logEnd.displayName = "resize:desktop:log:end";
 
 function resizeDesktopTask() {
-  const srcDir = paths.images.src.split("/*")[0];
+  const srcDir = path.dirname(ctx.paths.images.src);
 
-  if (!fs.existsSync(srcDir)) {
+  if (!fileExists(srcDir)) {
     log.warn(`Source directory not found: ${srcDir}`);
     return Promise.resolve();
   }
 
   return gulp
-    .src(paths.images.src)
+    .src(ctx.paths.images.src)
     .pipe(
       sharpResponsive({
         formats: [
@@ -50,7 +52,7 @@ function resizeDesktopTask() {
         ],
       }),
     )
-    .pipe(gulp.dest(paths.images.desktop))
+    .pipe(gulp.dest(ctx.paths.images.desktop))
     .on("error", (err) => {
       log.error(`Resize images to desktop failed: ${err.message}`);
       throw err;
@@ -64,7 +66,7 @@ resizeDesktop.displayName = "resize:desktop";
 resizeDesktop.description =
   "Resize source images to 1920x1080 for desktop output.";
 resizeDesktop.flags = {
-  "--silent": "Hides informational logs, showing only warnings and errors.",
+  "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
 };
 

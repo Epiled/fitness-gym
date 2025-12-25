@@ -2,43 +2,45 @@
 
 const gulp = require("gulp");
 const sharpResponsive = require("gulp-sharp-responsive");
-const fs = require("fs");
-
-const paths = require("../../paths");
+const path = require("path");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
+const { fileExists } = require("../../utils/fileExists");
+
+const { getBuildContext } = require("../utils/context");
+const ctx = getBuildContext();
 
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
-  log.info(`Start resize to mobile size`);
-  log.verbose(`→ Source: ${paths.images.src}`);
-  log.verbose(`→ Output directory: ${paths.images.mobile}`);
-  log.verbose(`→ Format: 390x260 (png)`);
+  log.info("Start resize to mobile size...");
+  log.verbose(`→ Source: ${ctx.paths.images.src}`);
+  log.verbose(`→ Output directory: ${ctx.paths.images.mobile}`);
+  log.verbose("→ Format: 390x260 (png)");
   cb();
 }
-logStart.displayName = "resize:mobile:start";
+logStart.displayName = "resize:mobile:log:start";
 
 function logEnd(cb) {
   log.success(
-    `Finished resize to mobile size! ${timer.end()} → ${paths.images.mobile}`,
+    `Finished resize to mobile size! ${timer.end()} → ${ctx.paths.images.mobile}`,
   );
   cb();
 }
-logEnd.displayName = "resize:mobile:end";
+logEnd.displayName = "resize:mobile:log:end";
 
 function resizeMobileTask() {
-  const srcDir = paths.images.src.split("/*")[0];
+  const srcDir = path.dirname(ctx.paths.images.src);
 
-  if (!fs.existsSync(srcDir)) {
+  if (!fileExists(srcDir)) {
     log.warn(`Source directory not found: ${srcDir}`);
     return Promise.resolve();
   }
 
   return gulp
-    .src(paths.images.src)
+    .src(ctx.paths.images.src)
     .pipe(
       sharpResponsive({
         formats: [
@@ -50,7 +52,7 @@ function resizeMobileTask() {
         ],
       }),
     )
-    .pipe(gulp.dest(paths.images.mobile))
+    .pipe(gulp.dest(ctx.paths.images.mobile))
     .on("error", (err) => {
       log.error(`Resize images to mobile failed: ${err.message}`);
       throw err;
@@ -63,7 +65,7 @@ const resizeMobile = gulp.series(logStart, resizeMobileTask, logEnd);
 resizeMobile.displayName = "resize:mobile";
 resizeMobile.description = "Resize source images to 390x260 for mobile output.";
 resizeMobile.flags = {
-  "--silent": "Hides informational logs, showing only warnings and errors.",
+  "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
 };
 
