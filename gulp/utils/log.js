@@ -8,11 +8,11 @@ const chalk = require("chalk");
  * @param {string} message - The log message.
  */
 
-let isSilent = process.argv.includes("--silent");
+let isSilence = process.argv.includes("--silence");
 let isVerbose = process.argv.includes("--verbose");
 
 function log(type = "info", message = "") {
-  if (isSilent && type === "info") return;
+  if (isSilence && type === "info") return;
 
   const time = chalk.gray(`[${new Date().toLocaleTimeString("pt-BR")}]`);
 
@@ -29,8 +29,8 @@ function log(type = "info", message = "") {
 }
 
 // Convenient Shortcut
-log.setSilent = (val = true) => {
-  isSilent = val;
+log.setsilence = (val = true) => {
+  isSilence = val;
 };
 log.setVerbose = (val = true) => {
   isVerbose = val;
