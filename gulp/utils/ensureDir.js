@@ -1,4 +1,4 @@
-// ← check if exist directory
+// ← utils to check if exist directory
 
 const fs = require("fs");
 
