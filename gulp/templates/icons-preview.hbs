@@ -1,3 +1,15 @@
+{{!-- 
+  Icon font preview HTML template.
+
+  This template renders a preview page for all generated icons.
+
+  Variables:
+   - fontName → Font family name
+   - glyphs   → Array of icon glyphs with 'name' property
+   - name     → Icon CSS class name (applied without prefix)
+ --}}
+
+
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -55,7 +67,7 @@
     <div class="grid" id="icons">
       {{#each glyphs}}
         <div class="icon-box" data-name="{{name}}">
-          <i class="icon icon-{{name}}"></i>
+          <i class="icon {{name}}"></i>
           <div class="icon-name">{{name}}</div>
         </div>
       {{/each}}
