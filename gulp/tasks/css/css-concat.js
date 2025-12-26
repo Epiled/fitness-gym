@@ -1,4 +1,4 @@
-// ← tasks to concat css.
+// ← tasks to concat CSS.
 
 const gulp = require("gulp");
 const concatCSS = require("gulp-concat-css");

@@ -1,4 +1,4 @@
-// ← tasks to minify css.
+// ← tasks to minify CSS.
 
 const gulp = require("gulp");
 const cleanCSS = require("gulp-clean-css");

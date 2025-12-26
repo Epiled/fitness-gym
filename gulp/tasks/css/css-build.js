@@ -15,7 +15,7 @@ let timer;
 
 function logStart(cb) {
   timer = startTimer();
-  log.info("Start CSS build");
+  log.info("Start CSS build...");
   log.verbose(`→ Output directory: ${ctx.paths.css.dist}`);
   log.verbose("→ Pipeline: concat → minify");
   cb();

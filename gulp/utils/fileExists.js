@@ -1,4 +1,4 @@
-// ← utils to check if exist file
+// ← utils to check if exist file.
 
 const fs = require("fs");
 
