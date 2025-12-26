@@ -1,7 +1,8 @@
-// ← opções globais, nomes de fontes etc.
+// ← global options, font names, etc.
 
 module.exports = {
-  fontName: "studio-icons",
+  fontName: "fitness-gym-icons",
+  folderName: "fitness-gym-icons",
+  fontPath: "../assets/fonts",
   cssClass: "icon",
-  runTimestamp: Math.round(Date.now() / 1000),
 };
