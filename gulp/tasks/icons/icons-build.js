@@ -7,9 +7,10 @@ const handlebars = require("handlebars");
 const iconfont = require("gulp-iconfont");
 
 const { iconsOptimize } = require("./icons-optimize");
-const { iconsCompileCSS } = require("./icons-compile");
 const { iconsCompilePreview } = require("./icons-preview");
-const { iconsWriteOutputs } = require("./icons-write-outputs");
+
+const { iconsWriteOutputs } = require("../../helpers/icons-write-outputs");
+const { iconsCompileCSS } = require("../../helpers/icons-compile");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
