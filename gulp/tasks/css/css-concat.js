@@ -4,23 +4,24 @@ const gulp = require("gulp");
 const concatCSS = require("gulp-concat-css");
 const path = require("path");
 
-const paths = require("../../paths");
-
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
 const { fileExists } = require("../../utils/fileExists");
 
-const { getBuildContext } = require("../utils/context");
+const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const outputDir = ctx.isDebug ? paths.css.dist : paths.css.temp;
+const srcGlob = ctx.paths.css.src;
+const srcDir = path.dirname(srcGlob).split("/**")[0];
+const outputDir = ctx.isDebug ? ctx.paths.css.dist : ctx.paths.css.temp;
 
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
   log.info("Start CSS concatenation from source files...");
-  log.verbose(`→ Source: ${paths.css.src}`);
+  log.verbose(`→ Source glob: ${srcGlob}`);
+  log.verbose(`→ Source dir: ${srcDir}`);
   log.verbose(`→ Output directory: ${outputDir}`);
   cb();
 }
@@ -33,22 +34,15 @@ function logEnd(cb) {
 logEnd.displayName = "css:concat:log:end";
 
 function concatTask() {
-  const srcDir = path.dirname(paths.css.src);
-
   if (!fileExists(srcDir)) {
     log.warn(`Source CSS directory not found at ${srcDir}.`);
     return Promise.resolve();
   }
 
   return gulp
-    .src(paths.css.src, { allowEmpty: true, base: srcDir })
+    .src(srcGlob, { allowEmpty: true, base: srcDir })
     .pipe(concatCSS("bundle.css"))
-    .pipe(gulp.dest(outputDir))
-    .on("error", (err) => {
-      log.error(`CSS concatenation failed: ${err.message}`);
-      // Propagate error to Gulp/CI
-      throw err;
-    });
+    .pipe(gulp.dest(outputDir));
 }
 concatTask.displayName = "css:concat:run";
 
