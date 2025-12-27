@@ -1,118 +1,65 @@
-// ← tasks to generate webfont from SVGs
+// ← tasks to generate webfont from SVGs.
 
 const gulp = require("gulp");
 const path = require("path");
 const fs = require("fs");
-const through = require("through2");
 const handlebars = require("handlebars");
 const iconfont = require("gulp-iconfont");
 
 const { iconsOptimize } = require("./icons-optimize");
-
-const paths = require("../../paths");
-const config = require("../../config");
+const { iconsCompileCSS } = require("./icons-compile");
+const { iconsCompilePreview } = require("./icons-preview");
+const { iconsWriteOutputs } = require("./icons-write-outputs");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
 const { fileExists } = require("../../utils/fileExists");
 
-const args = process.argv.slice(2);
-const isSASS = args.includes("--sass");
+const { getBuildContext } = require("../utils/context");
+const ctx = getBuildContext();
 
 const baseIconTemplatePath = path.resolve(
   __dirname,
-  "../templates/base-icons.hbs",
+  "../../templates/base-icons.hbs",
 );
 handlebars.registerPartial(
   "base-icons",
   fs.readFileSync(baseIconTemplatePath, "utf8"),
 );
 
-const iconsTemplatePath = isSASS
-  ? path.resolve(__dirname, "../templates/icons.scss.hbs")
-  : path.resolve(__dirname, "../templates/icons.css.hbs");
+const targetPath = ctx.isSASS
+  ? path.join(ctx.paths.icons.scss, `_${ctx.config.fontName}.scss`)
+  : path.join(ctx.paths.css.dist, `${ctx.config.fontName}.css`);
 
-// 🔧 Corrigido: garante que o CSS vá para dist/css/
-const targetPath = isSASS
-  ? path.join(paths.icons.scss, `_${config.fontName}.scss`)
-  : path.join(paths.css.dist, `${config.fontName}.css`);
-
-const previewPath = path.join(paths.dist, "icons-preview.html");
-const previewTemplatePath = path.resolve(
-  __dirname,
-  "../templates/icons-preview.hbs",
-);
+const outputDir = ctx.isDebug ? ctx.paths.icons.dev : ctx.paths.icons.dist;
 
 let timer;
 let glyphCount = 0;
 
 function logStart(cb) {
   timer = startTimer();
-  log.info(`Generating webfont: ${config.fontName}`);
-  log.verbose(`→ Source: ${paths.icons.src}`);
+  log.info(`Generating webfont: ${ctx.config.fontName}`);
+  log.verbose(`→ Source: ${ctx.paths.icons.src}`);
   log.verbose(`→ Target: ${targetPath}`);
-  log.verbose(`→ Output directory: ${paths.icons.dist}`);
+  log.verbose(`→ Output directory: ${outputDir}`);
+  log.info("→ Pipeline: iconsOptimize → iconsFontTask");
   cb();
 }
-logStart.displayName = "icons:start";
+logStart.displayName = "icons:log:start";
 
 function logEnd(cb) {
   log.success(
-    `Finished generating webfont: ${config.fontName} (${timer.end()}) → ${paths.icons.dist}`,
+    `Finished generating webfont: ${ctx.config.fontName} (${timer.end()}) → ${outputDir}`,
   );
-  log.info(`→ Total icons generate: ${glyphCount}`);
-  log.info(`→ Preview generate: ${previewPath}`);
+  log.info(`→ Total icons generated: ${glyphCount}`);
   cb();
 }
-logEnd.displayName = "icons:end";
-
-function compileCSSTemplate(glyphs) {
-  if (!fileExists(iconsTemplatePath)) {
-    log.error(`Template de CSS não encontrado: ${iconsTemplatePath}`);
-    return Promise.resolve();
-  }
-
-  const cssRaw = fs.readFileSync(iconsTemplatePath, "utf8");
-  const cssCompiled = handlebars.compile(cssRaw);
-  return cssCompiled({
-    fontName: config.fontName,
-    fontPath: "../fonts/",
-    cssClass: "icon",
-    glyphs: glyphs.map((g) => ({
-      name: g.name,
-      code: "\\" + g.unicode[0].charCodeAt(0).toString(16),
-    })),
-  });
-}
-
-// --- generate preview ---
-function compilePreviewTemplate(glyphs) {
-  if (!fileExists(previewTemplatePath)) {
-    log.error(`Template de Preview não encontrado: ${previewTemplatePath}`);
-    return Promise.resolve();
-  }
-
-  const previewRaw = fs.readFileSync(previewTemplatePath, "utf8");
-  const previewCompiled = handlebars.compile(previewRaw);
-  return previewCompiled({
-    fontName: config.fontName,
-    glyphs: glyphs.map((g) => ({
-      name: g.name,
-    })),
-  });
-}
-
-function writeOutputs(css, preview) {
-  ensureDir(path.dirname(targetPath));
-  fs.writeFileSync(targetPath, css);
-  fs.writeFileSync(previewPath, preview);
-}
+logEnd.displayName = "icons:log:end";
 
 function iconsFontTask() {
   log.info("Checking SVGs...");
-  const totalSVGs = [];
 
-  const srcDir = path.dirname(paths.icons.src.replace(/\\/g, "/"));
+  const srcDir = path.dirname(ctx.paths.icons.src);
 
   if (!fileExists(srcDir)) {
     log.error(`Icons source not found: ${srcDir}`);
@@ -123,54 +70,46 @@ function iconsFontTask() {
   const svgCount = iconFiles.filter((f) => f.endsWith(".svg")).length;
 
   if (svgCount === 0) {
-    log.warn(`SVGs Not found: ${paths.icons.src}`);
+    log.warn(`SVGs Not found: ${ctx.paths.icons.src}`);
     return Promise.resolve();
   }
 
   return gulp
-    .src(paths.icons.src)
-    .pipe(
-      through.obj(function (file, enc, cb) {
-        if (file.isNull()) return cb(null, file);
-        totalSVGs.push(path.basename(file.path));
-        cb(null, file);
-      }),
-    )
-    .on("end", () => {
-      log.info(`Foram encontrados ${totalSVGs.length} SVGs.`);
-    })
+    .src(ctx.paths.icons.src)
     .pipe(
       iconfont({
-        fontName: config.fontName,
+        fontName: ctx.config.fontName,
         formats: ["ttf", "woff", "woff2", "svg"],
         normalize: true,
         fontHeight: 1000,
-        prependUnicode: true,
-        timestamp: config.runTimestamp || Math.round(Date.now() / 1000),
+        prependUnicode: false,
+        timestamp: ctx.buildTimestamp,
       }).on("glyphs", function (glyphs) {
-        const css = compileCSSTemplate();
-        const preview = compilePreviewTemplate();
+        const css = iconsCompileCSS(glyphs);
+        const preview = iconsCompilePreview(glyphs);
 
-        writeOutputs(css, preview);
+        iconsWriteOutputs(css, preview);
 
         log.verbose(`→ Glyphs: ${glyphs.map((g) => g.name).join(", ")}`);
 
         glyphCount = glyphs.length;
       }),
     )
-    .pipe(gulp.dest(paths.icons.dist));
+    .pipe(gulp.dest(outputDir));
 }
 iconsFontTask.displayName = "icons:font:run";
 
-const iconsFont = gulp.series(logStart, iconsOptimize, iconsFontTask, logEnd);
+const iconsBuild = gulp.series(logStart, iconsOptimize, iconsFontTask, logEnd);
 
-iconsFont.displayName = "icons:font";
-iconsFont.description = "Generate icon font file.";
-iconsFont.flags = {
-  "--silent": "Hides informational logs, showing only warnings and errors.",
+iconsBuild.displayName = "icons:build";
+iconsBuild.description = "Generate icon font file.";
+iconsBuild.flags = {
+  "--debug": "Write outputs to the dev directory instead of dist.",
+  "--sass": "Generate SASS stylesheet instead of CSS.",
+  "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
 };
 
-gulp.task(iconsFont.displayName, iconsFont);
+gulp.task(iconsBuild.displayName, iconsBuild);
 
-module.exports = { iconsFont };
+module.exports = { iconsBuild };
