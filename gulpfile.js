@@ -1,26 +1,16 @@
-// ← arquivo principal (carrega as tasks)
+// ← main entry file (loads tasks and defines top-level commands).
 
 const gulp = require("gulp");
 
 const requireDir = require("require-dir");
 
-// Carrega todas as tasks da pasta gulp/tasks
+// Load all tasks from gulp/tasks folder
 requireDir("./gulp/tasks", { recurse: true });
 
-gulp.task("copy", () => {
-  return gulp.src("src/**/*").pipe(gulp.dest("dist"));
-});
+gulp.task(
+  "build",
+  gulp.series("clean", "static:files", "css:build", "html:build"),
+);
 
-gulp.task("static-files", async function () {
-  return gulp
-    .src(["src/**/*.html", "src/**/*", "!src/css/**/*"])
-    .pipe(gulp.dest("dist"));
-});
-
-// gulp.task(
-//   "build",
-//   gulp.series("clean", "static-files", "css:build", "html:replace:css"),
-// );
-
-// // Task padrão (executada ao rodar apenas "gulp")
-// gulp.task("default", gulp.series("build"));
+// Default task (runs when executing just "gulp")
+gulp.task("default", gulp.series("serve"));
