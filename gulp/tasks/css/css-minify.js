@@ -11,32 +11,35 @@ const { fileExists } = require("../../utils/fileExists");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const baseDir = ctx.isDebug ? "src/css" : "temp/css";
+const baseDir = ctx.isDebug ? ctx.paths.css.dir : ctx.paths.css.temp;
 const label = ctx.isDebug ? "source files" : "bundle";
+
 const bundlePath = path.join(ctx.paths.css.temp, "bundle.css");
-const inputPath = ctx.isDebug ? ctx.paths.css.src : bundlePath;
+
+const inputPath = ctx.isDebug ? ctx.paths.css.glob : bundlePath;
+
+const outputDir = ctx.paths.css.dist;
 
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
   log.info(`Start CSS minification from ${label}...`);
-  log.verbose(`→ Source: ${inputPath}`);
-  log.verbose(`→ Output directory: ${ctx.paths.css.dist}`);
+  log.verbose(`→ Source glob: ${inputPath}`);
+  log.verbose(`→ Source dir: ${baseDir}`);
+  log.verbose(`→ Output directory: ${outputDir}`);
   cb();
 }
 logStart.displayName = "css:minify:log:start";
 
 function logEnd(cb) {
-  log.success(
-    `Finished CSS minification! → ${timer.end()} → ${ctx.paths.css.dist}`,
-  );
+  log.success(`Finished CSS minification! → ${timer.end()} → ${outputDir}`);
   cb();
 }
 logEnd.displayName = "css:minify:log:end";
 
 function minifyTask() {
-  if (!fileExists(bundlePath)) {
+  if (!ctx.isDebug && !fileExists(bundlePath)) {
     log.warn(
       `Bundle file not found at ${bundlePath}. Please run 'css:concat' first or use the '--debug' flag to minify directly from source files.`,
     );
@@ -46,11 +49,7 @@ function minifyTask() {
   return gulp
     .src(inputPath, { allowEmpty: true, base: baseDir })
     .pipe(cleanCSS({ compatibility: "ie8", level: 2 }))
-    .pipe(gulp.dest(ctx.paths.css.dist, { relative: false }))
-    .on("error", (err) => {
-      log.error(`CSS minification failed: ${err.message}`);
-      throw err;
-    });
+    .pipe(gulp.dest(outputDir));
 }
 minifyTask.displayName = "css:minify:run";
 

@@ -11,8 +11,9 @@ const { fileExists } = require("../../utils/fileExists");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const srcGlob = ctx.paths.css.src;
+const srcGlob = ctx.paths.css.glob;
 const srcDir = path.dirname(srcGlob).split("/**")[0];
+
 const outputDir = ctx.isDebug ? ctx.paths.css.dist : ctx.paths.css.temp;
 
 let timer;

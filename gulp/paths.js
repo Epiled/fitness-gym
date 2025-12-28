@@ -25,8 +25,8 @@ const paths = {
     dist: "dist/html",
   },
   css: {
-    src: "src/css/**/*.css",
-    dev: "src/css",
+    glob: "src/css/**/*.css",
+    dir: "src/css",
     temp: "temp/css",
     dist: "dist/css",
   },

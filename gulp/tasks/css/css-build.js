@@ -4,6 +4,7 @@ const gulp = require("gulp");
 
 const { cssConcat } = require("./css-concat");
 const { cssMinify } = require("./css-minify");
+const { cleanTempCSS } = require("../clean/clean-temp-css");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -11,24 +12,33 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
+const outputDir = ctx.paths.css.dist;
+
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
   log.info("Start CSS build...");
-  log.verbose(`→ Output directory: ${ctx.paths.css.dist}`);
+  log.verbose(`→ Output directory: ${outputDir}`);
   log.verbose("→ Pipeline: concat → minify");
   cb();
 }
 logStart.displayName = "css:build:log:start";
 
 function logEnd(cb) {
-  log.success(`Finished CSS build! ${timer.end()} → ${ctx.paths.css.dist}`);
+  log.success(`Finished CSS build! ${timer.end()} → ${outputDir}`);
   cb();
 }
 logEnd.displayName = "css:log:end";
 
-const cssBuild = gulp.series(logStart, cssConcat, cssMinify, logEnd);
+const cssBuild = gulp.series(
+  logStart,
+  cleanTempCSS,
+  cssConcat,
+  cssMinify,
+  cleanTempCSS,
+  logEnd,
+);
 
 cssBuild.displayName = "css:build";
 cssBuild.description =
