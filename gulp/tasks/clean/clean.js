@@ -3,10 +3,10 @@
 const gulp = require("gulp");
 const clean = require("gulp-clean");
 
-const { log } = require("../utils/log");
-const { startTimer } = require("../utils/timer");
+const { log } = require("../../utils/log");
+const { startTimer } = require("../../utils/timer");
 
-const { getBuildContext } = require("../utils/context");
+const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
 let timer;
