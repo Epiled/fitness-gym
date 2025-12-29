@@ -3,22 +3,24 @@
 const gulp = require("gulp");
 const replace = require("gulp-replace");
 
-const paths = require("../../paths");
-
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
 
-const { getBuildContext } = require("../utils/context");
+const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const outputDir = ctx.isDebug ? paths.html.dist : paths.html.temp;
+const srcGlob = ctx.paths.html.glob;
+const srcDir = ctx.paths.html.dir;
+
+const outputDir = ctx.isDebug ? ctx.paths.dist : ctx.paths.html.temp;
 
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
-  log.info("Start replace links CSS...");
-  log.verbose(`→ Source: ${ctx.paths.html.src}`);
+  log.info("Start replace links CSS from source files...");
+  log.verbose(`→ Source glob: ${srcGlob}`);
+  log.verbose(`→ Source dir: ${srcDir}`);
   log.verbose(`→ Output directory: ${outputDir}`);
   cb();
 }
@@ -32,18 +34,14 @@ logEnd.displayName = "html:replace:css:log:end";
 
 function htmlReplaceCSSTask() {
   return gulp
-    .src(ctx.paths.html.src)
+    .src(srcGlob, { allowEmpty: true, base: srcDir })
     .pipe(
       replace(
         /<!-- build -->([\s\S]*?)<!-- endBuild -->/g,
         '<link rel="stylesheet" href="./css/bundle.css" />',
       ),
     )
-    .pipe(gulp.dest(outputDir))
-    .on("error", (err) => {
-      log.error(`Replace CSS links failed: ${err.message}`);
-      throw err;
-    });
+    .pipe(gulp.dest(outputDir));
 }
 htmlReplaceCSSTask.displayName = "html:replace:css:run";
 

@@ -5,14 +5,21 @@ const cheerio = require("gulp-cheerio");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
+const { fileExists } = require("../../utils/fileExists");
 
-const { getBuildContext } = require("../utils/context");
+const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const baseDir = ctx.isDebug
-  ? ctx.paths.html.src
-  : `${ctx.paths.html.temp}/**/*.html`;
-const outputDir = ctx.isDebug ? ctx.paths.html.dist : ctx.paths.html.temp;
+const srcGlob = ctx.paths.html.glob;
+const srcDir = ctx.paths.html.dir;
+
+const tempDir = ctx.paths.html.temp;
+const tempGlob = `${tempDir}/**/*.html`;
+
+const inputGlob = ctx.isDebug ? srcGlob : tempGlob;
+const baseDir = ctx.isDebug ? srcDir : tempDir;
+
+const outputDir = ctx.isDebug ? ctx.paths.dist : tempDir;
 
 let timer;
 
@@ -21,10 +28,15 @@ const parseSizes = (str = "") => {
     .split(",")
     .filter(Boolean)
     .reduce((acc, item) => {
-      const [key, value] = item.split(":");
+      const [keyRaw, valueRaw] = item.split(":");
+      const key = (keyRaw || "").trim();
+      const value = (valueRaw || "").trim();
+
       if (!key || !value) return acc;
+
       const [w, h, bp] = (value || "").split("x").map(Number);
       acc[key] = { width: w || 0, height: h || 0, breakPoint: bp || null };
+
       return acc;
     }, {});
 };
@@ -32,7 +44,8 @@ const parseSizes = (str = "") => {
 function logStart(cb) {
   timer = startTimer();
   log.info("Start transform images in the HTML...");
-  log.verbose(`→ Source: ${baseDir}`);
+  log.verbose(`→ Source glob: ${inputGlob}`);
+  log.verbose(`→ Source dir: ${baseDir}`);
   log.verbose(`→ Output directory: ${outputDir}`);
   cb();
 }
@@ -47,8 +60,15 @@ function logEnd(cb) {
 logEnd.displayName = "html:transform:images:log:end";
 
 function htmlTransformImagesTask() {
+  if (!ctx.isDebug && !fileExists(tempDir)) {
+    log.warn(
+      `Transformed HTML files not found at ${tempDir}. Please run 'html:replace:css' or use the 'debug' flag to transform directly from source files.`,
+    );
+    return Promise.resolve();
+  }
+
   return gulp
-    .src(baseDir)
+    .src(inputGlob, { allowEmpty: true, base: baseDir })
     .pipe(
       cheerio(($) => {
         $("[data-gulp-cheerio]").each((_, el) => {
@@ -84,7 +104,7 @@ function htmlTransformImagesTask() {
                   media="(min-width: ${br ?? w}px)"
                   width="${w}"
                   height="${h}"
-                  src="${fixedSrc}"
+                  srcset="${fixedSrc}"
                 />
                 <img                  
                   ${cleanedAttrs}
@@ -98,22 +118,19 @@ function htmlTransformImagesTask() {
                   media="(min-width: ${br ?? w}px)"
                   width="${w}"
                   height="${h}"
-                  src="${fixedSrc}"
+                  srcset="${fixedSrc}"
                 />`;
             }
 
             return acc.trim();
           }, "");
 
-          $img.replaceWith(imgs);
+          const nodes = $.parseHTML(imgs);
+          $img.replaceWith(nodes);
         });
       }),
     )
-    .pipe(gulp.dest(outputDir))
-    .on("error", (err) => {
-      log.error(`Transform images failed: ${err.message}`);
-      throw err;
-    });
+    .pipe(gulp.dest(outputDir));
 }
 htmlTransformImagesTask.displayName = "html:transform:images:run";
 
@@ -125,7 +142,7 @@ const htmlTransformImages = gulp.series(
 
 htmlTransformImages.displayName = "html:transform:images";
 htmlTransformImages.description =
-  "Transform marked images in the HTML to responsive <picture> structure and save to dist.";
+  "Transform marked images in HTML to responsive <source>/<img> markup and save output.";
 htmlTransformImages.flags = {
   "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",

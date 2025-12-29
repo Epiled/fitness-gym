@@ -20,7 +20,8 @@ const paths = {
     desktop: "dist/assets/img/desktop",
   },
   html: {
-    src: "src/**/*.html",
+    glob: "src/**/*.html",
+    dir: "src/",
     temp: "temp/html",
     dist: "dist/html",
   },
