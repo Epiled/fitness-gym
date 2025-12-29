@@ -9,12 +9,14 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
+const tempDir = ctx.paths.html.temp;
+
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
   log.info("Start cleaning temp HTML directory...");
-  log.verbose(`→ Cleaning: ${ctx.paths.temp.html}`);
+  log.verbose(`→ Cleaning: ${tempDir}`);
   cb();
 }
 logStart.displayName = "clean:temp:html:log:start";
@@ -26,13 +28,12 @@ function logEnd(cb) {
 logEnd.displayName = "clean:temp:html:log:end";
 
 function cleanTempHTMLTask() {
-  return gulp
-    .src(ctx.paths.temp.html, { read: false, allowEmpty: true })
-    .pipe(clean())
-    .on("error", (err) => {
-      log.error(`Cleaning temp HTML directory failed: ${err.message}`);
-      throw err;
-    });
+  if (!tempDir || tempDir === "." || tempDir === "/" || tempDir.length < 3) {
+    log.error(`Refusing to clean suspicious path: "${tempDir}"`);
+    return Promise.resolve();
+  }
+
+  return gulp.src(tempDir, { read: false, allowEmpty: true }).pipe(clean());
 }
 cleanTempHTMLTask.displayName = "clean:temp:html:run";
 

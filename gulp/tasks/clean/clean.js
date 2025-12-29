@@ -26,13 +26,14 @@ function logEnd(cb) {
 logEnd.displayName = "clean:log:end";
 
 function cleanTask() {
+  if (!tempDir || tempDir === "." || tempDir === "/" || tempDir.length < 3) {
+    log.error(`Refusing to clean suspicious path: "${tempDir}"`);
+    return Promise.resolve();
+  }
+
   return gulp
     .src([ctx.paths.dist, ctx.paths.temp], { read: false, allowEmpty: true })
-    .pipe(clean())
-    .on("error", (err) => {
-      log.error(`Cleaning build directories failed: ${err.message}`);
-      throw err;
-    });
+    .pipe(clean());
 }
 cleanTask.displayName = "clean:run";
 

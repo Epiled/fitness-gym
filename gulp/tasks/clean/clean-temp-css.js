@@ -9,7 +9,7 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const tempDir = ctx.paths.css.temp.replace(/\\/g, "/");
+const tempDir = ctx.paths.css.temp;
 
 let timer;
 
@@ -28,6 +28,11 @@ function logEnd(cb) {
 logEnd.displayName = "clean:temp:css:log:end";
 
 function cleanTempCSSTask() {
+  if (!tempDir || tempDir === "." || tempDir === "/" || tempDir.length < 3) {
+    log.error(`Refusing to clean suspicious path: "${tempDir}"`);
+    return Promise.resolve();
+  }
+
   return gulp.src(tempDir, { read: false, allowEmpty: true }).pipe(clean());
 }
 cleanTempCSSTask.displayName = "clean:temp:css:run";
