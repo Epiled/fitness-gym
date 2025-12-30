@@ -11,8 +11,8 @@ const { getBuildContext } = require("../utils/context");
 const ctx = getBuildContext();
 
 const iconsTemplatePath = ctx.isSASS
-  ? path.resolve(__dirname, "../../templates/icons.scss.hbs")
-  : path.resolve(__dirname, "../../templates/icons.css.hbs");
+  ? path.resolve(__dirname, "../templates/icons.scss.hbs")
+  : path.resolve(__dirname, "../templates/icons.css.hbs");
 
 function iconsCompileCSS(glyphs = []) {
   if (!fileExists(iconsTemplatePath)) {

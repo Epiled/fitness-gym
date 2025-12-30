@@ -4,15 +4,15 @@ const path = require("path");
 const fs = require("fs");
 const handlebars = require("handlebars");
 
-const { log } = require("../../utils/log");
-const { fileExists } = require("../../utils/fileExists");
+const { log } = require("../utils/log");
+const { fileExists } = require("../utils/fileExists");
 
 const { getBuildContext } = require("../utils/context");
 const ctx = getBuildContext();
 
 const previewTemplatePath = path.resolve(
   __dirname,
-  "../../templates/icons-preview.hbs",
+  "../templates/icons-preview.hbs",
 );
 
 function iconsCompilePreview(glyphs = []) {
