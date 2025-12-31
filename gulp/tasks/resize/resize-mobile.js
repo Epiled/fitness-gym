@@ -1,62 +1,59 @@
-// ← tasks to transform images size to mobile size
+// ← tasks to transform images size to mobile size.
 
 const gulp = require("gulp");
 const sharpResponsive = require("gulp-sharp-responsive");
-const path = require("path");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
 const { fileExists } = require("../../utils/fileExists");
 
-const { getBuildContext } = require("../utils/context");
+const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
+
+const srcGlob = ctx.paths.images.glob;
+const srcDir = ctx.paths.images.dir;
+
+const outputDir = ctx.paths.images.dist.mobile;
 
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
   log.info("Start resize to mobile size...");
-  log.verbose(`→ Source: ${ctx.paths.images.src}`);
-  log.verbose(`→ Output directory: ${ctx.paths.images.mobile}`);
-  log.verbose("→ Format: 390x260 (png)");
+  log.verbose(`→ Source: ${srcGlob}`);
+  log.verbose(`→ Output directory: ${outputDir}`);
+  log.verbose("→ Format: 390x260 (webp)");
   cb();
 }
 logStart.displayName = "resize:mobile:log:start";
 
 function logEnd(cb) {
-  log.success(
-    `Finished resize to mobile size! ${timer.end()} → ${ctx.paths.images.mobile}`,
-  );
+  log.success(`Finished resize to mobile size! ${timer.end()} → ${outputDir}`);
   cb();
 }
 logEnd.displayName = "resize:mobile:log:end";
 
 function resizeMobileTask() {
-  const srcDir = path.dirname(ctx.paths.images.src);
-
   if (!fileExists(srcDir)) {
     log.warn(`Source directory not found: ${srcDir}`);
     return Promise.resolve();
   }
 
   return gulp
-    .src(ctx.paths.images.src)
+    .src(srcGlob, { allowEmpty: true })
     .pipe(
       sharpResponsive({
         formats: [
           {
             width: 390,
             height: 260,
-            format: "png",
+            format: "webp",
+            quality: 80,
           },
         ],
       }),
     )
-    .pipe(gulp.dest(ctx.paths.images.mobile))
-    .on("error", (err) => {
-      log.error(`Resize images to mobile failed: ${err.message}`);
-      throw err;
-    });
+    .pipe(gulp.dest(outputDir));
 }
 resizeMobileTask.displayName = "resize:mobile:run";
 

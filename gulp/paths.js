@@ -7,21 +7,26 @@ const paths = {
   dist: "dist",
   temp: "temp",
   icons: {
-    src: "src/assets/svg/icons-ui/*.svg",
-    dev: `src/assets/fonts/${config.folderName}`,
+    glob: "src/assets/svg/icons-ui/*.svg",
+    dir: "src/assets/svg/icons-ui",
     temp: "temp/icons/icons-ui",
-    dist: "dist/fonts",
-    scss: "dist/scss",
+    dist: `dist/fonts/${config.folderName}`,
+    distUI: "dist/assets/svg/icons-ui",
+    syncDir: `src/assets/fonts/${config.folderName}`,
   },
   images: {
-    src: "src/assets/img/*.{jpg,jpeg,png}",
-    mobile: "dist/assets/img/mobile",
-    tablet: "dist/assets/img/tablet",
-    desktop: "dist/assets/img/desktop",
+    glob: "src/assets/img/*.{jpg,jpeg,png}",
+    dir: "src/assets/img",
+    dist: {
+      dir: "dist/assets/img",
+      mobile: "dist/assets/img/mobile",
+      tablet: "dist/assets/img/tablet",
+      desktop: "dist/assets/img/desktop",
+    },
   },
   html: {
     glob: "src/**/*.html",
-    dir: "src/",
+    dir: "src",
     temp: "temp/html",
     dist: "dist/html",
   },
@@ -30,6 +35,12 @@ const paths = {
     dir: "src/css",
     temp: "temp/css",
     dist: "dist/css",
+  },
+  sass: {
+    glob: "src/sass/**/*.sass",
+    dir: "src/sass",
+    temp: "temp/sass",
+    dist: "dist/sass",
   },
 };
 
