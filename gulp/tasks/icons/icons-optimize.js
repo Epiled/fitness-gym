@@ -6,31 +6,32 @@ const svgo = require("gulp-svgo");
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
 
-const { getBuildContext } = require("../utils/context");
+const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const outputDir = ctx.isDebug ? ctx.paths.icons.dist : ctx.paths.icons.temp;
+const srcGlob = ctx.paths.icons.glob;
+const outputDir = ctx.isDebug ? ctx.paths.icons.distUI : ctx.paths.icons.temp;
 
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
   log.info(`Start optimizing SVGs!`);
-  log.verbose(`→ Source: ${ctx.paths.icons.src}`);
+  log.verbose(`→ Source: ${srcGlob}`);
   log.verbose(`→ Output directory: ${outputDir}`);
   cb();
 }
-logStart.displayName = "icons:start";
+logStart.displayName = "icons:optimize:start";
 
 function logEnd(cb) {
   log.success(`Finished optimizing SVGs! ${timer.end()} → ${outputDir}`);
   cb();
 }
-logEnd.displayName = "icons:end";
+logEnd.displayName = "icons:optimize:end";
 
 function iconsOptimizeTask() {
   return gulp
-    .src(ctx.paths.icons.src, { allowEmpty: true })
+    .src(srcGlob, { allowEmpty: true })
     .pipe(
       svgo({
         plugins: [
@@ -48,9 +49,9 @@ const iconsOptimize = gulp.series(logStart, iconsOptimizeTask, logEnd);
 iconsOptimize.displayName = "icons:optimize";
 iconsOptimize.description = "Optimize SVG icons before iconfont generation.";
 iconsOptimize.flags = {
-  "--debug": "Write outputs to the temp directory instead of dist.",
   "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
+  "--debug": "Write outputs to the dist directory instead of temp.",
 };
 
 gulp.task(iconsOptimize.displayName, iconsOptimize);

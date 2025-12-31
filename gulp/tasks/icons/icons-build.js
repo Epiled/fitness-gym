@@ -7,8 +7,8 @@ const handlebars = require("handlebars");
 const iconfont = require("gulp-iconfont");
 
 const { iconsOptimize } = require("./icons-optimize");
-const { iconsCompilePreview } = require("./icons-preview");
 
+const { iconsCompilePreview } = require("../../helpers/icons-preview");
 const { iconsWriteOutputs } = require("../../helpers/icons-write-outputs");
 const { iconsCompileCSS } = require("../../helpers/icons-compile");
 
@@ -16,23 +16,31 @@ const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
 const { fileExists } = require("../../utils/fileExists");
 
-const { getBuildContext } = require("../utils/context");
+const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
+
+const srcGlob = ctx.paths.icons.glob;
+const srcDir = ctx.paths.icons.dir;
 
 const baseIconTemplatePath = path.resolve(
   __dirname,
   "../../templates/base-icons.hbs",
 );
-handlebars.registerPartial(
-  "base-icons",
-  fs.readFileSync(baseIconTemplatePath, "utf8"),
-);
+
+if (!fileExists(baseIconTemplatePath)) {
+  log.error(`Base icons template not found: ${baseIconTemplatePath}`);
+} else {
+  handlebars.registerPartial(
+    "base-icons",
+    fs.readFileSync(baseIconTemplatePath, "utf8"),
+  );
+}
 
 const targetPath = ctx.isSASS
-  ? path.join(ctx.paths.icons.scss, `_${ctx.config.fontName}.scss`)
+  ? path.join(ctx.paths.sass.dist, `_${ctx.config.fontName}.scss`)
   : path.join(ctx.paths.css.dist, `${ctx.config.fontName}.css`);
 
-const outputDir = ctx.isDebug ? ctx.paths.icons.dev : ctx.paths.icons.dist;
+const outputDir = ctx.paths.icons.dist;
 
 let timer;
 let glyphCount = 0;
@@ -40,7 +48,8 @@ let glyphCount = 0;
 function logStart(cb) {
   timer = startTimer();
   log.info(`Generating webfont: ${ctx.config.fontName}`);
-  log.verbose(`→ Source: ${ctx.paths.icons.src}`);
+  log.verbose(`→ Source glob: ${srcGlob}`);
+  log.verbose(`→ Source dir: ${srcDir}`);
   log.verbose(`→ Target: ${targetPath}`);
   log.verbose(`→ Output directory: ${outputDir}`);
   log.info("→ Pipeline: iconsOptimize → iconsFontTask");
@@ -50,7 +59,7 @@ logStart.displayName = "icons:log:start";
 
 function logEnd(cb) {
   log.success(
-    `Finished generating webfont: ${ctx.config.fontName} (${timer.end()}) → ${outputDir}`,
+    `Finished generating webfont: ${ctx.config.fontName} ${timer.end()} → ${outputDir}`,
   );
   log.info(`→ Total icons generated: ${glyphCount}`);
   cb();
@@ -59,8 +68,6 @@ logEnd.displayName = "icons:log:end";
 
 function iconsFontTask() {
   log.info("Checking SVGs...");
-
-  const srcDir = path.dirname(ctx.paths.icons.src);
 
   if (!fileExists(srcDir)) {
     log.error(`Icons source not found: ${srcDir}`);
@@ -71,12 +78,12 @@ function iconsFontTask() {
   const svgCount = iconFiles.filter((f) => f.endsWith(".svg")).length;
 
   if (svgCount === 0) {
-    log.warn(`SVGs Not found: ${ctx.paths.icons.src}`);
+    log.warn(`SVGs Not found: ${srcDir}`);
     return Promise.resolve();
   }
 
   return gulp
-    .src(ctx.paths.icons.src)
+    .src(srcGlob, { allowEmpty: true })
     .pipe(
       iconfont({
         fontName: ctx.config.fontName,
@@ -105,10 +112,9 @@ const iconsBuild = gulp.series(logStart, iconsOptimize, iconsFontTask, logEnd);
 iconsBuild.displayName = "icons:build";
 iconsBuild.description = "Generate icon font file.";
 iconsBuild.flags = {
-  "--debug": "Write outputs to the dev directory instead of dist.",
-  "--sass": "Generate SASS stylesheet instead of CSS.",
   "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
+  "--sass": "Generate SASS stylesheet instead of CSS.",
 };
 
 gulp.task(iconsBuild.displayName, iconsBuild);
