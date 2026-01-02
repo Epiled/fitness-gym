@@ -14,10 +14,10 @@ This is the main working template for the project.
 It is already configured with:
 
 Artboard size: **1024 × 1024 px**
-Drawing area: **824 × 824 px**
-Outer 200 px used as **safety margin**
+Drawing area: **1024 × 1024 px**  
+Outer 200 px reserved as a **safety margin (not used in this project)**
 Contains all current project icons.
-All icons must follow the **layer naming rules** described below
+All icons must follow the **layer naming rules** described below.
 Each icon must exist in **its own layer**
 
 ---
