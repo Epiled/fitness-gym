@@ -61,7 +61,6 @@ serve.flags = {
   "--dev": "Serve src directory (development mode).",
 };
 
-gulp.task(server.displayName, server);
 gulp.task(serve.displayName, serve);
 
 module.exports = { serve };
