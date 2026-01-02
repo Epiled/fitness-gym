@@ -1,7 +1,7 @@
 .buscador__container {
   position: relative;
-  border-radius: .5rem;
-  background-color: var(--cor-principal);
+  border-radius: 0.5rem;
+  background-color: var(--color-brand-primary);
   padding: 2rem 1rem;
   width: 100%;
   max-width: 59rem;
@@ -9,5 +9,5 @@
 }
 
 .buscador__container.active {
-  animation: topRevel .5s forwards;
+  animation: topRevel 0.5s forwards;
 }

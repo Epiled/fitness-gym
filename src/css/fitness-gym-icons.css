@@ -1,4 +1,5 @@
 
+
 @font-face {
   font-family: 'fitness-gym-icons';
   src: 
@@ -23,69 +24,72 @@
 .icon-add-user::before {
   content: "\ea01";
 }
-.icon-belt::before {
+.icon-arrow::before {
   content: "\ea02";
 }
-.icon-biceps::before {
+.icon-belt::before {
   content: "\ea03";
 }
-.icon-check-list::before {
+.icon-biceps::before {
   content: "\ea04";
 }
-.icon-check::before {
+.icon-check-list::before {
   content: "\ea05";
 }
-.icon-close::before {
+.icon-check::before {
   content: "\ea06";
 }
-.icon-dance::before {
+.icon-close::before {
   content: "\ea07";
 }
-.icon-decoration::before {
+.icon-dance::before {
   content: "\ea08";
 }
-.icon-dumbbell::before {
+.icon-decoration::before {
   content: "\ea09";
 }
-.icon-gym::before {
+.icon-dumbbell::before {
   content: "\ea0a";
 }
-.icon-house::before {
+.icon-gym::before {
   content: "\ea0b";
 }
-.icon-infinity::before {
+.icon-house::before {
   content: "\ea0c";
 }
-.icon-instagram::before {
+.icon-infinity::before {
   content: "\ea0d";
 }
-.icon-logo::before {
+.icon-instagram::before {
   content: "\ea0e";
 }
-.icon-lungs::before {
+.icon-logo::before {
   content: "\ea0f";
 }
-.icon-medal::before {
+.icon-lungs::before {
   content: "\ea10";
 }
-.icon-message::before {
+.icon-medal::before {
   content: "\ea11";
 }
-.icon-people::before {
+.icon-message::before {
   content: "\ea12";
 }
-.icon-pilates::before {
+.icon-people::before {
   content: "\ea13";
 }
-.icon-search::before {
+.icon-pilates::before {
   content: "\ea14";
 }
-.icon-tik-tok::before {
+.icon-search::before {
   content: "\ea15";
 }
-.icon-to-top::before {
+.icon-tik-tok::before {
   content: "\ea16";
 }
-.icon-whatsapp::before {
+.icon-to-top::before {
   content: "\ea17";
+}
+.icon-whatsapp::before {
+  content: "\ea18";
 }

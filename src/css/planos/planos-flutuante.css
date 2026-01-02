@@ -1,8 +1,8 @@
 .planos__flutuante {
   position: absolute;
   top: 0;
-  border-radius: .5rem;
-  border: .3rem solid var(--cor-principal);
+  border-radius: 0.5rem;
+  border: 0.3rem solid var(--color-brand-primary);
   height: 100%;
   width: 13rem;
   will-change: transform;

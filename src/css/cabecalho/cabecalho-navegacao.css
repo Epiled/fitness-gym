@@ -1,7 +1,7 @@
 .cabecalho__navegacao {
-  background-color: var(--cor-fundo-25);
-  border: .1rem solid var(--cor-principal);
-  border-radius: .5rem;
+  background-color: var(--color-surface-muted5);
+  border: 0.1rem solid var(--color-brand-primary);
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -12,14 +12,14 @@
   z-index: 2;
   opacity: 0;
   min-width: 20rem;
-  transition: all .3s;
+  transition: all 0.3s;
   backdrop-filter: blur(0.5rem);
 }
 
 .cabecalho__navegacao--ativo {
   opacity: 1;
   right: 2rem;
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
 
 @media screen and (min-width: 1440px) {
@@ -29,7 +29,7 @@
     gap: 0rem;
     position: initial;
     opacity: initial;
-    background-color: var(--cor-principal);
+    background-color: var(--color-brand-primary);
     border: 0;
     border-radius: 5rem;
     padding: 0 6rem;

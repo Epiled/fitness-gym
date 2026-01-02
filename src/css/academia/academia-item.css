@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  border: .1rem solid var(--cor-principal);
-  border-radius: .5rem;
+  border: 0.1rem solid var(--color-brand-primary);
+  border-radius: 0.5rem;
   padding: 2rem 1rem;
   text-align: center;
   min-width: 10.5rem;

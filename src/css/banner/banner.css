@@ -1,7 +1,7 @@
 .banner {
   position: relative;
   background-image:
-    linear-gradient(0deg, var(--cor-fundo-65), var(--cor-fundo-65)),
+    linear-gradient(0deg, var(--color-overlay-65), var(--color-overlay-65)),
     url(../../assets/img/banner-fitness-gym.jpg);
   background-size: cover;
   background-position: center;
@@ -11,7 +11,7 @@
 @media screen and (min-width: 834px) {
   .banner {
     background-image:
-      linear-gradient(0deg, var(--cor-fundo-65), var(--cor-fundo-65)),
+      linear-gradient(0deg, var(--color-overlay-65), var(--color-overlay-65)),
       url(../../assets/img/banner-fitness-gym.jpg);
   }
 }
@@ -21,7 +21,7 @@
     display: flex;
     justify-content: center;
     background-image:
-      linear-gradient(0deg, var(--cor-fundo-65), var(--cor-fundo-65)),
+      linear-gradient(0deg, var(--color-overlay-65), var(--color-overlay-65)),
       url(../../assets/img/banner-fitness-gym.jpg);
   }
 }

@@ -1,19 +1,19 @@
 .titulo {
-  color: var(--cor-titulo);
+  color: var(--color-text-primary);
   font-size: 2.4rem;
   font-weight: 700;
   text-align: center;
-  font-family: 'Overpass', sans-serif;
+  font-family: "Overpass", sans-serif;
 }
 
 .titulo--dest {
-  color: var(--cor-principal);
+  color: var(--color-brand-primary);
   text-decoration: underline;
-  text-underline-offset: .5rem
+  text-underline-offset: 0.5rem;
 }
 
 .titulo--alt {
-  color: var(--cor-principal);
+  color: var(--color-brand-primary);
   font-size: 4rem;
   position: relative;
   line-height: 1;
@@ -27,7 +27,7 @@
   height: 3rem;
   width: calc(100% + 4rem);
   content: "";
-  background-image: 
+  background-image:
     url(../assets/svg/halter-barra.svg),
     url(../assets/svg/halter-barra-esq.svg),
     url(../assets/svg/halter-barra-dir.svg);
@@ -47,7 +47,7 @@
   }
 
   .titulo--dest {
-    text-underline-offset: .75rem
+    text-underline-offset: 0.75rem;
   }
 }
 
@@ -62,7 +62,6 @@
 }
 
 @media screen and (min-width: 834px) and (min-width: 1440px) {
-
   .titulo--alt {
     font-size: 5.2rem;
   }

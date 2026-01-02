@@ -1,10 +1,10 @@
 .infos__icon {
   font-size: 4rem;
-  color: var(--cor-principal);
+  color: var(--color-brand-primary);
 }
 
 .infos__icon--alt {
-  color: var(--cor-principal);
+  color: var(--color-brand-primary);
 }
 
 @media screen and (min-width: 834px) {
@@ -13,7 +13,7 @@
   }
 
   .infos__icon--alt {
-    color: var(--branco);
+    color: var(--color-neutral-white);
   }
 }
 

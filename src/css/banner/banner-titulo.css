@@ -7,7 +7,7 @@
   font-size: clamp(3.2rem, 15vw, 6.4rem);
   font-weight: 900;
   text-transform: uppercase;
-  color: var(--cor-principal);
+  color: var(--color-brand-primary);
   margin: 0;
   display: block;
   line-height: 1;
@@ -18,7 +18,7 @@
   font-style: italic;
   font-weight: 600;
   text-transform: none;
-  color: var(--cor-fundo-1);
+  color: var(--color-surface-base);
   vertical-align: bottom;
 }
 

@@ -8,8 +8,8 @@
   background-image:
     linear-gradient(
       270deg,
-      var(--cor-principal-23) 0%,
-      var(--cor-principal-0) 100%
+      var(--color-brand-primary-23) 0%,
+      var(--color-brand-primary-0) 100%
     ),
     url(../../assets/img/buscador.jpg);
   background-size: cover;
@@ -22,8 +22,8 @@
     background-image:
       linear-gradient(
         270deg,
-        var(--cor-principal-23) 0%,
-        var(--cor-principal-0) 100%
+        var(--color-brand-primary-23) 0%,
+        var(--color-brand-primary-0) 100%
       ),
       url(../../assets/img/buscador.jpg);
   }
@@ -35,8 +35,8 @@
     background-image:
       linear-gradient(
         270deg,
-        var(--cor-principal-23) 0%,
-        var(--cor-principal-0) 100%
+        var(--color-brand-primary-23) 0%,
+        var(--color-brand-primary-0) 100%
       ),
       url(../../assets/img/buscador.jpg);
   }

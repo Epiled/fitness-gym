@@ -1,6 +1,6 @@
 .rodape__copyright {
-  border-top: .1rem solid var(--cor-principal);
-  color: var(--branco);
+  border-top: 0.1rem solid var(--color-brand-primary);
+  color: var(--color-neutral-white);
   font-size: 1.6rem;
   margin-top: 10rem;
   padding: 1.5rem 0 3rem 0;

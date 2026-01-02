@@ -1,10 +1,9 @@
 .infos__contador {
-  color: var(--cor-escura);
+  color: var(--color-neutral-black);
   font-size: 3.6rem;
   font-weight: 700;
-  font-family: 'Overpass', sans-serif;
+  font-family: "Overpass", sans-serif;
 }
-
 
 @media screen and (min-width: 834px) {
   .infos__contador {

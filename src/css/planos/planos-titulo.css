@@ -1,9 +1,9 @@
 .planos__titulo {
-  color: var(--cor-escura);
+  color: var(--color-neutral-black);
   font-size: 2rem;
   font-weight: 700;
   font-style: italic;
-  font-family: 'Overpass', sans-serif;
+  font-family: "Overpass", sans-serif;
 }
 
 @media screen and (min-width: 834px) {
@@ -15,6 +15,6 @@
 @media screen and (min-width: 1440px) {
   .planos__titulo {
     font-size: 3.2rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 }

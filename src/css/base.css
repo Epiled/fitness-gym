@@ -1,31 +1,29 @@
 :root {
   font-size: 62.5%;
 
-  --cor-principal: #F79517;
-  --cor-principal-0: #f7951700;
-  --cor-principal-23: #f795173b;
-  --cor-principal-75: #f79517bf;
+  --color-brand-primary: #f79517;
+  --color-brand-primary-0: #f7951700;
+  --color-brand-primary-23: #f795173b;
+  --color-brand-primary-75: #f79517bf;
 
-  --cor-fonte: #6C757D;
+  --color-text-primary: #575757;
+  --color-text-secondary: #6c757d;
+  --color-text-placeholder: #333333d6;
 
-  --cor-fundo-1: #FFF;
-  --cor-fundo-2: #F4F4FB;
-  --cor-fundo-menu-mobile: #343A40;
+  --color-surface-base: #ffffff;
+  --color-surface-muted: #f4f4fb;
+  --color-surface-mobile-menu: #343a40;
 
-  --cor-fundo-25: #00000040;
-  --cor-fundo-35: #00000059;
-  --cor-fundo-50: #00000080;
-  --cor-fundo-65: #000000a6;
+  --color-overlay-25: #00000040;
+  --color-overlay-35: #00000059;
+  --color-overlay-50: #00000080;
+  --color-overlay-65: #000000a6;
 
-  --cor-titulo: #575757;
+  --color-neutral-black: #000000;
+  --color-neutral-white: #ffffff;
+  --color-shadow: #292d3275;
 
-  --cor-escura: #000000;
-  --cor-sombra: #292d3275;
-  --cor-place: #333333d6;
-
-  --branco: #ffffff;
-
-  font-family: 'Kokoro', sans-serif;
+  font-family: "Kokoro", sans-serif;
 }
 
 * {

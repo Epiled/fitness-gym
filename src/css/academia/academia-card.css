@@ -1,7 +1,7 @@
 .academia__card {
-  background: var(--cor-fundo-2);
-  border-radius: .5rem;
-  box-shadow: 0 .3rem .3rem .2rem var(--cor-fundo-25);
+  background: var(--color-surface-muted);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.3rem 0.3rem 0.2rem var(--color-surface-muted5);
   max-width: 36rem;
   overflow: hidden;
   text-align: left;

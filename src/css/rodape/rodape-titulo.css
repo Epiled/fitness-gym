@@ -1,9 +1,9 @@
 .rodape__titulo {
-  color: var(--cor-principal);
+  color: var(--color-brand-primary);
   font-size: 3.6rem;
   font-weight: 700;
   font-style: italic;
   text-align: left;
   margin-bottom: 1rem;
-  font-family: 'Overpass', sans-serif;
+  font-family: "Overpass", sans-serif;
 }

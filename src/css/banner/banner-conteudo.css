@@ -2,7 +2,7 @@
   position: absolute;
   top: 50%;
   left: 2rem;
-  color: var(--cor-fundo-1);
+  color: var(--color-surface-base);
   display: flex;
   flex-direction: column;
   max-width: 31.5rem;
@@ -10,7 +10,7 @@
 }
 
 .banner__conteudo.active {
-  animation: topRevelBanner .5s forwards;
+  animation: topRevelBanner 0.5s forwards;
 }
 
 @media screen and (min-width: 1440px) {

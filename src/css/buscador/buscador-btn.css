@@ -9,7 +9,7 @@
   border: 0;
   border-radius: 100%;
   background: transparent;
-  color: var(--cor-principal);
+  color: var(--color-brand-primary);
   transition:
     color 0.5s,
     background 0.5s;
@@ -19,6 +19,6 @@
 }
 
 .buscador__btn:hover {
-  color: var(--branco);
-  background-color: var(--cor-principal);
+  color: var(--color-neutral-white);
+  background-color: var(--color-brand-primary);
 }

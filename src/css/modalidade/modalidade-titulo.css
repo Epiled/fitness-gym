@@ -5,10 +5,10 @@
   transform: translate(-50%, -50%);
   z-index: 1;
 
-  color: var(--cor-escura);
+  color: var(--color-neutral-black);
   font-size: 3.6rem;
   font-weight: 700;
-  font-family: 'Overpass', sans-serif;
+  font-family: "Overpass", sans-serif;
   text-transform: uppercase;
 }
 

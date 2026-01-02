@@ -1,11 +1,11 @@
 .planos__linha {
-  border-bottom: .1rem solid var(--cor-escura);
-  color: var(--cor-titulo);
+  border-bottom: 0.1rem solid var(--color-neutral-black);
+  color: var(--color-text-primary);
   font-size: 1.4rem;
 }
 
 .planos__linha:first-of-type {
-  border-top: .1rem solid var(--cor-escura);
+  border-top: 0.1rem solid var(--color-neutral-black);
 }
 
 .planos__linha:last-of-type {

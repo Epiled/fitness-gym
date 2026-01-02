@@ -1,7 +1,7 @@
 .newsletter__formulario {
   display: flex;
   flex-direction: column;
-  background: var(--cor-principal);
+  background: var(--color-brand-primary);
   border-radius: 1rem;
   margin-top: 5rem;
   margin-left: auto;

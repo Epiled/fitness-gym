@@ -3,8 +3,8 @@
   align-items: center;
   gap: 1rem;
   font-size: 2rem;
-  color: var(--cor-fundo-1);
-  fill: var(--cor-fundo-1);
+  color: var(--color-surface-base);
+  fill: var(--color-surface-base);
   text-decoration: none;
 }
 
@@ -14,17 +14,19 @@
 
 @media screen and (min-width: 1440px) {
   .cabecalho__link {
-    height: 6.5rem;;
+    height: 6.5rem;
     font-size: 2.4rem;
     margin-right: 7rem;
-    color: var(--cor-escura);
-    fill: var(--cor-escura);
-    transition: color .5s, fill .5s;
+    color: var(--color-neutral-black);
+    fill: var(--color-neutral-black);
+    transition:
+      color 0.5s,
+      fill 0.5s;
   }
 
   .cabecalho__link:hover {
-    color: var(--cor-fundo-1);
-    fill: var(--cor-fundo-1);
+    color: var(--color-surface-base);
+    fill: var(--color-surface-base);
   }
 
   .cabecalho__link:nth-child(2) {

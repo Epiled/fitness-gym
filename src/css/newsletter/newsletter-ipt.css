@@ -1,6 +1,6 @@
 .newsletter__ipt {
-  padding: .8rem .5rem .8rem 2.5rem;
-  box-shadow: 0 -.1rem .2rem .2rem var(--cor-sombra) inset;
+  padding: 0.8rem 0.5rem 0.8rem 2.5rem;
+  box-shadow: 0 -0.1rem 0.2rem 0.2rem var(--cor-sombra) inset;
   border: 0;
   width: 100%;
   font-size: 1.6rem;
@@ -8,7 +8,7 @@
 }
 
 .newsletter__ipt::placeholder {
-  color: var(--cor-place);
+  color: var(--color-text-placeholder);
 }
 
 @media screen and (min-width: 834px) {

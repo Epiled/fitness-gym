@@ -1,7 +1,7 @@
 .newsletter {
   background-image:
     url(../../assets/svg/decoracao-white.svg),
-    linear-gradient(0deg, var(--cor-fundo-50), var(--cor-fundo-50)),
+    linear-gradient(0deg, var(--color-overlay-50), var(--color-overlay-50)),
     url(../../assets/img/newsletter.jpg);
   background-size: 16rem, cover, cover;
   background-repeat: no-repeat;
@@ -9,7 +9,7 @@
     calc(100% + 5.75rem) calc(0 - 4rem),
     center,
     right bottom;
-  color: var(--cor-fundo-1);
+  color: var(--color-surface-base);
   margin-top: 4.5rem;
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
@@ -19,7 +19,7 @@
   .newsletter {
     background-image:
       url(../../assets/svg/decoracao-white.svg),
-      linear-gradient(0deg, var(--cor-fundo-50), var(--cor-fundo-50)),
+      linear-gradient(0deg, var(--color-overlay-50), var(--color-overlay-50)),
       url(../../assets/img/newsletter.jpg);
     background-size: 21.7rem, cover, cover;
     background-position:
@@ -35,7 +35,7 @@
   .newsletter {
     background-image:
       url(../../assets/svg/decoracao-white.svg),
-      linear-gradient(0deg, var(--cor-fundo-50), var(--cor-fundo-50)),
+      linear-gradient(0deg, var(--color-overlay-50), var(--color-overlay-50)),
       url(../../assets/img/newsletter.jpg);
     background-size: 23.5rem, cover, cover;
     background-position:
