@@ -9,12 +9,15 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
+const targetDir = ctx.paths.dist;
+const tempDir = ctx.paths.temp;
+
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
   log.info("Start cleaning build directories...");
-  log.verbose(`→ Cleaning: ${ctx.paths.dist}, ${ctx.paths.temp}`);
+  log.verbose(`→ Cleaning: ${targetDir}, ${tempDir}`);
   cb();
 }
 logStart.displayName = "clean:log:start";
@@ -32,7 +35,7 @@ function cleanTask() {
   }
 
   return gulp
-    .src([ctx.paths.dist, ctx.paths.temp], { read: false, allowEmpty: true })
+    .src([targetDir, tempDir], { read: false, allowEmpty: true })
     .pipe(clean());
 }
 cleanTask.displayName = "clean:run";
