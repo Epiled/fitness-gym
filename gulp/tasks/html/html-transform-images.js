@@ -6,6 +6,7 @@ const cheerio = require("gulp-cheerio");
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
 const { fileExists } = require("../../utils/fileExists");
+const { toWebp } = require("../../utils/toWebp");
 
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
@@ -79,8 +80,10 @@ function htmlTransformImagesTask() {
           const sizes = parseSizes(el.attribs["data-sizes"]);
           const sizesKeys = Object.keys(sizes);
 
-          const srcBase = attrs.src;
+          const srcBase = attrs.src.replace();
           if (!srcBase) return;
+
+          const srcWebp = toWebp(srcBase);
 
           let imgAttrs = Object.entries(attrs)
             .filter(([k]) => k !== "data-gulp-cheerio" && k !== "data-sizes")
@@ -93,7 +96,7 @@ function htmlTransformImagesTask() {
             }
 
             const { width: w, height: h, breakPoint: br } = sizes[key];
-            const fixedSrc = srcBase.replace(/\/img\b/, `/img/${key}`);
+            const fixedSrc = toWebp(srcWebp.replace(/\/img\b/, `/img/${key}`));
 
             if (index === 0) {
               // remove old src and inject the new
