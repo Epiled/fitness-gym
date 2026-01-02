@@ -2,7 +2,6 @@
 
 const gulp = require("gulp");
 const concatCSS = require("gulp-concat-css");
-const path = require("path");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -12,7 +11,7 @@ const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
 const srcGlob = ctx.paths.css.glob;
-const srcDir = path.dirname(srcGlob).split("/**")[0];
+const srcDir = ctx.paths.css.dir;
 
 const outputDir = ctx.isDebug ? ctx.paths.css.dist : ctx.paths.css.temp;
 
