@@ -22,11 +22,17 @@ function server() {
     done();
   }
 
-  gulp.watch(ctx.paths.html.src, gulp.series("html:build", reload));
+  gulp.watch(ctx.paths.html.glob, gulp.series("html:build", reload));
 
-  gulp.watch(ctx.paths.css.src, gulp.series("css:build", reload));
+  gulp.watch(
+    ctx.paths.css.glob,
+    gulp.series("css:build", (done) => {
+      browserSync.stream();
+      done();
+    }),
+  );
 
-  gulp.watch(ctx.paths.icons.src, gulp.series("icons:build", reload));
+  gulp.watch(ctx.paths.icons.glob, gulp.series("icons:build", reload));
 
   if (!ctx.isDev) {
     gulp.watch(
@@ -41,20 +47,21 @@ function server() {
   }
 }
 
-server.displayName = "server";
-server.description = "Create a server";
-server.flags = {
-  "--dev": "Serve src directory (development mode).",
-};
+function maybeBuild(done) {
+  if (ctx.isDev) return done();
+  return gulp.series("build")(done);
+}
 
 // Serve with build step when running in non-dev mode
-const serve = gulp.series(ctx.isDev ? (cb) => cb() : "build", server);
+const serve = gulp.series(maybeBuild, server);
 serve.displayName = "serve";
 serve.description =
   "Build (when not in --dev) and start the BrowserSync server.";
-serve.flags = server.flags;
+serve.flags = {
+  "--dev": "Serve src directory (development mode).",
+};
 
 gulp.task(server.displayName, server);
 gulp.task(serve.displayName, serve);
 
-module.exports = { server, serve };
+module.exports = { serve };
