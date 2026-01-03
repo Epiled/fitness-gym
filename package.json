@@ -8,7 +8,7 @@
     "gulp-cheerio": "^1.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
-    "gulp-concat-css": "^3.1.0",
+    "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-iconfont": "^10.0.3",
     "gulp-iconfont-template": "^0.0.3",
