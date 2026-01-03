@@ -15,11 +15,26 @@ function server() {
     port: 3000,
     open: true, // auto open browser
     notify: false, // remove popup "BrowserSync Connected"
+    watchOptions: {
+      ignoreInitial: true,
+      usePolling: true,
+      interval: 300,
+    },
   });
 
   function reload(done) {
     browserSync.reload();
     done();
+  }
+
+  if (ctx.isDev) {
+    gulp.watch(`${ctx.paths.src}/**/*`, reload);
+
+    gulp.watch(ctx.paths.css.glob, function cssStream() {
+      return gulp.src(ctx.paths.css.glob).pipe(browserSync.stream());
+    });
+
+    return;
   }
 
   gulp.watch(ctx.paths.html.glob, gulp.series("html:build", reload));
