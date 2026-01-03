@@ -1,6 +1,6 @@
 .academia {
   margin-top: 3.5rem;
-  background-image: url(../../assets/svg/decoracao-black.svg);
+  background-image: url(../../assets/svg/icons-art/decoracao-black.svg);
   background-repeat: no-repeat;
   background-position: calc(100% + 7rem) center;
   background-size: 16rem;
@@ -9,7 +9,7 @@
 }
 
 .academia.active {
-  animation: topRevel .5s forwards;
+  animation: topRevel 0.5s forwards;
 }
 
 @media screen and (min-width: 834px) {

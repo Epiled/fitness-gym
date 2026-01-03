@@ -1,6 +1,6 @@
 .newsletter {
   background-image:
-    url(../../assets/svg/decoracao-white.svg),
+    url(../../assets/svg/icons-art/decoracao-white.svg),
     linear-gradient(0deg, var(--color-overlay-50), var(--color-overlay-50)),
     url(../../assets/img/newsletter.jpg);
   background-size: 16rem, cover, cover;
@@ -18,7 +18,7 @@
 @media screen and (min-width: 834px) {
   .newsletter {
     background-image:
-      url(../../assets/svg/decoracao-white.svg),
+      url(../../assets/svg/icons-art/decoracao-white.svg),
       linear-gradient(0deg, var(--color-overlay-50), var(--color-overlay-50)),
       url(../../assets/img/newsletter.jpg);
     background-size: 21.7rem, cover, cover;
@@ -34,7 +34,7 @@
 @media screen and (min-width: 1440px) {
   .newsletter {
     background-image:
-      url(../../assets/svg/decoracao-white.svg),
+      url(../../assets/svg/icons-art/decoracao-white.svg),
       linear-gradient(0deg, var(--color-overlay-50), var(--color-overlay-50)),
       url(../../assets/img/newsletter.jpg);
     background-size: 23.5rem, cover, cover;

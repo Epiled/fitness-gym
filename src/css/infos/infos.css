@@ -5,15 +5,16 @@
   margin-top: 5rem;
   position: relative;
   opacity: 0;
+  container-type: inline-size;
 }
 
 .infos::after {
   position: absolute;
   left: -7.5rem;
   bottom: 0;
-  content: '';
+  content: "";
   display: block;
-  background: url(../../assets/svg/decoracao-principal.svg);
+  background: url(../../assets/svg/icons-art/decoracao-principal.svg);
   background-size: contain;
   background-repeat: no-repeat;
   width: 16rem;
@@ -23,7 +24,7 @@
 }
 
 .infos.active {
-  animation: topRevel .5s forwards;
+  animation: topRevel 0.5s forwards;
 }
 
 @media screen and (min-width: 834px) {

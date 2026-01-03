@@ -28,9 +28,9 @@
   width: calc(100% + 4rem);
   content: "";
   background-image:
-    url(../assets/svg/halter-barra.svg),
-    url(../assets/svg/halter-barra-esq.svg),
-    url(../assets/svg/halter-barra-dir.svg);
+    url(../assets/svg/icons-art/halter-barra.svg),
+    url(../assets/svg/icons-art/halter-barra-esq.svg),
+    url(../assets/svg/icons-art/halter-barra-dir.svg);
   background-size: 100%, contain, contain;
   background-position: center, left, right;
   background-repeat: no-repeat, no-repeat, no-repeat;
