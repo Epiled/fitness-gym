@@ -1,7 +1,7 @@
 // ← tasks to concat CSS.
 
 const gulp = require("gulp");
-const concatCSS = require("gulp-concat-css");
+const concat = require("gulp-concat");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -41,7 +41,7 @@ function concatTask() {
 
   return gulp
     .src(srcGlob, { allowEmpty: true, base: srcDir })
-    .pipe(concatCSS("bundle.css"))
+    .pipe(concat("bundle.css"))
     .pipe(gulp.dest(outputDir));
 }
 concatTask.displayName = "css:concat:run";
