@@ -7,13 +7,15 @@
   color: var(--color-brand-primary);
 }
 
+@container (min-width: 540px) {
+  .infos__icon--alt {
+    color: var(--color-neutral-white);
+  }
+}
+
 @media screen and (min-width: 834px) {
   .infos__icon {
     font-size: 6rem;
-  }
-
-  .infos__icon--alt {
-    color: var(--color-neutral-white);
   }
 }
 

@@ -12,10 +12,6 @@
     width: 27rem;
     height: 27rem;
   }
-
-  .infos__box--alt {
-    background-color: var(--color-brand-primary);
-  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -24,6 +20,12 @@
     height: 32.8rem;
   }
 
+  .infos__box--alt {
+    background-color: var(--color-brand-primary);
+  }
+}
+
+@container (min-width: 540px) {
   .infos__box--alt {
     background-color: var(--color-brand-primary);
   }

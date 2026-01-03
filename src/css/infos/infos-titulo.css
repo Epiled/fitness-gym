@@ -7,14 +7,16 @@
   font-family: "Overpass", sans-serif;
 }
 
+@container (min-width: 540px) {
+  .infos__titulo--alt {
+    color: var(--color-neutral-white);
+  }
+}
+
 @media screen and (min-width: 834px) {
   .infos__titulo {
     font-size: 3.2rem;
     margin-top: 3rem;
     margin-bottom: 2rem;
-  }
-
-  .infos__titulo--alt {
-    color: var(--color-neutral-white);
   }
 }

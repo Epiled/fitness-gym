@@ -1,5 +1,5 @@
 .cabecalho__navegacao {
-  background-color: var(--color-surface-muted5);
+  background-color: var(--color-overlay-25);
   border: 0.1rem solid var(--color-brand-primary);
   border-radius: 0.5rem;
   display: flex;
