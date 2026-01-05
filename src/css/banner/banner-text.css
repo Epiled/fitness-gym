@@ -1,9 +1,9 @@
-.banner__txt {
+.banner__text {
   font-size: 1.6rem;
 }
 
 @media screen and (min-width: 834px) {
-  .banner__txt {
+  .banner__text {
     font-size: 2rem;
     max-width: 30rem;
   }

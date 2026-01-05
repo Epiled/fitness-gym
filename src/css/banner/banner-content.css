@@ -1,4 +1,4 @@
-.banner__conteudo {
+.banner__content {
   position: absolute;
   top: 50%;
   left: 2rem;
@@ -9,12 +9,12 @@
   opacity: 0;
 }
 
-.banner__conteudo.active {
+.banner__content.active {
   animation: topRevelBanner 0.5s forwards;
 }
 
 @media screen and (min-width: 1440px) {
-  .banner__conteudo {
+  .banner__content {
     position: relative;
     top: 40rem;
     left: 0;
