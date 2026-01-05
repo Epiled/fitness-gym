@@ -1,10 +1,10 @@
-.academia__txt {
+.gym__text {
   color: var(--color-text-primary);
   font-size: 1.6rem;
 }
 
 @media screen and (min-width: 1440px) {
-  .academia__txt {
+  .gym__text {
     font-size: 1.8rem;
   }
 }

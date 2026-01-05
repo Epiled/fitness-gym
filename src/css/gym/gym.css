@@ -1,4 +1,4 @@
-.academia {
+.gym {
   margin-top: 3.5rem;
   background-image: url(../../assets/svg/icons-art/decoracao-black.svg);
   background-repeat: no-repeat;
@@ -8,19 +8,19 @@
   text-align: center;
 }
 
-.academia.active {
+.gym.active {
   animation: topRevel 0.5s forwards;
 }
 
 @media screen and (min-width: 834px) {
-  .academia {
+  .gym {
     margin-top: 6rem;
     background-size: 21.5rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .academia {
+  .gym {
     margin-top: 10rem;
     background-size: 28rem;
   }

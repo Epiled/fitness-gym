@@ -1,16 +1,16 @@
-.academia__valor {
+.gym__price {
   color: var(--color-text-primary);
   font-size: 2rem;
   font-family: "Overpass", sans-serif;
 }
 
-.academia__valor--alt {
+.gym__price--alt {
   color: var(--color-brand-primary);
   font-weight: 700;
 }
 
 @media screen and (min-width: 1440px) {
-  .academia__valor {
+  .gym__price {
     font-size: 2.4rem;
   }
 }

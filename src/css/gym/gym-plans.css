@@ -1,4 +1,4 @@
-.academia__planos {
+.gym__plans {
   display: flex;
   justify-content: space-between;
   margin-top: 3.5rem;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .academia__planos {
+  .gym__plans {
     margin-top: 4rem;
     margin-bottom: 2.5rem;
   }

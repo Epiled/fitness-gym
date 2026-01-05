@@ -1,4 +1,4 @@
-.academia__item {
+.gym__item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,14 +13,14 @@
 }
 
 @media screen and (min-width: 834px) {
-  .academia__item {
+  .gym__item {
     min-width: 11.5rem;
     min-height: 11rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .academia__item {
+  .gym__item {
     min-width: 12.5rem;
     min-height: 12rem;
   }
