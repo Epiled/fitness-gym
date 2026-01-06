@@ -1,4 +1,4 @@
-.modalidade__back {
+.modality__back {
   position: absolute;
   top: 0;
   left: 0;
@@ -14,13 +14,13 @@
 }
 
 @media screen and (min-width: 834px) {
-  .modalidade__back {
+  .modality__back {
     padding: 3.25rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .modalidade__back {
+  .modality__back {
     padding: 2rem;
   }
 }

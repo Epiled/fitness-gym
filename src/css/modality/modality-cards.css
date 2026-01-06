@@ -1,4 +1,4 @@
-.modalidade__cards {
+.modality__cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -7,13 +7,13 @@
 }
 
 @media screen and (min-width: 834px) {
-  .modalidade__cards {
+  .modality__cards {
     gap: 5rem 2rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .modalidade__cards {
+  .modality__cards {
     gap: 2rem;
   }
 }

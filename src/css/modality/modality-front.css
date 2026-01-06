@@ -1,4 +1,4 @@
-.modalidade__front {
+.modality__front {
   position: absolute;
   top: 0;
   left: 0;
@@ -7,7 +7,7 @@
   backface-visibility: hidden;
 }
 
-.modalidade__front::after {
+.modality__front::after {
   content: "";
   position: absolute;
   top: 0;

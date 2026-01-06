@@ -1,4 +1,4 @@
-.modalidade {
+.modality {
   background-image:
     url(../../assets/svg/icons-art/decoracao-black.svg),
     url(../../assets/svg/icons-art/decoracao-principal.svg);
@@ -13,12 +13,12 @@
   text-align: center;
 }
 
-.modalidade.active {
+.modality.active {
   animation: topRevel 0.5s forwards;
 }
 
 @media screen and (min-width: 834px) {
-  .modalidade {
+  .modality {
     background-size: 20rem, 22rem;
     background-position:
       calc(0% - 7.5rem) 13%,
@@ -29,7 +29,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .modalidade {
+  .modality {
     background-size: 21.5rem, 26rem;
     margin-top: 10rem;
     padding-bottom: 10rem;
