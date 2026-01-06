@@ -1,4 +1,4 @@
-.buscador__container {
+.search__container {
   position: relative;
   border-radius: 0.5rem;
   background-color: var(--color-brand-primary);
@@ -8,6 +8,6 @@
   opacity: 0;
 }
 
-.buscador__container.active {
+.search__container.active {
   animation: topRevel 0.5s forwards;
 }

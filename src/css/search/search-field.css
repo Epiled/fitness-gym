@@ -1,4 +1,4 @@
-.buscador__bot {
+.search__field {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,7 @@
 }
 
 @media screen and (min-width: 834px) {
-  .buscador__bot {
+  .search__field {
     margin-top: 6rem;
     background-image:
       linear-gradient(
@@ -30,7 +30,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .buscador__bot {
+  .search__field {
     margin-top: 9rem;
     background-image:
       linear-gradient(

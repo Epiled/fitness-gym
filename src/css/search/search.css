@@ -1,4 +1,4 @@
-.buscador {
+.search {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -6,13 +6,13 @@
 }
 
 @media screen and (min-width: 834px) {
-  .buscador{
+  .search {
     margin-top: 6rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .buscador{
+  .search {
     margin-top: 10rem;
   }
 }
