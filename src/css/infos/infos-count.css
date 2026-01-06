@@ -1,4 +1,4 @@
-.infos__contador {
+.infos__count {
   color: var(--color-neutral-black);
   font-size: 3.6rem;
   font-weight: 700;
@@ -6,13 +6,13 @@
 }
 
 @media screen and (min-width: 834px) {
-  .infos__contador {
+  .infos__count {
     font-size: 4.8rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .infos__contador {
+  .infos__count {
     font-size: 6.4rem;
   }
 }
