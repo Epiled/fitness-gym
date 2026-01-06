@@ -1,11 +1,11 @@
-.cabecalho__bloco {
+.header__inner {
   display: flex;
   align-items: center;
   margin-left: 2rem;
 }
 
 @media screen and (min-width: 1440px) {
-  .cabecalho__bloco {
+  .header__inner {
     margin-left: auto;
     margin-right: auto;
     width: 100%;

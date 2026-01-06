@@ -1,4 +1,4 @@
-.cabecalho__navegacao {
+.header__nav {
   background-color: var(--color-overlay-25);
   border: 0.1rem solid var(--color-brand-primary);
   border-radius: 0.5rem;
@@ -16,14 +16,14 @@
   backdrop-filter: blur(0.5rem);
 }
 
-.cabecalho__navegacao--ativo {
+.header__nav--active {
   opacity: 1;
   right: 2rem;
   transition: opacity 0.3s;
 }
 
 @media screen and (min-width: 1440px) {
-  .cabecalho__navegacao {
+  .header__nav {
     display: flex;
     flex-direction: row;
     gap: 0rem;

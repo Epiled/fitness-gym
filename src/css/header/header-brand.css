@@ -1,9 +1,9 @@
-.cabecalho__logo {
+.header__brand {
   width: 12rem;
 }
 
 @media screen and (min-width: 1440px) {
-  .cabecalho__logo {
+  .header__brand {
     width: 16rem;
   }
 }

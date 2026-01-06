@@ -1,12 +1,12 @@
 @media screen and (min-width: 1440px) {
-  .cabecalho__imagens {
+  .header__images {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     z-index: 5;
   }
 
-  .cabecalho__imagens::after {
+  .header__images::after {
     content: "";
     position: absolute;
     top: 50%;

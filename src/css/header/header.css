@@ -1,4 +1,4 @@
-.cabecalho {
+.header {
   background: transparent;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .cabecalho {
-  top: 10rem;
+  .header {
+    top: 10rem;
   }
 }

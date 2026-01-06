@@ -1,4 +1,4 @@
-.cabecalho__link {
+.header__link {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -7,12 +7,12 @@
   text-decoration: none;
 }
 
-.cabecalho__link:focus {
+.header__link:focus {
   color: var(--cor-logo);
 }
 
 @media screen and (min-width: 1440px) {
-  .cabecalho__link {
+  .header__link {
     height: 6.5rem;
     font-size: 2.4rem;
     margin-right: 7rem;
@@ -22,15 +22,15 @@
       fill 0.5s;
   }
 
-  .cabecalho__link:hover {
+  .header__link:hover {
     color: var(--color-surface-base);
   }
 
-  .cabecalho__link:nth-child(2) {
+  .header__link:nth-child(2) {
     margin-right: auto;
   }
 
-  .cabecalho__link:last-of-type {
+  .header__link:last-of-type {
     margin-right: 0;
   }
 }

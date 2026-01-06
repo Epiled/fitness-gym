@@ -1,4 +1,4 @@
-.cabecalho__burguer {
+.header__toggle {
   position: fixed;
   width: 5rem;
   height: 5rem;
@@ -18,7 +18,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .cabecalho__burguer {
+  .header__toggle {
     display: none;
   }
 }

@@ -1,9 +1,9 @@
-.cabecalho__icon {
+.header__icon {
   font-size: 2.5rem;
   color: inherit;
 }
 
-.cabecalho__icon--menu {
+.header__icon--menu {
   font-size: 4rem;
   color: var(--color-brand-primary);
 }
