@@ -1,22 +1,22 @@
-.planos {
+.plans {
   display: flex;
   flex-direction: column;
   margin-top: 7rem;
   opacity: 0;
 }
 
-.planos.active {
-  animation: topRevel .5s forwards;
+.plans.active {
+  animation: topRevel 0.5s forwards;
 }
 
 @media screen and (min-width: 834px) {
-  .planos {
+  .plans {
     margin-top: 6rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .planos {
+  .plans {
     margin-top: 10rem;
     align-items: center;
   }

@@ -2,7 +2,7 @@ const tabela = document.querySelector("[data-tabela]");
 const tabelaCabecas = tabela.querySelectorAll("[data-tabela-cabeca]");
 
 const flutuante = document.createElement("span");
-flutuante.classList.add("planos__flutuante");
+flutuante.classList.add("plans__indicator");
 
 const posicaoFlutuante = calculaDistanciaEsquerdaDaTela(tabelaCabecas[1]);
 

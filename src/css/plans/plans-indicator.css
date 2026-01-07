@@ -1,4 +1,4 @@
-.planos__flutuante {
+.plans__indicator {
   position: absolute;
   top: 0;
   border-radius: 0.5rem;
@@ -10,13 +10,13 @@
 }
 
 @media screen and (min-width: 834px) {
-  .planos__flutuante {
+  .plans__indicator {
     width: 18rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .planos__flutuante {
+  .plans__indicator {
     width: 27rem;
   }
 }

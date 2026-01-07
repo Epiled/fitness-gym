@@ -1,29 +1,29 @@
-.planos__icon {
+.plans__icon {
   color: var(--color-brand-primary);
   font-size: 2.5rem;
 }
 
-.planos__icon--check {
+.plans__icon--check {
   font-size: 2rem;
   vertical-align: middle;
 }
 
 @media screen and (min-width: 834px) {
-  .planos__icon {
+  .plans__icon {
     font-size: 3rem;
   }
 
-  .planos__icon--check {
+  .plans__icon--check {
     font-size: 2.5rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .planos__icon {
+  .plans__icon {
     font-size: 3.5rem;
   }
 
-  .planos__icon--check {
+  .plans__icon--check {
     font-size: 3rem;
   }
 }
