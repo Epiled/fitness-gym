@@ -1,4 +1,4 @@
-.newsletter__lista {
+.newsletter__list {
   font-size: 1.6rem;
   margin-top: 3rem;
   display: inline-flex;
@@ -7,13 +7,13 @@
 }
 
 @media screen and (min-width: 834px) {
-  .newsletter__lista {
+  .newsletter__list {
     font-size: 2.4rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .newsletter__lista {
+  .newsletter__list {
     font-size: 3.6rem;
     margin-top: 4rem;
   }

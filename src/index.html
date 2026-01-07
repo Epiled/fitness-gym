@@ -109,14 +109,14 @@
 
     <link rel="stylesheet" href="./css/newsletter/newsletter.css" />
     <link rel="stylesheet" href="./css/newsletter/newsletter-wrapper.css" />
-    <link rel="stylesheet" href="./css/newsletter/newsletter-topo.css" />
-    <link rel="stylesheet" href="./css/newsletter/newsletter-titulo.css" />
-    <link rel="stylesheet" href="./css/newsletter/newsletter-txt.css" />
-    <link rel="stylesheet" href="./css/newsletter/newsletter-lista.css" />
+    <link rel="stylesheet" href="./css/newsletter/newsletter-content.css" />
+    <link rel="stylesheet" href="./css/newsletter/newsletter-title.css" />
+    <link rel="stylesheet" href="./css/newsletter/newsletter-text.css" />
+    <link rel="stylesheet" href="./css/newsletter/newsletter-list.css" />
     <link rel="stylesheet" href="./css/newsletter/newsletter-item.css" />
-    <link rel="stylesheet" href="./css/newsletter/newsletter-formulario.css" />
-    <link rel="stylesheet" href="./css/newsletter/newsletter-campos.css" />
-    <link rel="stylesheet" href="./css/newsletter/newsletter-ipt.css" />
+    <link rel="stylesheet" href="./css/newsletter/newsletter-form.css" />
+    <link rel="stylesheet" href="./css/newsletter/newsletter-fields.css" />
+    <link rel="stylesheet" href="./css/newsletter/newsletter-input.css" />
 
     <link rel="stylesheet" href="./css/modality/modality.css" />
     <link rel="stylesheet" href="./css/modality/modality-cards.css" />
@@ -477,17 +477,17 @@
 
       <aside class="newsletter respiro">
         <div class="newsletter__wrapper" data-animation="revel">
-          <div class="newsletter__topo">
-            <h3 class="newsletter__titulo">
+          <div class="newsletter__content">
+            <h3 class="newsletter__title">
               Torne-se um
-              <span class="newsletter__titulo--dest"> Bodybuilder </span>
+              <span class="newsletter__title--highlight">Bodybuilder</span>
             </h3>
-            <p class="newsletter__txt">
+            <p class="newsletter__text">
               Qui quia nemo sed dolores nesciunt qui placeat voluptatem a
               maiores Quis!
             </p>
 
-            <ul class="newsletter__lista">
+            <ul class="newsletter__list">
               <li class="newsletter__item">Lorem Impsum</li>
               <li class="newsletter__item">Lorem Impsum</li>
               <li class="newsletter__item">Lorem Impsum</li>
@@ -495,11 +495,15 @@
             </ul>
           </div>
 
-          <form class="newsletter__formulario" action="">
-            <fieldset class="newsletter__campos">
-              <input class="newsletter__ipt" placeholder="Nome:" type="text" />
+          <form class="newsletter__form" action="">
+            <fieldset class="newsletter__fields">
               <input
-                class="newsletter__ipt"
+                class="newsletter__input"
+                placeholder="Nome:"
+                type="text"
+              />
+              <input
+                class="newsletter__input"
                 placeholder="E-mail:"
                 type="email"
                 name=""

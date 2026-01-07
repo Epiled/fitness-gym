@@ -1,4 +1,4 @@
-.newsletter__formulario {
+.newsletter__form {
   display: flex;
   flex-direction: column;
   background: var(--color-brand-primary);
@@ -11,14 +11,14 @@
 }
 
 @media screen and (min-width: 834px) {
-  .newsletter__formulario {
+  .newsletter__form {
     margin-top: 6rem;
     padding: 3.5rem 2rem 2rem 2rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .newsletter__formulario {
+  .newsletter__form {
     flex: 1;
     align-self: center;
     margin-top: 0;

@@ -1,15 +1,15 @@
-.newsletter__topo {
+.newsletter__content {
   max-width: 34rem;
 }
 
 @media screen and (min-width: 834px) {
-  .newsletter__topo {
+  .newsletter__content {
     max-width: 46rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .newsletter__topo {
+  .newsletter__content {
     flex: 1;
     max-width: none;
   }
