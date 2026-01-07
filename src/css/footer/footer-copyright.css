@@ -1,4 +1,4 @@
-.rodape__copyright {
+.footer__copyright {
   border-top: 0.1rem solid var(--color-brand-primary);
   color: var(--color-neutral-white);
   font-size: 1.6rem;
@@ -7,13 +7,13 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .rodape__copyright {
+  .footer__copyright {
     padding: 1.5rem 1.5rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .rodape__copyright {
+  .footer__copyright {
     font-size: 2rem;
     padding-bottom: 5rem;
   }

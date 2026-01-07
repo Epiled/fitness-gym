@@ -1,0 +1,12 @@
+.footer__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 1440px) {
+  .footer__section--contact {
+    margin-left: auto;
+    flex: 0.3;
+  }
+}

@@ -1,4 +1,4 @@
-.rodape__opcoes {
+.footer__sections {
   display: flex;
   flex-direction: column;
   gap: 6rem;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (min-width: 834px) {
-  .rodape__opcoes {
+  .footer__sections {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 10rem;
@@ -15,7 +15,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .rodape__opcoes {
+  .footer__sections {
     justify-content: flex-start;
     gap: 9rem;
   }
