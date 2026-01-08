@@ -1,31 +1,27 @@
-(() => {
-  let button = document.querySelector('[data-js="scroll-top"]');
+let button = document.querySelector('[data-js="scroll-top"]');
 
-  if (!button) return;
+const REVEAL_AT_PX = 20;
 
-  const REVEAL_AT_PX = 20;
+let ticking = false;
 
-  let ticking = false;
+function updateVisibility() {
+  const y = window.scrollY || document.documentElement.scrollTop || 0;
 
-  function updateVisibility() {
-    const y = window.screenY || document.documentElement.scrollTop || 0;
+  button.dataset.state = y > REVEAL_AT_PX ? "visible" : "hidden";
+  ticking = false;
+}
 
-    button.dataset.state = y > REVEAL_AT_PX ? "visible" : "hidden";
-    ticking = false;
-  }
+function onScroll() {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(updateVisibility);
+}
 
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(updateVisibility);
-  }
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+updateVisibility();
 
-  updateVisibility();
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  button.addEventListener("click", scrollToTop);
-})();
+window.addEventListener("scroll", onScroll, { passive: true });
+button.addEventListener("click", scrollToTop);

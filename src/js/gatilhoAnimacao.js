@@ -1,11 +1,7 @@
 import { contadorMarcados } from "./contador.js";
-import { flipsMarcados } from "./flipe.js";
-import "./revel.js";
+import "./scroll-auto-flip.js";
+import "./scroll-reveal.js";
 
 const alturaDeAtivacao = window.innerHeight * 0.8;
-
-window.addEventListener("scroll", () => {
-  flipsMarcados.flip(alturaDeAtivacao);
-});
 
 contadorMarcados.preparaContadores(alturaDeAtivacao);
