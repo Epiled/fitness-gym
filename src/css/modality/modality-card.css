@@ -7,10 +7,6 @@
   text-align: left;
 }
 
-.modality__card.active .modality__inner {
-  transform: rotateY(180deg);
-}
-
 @media screen and (min-width: 834px) {
   .modality__card {
     min-height: 48.5rem;

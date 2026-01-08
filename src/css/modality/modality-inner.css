@@ -5,3 +5,7 @@
   transition: transform 1s;
   transform-style: preserve-3d;
 }
+
+.modality__inner:where([data-face="back"]) {
+  transform: rotateY(180deg);
+}
