@@ -8,7 +8,7 @@
   text-align: center;
 }
 
-.gym.active {
+.gym:where([data-state="visible"]) {
   animation: topRevel 0.5s forwards;
 }
 

@@ -8,6 +8,7 @@
     url('../assets/fonts/fitness-gym-icons/fitness-gym-icons.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'fitness-gym-icons' !important;

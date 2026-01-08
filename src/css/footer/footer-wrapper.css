@@ -4,6 +4,6 @@
   opacity: 0;
 }
 
-.footer__wrapper.active {
+.footer__wrapper:where([data-state="visible"]) {
   animation: topRevel 0.5s forwards;
 }

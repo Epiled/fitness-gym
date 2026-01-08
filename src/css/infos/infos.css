@@ -20,11 +20,20 @@
   width: 16rem;
   height: 15rem;
   z-index: -1;
-  opacity: 0;
+  transform: rotate(95deg);
 }
 
-.infos.active {
+.infos:where([data-state="visible"]) {
   animation: topRevel 0.5s forwards;
+}
+
+@container (min-width: 540px) {
+  .infos::after {
+    width: 19rem;
+    height: 18rem;
+    bottom: -13rem;
+    left: -11rem;
+  }
 }
 
 @media screen and (min-width: 834px) {
@@ -37,5 +46,6 @@
     width: 21.5rem;
     height: 20.5rem;
     bottom: -15rem;
+    left: -10rem;
   }
 }

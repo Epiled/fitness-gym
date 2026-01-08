@@ -29,21 +29,13 @@
 
     <link
       rel="preload"
-      href="./assets/img/mobile/banner-fitness-gym.webp"
-      media="(min-width: 390px)"
       as="image"
-    />
-    <link
-      rel="preload"
-      href="./assets/img/tablet/banner-fitness-gym.webp"
-      media="(min-width: 840px)"
-      as="image"
-    />
-    <link
-      rel="preload"
       href="./assets/img/desktop/banner-fitness-gym.webp"
-      media="(min-width: 1440px)"
-      as="image"
+      imagesrcset="
+    ./assets/img/mobile/banner-fitness-gym.webp 390w,
+    ./assets/img/tablet/banner-fitness-gym.webp 840w,
+    ./assets/img/desktop/banner-fitness-gym.webp 1440w"
+      imagesizes="100vw"
     />
 
     <!-- build -->
@@ -159,15 +151,25 @@
             src="./assets/svg/logos/logo.svg"
             class="header__brand"
             alt="Logo Fitness Gym"
+            width="352"
+            height="218"
+            fetchpriority="high"
           />
         </picture>
 
-        <button class="header__toggle" data-burguer type="button">
+        <button
+          class="header__toggle"
+          data-burguer
+          type="button"
+          aria-label="Abrir menu de navegação"
+          aria-expanded="false"
+          aria-controls="header-navigation"
+        >
           <i class="header__icon header__icon--menu icon icon-dumbbell"></i>
         </button>
 
         <nav class="header__nav" data-navegacao>
-          <a class="header__link" href="#plano">
+          <a class="header__link" href="#planos">
             <i class="header__icon icon icon-check-list"></i>
             Planos
           </a>
@@ -189,7 +191,11 @@
 
     <main>
       <section class="banner">
-        <div class="banner__content" data-animation="revel">
+        <div
+          class="banner__content"
+          data-js="scroll-reveal"
+          data-state="hidden"
+        >
           <h1 class="banner__title">
             <span class="banner__subtitle">Torne-se um</span>
             <span class="banner__headline">Monstro</span>
@@ -201,7 +207,12 @@
         </div>
       </section>
 
-      <aside class="infos respiro" data-contador-box data-animation="revel">
+      <aside
+        class="infos respiro"
+        data-contador-box
+        data-js="scroll-reveal"
+        data-state="hidden"
+      >
         <div class="infos__box">
           <i class="infos__icon icon icon-house"></i>
           <h2 class="infos__title">Academias</h2>
@@ -225,24 +236,41 @@
 
       <section class="search">
         <h2 class="titulo respiro">
-          Encontre uma <span class="titulo--dest">unidade</span> perto de
-          <span class="titulo--dest">você</span>
+          Encontre uma
+          <span class="titulo--dest titulo--accessibility">unidade</span> perto
+          de
+          <span class="titulo--dest titulo--accessibility">você</span>
         </h2>
         <div class="search__field respiro">
-          <fieldset class="search__container" data-animation="revel">
+          <fieldset
+            class="search__container"
+            data-js="scroll-reveal"
+            data-state="hidden"
+          >
             <input
               class="search__input"
               type="text"
               placeholder="Busque uma unidade"
             />
-            <button class="search__button" data-buscar type="button">
+
+            <button
+              class="search__button"
+              data-buscar
+              type="button"
+              aria-label="Buscar uma unidade"
+            >
               <i class="search__icon icon icon-search"></i>
             </button>
           </fieldset>
         </div>
       </section>
 
-      <section class="gym respiro" data-animation="revel" id="academias">
+      <section
+        id="academias"
+        class="gym respiro"
+        data-js="scroll-reveal"
+        data-state="hidden"
+      >
         <h2 class="titulo titulo--alt">Academias</h2>
 
         <div class="gym__cards">
@@ -364,7 +392,12 @@
         </div>
       </section>
 
-      <section id="planos" class="plans respiro" data-animation="revel">
+      <section
+        id="planos"
+        class="plans respiro"
+        data-js="scroll-reveal"
+        data-state="hidden"
+      >
         <h2 class="titulo">
           Conheça nossos <span class="titulo--dest">planos</span> e suas
           <span class="titulo--dest">vantagens</span>
@@ -474,8 +507,12 @@
         <button class="btn btn--planos" type="button">Escolher Plano!</button>
       </section>
 
-      <aside class="newsletter respiro">
-        <div class="newsletter__wrapper" data-animation="revel">
+      <aside id="matricule-se" class="newsletter respiro">
+        <div
+          class="newsletter__wrapper"
+          data-js="scroll-reveal"
+          data-state="hidden"
+        >
           <div class="newsletter__content">
             <h3 class="newsletter__title">
               Torne-se um
@@ -514,7 +551,12 @@
         </div>
       </aside>
 
-      <section class="modality respiro" data-animation="revel">
+      <section
+        id="modalidades"
+        class="modality respiro"
+        data-js="scroll-reveal"
+        data-state="hidden"
+      >
         <h2 class="titulo titulo--alt">Modalidades</h2>
 
         <p class="titulo modality__text">
@@ -651,11 +693,13 @@
     </main>
 
     <footer class="footer respiro">
-      <div class="footer__wrapper" data-animation="revel">
+      <div class="footer__wrapper" data-js="scroll-reveal" data-state="hidden">
         <img
           class="footer__image"
           src="./assets/svg/logos/logo.svg"
           alt="Logo Fitness Gym"
+          width="352"
+          height="218"
         />
 
         <div class="footer__sections">
@@ -736,7 +780,8 @@
       class="scroll"
       type="button"
       aria-label="Voltar para o topo da página"
-      data-scroll
+      data-js="scroll-top"
+      data-state="hidden"
     >
       <i class="scroll__icon icon icon-arrow"></i>
     </button>
@@ -744,6 +789,6 @@
     <script async src="./js/menu-burguer.js"></script>
     <script async src="./js/gatilhoAnimacao.js" type="module"></script>
     <script async src="./js/planosFlutuante.js"></script>
-    <script async src="./js/scrollTopo.js"></script>
+    <script async src="./js/scroll-to-top.js"></script>
   </body>
 </html>

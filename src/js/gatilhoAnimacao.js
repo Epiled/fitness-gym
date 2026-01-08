@@ -1,14 +1,11 @@
-
-import { revelsMarcados } from "./revel.js";
 import { contadorMarcados } from "./contador.js";
 import { flipsMarcados } from "./flipe.js";
+import "./revel.js";
 
-const alturaDeAtivacao = window.innerHeight * .8;
+const alturaDeAtivacao = window.innerHeight * 0.8;
 
-window.addEventListener('scroll', () => {
-  revelsMarcados.revelAnimation(alturaDeAtivacao);
+window.addEventListener("scroll", () => {
   flipsMarcados.flip(alturaDeAtivacao);
 });
 
-revelsMarcados.revelAnimation(alturaDeAtivacao);
 contadorMarcados.preparaContadores(alturaDeAtivacao);

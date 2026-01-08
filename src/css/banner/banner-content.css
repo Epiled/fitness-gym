@@ -9,7 +9,7 @@
   opacity: 0;
 }
 
-.banner__content.active {
+.banner__content:where([data-state="visible"]) {
   animation: topRevelBanner 0.5s forwards;
 }
 

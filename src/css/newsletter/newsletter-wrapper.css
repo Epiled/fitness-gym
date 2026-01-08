@@ -4,7 +4,7 @@
   opacity: 0;
 }
 
-.newsletter__wrapper.active {
+.newsletter__wrapper:where([data-state="visible"]) {
   animation: topRevel 0.5s forwards;
 }
 

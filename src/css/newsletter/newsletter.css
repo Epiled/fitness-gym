@@ -6,7 +6,7 @@
   background-size: 16rem, cover, cover;
   background-repeat: no-repeat;
   background-position:
-    calc(100% + 5.75rem) calc(0 - 4rem),
+    calc(100% + 5.75rem) -4rem,
     center,
     right bottom;
   color: var(--color-surface-base);

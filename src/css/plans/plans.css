@@ -5,7 +5,7 @@
   opacity: 0;
 }
 
-.plans.active {
+.plans:where([data-state="visible"]) {
   animation: topRevel 0.5s forwards;
 }
 

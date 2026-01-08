@@ -12,6 +12,10 @@
   text-underline-offset: 0.5rem;
 }
 
+.titulo--accessibility {
+  color: var(--color-brand-primary-dark);
+}
+
 .titulo--alt {
   color: var(--color-brand-primary);
   font-size: 4rem;

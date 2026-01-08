@@ -8,6 +8,6 @@
   opacity: 0;
 }
 
-.search__container.active {
+.search__container:where([data-state="visible"]) {
   animation: topRevel 0.5s forwards;
 }
