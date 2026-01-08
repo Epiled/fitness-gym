@@ -7,6 +7,7 @@
       name="description"
       content="Fitness Gym a maior fabrica de monstro de São Paulo / SP, venha tranforma-se em monstro também."
     />
+
     <title>Fitness Gym</title>
 
     <meta name="msapplication-TileColor" content="#ffffff" />
@@ -18,13 +19,21 @@
       sizes="16x16"
       href="./assets/favicon/favicon-16x16.png"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet preload prefetch"
+      rel="preload"
       as="style"
       href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap"
-      crossorigin="anonymous"
+    />
+
+    <link
+      rel="preload"
+      as="font"
+      href=".//assets/fonts/fitness-gym-icons/fitness-gym-icons.woff2"
+      type="font/woff2"
+      crossorigin
     />
 
     <link
@@ -806,10 +815,7 @@
       <i class="scroll__icon icon icon-arrow"></i>
     </button>
 
-    <script async src="./js/menu-burguer.js"></script>
-    <script async src="./js/gatilhoAnimacao.js" type="module"></script>
-    <script async src="./js/tabs-indicator.js" type="module"></script>
-    <script async src="./js/scroll-to-top.js" type="module"></script>
-    <script async src="./js/card-flip.js" type="module"></script>
+    <script defer src="./js/menu-burguer.js"></script>
+    <script src="./js/main.js" type="module"></script>
   </body>
 </html>
