@@ -1,7 +1,8 @@
 // ← tasks to minify CSS.
 
 const gulp = require("gulp");
-const cleanCSS = require("gulp-clean-css");
+const postcss = require("gulp-postcss");
+const cssnano = require("cssnano");
 const path = require("path");
 
 const { log } = require("../../utils/log");
@@ -48,7 +49,13 @@ function minifyTask() {
 
   return gulp
     .src(inputPath, { allowEmpty: true, base: baseDir })
-    .pipe(cleanCSS({ compatibility: "ie8", level: 2 }))
+    .pipe(
+      postcss([
+        cssnano({
+          preset: "default",
+        }),
+      ]),
+    )
     .pipe(gulp.dest(outputDir));
 }
 minifyTask.displayName = "css:minify:run";
