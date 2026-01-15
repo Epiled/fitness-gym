@@ -1,13 +1,10 @@
-// import { contadorMarcados } from "./contador.js";
+import("./menu-toggle.js");
+import("./scroll-reveal.js");
 
 window.addEventListener("load", () => {
   import("./card-flip.js");
   import("./tabs-indicator.js");
-  import("./scroll-reveal.js");
   import("./scroll-to-top.js");
   import("./scroll-auto-flip.js");
+  import("./scroll-counter.js");
 });
-
-// const alturaDeAtivacao = window.innerHeight * 0.8;
-
-// contadorMarcados.preparaContadores(alturaDeAtivacao);
