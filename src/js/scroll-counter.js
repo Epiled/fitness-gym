@@ -1,66 +1,74 @@
-const contadoresBox = document.querySelector('[data-contador-box]');
-const contadores = contadoresBox.querySelectorAll('[data-contador]');
+const counterSections = Array.from(
+  document.querySelectorAll("[data-has-counters]"),
+);
 
-let contadoresMontados = []
+const options = {
+  root: null,
+  rootMargin: "0px 0px -20% 0px",
+  threshold: 0,
+};
 
-function preparaContadores(gatilho) {
-  contadores.forEach(item => {
-    const limite = item.dataset.contador;
-    const posicao = item.getBoundingClientRect().top;
-    const contador = new Contador(item, limite, posicao, gatilho);
-    contadoresMontados.push(contador);
-  });
+let observer;
 
-  const alturaTotal = contadoresBox.getBoundingClientRect().top - contadoresBox.getBoundingClientRect().height;
-
-  if (alturaTotal <= gatilho) {
-    verificaPosicao(gatilho);
-  }
+function startCountersIn(section) {
+  const counterElements = Array.from(
+    section.querySelectorAll('[data-js="counter"]'),
+  );
+  const counters = counterElements.map((el) => new Counter(el));
+  counters.forEach((c) => c.start());
 }
 
-function verificaPosicao() {
-  contadoresMontados.forEach(contador => {
-    contador.iniciarContagem();
-  })
-}
-
-class Contador {
-  constructor(elemento, limite, posicao, gatilho) {
-    this.id = this;
-    this.elemento = elemento;
-    this.contador = 0;
-    this.limite = Number(limite);
-    this.duracao = 1;
-    this.posicaoTop = posicao;
-    this.gatilho = gatilho;
-    this.controleAnimacao = this.posicaoTop <= this.gatilho;
-    this.intervalo;
-  }
-
-  iniciarContagem() {
-    this.intervalo = setInterval(() => this.incrementarContador(), (this.duracao * 1000) / this.limite);
-  }
-
-  incrementarContador() {
-    if (this.contador < this.limite) {
-      this.contador++;
-      this.elemento.textContent = this.elemento.dataset.contadorAlt == "true" ? this.contador : `+${this.contador}`;
-    } else {
-      clearInterval(this.intervalo);
+const callback = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      startCountersIn(entry.target);
+      observer.unobserve(entry.target);
     }
-  }
+  });
+};
 
-  getControleAnimacao() {
-    return this.controleAnimacao;
-  }
-
-  getContador() {
-    return this.contador;
-  }
+function createObserver() {
+  observer = new IntersectionObserver(callback, options);
+  counterSections.forEach((section) => observer.observe(section));
 }
 
-export const contadorMarcados = {
-  contadores,
-  preparaContadores,
-  verificaPosicao,
+createObserver();
+
+class Counter {
+  constructor(element) {
+    this.element = element;
+    this.currentValue = 0;
+    this.targetValue = Number(element.dataset.counterTarget ?? 0);
+    this.format = element.dataset.counterFormat ?? "with-plus";
+    this.animationDurationMs = 900;
+    this.startTime = 0;
+    this.rafId = null;
+  }
+
+  formatValue(value) {
+    return this.format === "plain" ? String(value) : `+${value}`;
+  }
+
+  start() {
+    if (!Number.isFinite(this.targetValue) || this.targetValue <= 0) return;
+
+    this.startTime = performance.now();
+
+    const animate = (now) => {
+      const progress = Math.min(
+        (now - this.startTime) / this.animationDurationMs,
+        1,
+      );
+      const nextValue = Math.floor(progress * this.targetValue);
+
+      if (nextValue !== this.currentValue) {
+        this.currentValue = nextValue;
+        this.element.textContent = this.formatValue(nextValue);
+      }
+
+      if (progress < 1) this.rafId = requestAnimationFrame(animate);
+    };
+
+    this.rafId = requestAnimationFrame(animate);
+  }
 }
