@@ -16,7 +16,7 @@
   backdrop-filter: blur(0.5rem);
 }
 
-.header__nav--active {
+.header__nav:where([data-state="visible"]) {
   opacity: 1;
   right: 2rem;
   transition: opacity 0.3s;
