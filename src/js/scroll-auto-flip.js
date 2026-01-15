@@ -1,7 +1,7 @@
 const items = document.querySelectorAll('[data-js="flip"][data-auto-flip]');
 
 // Initial state
-items.forEach((el) => (el.dataset.flip ??= "front"));
+items.forEach((el) => (el.dataset.face ??= "front"));
 
 const STAGGER_MS = 120;
 
