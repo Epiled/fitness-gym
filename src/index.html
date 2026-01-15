@@ -168,7 +168,7 @@
 
         <button
           class="header__toggle"
-          data-burguer
+          data-js="menu-toggle"
           type="button"
           aria-label="Abrir menu de navegação"
           aria-expanded="false"
@@ -177,7 +177,12 @@
           <i class="header__icon header__icon--menu icon icon-dumbbell"></i>
         </button>
 
-        <nav class="header__nav" data-navegacao>
+        <nav
+          id="header-navigation"
+          class="header__nav"
+          data-js="menu-nav"
+          data-state="hidden"
+        >
           <a class="header__link" href="#planos">
             <i class="header__icon icon icon-check-list"></i>
             Planos
@@ -218,26 +223,42 @@
 
       <aside
         class="infos respiro"
-        data-contador-box
+        data-has-counters
         data-js="scroll-reveal"
         data-state="hidden"
       >
         <div class="infos__box">
           <i class="infos__icon icon icon-house"></i>
           <h2 class="infos__title">Academias</h2>
-          <span class="infos__count" data-contador="4">+0</span>
+          <span
+            class="infos__count"
+            data-js="counter"
+            data-counter-target="4"
+            data-counter-format="with-plus"
+            >+0</span
+          >
         </div>
 
         <div class="infos__box infos__box--alt">
           <i class="infos__icon infos__icon--alt icon icon-people"></i>
           <h2 class="infos__title infos__title--alt">Instrutores</h2>
-          <span class="infos__count" data-contador="12">+0</span>
+          <span
+            class="infos__count"
+            data-js="counter"
+            data-counter-target="12"
+            data-counter-format="with-plus"
+            >+0</span
+          >
         </div>
 
-        <div class="infos__box" data-contador-box>
+        <div class="infos__box">
           <i class="infos__icon icon icon-medal"></i>
           <h2 class="infos__title">Prêmios</h2>
-          <span class="infos__count" data-contador="7" data-contador-alt="true"
+          <span
+            class="infos__count"
+            data-js="counter"
+            data-counter-target="7"
+            data-counter-format="plain"
             >0</span
           >
         </div>
@@ -815,7 +836,6 @@
       <i class="scroll__icon icon icon-arrow"></i>
     </button>
 
-    <script defer src="./js/menu-burguer.js"></script>
     <script src="./js/main.js" type="module"></script>
   </body>
 </html>
