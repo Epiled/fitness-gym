@@ -8,7 +8,7 @@
 }
 
 .header__link:focus {
-  color: var(--cor-logo);
+  color: var(--color-brand-primary);
 }
 
 @media screen and (min-width: 1440px) {
@@ -24,6 +24,7 @@
 
   .header__link:hover {
     color: var(--color-surface-base);
+    cursor: pointer;
   }
 
   .header__link:nth-child(2) {
