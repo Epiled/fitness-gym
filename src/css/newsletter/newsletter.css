@@ -1,8 +1,9 @@
 .newsletter {
   background-image:
-    url(../../assets/svg/icons-art/decoracao-white.svg),
+    /* @img mobile */
+    url(../../assets/svg/icons-art/section-accent--light.svg),
     linear-gradient(0deg, var(--color-overlay-50), var(--color-overlay-50)),
-    url(../../assets/img/newsletter.jpg);
+    /* @img mobile */ url(../../assets/img/newsletter.jpg);
   background-size: 16rem, cover, cover;
   background-repeat: no-repeat;
   background-position:
@@ -18,9 +19,10 @@
 @media screen and (min-width: 834px) {
   .newsletter {
     background-image:
-      url(../../assets/svg/icons-art/decoracao-white.svg),
+      /* @img tablet */
+      url(../../assets/svg/icons-art/section-accent--light.svg),
       linear-gradient(0deg, var(--color-overlay-50), var(--color-overlay-50)),
-      url(../../assets/img/newsletter.jpg);
+      /* @img tablet */ url(../../assets/img/newsletter.jpg);
     background-size: 21.7rem, cover, cover;
     background-position:
       calc(100% + 5.75rem) 1rem,
@@ -34,9 +36,10 @@
 @media screen and (min-width: 1440px) {
   .newsletter {
     background-image:
-      url(../../assets/svg/icons-art/decoracao-white.svg),
+      /* @img desktop */
+      url(../../assets/svg/icons-art/section-accent--light.svg),
       linear-gradient(0deg, var(--color-overlay-50), var(--color-overlay-50)),
-      url(../../assets/img/newsletter.jpg);
+      /* @img desktop */ url(../../assets/img/newsletter.jpg);
     background-size: 23.5rem, cover, cover;
     background-position:
       calc(100% + 5.75rem) 1rem,

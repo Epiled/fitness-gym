@@ -1,7 +1,7 @@
 .modality {
   background-image:
-    url(../../assets/svg/icons-art/decoracao-black.svg),
-    url(../../assets/svg/icons-art/decoracao-principal.svg);
+    url(../../assets/svg/icons-art/section-accent--dark.svg),
+    url(../../assets/svg/icons-art/section-accent.svg);
   background-repeat: no-repeat;
   background-position:
     calc(0% - 5rem) 20%,
