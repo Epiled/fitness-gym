@@ -10,23 +10,9 @@
   }
 }
 
-@keyframes topRevelBanner {
-  0% {
-    opacity: 0;
-    transform: translate(0%, calc(-50% + 10rem));
-
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(0%, -50%);
-  }
-}
-
 @keyframes flip {
   0% {
     transform: rotateY(0deg);
-
   }
 
   100% {
@@ -37,7 +23,6 @@
 @keyframes reverse {
   0% {
     transform: rotateY(180deg);
-
   }
 
   100% {
