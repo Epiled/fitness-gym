@@ -11,7 +11,7 @@
       var(--color-brand-primary-23) 0%,
       var(--color-brand-primary-0) 100%
     ),
-    url(../../assets/img/buscador.jpg);
+    /* @img mobile */ url(../../assets/img/buscador.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -25,7 +25,7 @@
         var(--color-brand-primary-23) 0%,
         var(--color-brand-primary-0) 100%
       ),
-      url(../../assets/img/buscador.jpg);
+      /* @img tablet */ url(../../assets/img/buscador.jpg);
   }
 }
 
@@ -38,6 +38,6 @@
         var(--color-brand-primary-23) 0%,
         var(--color-brand-primary-0) 100%
       ),
-      url(../../assets/img/buscador.jpg);
+      /* @img desktop */ url(../../assets/img/buscador.jpg);
   }
 }
