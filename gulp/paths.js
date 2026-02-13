@@ -36,6 +36,12 @@ const paths = {
     temp: "temp/css",
     dist: "dist/css",
   },
+  js: {
+    glob: "src/css/**/*.css",
+    dir: "src/js",
+    temp: "temp/js",
+    dist: "dist/js",
+  },
   sass: {
     glob: "src/sass/**/*.sass",
     dir: "src/sass",
