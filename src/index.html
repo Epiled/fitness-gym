@@ -833,16 +833,15 @@
       </div>
     </footer>
 
-    <button
-      class="scroll"
-      type="button"
-      aria-label="Voltar para o topo da página"
-      data-js="scroll-top"
-      data-state="hidden"
-    >
-      <i class="scroll__icon icon icon-arrow"></i>
-    </button>
+    <!-- build:js:inline -->
+    <script src="./js/inline.entry.js" type="module"></script>
+    <!-- build:end -->
 
-    <script src="./js/main.js" type="module"></script>
+    <script type="module">
+      const load = () => import("./js/main.js");
+      addEventListener("pointerdown", load, { once: true });
+      addEventListener("keydown", load, { once: true });
+      addEventListener("scroll", load, { once: true });
+    </script>
   </body>
 </html>
