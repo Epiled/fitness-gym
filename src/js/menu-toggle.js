@@ -1,13 +1,22 @@
 const toggle = document.querySelector('[data-js="menu-toggle"]');
 const nav = document.querySelector('[data-js="menu-nav"]');
 
+const mqDesktop = window.matchMedia("(min-width: 1440px)");
+
 nav.dataset.state ??= "hidden";
 
-// sync initial ARIA state
-if (nav.dataset.state === "visible") {
-  openMenu();
-} else {
-  closeMenu();
+function syncByViewport() {
+  if (mqDesktop.matches) {
+    nav.dataset.state = "visible";
+    nav.setAttribute("aria-hidden", "false");
+    nav.removeAttribute("inert");
+
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Menu de navegação (sempre visível)");
+  } else {
+    if (nav.dataset.state === "visible") openMenu();
+    else closeMenu();
+  }
 }
 
 toggle.addEventListener("click", () => {
@@ -16,20 +25,25 @@ toggle.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (event) => {
-  if (event.button !== 0) return;
+  if (event.button !== 0 || mqDesktop.matches) return;
 
   if (
     nav.dataset.state !== "visible" ||
     nav.contains(event.target) ||
     toggle.contains(event.target)
-  ) {
+  )
     return;
-  }
 
   closeMenu();
 });
 
+if (mqDesktop.addEventListener) {
+  mqDesktop.addEventListener("change", syncByViewport);
+}
+
 document.addEventListener("keydown", (event) => {
+  if (mqDesktop.matches) return;
+
   if (event.key === "Escape" && nav.dataset.state === "visible") {
     closeMenu();
     toggle.focus();
