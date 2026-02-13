@@ -46,9 +46,11 @@ function resizeTabletTask() {
         formats: [
           {
             width: 840,
-            height: 560,
             format: "webp",
-            quality: 80,
+            webpOptions: {
+              quality: 75,
+              effort: 6,
+            },
           },
         ],
       }),

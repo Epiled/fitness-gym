@@ -45,10 +45,12 @@ function resizeDesktopTask() {
       sharpResponsive({
         formats: [
           {
-            width: 1920,
-            height: 1080,
+            width: 1440,
             format: "webp",
-            quality: 80,
+            webpOptions: {
+              quality: 75,
+              effort: 6,
+            },
           },
         ],
       }),

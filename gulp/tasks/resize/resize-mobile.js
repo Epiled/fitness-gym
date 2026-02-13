@@ -46,9 +46,11 @@ function resizeMobileTask() {
         formats: [
           {
             width: 390,
-            height: 260,
             format: "webp",
-            quality: 80,
+            webpOptions: {
+              quality: 75,
+              effort: 6,
+            },
           },
         ],
       }),
