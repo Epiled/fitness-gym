@@ -3,7 +3,6 @@
 const gulp = require("gulp");
 const postcss = require("gulp-postcss");
 const cssnano = require("cssnano");
-const path = require("path");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -12,12 +11,16 @@ const { fileExists } = require("../../utils/fileExists");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const baseDir = ctx.isDebug ? ctx.paths.css.dir : ctx.paths.css.temp;
-const label = ctx.isDebug ? "source files" : "bundle";
+const srcGlob = ctx.paths.css.glob;
+const srcDir = ctx.paths.css.dir;
 
-const bundlePath = path.join(ctx.paths.css.temp, "bundle.css");
+const tempDir = ctx.paths.css.temp;
+const tempGlob = `${tempDir}/**/*.css`;
 
-const inputPath = ctx.isDebug ? ctx.paths.css.glob : bundlePath;
+const inputPath = ctx.isDebug ? srcGlob : tempGlob;
+
+const baseDir = ctx.isDebug ? srcDir : tempDir;
+const label = ctx.isDebug ? "source files" : "temp files";
 
 const outputDir = ctx.paths.css.dist;
 
@@ -34,15 +37,15 @@ function logStart(cb) {
 logStart.displayName = "css:minify:log:start";
 
 function logEnd(cb) {
-  log.success(`Finished CSS minification! → ${timer.end()} → ${outputDir}`);
+  log.success(`Finished CSS minification! ${timer.end()} → ${outputDir}`);
   cb();
 }
 logEnd.displayName = "css:minify:log:end";
 
 function minifyTask() {
-  if (!ctx.isDebug && !fileExists(bundlePath)) {
+  if (!ctx.isDebug && !fileExists(tempDir)) {
     log.warn(
-      `Bundle file not found at ${bundlePath}. Please run 'css:concat' first or use the '--debug' flag to minify directly from source files.`,
+      `Bundle file not found at ${tempDir}. Please run 'css:concat' first or use the '--debug' flag to minify directly from source files.`,
     );
     return Promise.resolve();
   }
