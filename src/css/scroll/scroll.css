@@ -14,9 +14,9 @@
   border-radius: 0.5rem;
   cursor: pointer;
   overflow: hidden;
-  transition: opacity 0.5s;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.5s;
 }
 
 .scroll:where([data-state="visible"]) {
