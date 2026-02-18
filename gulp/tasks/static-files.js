@@ -41,6 +41,9 @@ function staticFilesTask() {
         // handled by css tasks
         `!${srcDir}/css/**/*`,
 
+        // handled by js tasks
+        `!${srcDir}/js/**/*`,
+
         // handled by icons pipeline (source SVGs)
         `!${srcDir}/assets/svg/icons-ui/**`,
 
@@ -60,5 +63,7 @@ staticFiles.flags = {
   "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
 };
+
 gulp.task(staticFiles.displayName, staticFiles);
+
 module.exports = { staticFiles };
