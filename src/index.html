@@ -184,6 +184,7 @@
         </button>
 
         <nav
+          aria-label="Navegação principal"
           id="header-navigation"
           class="header__nav"
           data-js="menu-nav"
@@ -210,13 +211,13 @@
     </header>
 
     <main>
-      <section class="banner">
+      <section class="banner" aria-labelledby="banner-title">
         <div
           class="banner__content"
           data-js="scroll-reveal"
           data-state="hidden"
         >
-          <h1 class="banner__title">
+          <h1 id="banner-title" class="banner__title">
             <span class="banner__subtitle">Torne-se um</span>
             <span class="banner__headline">Monstro</span>
           </h1>
@@ -229,6 +230,7 @@
 
       <aside
         class="infos respiro"
+        aria-label="Números da academia"
         data-has-counters
         data-js="scroll-reveal"
         data-state="hidden"
@@ -278,26 +280,31 @@
           <span class="titulo--dest titulo--accessibility">você</span>
         </h2>
         <div class="search__field respiro">
-          <fieldset
-            class="search__container"
-            data-js="scroll-reveal"
-            data-state="hidden"
-          >
-            <input
-              class="search__input"
-              type="text"
-              placeholder="Busque uma unidade"
-            />
-
-            <button
-              class="search__button"
-              data-buscar
-              type="button"
-              aria-label="Buscar uma unidade"
+          <form method="post" action="#">
+            <fieldset
+              class="search__container"
+              data-js="scroll-reveal"
+              data-state="hidden"
             >
-              <i class="search__icon icon icon-search"></i>
-            </button>
-          </fieldset>
+              <input
+                id="search-gym"
+                name="search-gym"
+                autocomplete="on"
+                class="search__input"
+                type="text"
+                placeholder="Busque uma unidade"
+              />
+
+              <button
+                class="search__button"
+                data-buscar
+                type="button"
+                aria-label="Buscar uma unidade"
+              >
+                <i class="search__icon icon icon-search"></i>
+              </button>
+            </fieldset>
+          </form>
         </div>
       </section>
 
@@ -310,7 +317,7 @@
         <h2 class="titulo titulo--alt">Academias</h2>
 
         <div class="gym__cards">
-          <div class="gym__card">
+          <article class="gym__card">
             <picture>
               <img
                 src="./assets/img/academia-1.jpg"
@@ -320,11 +327,11 @@
                 alt=""
                 class="gym__image"
                 data-gulp-cheerio
-                data-sizes="mobile:390x260,tablet:840x560,desktop:1920x1280"
+                data-sizes="mobile:390x260"
               />
             </picture>
 
-            <main class="gym__content">
+            <div class="gym__content">
               <h3 class="gym__title">Praça do Forró</h3>
               <p class="gym__text">
                 Praça Padre Aleixo Monteiro Mafra, 19 - São Miguel Paulista, São
@@ -346,10 +353,11 @@
                   </span>
                 </li>
               </ul>
-              <a href="" class="btn btn--academia"> Assinar Plano! </a>
-            </main>
-          </div>
-          <div class="gym__card">
+              <a href="#planos" class="btn btn--academia"> Assinar Plano! </a>
+            </div>
+          </article>
+
+          <article class="gym__card">
             <picture>
               <img
                 src="./assets/img/academia-1.jpg"
@@ -359,10 +367,10 @@
                 alt=""
                 class="gym__image"
                 data-gulp-cheerio
-                data-sizes="mobile:390x260,tablet:840x560,desktop:1920x1280"
+                data-sizes="mobile:390x260"
               />
             </picture>
-            <main class="gym__content">
+            <div class="gym__content">
               <h3 class="gym__title">Praça do Forró</h3>
               <p class="gym__text">
                 Praça Padre Aleixo Monteiro Mafra, 19 - São Miguel Paulista, São
@@ -384,10 +392,11 @@
                   </span>
                 </li>
               </ul>
-              <a href="" class="btn btn--academia"> Assinar Plano! </a>
-            </main>
-          </div>
-          <div class="gym__card">
+              <a href="#planos" class="btn btn--academia"> Assinar Plano! </a>
+            </div>
+          </article>
+
+          <article class="gym__card">
             <picture>
               <img
                 src="./assets/img/academia-1.jpg"
@@ -397,10 +406,10 @@
                 alt=""
                 class="gym__image"
                 data-gulp-cheerio
-                data-sizes="mobile:390x260,tablet:840x560,desktop:1920x1280"
+                data-sizes="mobile:390x260"
               />
             </picture>
-            <main class="gym__content">
+            <div class="gym__content">
               <h3 class="gym__title">Praça do Forró</h3>
               <p class="gym__text">
                 Praça Padre Aleixo Monteiro Mafra, 19 - São Miguel Paulista, São
@@ -422,9 +431,9 @@
                   </span>
                 </li>
               </ul>
-              <a href="" class="btn btn--academia"> Assinar Plano! </a>
-            </main>
-          </div>
+              <a href="#planos" class="btn btn--academia"> Assinar Plano! </a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -543,7 +552,11 @@
         <button class="btn btn--planos" type="button">Escolher Plano!</button>
       </section>
 
-      <aside id="matricule-se" class="newsletter respiro">
+      <aside
+        id="matricule-se"
+        class="newsletter respiro"
+        aria-label="Cadastro e novidades"
+      >
         <div
           class="newsletter__wrapper"
           data-js="scroll-reveal"
@@ -567,19 +580,21 @@
             </ul>
           </div>
 
-          <form class="newsletter__form" action="">
+          <form method="post" class="newsletter__form" action="#">
             <fieldset class="newsletter__fields">
               <input
+                id="newsletter-name"
+                name="newsletter-name"
                 class="newsletter__input"
                 placeholder="Nome:"
                 type="text"
               />
               <input
+                id="newsletter-email"
+                name="newsletter-email"
                 class="newsletter__input"
                 placeholder="E-mail:"
                 type="email"
-                name=""
-                id=""
               />
               <button class="btn btn--formulario">Fazer Cadastro!</button>
             </fieldset>
@@ -616,6 +631,8 @@
                   height="260"
                   alt=""
                   class="modality__image"
+                  data-gulp-cheerio
+                  data-sizes="mobile:390x260"
                 />
               </picture>
               <div class="modality__front">
@@ -653,6 +670,8 @@
                     height="260"
                     alt=""
                     class="modality__image"
+                    data-gulp-cheerio
+                    data-sizes="mobile:390x260"
                   />
                 </picture>
                 <h3 class="modality__title">Fitdance</h3>
@@ -689,6 +708,8 @@
                     height="260"
                     alt=""
                     class="modality__image"
+                    data-gulp-cheerio
+                    data-sizes="mobile:390x260"
                   />
                 </picture>
                 <h3 class="modality__title">Pilates</h3>
@@ -725,6 +746,8 @@
                     height="260"
                     alt=""
                     class="modality__image"
+                    data-gulp-cheerio
+                    data-sizes="mobile:390x260"
                   />
                 </picture>
                 <h3 class="modality__title">Cardio</h3>
@@ -746,6 +769,16 @@
           </div>
         </div>
       </section>
+
+      <button
+        class="scroll"
+        type="button"
+        aria-label="Voltar para o topo da página"
+        data-js="scroll-top"
+        data-state="hidden"
+      >
+        <i class="scroll__icon icon icon-arrow"></i>
+      </button>
     </main>
 
     <footer class="footer respiro">
@@ -761,31 +794,31 @@
         <div class="footer__sections">
           <div class="footer__section">
             <h3 class="footer__title">Links</h3>
-            <nav>
+            <nav aria-label="Links do rodapé">
               <ul class="footer__items">
                 <li>
-                  <a href="" class="footer__link">
+                  <a href="#academias" class="footer__link">
                     <i class="footer__icon icon icon-gym"></i>
                     Academias
                   </a>
                 </li>
 
                 <li>
-                  <a href="" class="footer__link">
+                  <a href="#planos" class="footer__link">
                     <i class="footer__icon icon icon-check-list"></i>
                     Planos
                   </a>
                 </li>
 
                 <li>
-                  <a href="" class="footer__link">
+                  <a href="#matricule-se" class="footer__link">
                     <i class="footer__icon icon icon-add-user"></i>
                     Matricule-se
                   </a>
                 </li>
 
                 <li>
-                  <a href="" class="footer__link">
+                  <a href="#modalidades" class="footer__link">
                     <i class="footer__icon icon icon-belt"></i>
                     Modalidades
                   </a>
