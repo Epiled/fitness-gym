@@ -2,9 +2,10 @@
 
 const gulp = require("gulp");
 
-const { cssConcat } = require("./css-concat");
-const { cssMinify } = require("./css-minify");
 const { cleanTempCSS } = require("../clean/clean-temp-css");
+const { cssConcat } = require("./css-concat");
+const { cssTransformImages } = require("./css-transform-images");
+const { cssMinify } = require("./css-minify");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -35,8 +36,8 @@ const cssBuild = gulp.series(
   logStart,
   cleanTempCSS,
   cssConcat,
+  cssTransformImages,
   cssMinify,
-  cleanTempCSS,
   logEnd,
 );
 
