@@ -14,13 +14,9 @@ const ctx = getBuildContext();
 const srcGlob = ctx.paths.html.glob;
 const srcDir = ctx.paths.html.dir;
 
-const tempDir = ctx.paths.html.temp;
-const tempGlob = `${tempDir}/**/*.html`;
+const baseDir = srcDir;
 
-const inputGlob = ctx.isDebug ? srcGlob : tempGlob;
-const baseDir = ctx.isDebug ? srcDir : tempDir;
-
-const outputDir = ctx.isDebug ? ctx.paths.dist : tempDir;
+const outputDir = ctx.isDebug ? ctx.paths.dist : ctx.paths.html.temp;
 
 let timer;
 
@@ -45,8 +41,8 @@ const parseSizes = (str = "") => {
 function logStart(cb) {
   timer = startTimer();
   log.info("Start transform images in the HTML...");
-  log.verbose(`→ Source glob: ${inputGlob}`);
-  log.verbose(`→ Source dir: ${baseDir}`);
+  log.verbose(`→ Source glob: ${srcGlob}`);
+  log.verbose(`→ Source dir: ${srcDir}`);
   log.verbose(`→ Output directory: ${outputDir}`);
   cb();
 }
@@ -61,77 +57,79 @@ function logEnd(cb) {
 logEnd.displayName = "html:transform:images:log:end";
 
 function htmlTransformImagesTask() {
-  if (!ctx.isDebug && !fileExists(tempDir)) {
-    log.warn(
-      `Transformed HTML files not found at ${tempDir}. Please run 'html:replace:css' or use the 'debug' flag to transform directly from source files.`,
-    );
-    return Promise.resolve();
-  }
+  // if (!ctx.isDebug && !fileExists(tempDir)) {
+  //   log.warn(
+  //     `Transformed HTML files not found at ${tempDir}. Please run 'html:replace:css' or use the 'debug' flag to transform directly from source files.`,
+  //   );
+  //   return Promise.resolve();
+  // }
 
   return gulp
-    .src(inputGlob, { allowEmpty: true, base: baseDir })
+    .src(srcGlob, { allowEmpty: true, base: baseDir })
     .pipe(
-      cheerio(($) => {
-        $("[data-gulp-cheerio]").each((_, el) => {
-          if (!el || !el.attribs) return;
-          const $img = $(el);
-          const attrs = { ...el.attribs };
+      cheerio(
+        ($) => {
+          $("[data-gulp-cheerio]").each((_, el) => {
+            if (!el || !el.attribs) return;
+            const $img = $(el);
+            const attrs = { ...el.attribs };
 
-          const sizes = parseSizes(el.attribs["data-sizes"]);
-          const sizesKeys = Object.keys(sizes);
+            const sizes = parseSizes(el.attribs["data-sizes"]);
+            const sizesKeys = Object.keys(sizes);
 
-          const srcBase = attrs.src.replace();
-          if (!srcBase) return;
+            const srcBase = attrs.src.replace();
+            if (!srcBase) return;
 
-          const srcWebp = toWebp(srcBase);
+            const srcWebp = toWebp(srcBase);
 
-          let imgAttrs = Object.entries(attrs)
-            .filter(([k]) => k !== "data-gulp-cheerio" && k !== "data-sizes")
-            .map(([k, v]) => ` ${k}="${v}"`)
-            .join("");
+            let imgAttrs = Object.entries(attrs)
+              .filter(([k]) => k !== "data-gulp-cheerio" && k !== "data-sizes")
+              .map(([k, v]) => ` ${k}="${v}"`)
+              .join("");
 
-          const imgs = sizesKeys.reduceRight((acc, key, index) => {
-            if (!sizes[key]) {
-              return acc;
-            }
+            const imgs = sizesKeys.reduceRight((acc, key, index) => {
+              if (!sizes[key]) {
+                return acc;
+              }
 
-            const { width: w, height: h, breakPoint: br } = sizes[key];
-            const fixedSrc = toWebp(srcWebp.replace(/\/img\b/, `/img/${key}`));
+              const { width: w, height: h, breakPoint: br } = sizes[key];
+              const fixedSrc = toWebp(
+                srcWebp.replace(/\/img\b/, `/img/${key}`),
+              );
 
-            if (index === 0) {
-              // remove old src and inject the new
-              const cleanedAttrs = imgAttrs.replace(/\s*src\s*=\s*"[^"]*"/, "");
+              if (index === 0) {
+                // remove old src and inject the new
+                const cleanedAttrs = imgAttrs.replace(
+                  /\s*src\s*=\s*"[^"]*"/,
+                  "",
+                );
 
-              acc += `
-                 <source
-                  media="(min-width: ${br ?? w}px)"
-                  width="${w}"
-                  height="${h}"
-                  srcset="${fixedSrc}"
-                />
+                acc += `
                 <img                  
                   ${cleanedAttrs}
                   src="${fixedSrc}"
                   width="${w}" 
                   height="${h}" 
                 />`;
-            } else {
-              acc += `
+              } else {
+                acc += `
                 <source
                   media="(min-width: ${br ?? w}px)"
                   width="${w}"
                   height="${h}"
                   srcset="${fixedSrc}"
                 />`;
-            }
+              }
 
-            return acc.trim();
-          }, "");
+              return acc.trim();
+            }, "");
 
-          const nodes = $.parseHTML(imgs);
-          $img.replaceWith(nodes);
-        });
-      }),
+            const nodes = $.parseHTML(imgs);
+            $img.replaceWith(nodes);
+          });
+        },
+        { decodeEntities: true },
+      ),
     )
     .pipe(gulp.dest(outputDir));
 }
