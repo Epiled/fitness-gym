@@ -2,7 +2,6 @@
 
 const gulp = require("gulp");
 const replace = require("gulp-replace");
-const path = require("path");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");

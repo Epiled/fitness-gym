@@ -7,7 +7,6 @@ const { htmlTransformImages } = require("./html-transform-images");
 const { htmlInjectCriticalCSS } = require("./html-inject-critical-css");
 const { htmlInjectCriticalJS } = require("./html-inject-critical-js");
 const { htmlMinify } = require("./html-minify");
-const { cleanTempHTML } = require("../clean/clean-temp-html");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -36,13 +35,11 @@ logEnd.displayName = "html:build:log:end";
 
 const htmlBuild = gulp.series(
   logStart,
-  cleanTempHTML,
   htmlTransformImages,
   htmlReplaceCSS,
   htmlInjectCriticalCSS,
   htmlInjectCriticalJS,
   htmlMinify,
-  cleanTempHTML,
   logEnd,
 );
 

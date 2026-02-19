@@ -2,7 +2,6 @@
 
 const gulp = require("gulp");
 
-const { cleanTempCSS } = require("../clean/clean-temp-css");
 const { cssConcat } = require("./css-concat");
 const { cssTransformImages } = require("./css-transform-images");
 const { cssMinify } = require("./css-minify");
@@ -34,7 +33,6 @@ logEnd.displayName = "css:log:end";
 
 const cssBuild = gulp.series(
   logStart,
-  cleanTempCSS,
   cssConcat,
   cssTransformImages,
   cssMinify,
