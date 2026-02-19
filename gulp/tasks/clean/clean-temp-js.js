@@ -1,4 +1,4 @@
-// ← task to clear temp CSS directory.
+// ← task to clear temp JS directory.
 
 const gulp = require("gulp");
 const clean = require("gulp-clean");
@@ -9,25 +9,25 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const tempDir = ctx.paths.css.temp;
+const tempDir = ctx.paths.js.temp;
 
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
-  log.info("Start cleaning temp CSS directory...");
+  log.info("Start cleaning temp JS directory...");
   log.verbose(`→ Cleaning: ${tempDir}`);
   cb();
 }
-logStart.displayName = "clean:temp:css:log:start";
+logStart.displayName = "clean:temp:js:log:start";
 
 function logEnd(cb) {
-  log.success(`Finished cleaning temp CSS directory! ${timer.end()}`);
+  log.success(`Finished cleaning temp JS directory! ${timer.end()}`);
   cb();
 }
-logEnd.displayName = "clean:temp:css:log:end";
+logEnd.displayName = "clean:temp:js:log:end";
 
-function cleanTempCssTask() {
+function cleanTempJsTask() {
   if (!tempDir || tempDir === "." || tempDir === "/" || tempDir.length < 3) {
     log.error(`Refusing to clean suspicious path: "${tempDir}"`);
     return Promise.resolve();
@@ -35,17 +35,16 @@ function cleanTempCssTask() {
 
   return gulp.src(tempDir, { read: false, allowEmpty: true }).pipe(clean());
 }
-cleanTempCssTask.displayName = "clean:temp:css:run";
 
-const cleanTempCss = gulp.series(logStart, cleanTempCssTask, logEnd);
+const cleanTempJs = gulp.series(logStart, cleanTempJsTask, logEnd);
 
-cleanTempCss.displayName = "clean:temp:css";
-cleanTempCss.description = "Clean (delete) temp CSS directory.";
-cleanTempCss.flags = {
+cleanTempJs.displayName = "clean:temp:js";
+cleanTempJs.description = "Clean (delete) temp JS directory.";
+cleanTempJs.flags = {
   "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
 };
 
-gulp.task(cleanTempCss.displayName, cleanTempCss);
+gulp.task(cleanTempJs.displayName, cleanTempJs);
 
-module.exports = { cleanTempCss };
+module.exports = { cleanTempJs };

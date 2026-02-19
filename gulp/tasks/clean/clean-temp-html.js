@@ -27,7 +27,7 @@ function logEnd(cb) {
 }
 logEnd.displayName = "clean:temp:html:log:end";
 
-function cleanTempHTMLTask() {
+function cleanTempHtmlTask() {
   if (!tempDir || tempDir === "." || tempDir === "/" || tempDir.length < 3) {
     log.error(`Refusing to clean suspicious path: "${tempDir}"`);
     return Promise.resolve();
@@ -35,17 +35,17 @@ function cleanTempHTMLTask() {
 
   return gulp.src(tempDir, { read: false, allowEmpty: true }).pipe(clean());
 }
-cleanTempHTMLTask.displayName = "clean:temp:html:run";
+cleanTempHtmlTask.displayName = "clean:temp:html:run";
 
-const cleanTempHTML = gulp.series(logStart, cleanTempHTMLTask, logEnd);
+const cleanTempHtml = gulp.series(logStart, cleanTempHtmlTask, logEnd);
 
-cleanTempHTML.displayName = "clean:temp:html";
-cleanTempHTML.description = "Clean (delete) temp HTML directory.";
-cleanTempHTML.flags = {
+cleanTempHtml.displayName = "clean:temp:html";
+cleanTempHtml.description = "Clean (delete) temp HTML directory.";
+cleanTempHtml.flags = {
   "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
 };
 
-gulp.task(cleanTempHTML.displayName, cleanTempHTML);
+gulp.task(cleanTempHtml.displayName, cleanTempHtml);
 
-module.exports = { cleanTempHTML };
+module.exports = { cleanTempHtml };
