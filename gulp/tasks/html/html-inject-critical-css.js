@@ -10,12 +10,12 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const tempDir = ctx.paths.css.temp;
-const tempDirHTML = ctx.paths.html.temp;
+const tempDir = ctx.paths.css.temp.artifacts.gen.dir;
+const tempGlob = ctx.paths.html.temp.artifacts.gen.glob;
 
-const tempGlob = `${tempDirHTML}/**/*.html`;
-
-const outputDir = ctx.isDebug ? ctx.paths.dist : ctx.paths.html.temp;
+const outputDir = ctx.isDebug
+  ? ctx.paths.dist
+  : ctx.paths.html.temp.artifacts.gen.dir;
 
 let timer;
 
@@ -34,11 +34,10 @@ function logEnd(cb) {
 }
 logEnd.displayName = "html:inject:critical:css:log:end";
 
-function htmlInjectCriticalCSSTask() {
+function htmlInjectCriticalCssTask() {
   const criticalFile = fs
     .readFileSync(`${tempDir}/critical.css`, "utf8")
     .trim();
-  log.info(criticalFile);
 
   return gulp
     .src(tempGlob, { allowEmpty: true })
@@ -52,16 +51,16 @@ function htmlInjectCriticalCSSTask() {
     )
     .pipe(gulp.dest(outputDir));
 }
-htmlInjectCriticalCSSTask.displayName = "html:inject:critical:css:run";
+htmlInjectCriticalCssTask.displayName = "html:inject:critical:css:run";
 
-const htmlInjectCriticalCSS = gulp.series(
+const htmlInjectCriticalCss = gulp.series(
   logStart,
-  htmlInjectCriticalCSSTask,
+  htmlInjectCriticalCssTask,
   logEnd,
 );
 
-htmlInjectCriticalCSS.displayName = "html:inject:critical:css";
+htmlInjectCriticalCss.displayName = "html:inject:critical:css";
 
-gulp.task(htmlInjectCriticalCSS.displayName, htmlInjectCriticalCSS);
+gulp.task(htmlInjectCriticalCss.displayName, htmlInjectCriticalCss);
 
-module.exports = { htmlInjectCriticalCSS };
+module.exports = { htmlInjectCriticalCss };

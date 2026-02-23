@@ -14,9 +14,16 @@ const ctx = getBuildContext();
 const srcGlob = ctx.paths.html.glob;
 const srcDir = ctx.paths.html.dir;
 
-const baseDir = srcDir;
+const tempGlob = ctx.paths.html.temp.glob;
+const tempDir = ctx.paths.html.temp.staging;
 
-const outputDir = ctx.isDebug ? ctx.paths.dist : ctx.paths.html.temp;
+const inputGlob = ctx.isDebug ? srcGlob : tempGlob;
+
+const baseDir = ctx.isDebug ? srcDir : tempDir;
+
+const outputDir = ctx.isDebug
+  ? ctx.paths.dist
+  : ctx.paths.html.temp.artifacts.gen.dir;
 
 let timer;
 
@@ -65,7 +72,7 @@ function htmlTransformImagesTask() {
   // }
 
   return gulp
-    .src(srcGlob, { allowEmpty: true, base: baseDir })
+    .src(inputGlob, { allowEmpty: true, base: baseDir })
     .pipe(
       cheerio(
         ($) => {

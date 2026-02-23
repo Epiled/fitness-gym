@@ -13,22 +13,25 @@ const ctx = getBuildContext();
 const srcGlob = ctx.paths.html.glob;
 const srcDir = ctx.paths.html.dir;
 
-const tempDir = ctx.paths.html.temp;
-const tempGlob = `${tempDir}/**/*.html`;
+const tempDir = ctx.paths.css.temp.artifacts.gen.dir;
+const tempGlob = ctx.paths.html.temp.artifacts.gen.glob;
 
-const inputPath = ctx.isDebug ? srcGlob : tempGlob;
+const inputGlob = ctx.isDebug ? srcGlob : tempGlob;
 
 const baseDir = ctx.isDebug ? srcDir : tempDir;
+
 const label = ctx.isDebug ? "source files" : "transformed files";
 
-const outputDir = ctx.paths.dist;
+const outputDir = ctx.isDebug
+  ? ctx.paths.dist
+  : ctx.paths.html.temp.artifacts.gen.dir;
 
 let timer;
 
 function logStart(cb) {
   timer = startTimer();
   log.info(`Start HTML minification from ${label}...`);
-  log.verbose(`→ Source glob: ${inputPath}`);
+  log.verbose(`→ Source glob: ${inputGlob}`);
   log.verbose(`→ Source dir: ${baseDir}`);
   log.verbose(`→ Output directory: ${outputDir}`);
   cb();
@@ -50,14 +53,14 @@ function minifyTask() {
   }
 
   return gulp
-    .src(inputPath, { allowEmpty: true, base: baseDir })
+    .src(inputGlob, { allowEmpty: true, base: baseDir })
     .pipe(
       htmlmin({
         collapseWhitespace: true,
         removeComments: true,
         removeRedundantAttributes: true,
         removeEmptyAttributes: false,
-        minifyCSS: true,
+        minifyCSS: false,
         minifyJS: true,
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,

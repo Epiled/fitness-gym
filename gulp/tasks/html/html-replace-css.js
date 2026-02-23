@@ -12,10 +12,11 @@ const ctx = getBuildContext();
 const srcGlob = ctx.paths.html.glob;
 const srcDir = ctx.paths.html.dir;
 
-const tempDir = ctx.paths.html.temp;
-const tempGlob = `${tempDir}/**/*.html`;
+const tempGlob = ctx.paths.html.temp.artifacts.gen.glob;
+const tempDir = ctx.paths.html.temp.artifacts.gen.dir;
 
 const inputGlob = ctx.isDebug ? srcGlob : tempGlob;
+
 const baseDir = ctx.isDebug ? srcDir : tempDir;
 
 const outputDir = ctx.isDebug ? ctx.paths.dist : tempDir;
@@ -38,7 +39,7 @@ function logEnd(cb) {
 }
 logEnd.displayName = "html:replace:css:log:end";
 
-function htmlReplaceCSSTask() {
+function htmlReplaceCssTask() {
   return gulp
     .src(inputGlob, { allowEmpty: true, base: baseDir })
     .pipe(
@@ -63,20 +64,20 @@ function htmlReplaceCSSTask() {
     )
     .pipe(gulp.dest(outputDir));
 }
-htmlReplaceCSSTask.displayName = "html:replace:css:run";
+htmlReplaceCssTask.displayName = "html:replace:css:run";
 
-const htmlReplaceCSS = gulp.series(logStart, htmlReplaceCSSTask, logEnd);
+const htmlReplaceCss = gulp.series(logStart, htmlReplaceCssTask, logEnd);
 
-htmlReplaceCSS.displayName = "html:replace:css";
-htmlReplaceCSS.description =
+htmlReplaceCss.displayName = "html:replace:css";
+htmlReplaceCss.description =
   "Replace build markers in HTML with a single bundled CSS link.";
-htmlReplaceCSS.flags = {
+htmlReplaceCss.flags = {
   "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
   "--debug":
     "Outputs replaced HTML files directly to the distribution directory instead of a temporary location.",
 };
 
-gulp.task(htmlReplaceCSS.displayName, htmlReplaceCSS);
+gulp.task(htmlReplaceCss.displayName, htmlReplaceCss);
 
-module.exports = { htmlReplaceCSS };
+module.exports = { htmlReplaceCss };

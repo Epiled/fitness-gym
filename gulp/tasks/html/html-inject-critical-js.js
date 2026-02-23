@@ -13,22 +13,26 @@ const ctx = getBuildContext();
 const srcGlob = ctx.paths.html.glob;
 const srcDir = ctx.paths.html.dir;
 
-const tempDir = ctx.paths.html.temp;
-const tempGlob = `${tempDir}/**/*.html`;
+const tempDir = ctx.paths.js.temp.artifacts.gen.dir;
+const tempGlob = ctx.paths.html.temp.artifacts.gen.glob;
 
-const inputPath = ctx.isDebug ? srcGlob : tempGlob;
+const inputGlob = ctx.isDebug ? srcGlob : tempGlob;
 
 const baseDir = ctx.isDebug ? srcDir : tempDir;
 
-const outputDir = ctx.isDebug ? ctx.paths.html.dist : tempDir;
+const outputDir = ctx.isDebug
+  ? ctx.paths.dist
+  : ctx.paths.html.temp.artifacts.gen.dir;
 
-function htmlInjectCriticalJSTask() {
+let timer;
+
+function htmlInjectCriticalJsTask() {
   return gulp
-    .src(inputPath, { allowEmpty: true, base: baseDir })
+    .src(inputGlob, { allowEmpty: true, base: baseDir })
     .pipe(
       cheerio(
         ($) => {
-          const inlinePath = path.join(ctx.paths.js.temp, "inline.js");
+          const inlinePath = path.resolve(tempDir, "inline.js");
           const inlineCode = fs.readFileSync(inlinePath, "utf8").trim();
 
           const scripTag = `<script type="module">${inlineCode}</script>`;
@@ -78,11 +82,12 @@ function htmlInjectCriticalJSTask() {
     )
     .pipe(gulp.dest(outputDir));
 }
-htmlInjectCriticalJSTask.displayName = "html:inject:critical:js:run";
+htmlInjectCriticalJsTask.displayName = "html:inject:critical:js:run";
 
-const htmlInjectCriticalJS = gulp.series(htmlInjectCriticalJSTask);
-htmlInjectCriticalJS.displayName = "html:inject:critical:js";
+const htmlInjectCriticalJs = gulp.series(htmlInjectCriticalJsTask);
 
-gulp.task(htmlInjectCriticalJS.displayName, htmlInjectCriticalJS);
+htmlInjectCriticalJs.displayName = "html:inject:critical:js";
 
-module.exports = { htmlInjectCriticalJS };
+gulp.task(htmlInjectCriticalJs.displayName, htmlInjectCriticalJs);
+
+module.exports = { htmlInjectCriticalJs };
