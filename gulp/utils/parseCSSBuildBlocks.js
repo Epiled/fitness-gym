@@ -1,8 +1,6 @@
 const path = require("path");
 
-function parseCSSBuildBlocks(html, opts) {
-  const { htmlDir, cssSrcBaseDir } = opts;
-
+function parseCSSBuildBlocks(html) {
   const blocks = {};
 
   const blockRegex =
@@ -13,8 +11,6 @@ function parseCSSBuildBlocks(html, opts) {
   while ((match = blockRegex.exec(html))) {
     const bundleName = match[1]; // critical | app
     const blockContent = match[2];
-
-    console.log(bundleName);
 
     const hrefRegex = /href\s*=\s*"([^"]+)"/gi;
     const files = [];
@@ -27,14 +23,9 @@ function parseCSSBuildBlocks(html, opts) {
       // normaliza "./css/x.css" -> "css/x.css" | "/css/x.css" -> "css/x.css"
       const cleaned = href.trim().replace(/^\.\//, "").replace(/^\//, "");
 
-      // Se você mantém href como "./css/..." (URL pública),
-      // removemos o prefixo "css/" e resolvemos no diretório real do source.
-      const withoutPublicPrefix = cleaned.replace(/^css\//i, "");
-
-      // ✅ caminho real no FS (source)
-      const fullPath = path.resolve(cssSrcBaseDir, withoutPublicPrefix);
-
-      files.push(fullPath);
+      // normaliza separador
+      const normalized = cleaned.split(path.sep).join("/");
+      files.push(normalized);
     }
 
     blocks[bundleName] = files;
