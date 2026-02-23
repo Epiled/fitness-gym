@@ -36,13 +36,19 @@ function staticFilesTask() {
         `${srcDir}/**/*`,
 
         // handled by html tasks
+        `!${srcDir}/**/*.html`,
+
+        // handled by html tasks
         `!${srcDir}/html/**/*`,
+        `!${srcDir}/html/**`,
 
         // handled by css tasks
         `!${srcDir}/css/**/*`,
+        `!${srcDir}/css/**`,
 
         // handled by js tasks
         `!${srcDir}/js/**/*`,
+        `!${srcDir}/js/**`,
 
         // handled by icons pipeline (source SVGs)
         `!${srcDir}/assets/svg/icons-ui/**`,
