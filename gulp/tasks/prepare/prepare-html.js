@@ -2,15 +2,16 @@
 
 const gulp = require("gulp");
 
-const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
+const { log } = require("../../utils/log");
 
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
 const srcDir = ctx.paths.html.src;
+const srcGlob = ctx.paths.html.glob;
 
-const outputDir = ctx.paths.html.temp;
+const outputDir = ctx.paths.html.temp.staging;
 
 let timer;
 
@@ -18,6 +19,7 @@ function logStart(cb) {
   timer = startTimer();
   log.info("Start preparing HTML files...");
   log.verbose(`→ Source dir: ${srcDir}`);
+  log.verbose(`→ Source glob: ${srcGlob}`);
   log.verbose(`→ Output directory: ${outputDir}`);
   cb();
 }
@@ -30,7 +32,7 @@ function logEnd(cb) {
 logEnd.displayName = "prepare:log:end";
 
 function prepareHtmlTask() {
-  return gulp.src(srcDir, { allowEmpty: true }).pipe(gulp.dest(outputDir));
+  return gulp.src(srcGlob, { allowEmpty: true }).pipe(gulp.dest(outputDir));
 }
 prepareHtmlTask.displayName = "prepare:html:run";
 

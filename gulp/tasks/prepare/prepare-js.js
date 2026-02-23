@@ -9,8 +9,9 @@ const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
 const srcDir = ctx.paths.js.src;
+const srcGlob = ctx.paths.js.glob;
 
-const outputDir = ctx.paths.js.temp;
+const outputDir = ctx.paths.js.temp.staging;
 
 let timer;
 
@@ -18,6 +19,7 @@ function logStart(cb) {
   timer = startTimer();
   log.info("Start preparing JS files...");
   log.verbose(`→ Source dir: ${srcDir}`);
+  log.verbose(`→ Source glob: ${srcGlob}`);
   log.verbose(`→ Output directory: ${outputDir}`);
   cb();
 }
@@ -30,7 +32,7 @@ function logEnd(cb) {
 logEnd.displayName = "prepare:js:log:end";
 
 function prepareJsTask() {
-  return gulp.src(srcDir, { allowEmpty: true }).pipe(gulp.dest(outputDir));
+  return gulp.src(srcGlob, { allowEmpty: true }).pipe(gulp.dest(outputDir));
 }
 prepareJsTask.displayName = "prepare:js:run";
 
