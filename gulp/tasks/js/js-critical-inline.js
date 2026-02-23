@@ -2,6 +2,7 @@
 
 const gulp = require("gulp");
 const esbuild = require("esbuild");
+const path = require("path");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -9,7 +10,19 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const outputDir = ctx.paths.js.temp;
+const srcGlob = ctx.paths.js.glob;
+const srcDir = ctx.paths.js.dir;
+
+const tempDir = ctx.paths.js.temp.staging;
+const tempGlob = ctx.paths.js.temp.artifacts.gen.glob;
+
+const inputGlob = ctx.isDebug ? srcGlob : tempGlob;
+
+const baseDir = ctx.isDebug ? srcDir : tempDir;
+
+const outputDir = ctx.isDebug
+  ? ctx.paths.js.dist
+  : ctx.paths.js.temp.artifacts.gen.dir;
 
 let timer;
 
@@ -30,7 +43,7 @@ async function jsCriticalInlineTask() {
 
   await esbuild.build({
     entryPoints: {
-      inline: "./src/js/inline.entry.js",
+      inline: path.resolve(baseDir, "inline.entry.js"),
     },
 
     bundle: true,

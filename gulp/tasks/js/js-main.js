@@ -2,6 +2,7 @@
 
 const gulp = require("gulp");
 const esbuild = require("esbuild");
+const path = require("path");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -9,7 +10,19 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const outputDir = ctx.paths.js.dist;
+const srcGlob = ctx.paths.js.glob;
+const srcDir = ctx.paths.js.dir;
+
+const tempDir = ctx.paths.js.temp.staging;
+const tempGlob = ctx.paths.js.temp.artifacts.gen.glob;
+
+const inputGlob = ctx.isDebug ? srcGlob : tempGlob;
+
+const baseDir = ctx.isDebug ? srcDir : tempDir;
+
+const outputDir = ctx.isDebug
+  ? ctx.paths.js.dist
+  : ctx.paths.js.temp.artifacts.gen.dir;
 
 let timer;
 
@@ -21,7 +34,7 @@ async function buildTask() {
 
   await esbuild.build({
     entryPoints: {
-      main: "./src/js/main.js",
+      main: path.resolve(baseDir, "main.js"),
     },
 
     bundle: true,
@@ -41,10 +54,10 @@ async function buildTask() {
   log.success("JS build completed successfully.");
 }
 
-const jsBuild = gulp.series(buildTask);
+const jsMain = gulp.series(buildTask);
 
-jsBuild.displayName = "js:build";
+jsMain.displayName = "js:build";
 
-gulp.task(jsBuild.displayName, jsBuild);
+gulp.task(jsMain.displayName, jsMain);
 
-module.exports = { jsBuild };
+module.exports = { jsMain };
