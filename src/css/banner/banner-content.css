@@ -22,6 +22,7 @@
 @media screen and (min-width: 1440px) {
   .banner__content {
     left: 0;
+    right: 0;
     bottom: 16rem;
     width: 100%;
     max-width: 132rem;
