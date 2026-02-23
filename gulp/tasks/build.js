@@ -2,24 +2,26 @@
 
 const gulp = require("gulp");
 
-const { cleanDefault } = require("./clean/clean");
+const { cleanBuild } = require("./clean/clean-build");
+const { prepareBuild } = require("./prepare/prepare-build");
 const { staticFiles } = require("./static-files");
-const { manifestCSSTask } = require("./manifest/manifest-css");
+const { manifestCss } = require("./manifest/manifest-css");
+const { jsBuild } = require("./js/js-build");
 const { cssBuild } = require("./css/css-build");
 const { htmlBuild } = require("./html/html-build");
-const { jsBuild } = require("./js/js-main");
 const { resizeBuild } = require("./resize/resize-build");
-const { jsCriticalInline } = require("./js/js-critical-inline");
+const { finalizeBuild } = require("./finalize/finalize-build");
 
 const build = gulp.series(
-  cleanDefault,
+  cleanBuild,
+  prepareBuild,
   staticFiles,
-  manifestCSSTask,
+  manifestCss,
   cssBuild,
-  jsCriticalInline,
   jsBuild,
   htmlBuild,
   resizeBuild,
+  finalizeBuild,
 );
 
 build.displayName = "build";
