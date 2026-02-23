@@ -1,4 +1,8 @@
 const fs = require("fs");
+const path = require("path");
+
+const { getBuildContext } = require("./context");
+const ctx = getBuildContext();
 
 function validateCSSManifest(manifest) {
   const required = ["critical", "app"];
@@ -13,10 +17,16 @@ function validateCSSManifest(manifest) {
     }
   }
 
+  const baseDir = ctx.isDebug ? path.resolve("src") : path.resolve("temp");
+
   for (const [bundle, files] of Object.entries(manifest)) {
     for (const file of files) {
-      if (!fs.existsSync(file)) {
-        throw new Error(`CSS file not found (${bundle}): ${file}`);
+      const resolvedPath = path.join(baseDir, file);
+
+      if (!fs.existsSync(resolvedPath)) {
+        throw new Error(
+          `CSS file not found (${bundle}): ${file} → resolved as ${resolvedPath}`,
+        );
       }
     }
   }
