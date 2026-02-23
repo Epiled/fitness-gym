@@ -21,22 +21,32 @@
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
+    <!-- <link
       rel="preload"
       as="style"
       href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap"
-    />
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    /> -->
+
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap"
+      />
+    </noscript>
 
     <link
       rel="preload"
       as="font"
-      href=".//assets/fonts/fitness-gym-icons/fitness-gym-icons.woff2"
+      href="./assets/fonts/fitness-gym-icons/fitness-gym-icons.woff2"
       type="font/woff2"
       crossorigin
     />
 
-    <link
+    <!-- <link
       rel="preload"
       as="image"
       href="./assets/img/desktop/banner-fitness-gym.webp"
@@ -45,7 +55,7 @@
     ./assets/img/tablet/banner-fitness-gym.webp 840w,
     ./assets/img/desktop/banner-fitness-gym.webp 1440w"
       imagesizes="100vw"
-    />
+    /> -->
 
     <!-- build:css:critical -->
     <link rel="stylesheet" href="./css/reset.css" />
@@ -88,6 +98,7 @@
 
     <!-- build:css:app -->
     <link rel="stylesheet" href="./css/search/search.css" />
+    <link rel="stylesheet" href="./css/search/search-form.css" />
     <link rel="stylesheet" href="./css/search/search-container.css" />
     <link rel="stylesheet" href="./css/search/search-input.css" />
     <link rel="stylesheet" href="./css/search/search-button.css" />
@@ -226,6 +237,21 @@
           </p>
           <button class="btn btn--banner">Matricule-se!</button>
         </div>
+
+        <picture class="banner__images">
+          <img
+            src="./assets/img/banner-fitness-gym.jpg"
+            width="390"
+            height="260"
+            alt="#"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+            class="banner__image"
+            data-gulp-cheerio
+            data-sizes="tablet:834x560,desktop:1920x1280"
+          />
+        </picture>
       </section>
 
       <aside
@@ -280,7 +306,12 @@
           <span class="titulo--dest titulo--accessibility">você</span>
         </h2>
         <div class="search__field respiro">
-          <form method="post" action="#">
+          <form
+            method="post"
+            action="#"
+            class="search__form"
+            aria-label="Formulário de busca de unidades"
+          >
             <fieldset
               class="search__container"
               data-js="scroll-reveal"
