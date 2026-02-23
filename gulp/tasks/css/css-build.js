@@ -20,7 +20,7 @@ function logStart(cb) {
   timer = startTimer();
   log.info("Start CSS build...");
   log.verbose(`→ Output directory: ${outputDir}`);
-  log.verbose("→ Pipeline: concat → minify");
+  log.verbose("→ Pipeline: concat → transform images → minify");
   cb();
 }
 logStart.displayName = "css:build:log:start";
@@ -41,7 +41,7 @@ const cssBuild = gulp.series(
 
 cssBuild.displayName = "css:build";
 cssBuild.description =
-  "Build CSS (concat + minify) and write output/save to dist directory/folder.";
+  "Build CSS (concat + transform images + minify) and write output/save to dist directory/folder.";
 cssBuild.flags = {
   "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",

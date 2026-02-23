@@ -7,15 +7,15 @@ const path = require("path");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
-const { fileExists } = require("../../utils/fileExists");
 
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const srcGlob = ctx.paths.css.glob;
-const srcDir = ctx.paths.css.dir;
+const baseDir = ctx.isDebug ? ctx.paths.src : ctx.paths.temp;
 
-const outputDir = ctx.isDebug ? ctx.paths.css.dist : ctx.paths.css.temp;
+const outputDir = ctx.isDebug
+  ? ctx.paths.css.dist
+  : ctx.paths.css.temp.artifacts.gen.dir;
 
 const manifestPath = "temp/asset-manifest.json";
 
@@ -24,8 +24,6 @@ let timer;
 function logStart(cb) {
   timer = startTimer();
   log.info("Start CSS concatenation from source files...");
-  log.verbose(`→ Source glob: ${srcGlob}`);
-  log.verbose(`→ Source dir: ${srcDir}`);
   log.verbose(`→ Output directory: ${outputDir}`);
   log.verbose(`→ Manifest path: ${manifestPath}`);
   cb();
@@ -46,19 +44,21 @@ function streamToPromise(stream) {
   });
 }
 
+function toFsPath(assetPath) {
+  // garante "css/x.css"
+  const cleaned = assetPath.trim().replace(/^\.\//, "").replace(/^\//, "");
+  return path.join(baseDir, cleaned);
+}
+
 function concatTask() {
-  // if (!fileExists(srcDir)) {
-  //   log.warn(`Source CSS directory not found at ${srcDir}.`);
-  //   return Promise.resolve();
-  // }
-
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
-
   const cssGroups = manifest.css;
 
   const streams = Object.entries(cssGroups).map(([key, files]) => {
+    const resolvedFiles = files.map(toFsPath);
+
     return gulp
-      .src(files, { allowEmpty: true })
+      .src(resolvedFiles, { allowEmpty: false })
       .pipe(concat(`${key}.css`))
       .pipe(gulp.dest(outputDir));
   });

@@ -12,15 +12,15 @@ const ctx = getBuildContext();
 const srcGlob = ctx.paths.css.glob;
 const srcDir = ctx.paths.css.dir;
 
-const tempDir = ctx.paths.css.temp;
-const tempGlob = `${tempDir}/**/*.css`;
+const genDir = ctx.paths.css.temp.artifacts.gen.dir;
+const genGlob = ctx.paths.css.temp.artifacts.gen.glob;
 
-const inputPath = ctx.isDebug ? srcGlob : tempGlob;
+const inputPath = ctx.isDebug ? srcGlob : genGlob;
 
-const baseDir = ctx.isDebug ? srcDir : tempDir;
+const baseDir = ctx.isDebug ? srcDir : genDir;
 const label = ctx.isDebug ? "source files" : "temp files";
 
-const outputDir = ctx.isDebug ? ctx.paths.css.dist : ctx.paths.css.temp;
+const outputDir = ctx.isDebug ? ctx.paths.css.dist : genDir;
 
 let timer;
 
