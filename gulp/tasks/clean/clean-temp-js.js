@@ -9,7 +9,7 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const tempDir = ctx.paths.js.temp;
+const tempDir = ctx.paths.js.temp.staging;
 
 let timer;
 
@@ -35,6 +35,7 @@ function cleanTempJsTask() {
 
   return gulp.src(tempDir, { read: false, allowEmpty: true }).pipe(clean());
 }
+cleanTempJsTask.displayName = "clean:temp:js:run";
 
 const cleanTempJs = gulp.series(logStart, cleanTempJsTask, logEnd);
 

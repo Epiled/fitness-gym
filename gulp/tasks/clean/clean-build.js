@@ -15,7 +15,6 @@ let timer;
 function logStart(cb) {
   timer = startTimer();
   log.info("Start cleaning build directories...");
-  log.verbose(`→ Cleaning: ${targetDir}`);
   cb();
 }
 logStart.displayName = "clean:log:start";

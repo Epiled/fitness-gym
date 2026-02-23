@@ -9,7 +9,7 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const tempDir = ctx.paths.html.temp;
+const tempDir = ctx.paths.html.temp.staging;
 
 let timer;
 
