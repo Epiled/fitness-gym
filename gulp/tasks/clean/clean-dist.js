@@ -19,27 +19,32 @@ function logStart(cb) {
   log.verbose(`→ Cleaning: ${targetDir}`);
   cb();
 }
-logStart.displayName = "clean:log:start";
+logStart.displayName = "clean:dist:log:start";
 
 function logEnd(cb) {
   log.success(`Finished cleaning build directories! ${timer.end()}`);
   cb();
 }
-logEnd.displayName = "clean:log:end";
+logEnd.displayName = "clean:dist:log:end";
 
 function cleanDistTask() {
-  if (!tempDir || tempDir === "." || tempDir === "/" || tempDir.length < 3) {
-    log.error(`Refusing to clean suspicious path: "${tempDir}"`);
+  if (
+    !targetDir ||
+    targetDir === "." ||
+    targetDir === "/" ||
+    targetDir.length < 3
+  ) {
+    log.error(`Refusing to clean suspicious path: "${targetDir}"`);
     return Promise.resolve();
   }
 
   return gulp.src(targetDir, { read: false, allowEmpty: true }).pipe(clean());
 }
-cleanDistTask.displayName = "clean:run";
+cleanDistTask.displayName = "clean:dist:run";
 
 const cleanDist = gulp.series(logStart, cleanDistTask, logEnd);
 
-cleanDist.displayName = "clean";
+cleanDist.displayName = "clean:dist";
 cleanDist.description = "Clean (delete) build directories (dist and temp).";
 cleanDist.flags = {
   "--silence": "Hides informational logs, showing only warnings and errors.",
