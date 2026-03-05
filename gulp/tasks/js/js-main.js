@@ -10,15 +10,13 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const srcGlob = ctx.paths.js.glob;
 const srcDir = ctx.paths.js.dir;
 
 const tempDir = ctx.paths.js.temp.staging;
-const tempGlob = ctx.paths.js.temp.artifacts.gen.glob;
-
-const inputGlob = ctx.isDebug ? srcGlob : tempGlob;
 
 const baseDir = ctx.isDebug ? srcDir : tempDir;
+
+const inputGlob = path.resolve(baseDir, "main.js");
 
 const outputDir = ctx.isDebug
   ? ctx.paths.js.dist
@@ -26,15 +24,24 @@ const outputDir = ctx.isDebug
 
 let timer;
 
-async function buildTask() {
+function logStart(cb) {
   timer = startTimer();
-  log.info("Start JS build...");
+  log.info("Start JS main...");
   log.verbose(`→ Output directory: ${outputDir}`);
-  log.verbose("→ Pipeline: esbuild (code splitting)");
+  cb();
+}
+logStart.displayName = "js:main:log:start";
 
+function logEnd(cb) {
+  log.success(`Finished JS main! ${timer.end()} → ${outputDir}`);
+  cb();
+}
+logEnd.displayName = "js:main:log:end";
+
+async function jsMainTask() {
   await esbuild.build({
     entryPoints: {
-      main: path.resolve(baseDir, "main.js"),
+      main: inputGlob,
     },
 
     bundle: true,
@@ -51,12 +58,18 @@ async function buildTask() {
     sourcemap: false,
     logLevel: "info",
   });
-  log.success("JS build completed successfully.");
 }
+jsMainTask.displayName = "js:main:run";
 
-const jsMain = gulp.series(buildTask);
+const jsMain = gulp.series(logStart, jsMainTask, logEnd);
 
-jsMain.displayName = "js:build";
+jsMain.displayName = "js:main";
+jsMain.description = "Generate the main JS file.";
+jsMain.flags = {
+  "--silence": "Hides informational logs, showing only warnings and errors.",
+  "--verbose": "Shows detailed logs for debugging purposes.",
+  "--debug": "Build directly from the source files instead of temp.",
+};
 
 gulp.task(jsMain.displayName, jsMain);
 
