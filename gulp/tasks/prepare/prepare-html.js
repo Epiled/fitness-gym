@@ -23,13 +23,13 @@ function logStart(cb) {
   log.verbose(`→ Output directory: ${outputDir}`);
   cb();
 }
-logStart.displayName = "prepare:log:start";
+logStart.displayName = "prepare:html:log:start";
 
 function logEnd(cb) {
   log.success(`Finished preparing HTML files! ${timer.end()} → ${outputDir}`);
   cb();
 }
-logEnd.displayName = "prepare:log:end";
+logEnd.displayName = "prepare:html:log:end";
 
 function prepareHtmlTask() {
   return gulp.src(srcGlob, { allowEmpty: true }).pipe(gulp.dest(outputDir));
