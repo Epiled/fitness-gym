@@ -5,6 +5,7 @@ const replace = require("gulp-replace");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
+const { fileExists } = require("../../utils/fileExists");
 
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
@@ -12,14 +13,14 @@ const ctx = getBuildContext();
 const srcGlob = ctx.paths.html.glob;
 const srcDir = ctx.paths.html.dir;
 
-const tempGlob = ctx.paths.html.temp.artifacts.gen.glob;
-const tempDir = ctx.paths.html.temp.artifacts.gen.dir;
+const genGlob = ctx.paths.html.temp.artifacts.gen.glob;
+const genDir = ctx.paths.html.temp.artifacts.gen.dir;
 
-const inputGlob = ctx.isDebug ? srcGlob : tempGlob;
+const inputGlob = ctx.isDebug ? srcGlob : genGlob;
 
-const baseDir = ctx.isDebug ? srcDir : tempDir;
+const baseDir = ctx.isDebug ? srcDir : genDir;
 
-const outputDir = ctx.isDebug ? ctx.paths.dist : tempDir;
+const outputDir = ctx.isDebug ? ctx.paths.dist : genDir;
 
 let timer;
 
@@ -40,6 +41,13 @@ function logEnd(cb) {
 logEnd.displayName = "html:replace:css:log:end";
 
 function htmlReplaceCssTask() {
+  if (!ctx.isDebug && !fileExists(genDir)) {
+    log.warn(
+      `Temporary directory "${genDir}" does not exist. Please run the "prepare:html" task first to generate the necessary files before transforming images.`,
+    );
+    return Promise.reject();
+  }
+
   return gulp
     .src(inputGlob, { allowEmpty: true, base: baseDir })
     .pipe(
