@@ -42,12 +42,12 @@ function logEnd(cb) {
 }
 logEnd.displayName = "css:minify:log:end";
 
-function minifyTask() {
+function cssMinifyTask() {
   if (!ctx.isDebug && !fileExists(genDir)) {
     log.warn(
       `Bundle file not found at ${genDir}. Please run 'css:concat' first or use the '--debug' flag to minify directly from source files.`,
     );
-    return Promise.resolve();
+    return Promise.reject();
   }
 
   return gulp
@@ -61,9 +61,9 @@ function minifyTask() {
     )
     .pipe(gulp.dest(outputDir));
 }
-minifyTask.displayName = "css:minify:run";
+cssMinifyTask.displayName = "css:minify:run";
 
-const cssMinify = gulp.series(logStart, minifyTask, logEnd);
+const cssMinify = gulp.series(logStart, cssMinifyTask, logEnd);
 
 cssMinify.displayName = "css:minify";
 cssMinify.description =
