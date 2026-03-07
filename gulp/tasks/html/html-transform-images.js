@@ -28,28 +28,22 @@ const outputDir = ctx.isDebug
 let timer;
 
 const parseSizes = (str = "") => {
-  return str
-    .split(",")
-    .filter(Boolean)
-    .reduce((acc, item) => {
-      const [keyRaw, valueRaw] = item.split(":");
-      const key = (keyRaw || "").trim();
-      const value = (valueRaw || "").trim();
+  const sizes = str.split(";").map((s) => s.trim());
 
-      if (!key || !value) return acc;
+  const parsedSizes = sizes.map((size) => {
+    const [w, h, q = 75] = size.split("x").map((s) => Number(s.trim()));
 
-      const [w, h, bp] = (value || "").split("x").map(Number);
-      acc[key] = { width: w || 0, height: h || 0, breakPoint: bp || null };
+    return { width: w, height: h, quality: q };
+  });
 
-      return acc;
-    }, {});
+  return parsedSizes;
 };
 
 function logStart(cb) {
   timer = startTimer();
   log.info("Start transform images in the HTML...");
-  log.verbose(`→ Source glob: ${srcGlob}`);
-  log.verbose(`→ Source dir: ${srcDir}`);
+  log.verbose(`→ Source glob: ${inputGlob}`);
+  log.verbose(`→ Source dir: ${baseDir}`);
   log.verbose(`→ Output directory: ${outputDir}`);
   cb();
 }
@@ -64,12 +58,12 @@ function logEnd(cb) {
 logEnd.displayName = "html:transform:images:log:end";
 
 function htmlTransformImagesTask() {
-  // if (!ctx.isDebug && !fileExists(tempDir)) {
-  //   log.warn(
-  //     `Transformed HTML files not found at ${tempDir}. Please run 'html:replace:css' or use the 'debug' flag to transform directly from source files.`,
-  //   );
-  //   return Promise.resolve();
-  // }
+  if (!ctx.isDebug && !fileExists(tempDir)) {
+    log.warn(
+      `Temporary directory "${tempDir}" does not exist. Please run the "prepare:html" task first to generate the necessary files before transforming images or use the "debug" flag to transform directly from source files.`,
+    );
+    return Promise.reject();
+  }
 
   return gulp
     .src(inputGlob, { allowEmpty: true, base: baseDir })
@@ -82,7 +76,6 @@ function htmlTransformImagesTask() {
             const attrs = { ...el.attribs };
 
             const sizes = parseSizes(el.attribs["data-sizes"]);
-            const sizesKeys = Object.keys(sizes);
 
             const srcBase = attrs.src.replace();
             if (!srcBase) return;
@@ -94,15 +87,9 @@ function htmlTransformImagesTask() {
               .map(([k, v]) => ` ${k}="${v}"`)
               .join("");
 
-            const imgs = sizesKeys.reduceRight((acc, key, index) => {
-              if (!sizes[key]) {
-                return acc;
-              }
-
-              const { width: w, height: h, breakPoint: br } = sizes[key];
-              const fixedSrc = toWebp(
-                srcWebp.replace(/\/img\b/, `/img/${key}`),
-              );
+            const imgs = sizes.reduceRight((acc, size, index) => {
+              const { width: w, height: h, breakPoint: br } = size;
+              const fixedSrc = toWebp(srcWebp.replace(/\.webp$/, `-${w}.webp`));
 
               if (index === 0) {
                 // remove old src and inject the new
