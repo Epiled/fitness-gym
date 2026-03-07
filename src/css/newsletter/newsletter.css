@@ -1,9 +1,8 @@
 .newsletter {
   background-image:
-    /* @img mobile */
     url(../../assets/svg/icons-art/section-accent--light.svg),
     linear-gradient(0deg, var(--color-overlay-50), var(--color-overlay-50)),
-    /* @img mobile */ url(../../assets/img/newsletter.jpg);
+    /* @img {"width":540} */ url(../../assets/img/newsletter.jpg);
   background-size: 16rem, cover, cover;
   background-repeat: no-repeat;
   background-position:
@@ -19,10 +18,9 @@
 @media screen and (min-width: 834px) {
   .newsletter {
     background-image:
-      /* @img tablet */
       url(../../assets/svg/icons-art/section-accent--light.svg),
       linear-gradient(0deg, var(--color-overlay-50), var(--color-overlay-50)),
-      /* @img tablet */ url(../../assets/img/newsletter.jpg);
+      /* @img {"width":834} */ url(../../assets/img/newsletter.jpg);
     background-size: 21.7rem, cover, cover;
     background-position:
       calc(100% + 5.75rem) 1rem,
@@ -36,10 +34,9 @@
 @media screen and (min-width: 1440px) {
   .newsletter {
     background-image:
-      /* @img desktop */
       url(../../assets/svg/icons-art/section-accent--light.svg),
       linear-gradient(0deg, var(--color-overlay-50), var(--color-overlay-50)),
-      /* @img desktop */ url(../../assets/img/newsletter.jpg);
+      /* @img {"width":1440} */ url(../../assets/img/newsletter.jpg);
     background-size: 23.5rem, cover, cover;
     background-position:
       calc(100% + 5.75rem) 1rem,
