@@ -5,6 +5,7 @@ const replace = require("gulp-replace");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
+const { fileExists } = require("../../utils/fileExists");
 
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
@@ -42,7 +43,14 @@ function logEnd(cb) {
 }
 logEnd.displayName = "css:transform:images:log:end";
 
-function transformImagesTask() {
+function cssTransformImagesTask() {
+  if (!ctx.isDebug && !fileExists(genDir)) {
+    log.warn(
+      `Bundle file not found at ${genDir}. Please run 'css:concat' first or use the '--debug' flag to transform images directly from source files.`,
+    );
+    return Promise.reject();
+  }
+
   return (
     gulp
       .src(inputPath, { allowEmpty: true, base: baseDir })
@@ -55,11 +63,52 @@ function transformImagesTask() {
         ),
       )
 
-      // 2) @img <variant> → pasta
+      // 2) @img <jsonConfig> → pasta
+      // Group 1:/* @img {"width":834,"quality":65,"format":"webp"} */
+      // Group 2: optional quote (single or double) around the URL
+      // Group 3: optional path before the filename (e.g., ../../assets/img/)
+      // Group 4: filename with .webp extension (e.g., searcher.webp)
+      // Group 5: optional query string (e.g., ?v=123)
+      // Group 6: optional fragment (e.g., #section)
+      /*
+        jsonConfig:  $1
+        quote:    $2
+        pathBase: $3
+        fileName: $4
+        query:    $5
+        hash:     $6
+      */
       .pipe(
         replace(
-          /\/\*\s*@img\s+([^\s*]+)\s*\*\/\s*url\(\s*(['"]?)([^'")]*\/)?([^'")]+\.webp)(\?[^'")]+)?(#[^'")]+)?\2\s*\)/gi,
-          "url($2$3$1/$4$5$6$2)",
+          /\/\*\s*@img\s+(\{[^*]+\})\s*\*\/\s*url\(\s*(['"]?)([^'")]*\/)?([^'")]+\.webp)(\?[^'")]+)?(#[^'")]+)?\2\s*\)/gi,
+          (
+            match,
+            jsonConfig,
+            quote,
+            pathBase = "",
+            fileName,
+            query = "",
+            hash = "",
+          ) => {
+            let config;
+
+            try {
+              config = JSON.parse(jsonConfig);
+            } catch (err) {
+              log.error(
+                `Invalid JSON in @img comment ${jsonConfig}: ${err.message}`,
+              );
+              return match; // Return original if JSON is invalid
+            }
+
+            const width = config.width;
+
+            if (!width) return match;
+
+            const newFile = fileName.replace(/\.webp$/, `-${width}.webp`);
+
+            return `url(${quote}${pathBase}${newFile}${query}${hash}${quote})`;
+          },
         ),
       )
 
@@ -69,10 +118,22 @@ function transformImagesTask() {
       .pipe(gulp.dest(outputDir))
   );
 }
+cssTransformImagesTask.displayName = "css:transform:images:run";
 
-const cssTransformImages = gulp.series(logStart, transformImagesTask, logEnd);
+const cssTransformImages = gulp.series(
+  logStart,
+  cssTransformImagesTask,
+  logEnd,
+);
 
 cssTransformImages.displayName = "css:transform:images";
+cssTransformImages.description =
+  "Transform images in CSS (e.g., convert jpg/png to webp and update paths) and write output/save to dist directory/folder.";
+cssTransformImages.flags = {
+  "--silence": "Hides informational logs, showing only warnings and errors.",
+  "--verbose": "Shows detailed logs for debugging purposes.",
+  "--debug": "Run task in isolation using source files instead of temp bundle.",
+};
 
 gulp.task(cssTransformImages.displayName, cssTransformImages);
 
