@@ -1,15 +1,15 @@
-.respiro {
+.gap {
   padding: 0 1.5rem;
 }
 
 @media screen and (min-width: 834px) {
-  .respiro {
+  .gap {
     padding: 0 2rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .respiro {
+  .gap {
     padding: 0 6rem;
   }
 }

@@ -1,4 +1,4 @@
-.titulo {
+.title {
   color: var(--color-text-primary);
   font-size: 2.4rem;
   font-weight: 700;
@@ -6,17 +6,17 @@
   font-family: "Overpass", sans-serif;
 }
 
-.titulo--dest {
+.title--dest {
   color: var(--color-brand-primary);
   text-decoration: underline;
   text-underline-offset: 0.5rem;
 }
 
-.titulo--accessibility {
+.title--accessibility {
   color: var(--color-brand-primary-dark);
 }
 
-.titulo--alt {
+.title--alt {
   color: var(--color-brand-primary);
   font-size: 4rem;
   position: relative;
@@ -24,7 +24,7 @@
   display: inline-block;
 }
 
-.titulo--alt::before {
+.title--alt::before {
   position: absolute;
   top: 75%;
   left: 50%;
@@ -42,31 +42,31 @@
 }
 
 @media screen and (min-width: 834px) {
-  .titulo {
+  .title {
     font-size: 3.2rem;
   }
 
-  .titulo--alt {
+  .title--alt {
     font-size: 5.2rem;
   }
 
-  .titulo--dest {
+  .title--dest {
     text-underline-offset: 0.75rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .titulo {
+  .title {
     font-size: 4rem;
   }
 
-  .titulo--dest {
+  .title--dest {
     text-underline-offset: 1.25rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .titulo--alt {
+  .title--alt {
     font-size: 5.2rem;
   }
 }
