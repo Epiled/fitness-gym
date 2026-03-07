@@ -12,7 +12,9 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const outputDir = ctx.paths.css.dist;
+const outputDir = ctx.isDebug
+  ? ctx.paths.css.dist
+  : ctx.paths.css.temp.artifacts.gen.dir;
 
 let timer;
 
@@ -29,7 +31,7 @@ function logEnd(cb) {
   log.success(`Finished CSS build! ${timer.end()} → ${outputDir}`);
   cb();
 }
-logEnd.displayName = "css:log:end";
+logEnd.displayName = "css:build:log:end";
 
 const cssBuild = gulp.series(
   logStart,
