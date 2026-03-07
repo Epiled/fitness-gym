@@ -1,10 +1,12 @@
-const fs = require("fs");
+// ← utils to validate CSS manifest files and ensure all required assets are present.
+
 const path = require("path");
+const fs = require("fs");
 
 const { getBuildContext } = require("./context");
 const ctx = getBuildContext();
 
-function validateCSSManifest(manifest) {
+function validateCssManifest(manifest) {
   const required = ["critical", "app"];
 
   for (const key of required) {
@@ -32,4 +34,4 @@ function validateCSSManifest(manifest) {
   }
 }
 
-module.exports = { validateCSSManifest };
+module.exports = { validateCssManifest };

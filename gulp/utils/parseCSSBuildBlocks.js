@@ -1,6 +1,8 @@
+// ← utils to parse HTML build blocks for CSS files and extract bundle information.
+
 const path = require("path");
 
-function parseCSSBuildBlocks(html) {
+function parseCssBuildBlocks(html) {
   const blocks = {};
 
   const blockRegex =
@@ -34,4 +36,4 @@ function parseCSSBuildBlocks(html) {
   return blocks;
 }
 
-module.exports = { parseCSSBuildBlocks };
+module.exports = { parseCssBuildBlocks };
