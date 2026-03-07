@@ -13,12 +13,12 @@ const ctx = getBuildContext();
 const srcGlob = ctx.paths.html.glob;
 const srcDir = ctx.paths.html.dir;
 
-const tempDir = ctx.paths.css.temp.artifacts.gen.dir;
-const tempGlob = ctx.paths.html.temp.artifacts.gen.glob;
+const genGlob = ctx.paths.html.temp.artifacts.gen.glob;
+const genDir = ctx.paths.html.temp.artifacts.gen.dir;
 
-const inputGlob = ctx.isDebug ? srcGlob : tempGlob;
+const inputGlob = ctx.isDebug ? srcGlob : genGlob;
 
-const baseDir = ctx.isDebug ? srcDir : tempDir;
+const baseDir = ctx.isDebug ? srcDir : genDir;
 
 const label = ctx.isDebug ? "source files" : "transformed files";
 
@@ -45,11 +45,11 @@ function logEnd(cb) {
 logEnd.displayName = "html:minify:log:end";
 
 function minifyTask() {
-  if (!ctx.isDebug && !fileExists(tempDir)) {
+  if (!ctx.isDebug && !fileExists(genDir)) {
     log.warn(
-      `Transformed HTML files not found at ${tempDir}. Please run 'html:replace:css' or 'html:transform:images' or use the 'debug' flag to minify directly from source files.`,
+      `Temporary directory "${genDir}" does not exist. Please run the "prepare:html" and "html:transform:images" task first to generate the necessary files before minifying HTML.`,
     );
-    return Promise.resolve();
+    return Promise.reject();
   }
 
   return gulp
