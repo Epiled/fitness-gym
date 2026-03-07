@@ -1,3 +1,5 @@
+// ← task to generate critical CSS manifest based on HTML build blocks.
+
 const gulp = require("gulp");
 const path = require("path");
 const fs = require("fs");
@@ -8,8 +10,8 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const { parseCSSBuildBlocks } = require("../../utils/parseCSSBuildBlocks");
-const { validateCSSManifest } = require("../../utils/validateCSSManifest");
+const { parseCssBuildBlocks } = require("../../utils/parseCssBuildBlocks");
+const { validateCssManifest } = require("../../utils/validateCssManifest");
 
 const outputDir = ctx.paths.temp;
 
@@ -18,8 +20,10 @@ let timer;
 function logStart(cb) {
   timer = startTimer();
   log.info("Start CSS manifest generation...");
+  log.verbose(`→ Output directory: ${outputDir}`);
   cb();
 }
+logStart.displayName = "manifest:css:log:start";
 
 function logEnd(cb) {
   log.success(
@@ -27,14 +31,15 @@ function logEnd(cb) {
   );
   cb();
 }
+logEnd.displayName = "manifest:css:log:end";
 
 function manifestCssTask(cb) {
   const htmlPath = path.resolve("src/index.html");
   const html = fs.readFileSync(htmlPath, "utf8");
 
-  const manifest = parseCSSBuildBlocks(html);
+  const manifest = parseCssBuildBlocks(html);
 
-  validateCSSManifest(manifest);
+  validateCssManifest(manifest);
 
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
