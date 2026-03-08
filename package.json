@@ -29,6 +29,7 @@
     "tree-cli": "^0.6.7"
   },
   "scripts": {
+    "build": "gulp build",
     "tree-cli": "npx tree-cli -l 5 -a --markdown --ignore node_modules/,dist/,build/,.git/,.next/,coverage/,out/,tmp/,temp/ ./ -o structure.md"
   }
 }
