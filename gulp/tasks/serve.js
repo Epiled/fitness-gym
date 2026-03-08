@@ -72,6 +72,8 @@ function server() {
     open: true, // auto open browser
     notify: false, // remove popup "BrowserSync Connected"
     watchOptions: watchOpts,
+    reloadDebounce: 200, // delay reload to avoid multiple reloads during build
+    reloadThrottle: 100, // delay reload to avoid multiple reloads during build
   });
 
   if (ctx.isDev) {
