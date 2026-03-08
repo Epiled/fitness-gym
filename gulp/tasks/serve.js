@@ -8,6 +8,62 @@ const ctx = getBuildContext();
 
 const baseDir = ctx.isDev ? ctx.paths.src : ctx.paths.dist;
 
+const watchOpts = {
+  ignoreInitial: true,
+  usePolling: true,
+  interval: 300,
+};
+
+const staticWatch = [
+  `${ctx.paths.src}/**/*`,
+  `!${ctx.paths.src}/html/**/*`,
+  `!${ctx.paths.src}/css/**/*`,
+  `!${ctx.paths.src}/js/**/*`,
+  `!${ctx.paths.src}/assets/svg/icons-ui/**/*`,
+];
+
+function reload(done) {
+  browserSync.reload();
+  done();
+}
+
+function watchDev() {
+  // HTML: reload
+  gulp.watch(ctx.paths.html.glob, watchOpts, reload);
+
+  // CSS: stream (sem reload)
+  gulp.watch(ctx.paths.css.glob, watchOpts, function cssStream() {
+    return gulp.src(ctx.paths.css.glob).pipe(browserSync.stream());
+  });
+
+  // JS: reload
+  gulp.watch(ctx.paths.js.glob, watchOpts, reload);
+
+  // Other files: reload
+  gulp.watch(staticWatch, watchOpts, reload);
+}
+
+function watchProd() {
+  gulp.watch(
+    ctx.paths.html.glob,
+    gulp.series("prepare:html", "html:build", "finalize:html", reload),
+  );
+
+  gulp.watch(
+    ctx.paths.css.glob,
+    gulp.series("prepare:css", "css:build", "finalize:css", reload),
+  );
+
+  gulp.watch(
+    ctx.paths.js.glob,
+    gulp.series("prepare:js", "js:build", "finalize:js", reload),
+  );
+
+  gulp.watch(ctx.paths.icons.glob, gulp.series("icons:build", reload));
+
+  gulp.watch(staticWatch, gulp.series("static:files", reload));
+}
+
 // Static server
 function server() {
   browserSync.init({
@@ -15,50 +71,13 @@ function server() {
     port: 3000,
     open: true, // auto open browser
     notify: false, // remove popup "BrowserSync Connected"
-    watchOptions: {
-      ignoreInitial: true,
-      usePolling: true,
-      interval: 300,
-    },
+    watchOptions: watchOpts,
   });
 
-  function reload(done) {
-    browserSync.reload();
-    done();
-  }
-
   if (ctx.isDev) {
-    gulp.watch(`${ctx.paths.src}/**/*`, reload);
-
-    gulp.watch(ctx.paths.css.glob, function cssStream() {
-      return gulp.src(ctx.paths.css.glob).pipe(browserSync.stream());
-    });
-
-    return;
-  }
-
-  gulp.watch(ctx.paths.html.glob, gulp.series("html:build", reload));
-
-  gulp.watch(
-    ctx.paths.css.glob,
-    gulp.series("css:build", (done) => {
-      browserSync.stream();
-      done();
-    }),
-  );
-
-  gulp.watch(ctx.paths.icons.glob, gulp.series("icons:build", reload));
-
-  if (!ctx.isDev) {
-    gulp.watch(
-      [
-        `${ctx.paths.src}/**/*`,
-        `!${ctx.paths.src}/css/**/*`,
-        `!${ctx.paths.src}/html/**/*`,
-        `!${ctx.paths.src}/assets/svg/icons-ui/**/*`,
-      ],
-      gulp.series("static:files", reload),
-    );
+    watchDev();
+  } else {
+    watchProd();
   }
 }
 
