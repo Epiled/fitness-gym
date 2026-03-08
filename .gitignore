@@ -128,5 +128,8 @@ out
 .yarn/install-state.gz
 .pnp.*
 
-#asstes não necessários
+# unnecessary files
 /assets/projetos/converter_formato
+
+.vercel
+.env*.local
