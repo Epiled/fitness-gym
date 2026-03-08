@@ -1,12 +1,10 @@
+// ← task to generate JSON from HTML and CSS for responsive image sizes, breakpoints, etc.
+
 const gulp = require("gulp");
 const fs = require("fs");
 const through = require("through2");
 
 const { log } = require("../../utils/log");
-
-const { getBuildContext } = require("../../utils/context");
-const ctx = getBuildContext();
-
 const {
   parseResponsiveFromHtml,
 } = require("../../utils/parseResponsiveFromHtml");
@@ -14,10 +12,32 @@ const {
   parseResponsiveFromCss,
 } = require("../../utils/parseResponsiveFromCss");
 
-const srcGlobHtml = ctx.paths.html.glob;
-const srcGlobCss = ctx.paths.css.glob;
+const { getBuildContext } = require("../../utils/context");
+const ctx = getBuildContext();
 
-function extractResponsiveTask() {
+const srcGlobHtml = ctx.paths.html.temp.staging;
+const srcGlobCss = ctx.paths.css.temp.staging;
+
+let timer;
+
+function logStart(cb) {
+  timer = log.startTimer();
+  log.info("Start extracting responsive data from HTML and CSS...");
+  log.verbose(`→ Source HTML glob: ${srcGlobHtml}`);
+  log.verbose(`→ Source CSS glob: ${srcGlobCss}`);
+  cb();
+}
+logStart.displayName = "responsive:data:extract:log:start";
+
+function logEnd(cb) {
+  log.success(
+    `Finished extracting responsive data from HTML and CSS! ${timer.end()}`,
+  );
+  cb();
+}
+logEnd.displayName = "responsive:data:extract:log:end";
+
+function responsiveDataExtractTask() {
   const collected = [];
 
   return gulp
@@ -51,10 +71,22 @@ function extractResponsiveTask() {
     });
 }
 
-extractResponsiveTask.displayName = "resize:extract:responsive:run";
+responsiveDataExtractTask.displayName = "resize:extract:responsive:run";
 
-const extractResponsive = gulp.series(extractResponsiveTask);
+const responsiveDataExtract = gulp.series(
+  logStart,
+  responsiveDataExtractTask,
+  logEnd,
+);
 
-gulp.task(extractResponsiveTask.displayName, extractResponsiveTask);
+responsiveDataExtract.displayName = "responsive:data:extract";
+responsiveDataExtract.description =
+  "Extract responsive image data from HTML and CSS, then output to temp/.gen/responsiveData.json.";
+responsiveDataExtract.flags = {
+  "--silence": "Hides informational logs, showing only warnings and errors.",
+  "--verbose": "Shows detailed logs for debugging purposes.",
+};
 
-module.exports = { extractResponsive };
+gulp.task(responsiveDataExtract.displayName, responsiveDataExtract);
+
+module.exports = { responsiveDataExtract };
