@@ -1,0 +1,11 @@
+.banner__text {
+  font-size: 1.6rem;
+  max-width: 31.5rem;
+}
+
+@media screen and (min-width: 834px) {
+  .banner__text {
+    font-size: 2rem;
+    max-width: 30rem;
+  }
+}

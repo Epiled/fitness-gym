@@ -1,0 +1,15 @@
+.modality__text {
+  margin: 5rem 0 5.5rem 0;
+}
+
+@media screen and (min-width: 834px) {
+  .modality__text {
+    margin: 4rem 0 6rem 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .modality__text {
+    margin: 6rem 0;
+  }
+}

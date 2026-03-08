@@ -1,0 +1,19 @@
+.newsletter__input {
+  padding: 0.8rem 0.5rem 0.8rem 2.5rem;
+  box-shadow: 0 -0.1rem 0.2rem 0.2rem var(--color-shadow) inset;
+  border: 0;
+  width: 100%;
+  font-size: 1.6rem;
+  height: 4rem;
+}
+
+.newsletter__input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+@media screen and (min-width: 834px) {
+  .newsletter__input {
+    font-size: 2.4rem;
+    height: 5rem;
+  }
+}

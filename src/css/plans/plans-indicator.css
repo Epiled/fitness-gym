@@ -1,0 +1,22 @@
+.plans__indicator {
+  position: absolute;
+  top: 0;
+  border-radius: 0.5rem;
+  border: 0.3rem solid var(--color-brand-primary);
+  height: 100%;
+  width: 13rem;
+  will-change: transform;
+  transition: transform 1s;
+}
+
+@media screen and (min-width: 834px) {
+  .plans__indicator {
+    width: 18rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .plans__indicator {
+    width: 27rem;
+  }
+}

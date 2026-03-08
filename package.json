@@ -1,10 +1,34 @@
 {
   "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "chalk": "^4.1.2",
+    "cssnano": "^7.1.2",
     "del": "^7.1.0",
+    "esbuild": "^0.27.2",
+    "gm": "^1.25.1",
     "gulp": "^4.0.2",
+    "gulp-cheerio": "^1.0.0",
     "gulp-clean": "^0.4.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-concat-css": "^3.1.0",
-    "gulp-replace": "^1.1.4"
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-iconfont": "^10.0.3",
+    "gulp-iconfont-template": "^0.0.3",
+    "gulp-image-resize": "^0.13.1",
+    "gulp-postcss": "^10.0.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-sharp-responsive": "^0.4.1",
+    "gulp-svgo": "^2.2.1",
+    "handlebars": "^4.7.8",
+    "minimist": "^1.2.8",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-handlebars": "^0.0.1",
+    "require-dir": "^1.2.0",
+    "sharp": "^0.34.3",
+    "svgo": "^4.0.0",
+    "tree-cli": "^0.6.7"
+  },
+  "scripts": {
+    "tree-cli": "npx tree-cli -l 5 -a --markdown --ignore node_modules/,dist/,build/,.git/,.next/,coverage/,out/,tmp/,temp/ ./ -o structure.md"
   }
 }

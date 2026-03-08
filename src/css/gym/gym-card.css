@@ -1,0 +1,20 @@
+.gym__card {
+  background: var(--color-surface-muted);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.3rem 0.3rem 0.2rem var(--color-surface-muted);
+  max-width: 36rem;
+  overflow: hidden;
+  text-align: left;
+}
+
+@media screen and (min-width: 834px) {
+  .gym__card {
+    max-width: 38.7rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .gym__card {
+    max-width: 42.7rem;
+  }
+}

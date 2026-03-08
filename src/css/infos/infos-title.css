@@ -1,0 +1,22 @@
+.infos__title {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  font-size: 2.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: "Overpass", sans-serif;
+}
+
+@container (min-width: 540px) {
+  .infos__title--alt {
+    color: var(--color-neutral-white);
+  }
+}
+
+@media screen and (min-width: 834px) {
+  .infos__title {
+    font-size: 3.2rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+}

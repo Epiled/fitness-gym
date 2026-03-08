@@ -1,0 +1,12 @@
+.plans__table {
+  margin-top: 6rem;
+  position: relative;
+}
+
+@media screen and (min-width: 1440px) {
+  .plans__table {
+    margin-top: 5rem;
+    max-width: 132rem;
+    width: 100%;
+  }
+}

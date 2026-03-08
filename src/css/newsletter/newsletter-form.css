@@ -1,0 +1,27 @@
+.newsletter__form {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-brand-primary);
+  border-radius: 1rem;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3.5rem 1.5rem 3rem 1.5rem;
+  max-width: 59rem;
+}
+
+@media screen and (min-width: 834px) {
+  .newsletter__form {
+    margin-top: 6rem;
+    padding: 3.5rem 2rem 2rem 2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .newsletter__form {
+    flex: 1;
+    align-self: center;
+    margin-top: 0;
+    padding: 5rem 2rem 2.5rem 2rem;
+  }
+}

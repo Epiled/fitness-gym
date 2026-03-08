@@ -1,0 +1,43 @@
+.search__field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 9rem;
+  padding-bottom: 9rem;
+  margin-top: 4.5rem;
+  background-image:
+    linear-gradient(
+      270deg,
+      var(--color-brand-primary-23) 0%,
+      var(--color-brand-primary-0) 100%
+    ),
+    /* @img {"width":540} */ url(../../assets/img/buscador.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+@media screen and (min-width: 834px) {
+  .search__field {
+    margin-top: 6rem;
+    background-image:
+      linear-gradient(
+        270deg,
+        var(--color-brand-primary-23) 0%,
+        var(--color-brand-primary-0) 100%
+      ),
+      /* @img {"width":834} */ url(../../assets/img/buscador.jpg);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .search__field {
+    margin-top: 9rem;
+    background-image:
+      linear-gradient(
+        270deg,
+        var(--color-brand-primary-23) 0%,
+        var(--color-brand-primary-0) 100%
+      ),
+      /* @img {"width":1440} */ url(../../assets/img/buscador.jpg);
+  }
+}

@@ -1,0 +1,15 @@
+.banner__headline {
+  font-size: clamp(3.2rem, 16.5vw, 6.4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-brand-primary);
+  margin: 0;
+  display: block;
+  line-height: 1;
+}
+
+@media screen and (min-width: 834px) {
+  .banner__headline {
+    font-size: 8rem;
+  }
+}

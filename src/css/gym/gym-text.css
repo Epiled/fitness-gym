@@ -1,0 +1,10 @@
+.gym__text {
+  color: var(--color-text-primary);
+  font-size: 1.6rem;
+}
+
+@media screen and (min-width: 1440px) {
+  .gym__text {
+    font-size: 1.8rem;
+  }
+}

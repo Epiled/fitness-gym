@@ -1,0 +1,9 @@
+.header__brand {
+  width: 12rem;
+}
+
+@media screen and (min-width: 1440px) {
+  .header__brand {
+    width: 16rem;
+  }
+}

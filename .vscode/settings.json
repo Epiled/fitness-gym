@@ -1,0 +1,12 @@
+{
+  // Desativa o Prettier especificamente para .hbs
+  "[handlebars]": {
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false
+  },
+
+  // Garante que o Prettier continue ativo nos outros arquivos
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "cSpell.words": ["htmlmin", "iconfont"]
+}

@@ -1,0 +1,24 @@
+.search__button {
+  position: absolute;
+  top: 50%;
+  left: 1.8rem;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+  border: 0;
+  border-radius: 100%;
+  background: transparent;
+  color: var(--color-brand-primary);
+  transition:
+    color 0.5s,
+    background 0.5s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.search__button:hover {
+  color: var(--color-neutral-white);
+  background-color: var(--color-brand-primary);
+}

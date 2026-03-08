@@ -1,0 +1,27 @@
+.gym {
+  margin-top: 3.5rem;
+  background-image: url(../../assets/svg/icons-art/section-accent--dark.svg);
+  background-repeat: no-repeat;
+  background-position: calc(100% + 7rem) center;
+  background-size: 16rem;
+  opacity: 0;
+  text-align: center;
+}
+
+.gym:where([data-state="visible"]) {
+  animation: topRevel 0.5s forwards;
+}
+
+@media screen and (min-width: 834px) {
+  .gym {
+    margin-top: 6rem;
+    background-size: 21.5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .gym {
+    margin-top: 10rem;
+    background-size: 28rem;
+  }
+}

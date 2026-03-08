@@ -1,0 +1,16 @@
+.gym__price {
+  color: var(--color-text-primary);
+  font-size: 2rem;
+  font-family: "Overpass", sans-serif;
+}
+
+.gym__price--alt {
+  color: var(--color-brand-primary);
+  font-weight: 700;
+}
+
+@media screen and (min-width: 1440px) {
+  .gym__price {
+    font-size: 2.4rem;
+  }
+}

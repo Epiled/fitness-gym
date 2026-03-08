@@ -1,0 +1,19 @@
+.plans__header {
+  width: 13rem;
+  padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 834px) {
+  .plans__header {
+    width: 18rem;
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .plans__header {
+    width: 27rem;
+    padding: 1.5rem 2.5rem;
+  }
+}

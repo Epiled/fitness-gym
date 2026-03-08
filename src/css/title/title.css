@@ -1,0 +1,72 @@
+.title {
+  color: var(--color-text-primary);
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
+  font-family: "Overpass", sans-serif;
+}
+
+.title--dest {
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
+
+.title--accessibility {
+  color: var(--color-brand-primary-dark);
+}
+
+.title--alt {
+  color: var(--color-brand-primary);
+  font-size: 4rem;
+  position: relative;
+  line-height: 1;
+  display: inline-block;
+}
+
+.title--alt::before {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  height: 3rem;
+  width: calc(100% + 4rem);
+  content: "";
+  background-image:
+    url(../assets/svg/icons-art/barbell.svg),
+    url(../assets/svg/icons-art/barbell-plate-left.svg),
+    url(../assets/svg/icons-art/barbell-plate-right.svg);
+  background-size: 100%, contain, contain;
+  background-position: center, left, right;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  transform: translateX(-50%);
+}
+
+@media screen and (min-width: 834px) {
+  .title {
+    font-size: 3.2rem;
+  }
+
+  .title--alt {
+    font-size: 5.2rem;
+  }
+
+  .title--dest {
+    text-underline-offset: 0.75rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .title {
+    font-size: 4rem;
+  }
+
+  .title--dest {
+    text-underline-offset: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .title--alt {
+    font-size: 5.2rem;
+  }
+}

@@ -1,0 +1,16 @@
+.newsletter__content {
+  max-width: 34rem;
+}
+
+@media screen and (min-width: 834px) {
+  .newsletter__content {
+    max-width: 46rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .newsletter__content {
+    flex: 1;
+    max-width: none;
+  }
+}

@@ -1,0 +1,14 @@
+.header__inner {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+@media screen and (min-width: 1440px) {
+  .header__inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 132rem;
+  }
+}

@@ -1,0 +1,11 @@
+.modality__inner {
+  position: relative;
+  width: 100%;
+  will-change: transform;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.modality__inner:where([data-face="back"]) {
+  transform: rotateY(180deg);
+}

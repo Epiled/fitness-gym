@@ -4,8 +4,8 @@
   opacity: 0;
 }
 
-.newsletter__wrapper.active {
-  animation: topRevel .5s forwards;
+.newsletter__wrapper:where([data-state="visible"]) {
+  animation: topRevel 0.5s forwards;
 }
 
 @media screen and (min-width: 1440px) {

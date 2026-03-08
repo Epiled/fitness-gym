@@ -1,0 +1,15 @@
+.gym__title {
+  border-bottom: 0.1rem solid var(--color-brand-primary);
+  color: var(--color-brand-primary);
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  font-family: "Overpass", sans-serif;
+}
+
+@media screen and (min-width: 1440px) {
+  .gym__title {
+    font-size: 2.8rem;
+  }
+}

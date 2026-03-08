@@ -1,0 +1,9 @@
+.modality__description {
+  font-size: 1.4rem;
+}
+
+@media screen and (min-width: 834px) {
+  .modality__description {
+    font-size: 1.6rem;
+  }
+}

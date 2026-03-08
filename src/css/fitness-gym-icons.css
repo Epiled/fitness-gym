@@ -1,0 +1,97 @@
+
+
+@font-face {
+  font-family: 'Fitness-Gym-Icons';
+  src: 
+    url('../assets/fonts/Fitness-Gym-Icons/Fitness-Gym-Icons.woff2') format('woff2'),
+    url('../assets/fonts/Fitness-Gym-Icons/Fitness-Gym-Icons.woff') format('woff'),
+    url('../assets/fonts/Fitness-Gym-Icons/Fitness-Gym-Icons.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'Fitness-Gym-Icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add-user::before {
+  content: "\ea01";
+}
+.icon-arrow::before {
+  content: "\ea02";
+}
+.icon-belt::before {
+  content: "\ea03";
+}
+.icon-biceps::before {
+  content: "\ea04";
+}
+.icon-check-list::before {
+  content: "\ea05";
+}
+.icon-check::before {
+  content: "\ea06";
+}
+.icon-close::before {
+  content: "\ea07";
+}
+.icon-dance::before {
+  content: "\ea08";
+}
+.icon-decoration::before {
+  content: "\ea09";
+}
+.icon-dumbbell::before {
+  content: "\ea0a";
+}
+.icon-gym::before {
+  content: "\ea0b";
+}
+.icon-house::before {
+  content: "\ea0c";
+}
+.icon-infinity::before {
+  content: "\ea0d";
+}
+.icon-instagram::before {
+  content: "\ea0e";
+}
+.icon-logo::before {
+  content: "\ea0f";
+}
+.icon-lungs::before {
+  content: "\ea10";
+}
+.icon-medal::before {
+  content: "\ea11";
+}
+.icon-message::before {
+  content: "\ea12";
+}
+.icon-people::before {
+  content: "\ea13";
+}
+.icon-pilates::before {
+  content: "\ea14";
+}
+.icon-search::before {
+  content: "\ea15";
+}
+.icon-tik-tok::before {
+  content: "\ea16";
+}
+.icon-to-top::before {
+  content: "\ea17";
+}
+.icon-whatsapp::before {
+  content: "\ea18";
+}

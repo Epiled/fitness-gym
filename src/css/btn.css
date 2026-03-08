@@ -1,6 +1,6 @@
 .btn {
-  color: var(--cor-escura);
-  background: var(--cor-principal);
+  color: var(--color-neutral-black);
+  background: var(--color-brand-primary);
   border: 0;
   border-radius: 4rem;
   font-size: 1.6rem;
@@ -14,12 +14,12 @@
   max-width: 35.7rem;
   width: 100%;
   cursor: pointer;
-  transition: background .5s;
+  transition: background 0.5s;
 }
 
 .btn:hover {
-  color: var(--cor-principal);
-  background: var(--cor-escura);
+  color: var(--color-brand-primary);
+  background: var(--color-neutral-black);
 }
 
 .btn--banner {
@@ -34,14 +34,14 @@
 }
 
 .btn--formulario {
-  background: var(--cor-escura);
-  color: var(--cor-principal);
+  background: var(--color-neutral-black);
+  color: var(--color-brand-primary);
   margin-top: 0;
 }
 
 .btn--formulario:hover {
-  background: var(--cor-fundo-1);
-  color: var(--cor-escura);
+  background: var(--color-surface-base);
+  color: var(--color-neutral-black);
 }
 
 @media screen and (min-width: 834px) {

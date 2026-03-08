@@ -1,0 +1,8 @@
+.footer__link {
+  color: var(--color-neutral-white);
+  font-size: 1.6rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

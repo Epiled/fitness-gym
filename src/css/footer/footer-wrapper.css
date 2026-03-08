@@ -1,0 +1,9 @@
+.footer__wrapper {
+  max-width: 132rem;
+  margin: 0 auto;
+  opacity: 0;
+}
+
+.footer__wrapper:where([data-state="visible"]) {
+  animation: topRevel 0.5s forwards;
+}

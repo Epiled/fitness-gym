@@ -1,0 +1,21 @@
+.modality__list {
+  list-style: disc;
+  list-style-position: inside;
+  font-size: 1.6rem;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media screen and (min-width: 834px) {
+  .modality__list {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .modality__list {
+    font-size: 2rem;
+  }
+}

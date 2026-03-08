@@ -1,0 +1,16 @@
+.header {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  top: 3rem;
+}
+
+@media screen and (min-width: 1440px) {
+  .header {
+    top: 10rem;
+  }
+}

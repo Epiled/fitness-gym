@@ -1,0 +1,12 @@
+.modality__subtitle {
+  font-size: 2.4rem;
+  color: var(--color-neutral-white);
+  font-weight: 700;
+  font-family: "Overpass", sans-serif;
+}
+
+@media screen and (min-width: 834px) {
+  .modality__subtitle {
+    font-size: 3rem;
+  }
+}

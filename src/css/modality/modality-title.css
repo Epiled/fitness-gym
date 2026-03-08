@@ -1,0 +1,19 @@
+.modality__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  color: var(--color-neutral-black);
+  font-size: 3.6rem;
+  font-weight: 700;
+  font-family: "Overpass", sans-serif;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 834px) and (max-width: 1440px) {
+  .modality__title {
+    font-size: 4.2rem;
+  }
+}

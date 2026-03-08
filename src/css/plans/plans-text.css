@@ -1,0 +1,16 @@
+.plans__text {
+  color: var(--color-text-primary);
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 834px) {
+  .plans__text {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .plans__text {
+    font-size: 1.6rem;
+  }
+}

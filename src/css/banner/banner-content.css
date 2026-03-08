@@ -1,0 +1,33 @@
+.banner__content {
+  position: absolute;
+  left: 2rem;
+  bottom: 19rem;
+  color: var(--color-surface-base);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  z-index: 2;
+}
+
+.banner__content:where([data-state="visible"]) {
+  animation: topRevel 0.5s forwards;
+}
+
+@media screen and (min-width: 834px) {
+  .banner__content {
+    bottom: 20.5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .banner__content {
+    left: 0;
+    right: 0;
+    bottom: 16rem;
+    width: 100%;
+    max-width: 132rem;
+    align-self: self-start;
+    justify-self: anchor-center;
+    justify-content: center;
+  }
+}

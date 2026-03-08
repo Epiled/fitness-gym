@@ -1,0 +1,30 @@
+{{!--
+  Customize template to generate icon font CSS (Handlebars)
+  -------------------------------------------
+  {{fontName}}    → Font name (ex: studio-icons)
+  {{fontPath}}    → Relative path to font files (ex: ../fonts/)
+  {{cssClass}}    → Prefix used for classes (ex: icon)
+  {{../cssClass}} → Goes up one level in context (inside each)
+  {{name}}        → Name of the SVG file
+  {{code}}        → Automatically generated Unicode code (\e900, \e901, etc.)
+--}}
+
+{{> base-icons}}
+
+[class^="{{cssClass}}-"], [class*=" {{cssClass}}-"] {
+  font-family: '{{fontName}}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+{{#each glyphs}}
+.{{../cssClass}}-{{name}}::before {
+  content: "{{code}}";
+}
+{{/each}}

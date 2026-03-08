@@ -1,0 +1,8 @@
+.footer__title {
+  color: var(--color-brand-primary);
+  font-size: 3.6rem;
+  font-weight: 700;
+  font-style: italic;
+  text-align: left;
+  font-family: "Overpass", sans-serif;
+}

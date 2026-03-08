@@ -1,0 +1,13 @@
+.search__container {
+  position: relative;
+  border-radius: 0.5rem;
+  background-color: var(--color-brand-primary);
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 59rem;
+  opacity: 0;
+}
+
+.search__container:where([data-state="visible"]) {
+  animation: topRevel 0.5s forwards;
+}

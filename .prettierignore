@@ -1,0 +1,2 @@
+# Ignore all Handlebars templates 
+**/*.hbs

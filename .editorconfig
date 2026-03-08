@@ -1,0 +1,17 @@
+root = true
+
+[*]
+charset = utf-8
+insert_final_newline = false
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = false
+
+# Specify configuration to .hbs files
+[*.hbs]
+indent_style = space
+indent_size = 2
+
+# Avoid auto-formatting (respect manual spaces and line breaks)
+trim_trailing_whitespace = false
+insert_final_newline = false

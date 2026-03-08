@@ -1,0 +1,20 @@
+.plans__title {
+  color: var(--color-neutral-black);
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+  font-family: "Overpass", sans-serif;
+}
+
+@media screen and (min-width: 834px) {
+  .plans__title {
+    font-size: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .plans__title {
+    font-size: 3.2rem;
+    margin-bottom: 0.5rem;
+  }
+}

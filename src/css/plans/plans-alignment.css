@@ -1,0 +1,5 @@
+.plans__alignment {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

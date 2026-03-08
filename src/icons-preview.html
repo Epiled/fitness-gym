@@ -1,0 +1,161 @@
+
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Preview — Fitness-Gym-Icons</title>
+    <link rel="stylesheet" href="./css/Fitness-Gym-Icons.css" />
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #fafafa;
+        padding: 32px;
+      }
+      h1 {
+        font-size: 20px;
+        margin-bottom: 24px;
+      }
+      input {
+        padding: 8px;
+        font-size: 14px;
+        width: 300px;
+        margin-bottom: 24px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 16px;
+      }
+      .icon-box {
+        text-align: center;
+        background: #fff;
+        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid #eee;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+      }
+      .icon-box i {
+        font-size: 32px;
+        color: #333;
+      }
+      .icon-name {
+        font-size: 12px;
+        color: #666;
+        margin-top: 6px;
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pré-visualização: Fitness-Gym-Icons</h1>
+    <input
+      type="text"
+      id="search"
+      placeholder="Buscar ícone..."
+      onkeyup="filterIcons()"
+    />
+    <div class="grid" id="icons">
+        <div class="icon-box" data-name="icon-add-user">
+          <i class="icon icon-add-user"></i>
+          <div class="icon-name">icon-add-user</div>
+        </div>
+        <div class="icon-box" data-name="icon-arrow">
+          <i class="icon icon-arrow"></i>
+          <div class="icon-name">icon-arrow</div>
+        </div>
+        <div class="icon-box" data-name="icon-belt">
+          <i class="icon icon-belt"></i>
+          <div class="icon-name">icon-belt</div>
+        </div>
+        <div class="icon-box" data-name="icon-biceps">
+          <i class="icon icon-biceps"></i>
+          <div class="icon-name">icon-biceps</div>
+        </div>
+        <div class="icon-box" data-name="icon-check-list">
+          <i class="icon icon-check-list"></i>
+          <div class="icon-name">icon-check-list</div>
+        </div>
+        <div class="icon-box" data-name="icon-check">
+          <i class="icon icon-check"></i>
+          <div class="icon-name">icon-check</div>
+        </div>
+        <div class="icon-box" data-name="icon-close">
+          <i class="icon icon-close"></i>
+          <div class="icon-name">icon-close</div>
+        </div>
+        <div class="icon-box" data-name="icon-dance">
+          <i class="icon icon-dance"></i>
+          <div class="icon-name">icon-dance</div>
+        </div>
+        <div class="icon-box" data-name="icon-decoration">
+          <i class="icon icon-decoration"></i>
+          <div class="icon-name">icon-decoration</div>
+        </div>
+        <div class="icon-box" data-name="icon-dumbbell">
+          <i class="icon icon-dumbbell"></i>
+          <div class="icon-name">icon-dumbbell</div>
+        </div>
+        <div class="icon-box" data-name="icon-gym">
+          <i class="icon icon-gym"></i>
+          <div class="icon-name">icon-gym</div>
+        </div>
+        <div class="icon-box" data-name="icon-house">
+          <i class="icon icon-house"></i>
+          <div class="icon-name">icon-house</div>
+        </div>
+        <div class="icon-box" data-name="icon-infinity">
+          <i class="icon icon-infinity"></i>
+          <div class="icon-name">icon-infinity</div>
+        </div>
+        <div class="icon-box" data-name="icon-instagram">
+          <i class="icon icon-instagram"></i>
+          <div class="icon-name">icon-instagram</div>
+        </div>
+        <div class="icon-box" data-name="icon-logo">
+          <i class="icon icon-logo"></i>
+          <div class="icon-name">icon-logo</div>
+        </div>
+        <div class="icon-box" data-name="icon-lungs">
+          <i class="icon icon-lungs"></i>
+          <div class="icon-name">icon-lungs</div>
+        </div>
+        <div class="icon-box" data-name="icon-medal">
+          <i class="icon icon-medal"></i>
+          <div class="icon-name">icon-medal</div>
+        </div>
+        <div class="icon-box" data-name="icon-message">
+          <i class="icon icon-message"></i>
+          <div class="icon-name">icon-message</div>
+        </div>
+        <div class="icon-box" data-name="icon-people">
+          <i class="icon icon-people"></i>
+          <div class="icon-name">icon-people</div>
+        </div>
+        <div class="icon-box" data-name="icon-pilates">
+          <i class="icon icon-pilates"></i>
+          <div class="icon-name">icon-pilates</div>
+        </div>
+        <div class="icon-box" data-name="icon-search">
+          <i class="icon icon-search"></i>
+          <div class="icon-name">icon-search</div>
+        </div>
+        <div class="icon-box" data-name="icon-tik-tok">
+          <i class="icon icon-tik-tok"></i>
+          <div class="icon-name">icon-tik-tok</div>
+        </div>
+        <div class="icon-box" data-name="icon-to-top">
+          <i class="icon icon-to-top"></i>
+          <div class="icon-name">icon-to-top</div>
+        </div>
+        <div class="icon-box" data-name="icon-whatsapp">
+          <i class="icon icon-whatsapp"></i>
+          <div class="icon-name">icon-whatsapp</div>
+        </div>
+    </div>
+    <script>
+      function filterIcons() { const term =
+      document.getElementById('search').value.toLowerCase();
+      document.querySelectorAll('.icon-box').forEach(box => { box.style.display
+      = box.dataset.name.toLowerCase().includes(term) ? '' : 'none'; }); }
+    </script>
+  </body>
+</html>
