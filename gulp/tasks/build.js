@@ -6,6 +6,9 @@ const { cleanBuild } = require("./clean/clean-build");
 const { prepareBuild } = require("./prepare/prepare-build");
 const { staticFiles } = require("./static-files");
 const { manifestCss } = require("./manifest/manifest-css");
+const {
+  responsiveDataExtract,
+} = require("./responsive/responsive-data-extract");
 const { jsBuild } = require("./js/js-build");
 const { cssBuild } = require("./css/css-build");
 const { htmlBuild } = require("./html/html-build");
@@ -17,6 +20,7 @@ const build = gulp.series(
   prepareBuild,
   staticFiles,
   manifestCss,
+  responsiveDataExtract,
   cssBuild,
   jsBuild,
   htmlBuild,

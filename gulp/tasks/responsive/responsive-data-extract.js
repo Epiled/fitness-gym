@@ -5,6 +5,7 @@ const fs = require("fs");
 const through = require("through2");
 
 const { log } = require("../../utils/log");
+const { startTimer } = require("../../utils/timer");
 const {
   parseResponsiveFromHtml,
 } = require("../../utils/parseResponsiveFromHtml");
@@ -13,15 +14,16 @@ const {
 } = require("../../utils/parseResponsiveFromCss");
 
 const { getBuildContext } = require("../../utils/context");
+const { writeJson } = require("../../utils/writeJson");
 const ctx = getBuildContext();
 
-const srcGlobHtml = ctx.paths.html.temp.staging;
-const srcGlobCss = ctx.paths.css.temp.staging;
+const srcGlobHtml = ctx.paths.html.temp.glob;
+const srcGlobCss = ctx.paths.css.temp.glob;
 
 let timer;
 
 function logStart(cb) {
-  timer = log.startTimer();
+  timer = startTimer();
   log.info("Start extracting responsive data from HTML and CSS...");
   log.verbose(`→ Source HTML glob: ${srcGlobHtml}`);
   log.verbose(`→ Source CSS glob: ${srcGlobCss}`);
@@ -61,17 +63,14 @@ function responsiveDataExtractTask() {
       }),
     )
     .on("end", () => {
-      log.info("Finished extracting responsive data from HTML!");
+      log.info("Finished extracting responsive data from HTML and CSS!");
       log.info(collected[0]);
 
-      fs.writeFileSync(
-        "temp/.gen/responsiveData.json",
-        JSON.stringify(collected, null, 2),
-      );
+      writeJson("temp/.gen/responsiveData.json", collected);
     });
 }
 
-responsiveDataExtractTask.displayName = "resize:extract:responsive:run";
+responsiveDataExtractTask.displayName = "responsive:data:extract:run";
 
 const responsiveDataExtract = gulp.series(
   logStart,
