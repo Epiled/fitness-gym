@@ -2,8 +2,8 @@
 
 const gulp = require("gulp");
 
-const { htmlReplaceCss } = require("./html-replace-css");
 const { htmlTransformImages } = require("./html-transform-images");
+const { htmlReplaceCss } = require("./html-replace-css");
 const { htmlInjectCriticalCss } = require("./html-inject-critical-css");
 const { htmlInjectCriticalJs } = require("./html-inject-critical-js");
 const { htmlMinify } = require("./html-minify");
@@ -14,7 +14,9 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const outputDir = ctx.paths.dist;
+const outputDir = ctx.isDebug
+  ? ctx.paths.dist
+  : ctx.paths.html.temp.artifacts.gen.dir;
 
 let timer;
 
@@ -22,7 +24,9 @@ function logStart(cb) {
   timer = startTimer();
   log.info("Start HTML build...");
   log.verbose(`→ Output directory: ${outputDir}`);
-  log.verbose("→ Pipeline: htmlReplaceCSS → htmlTransformImages → htmlMinify");
+  log.verbose(
+    "→ Pipeline: htmlTransformImages → htmlReplaceCSS → htmlInjectCriticalCss → htmlInjectCriticalJs → htmlMinify",
+  );
   cb();
 }
 logStart.displayName = "html:build:log:start";
@@ -49,6 +53,7 @@ htmlBuild.description =
 htmlBuild.flags = {
   "--silence": "Hides informational logs, showing only warnings and errors.",
   "--verbose": "Shows detailed logs for debugging purposes.",
+  "--debug": "Build directly from the source files instead of temp.",
 };
 
 gulp.task(htmlBuild.displayName, htmlBuild);
