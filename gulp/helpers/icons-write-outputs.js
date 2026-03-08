@@ -8,11 +8,11 @@ const { ensureDir } = require("../utils/ensureDir");
 const { getBuildContext } = require("../utils/context");
 const ctx = getBuildContext();
 
-let targetPath = "";
+const fontFileName = ctx.config.fontName.toLowerCase();
 
-targetPath = ctx.isSASS
-  ? path.join(ctx.paths.sass.dist, `_${ctx.config.fontName}.scss`)
-  : path.join(ctx.paths.css.dist, `${ctx.config.fontName}.css`);
+const targetPath = ctx.isSASS
+  ? path.join(ctx.paths.sass.dist, `_${fontFileName}.scss`)
+  : path.join(ctx.paths.css.dist, `${fontFileName}.css`);
 
 const previewPath = path.join(ctx.paths.dist, "icons-preview.html");
 

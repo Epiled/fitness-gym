@@ -9,12 +9,15 @@ const { startTimer } = require("../../utils/timer");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
+const fontName = ctx.config.fontName;
+const fontFileName = fontName.toLowerCase();
+
 const srcFontGlob = path.join(
   ctx.paths.icons.dist,
   "*.{eot,svg,ttf,woff,woff2}",
 );
-const srcCSSGlob = path.join(ctx.paths.css.dist, `${ctx.config.fontName}*.css`);
-const srcHTMLPreviewGlob = path.join(ctx.paths.dist, "icons-preview.html");
+const srcCssGlob = path.join(ctx.paths.css.dist, `${fontFileName}*.css`);
+const srcHtmlPreviewGlob = path.join(ctx.paths.dist, "icons-preview.html");
 
 const outputRoot = ctx.paths.src;
 const outputFonts = ctx.paths.icons.syncDir; // src/assets/fonts/<folderName>
@@ -27,8 +30,8 @@ function logStart(cb) {
   timer = startTimer();
   log.info("Start sync icon font assets to source...");
   log.verbose(`→ Source fonts: ${srcFontGlob}`);
-  log.verbose(`→ Source CSS: ${srcCSSGlob}`);
-  log.verbose(`→ Source preview: ${srcHTMLPreviewGlob}`);
+  log.verbose(`→ Source CSS: ${srcCssGlob}`);
+  log.verbose(`→ Source preview: ${srcHtmlPreviewGlob}`);
   log.verbose(`→ Output fonts: ${outputFonts}`);
   log.verbose(`→ Output CSS: ${outputCss}`);
   log.verbose(`→ Output preview: ${outputPreview}`);
@@ -51,14 +54,14 @@ syncFonts.displayName = "icons:sync:fonts";
 
 function syncCss() {
   return gulp
-    .src(srcCSSGlob, { allowEmpty: true, base: ctx.paths.css.dist })
+    .src(srcCssGlob, { allowEmpty: true, base: ctx.paths.css.dist })
     .pipe(gulp.dest(outputCss));
 }
 syncCss.displayName = "icons:sync:css";
 
 function syncPreview() {
   return gulp
-    .src(srcHTMLPreviewGlob, { allowEmpty: true, base: ctx.paths.dist })
+    .src(srcHtmlPreviewGlob, { allowEmpty: true, base: ctx.paths.dist })
     .pipe(gulp.dest(outputPreview));
 }
 syncPreview.displayName = "icons:sync:preview";

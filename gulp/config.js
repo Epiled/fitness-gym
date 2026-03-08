@@ -1,8 +1,8 @@
 // ← global options, font names, etc.
 
 module.exports = {
-  fontName: "fitness-gym-icons",
-  folderName: "fitness-gym-icons",
+  fontName: "Fitness-Gym-Icons",
+  folderName: "Fitness-Gym-Icons",
   fontPath: "../assets/fonts",
   cssClass: "icon",
 };

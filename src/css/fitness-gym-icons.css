@@ -1,17 +1,18 @@
 
 
 @font-face {
-  font-family: 'fitness-gym-icons';
+  font-family: 'Fitness-Gym-Icons';
   src: 
-    url('../assets/fonts/fitness-gym-icons/fitness-gym-icons.woff2') format('woff2'),
-    url('../assets/fonts/fitness-gym-icons/fitness-gym-icons.woff') format('woff'),
-    url('../assets/fonts/fitness-gym-icons/fitness-gym-icons.ttf') format('truetype');
+    url('../assets/fonts/Fitness-Gym-Icons/Fitness-Gym-Icons.woff2') format('woff2'),
+    url('../assets/fonts/Fitness-Gym-Icons/Fitness-Gym-Icons.woff') format('woff'),
+    url('../assets/fonts/Fitness-Gym-Icons/Fitness-Gym-Icons.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
+
 [class^="icon-"], [class*=" icon-"] {
-  font-family: 'fitness-gym-icons' !important;
+  font-family: 'Fitness-Gym-Icons' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;

@@ -22,6 +22,9 @@ const ctx = getBuildContext();
 const srcGlob = ctx.paths.icons.glob;
 const srcDir = ctx.paths.icons.dir;
 
+const fontName = ctx.config.fontName;
+const fontFileName = fontName.toLowerCase();
+
 const baseIconTemplatePath = path.resolve(
   __dirname,
   "../../templates/base-icons.hbs",
@@ -37,8 +40,8 @@ if (!fileExists(baseIconTemplatePath)) {
 }
 
 const targetPath = ctx.isSASS
-  ? path.join(ctx.paths.sass.dist, `_${ctx.config.fontName}.scss`)
-  : path.join(ctx.paths.css.dist, `${ctx.config.fontName}.css`);
+  ? path.join(ctx.paths.sass.dist, `_${fontFileName}.scss`)
+  : path.join(ctx.paths.css.dist, `${fontFileName}.css`);
 
 const outputDir = ctx.paths.icons.dist;
 
@@ -47,7 +50,7 @@ let glyphCount = 0;
 
 function logStart(cb) {
   timer = startTimer();
-  log.info(`Generating webfont: ${ctx.config.fontName}`);
+  log.info(`Generating webfont: ${fontName}`);
   log.verbose(`→ Source glob: ${srcGlob}`);
   log.verbose(`→ Source dir: ${srcDir}`);
   log.verbose(`→ Target: ${targetPath}`);
@@ -59,7 +62,7 @@ logStart.displayName = "icons:log:start";
 
 function logEnd(cb) {
   log.success(
-    `Finished generating webfont: ${ctx.config.fontName} ${timer.end()} → ${outputDir}`,
+    `Finished generating webfont: ${fontName} ${timer.end()} → ${outputDir}`,
   );
   log.info(`→ Total icons generated: ${glyphCount}`);
   cb();
@@ -86,7 +89,7 @@ function iconsFontTask() {
     .src(srcGlob, { allowEmpty: true })
     .pipe(
       iconfont({
-        fontName: ctx.config.fontName,
+        fontName: fontName,
         formats: ["ttf", "woff", "woff2", "svg"],
         normalize: true,
         fontHeight: 1000,
