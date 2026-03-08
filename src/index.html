@@ -63,10 +63,11 @@
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/animations.css" />
     <link rel="stylesheet" href="./css/utils.css" />
-    <link rel="stylesheet" href="./css/respiro.css" />
+    <link rel="stylesheet" href="./css/gap.css" />
     <link rel="stylesheet" href="./css/fitness-gym-icons.css" />
-    <link rel="stylesheet" href="./css/titulo.css" />
     <link rel="stylesheet" href="./css/btn.css" />
+
+    <link rel="stylesheet" href="./css/title/title.css" />
 
     <link rel="stylesheet" href="./css/header/header.css" />
     <link rel="stylesheet" href="./css/header/header-inner.css" />
@@ -241,21 +242,21 @@
         <picture class="banner__images">
           <img
             src="./assets/img/banner-fitness-gym.jpg"
-            width="390"
-            height="260"
+            width="560"
+            height="480"
             alt="#"
             fetchpriority="high"
             loading="eager"
             decoding="async"
             class="banner__image"
             data-gulp-cheerio
-            data-sizes="tablet:834x560,desktop:1920x1280"
+            data-sizes="560x480x40;834x560;1920x1280"
           />
         </picture>
       </section>
 
       <aside
-        class="infos respiro"
+        class="infos gap"
         aria-label="Números da academia"
         data-has-counters
         data-js="scroll-reveal"
@@ -299,13 +300,12 @@
       </aside>
 
       <section class="search">
-        <h2 class="titulo respiro">
+        <h2 class="title gap">
           Encontre uma
-          <span class="titulo--dest titulo--accessibility">unidade</span> perto
-          de
-          <span class="titulo--dest titulo--accessibility">você</span>
+          <span class="title--dest title--accessibility">unidade</span> perto de
+          <span class="title--dest title--accessibility">você</span>
         </h2>
-        <div class="search__field respiro">
+        <div class="search__field gap">
           <form
             method="post"
             action="#"
@@ -341,11 +341,11 @@
 
       <section
         id="academias"
-        class="gym respiro"
+        class="gym gap"
         data-js="scroll-reveal"
         data-state="hidden"
       >
-        <h2 class="titulo titulo--alt">Academias</h2>
+        <h2 class="title title--alt">Academias</h2>
 
         <div class="gym__cards">
           <article class="gym__card">
@@ -358,7 +358,7 @@
                 alt=""
                 class="gym__image"
                 data-gulp-cheerio
-                data-sizes="mobile:390x260"
+                data-sizes="390x260x40"
               />
             </picture>
 
@@ -398,7 +398,7 @@
                 alt=""
                 class="gym__image"
                 data-gulp-cheerio
-                data-sizes="mobile:390x260"
+                data-sizes="390x260x40"
               />
             </picture>
             <div class="gym__content">
@@ -437,7 +437,7 @@
                 alt=""
                 class="gym__image"
                 data-gulp-cheerio
-                data-sizes="mobile:390x260"
+                data-sizes="390x260x40"
               />
             </picture>
             <div class="gym__content">
@@ -470,13 +470,13 @@
 
       <section
         id="planos"
-        class="plans respiro"
+        class="plans gap"
         data-js="scroll-reveal"
         data-state="hidden"
       >
-        <h2 class="titulo">
-          Conheça nossos <span class="titulo--dest">planos</span> e suas
-          <span class="titulo--dest">vantagens</span>
+        <h2 class="title">
+          Conheça nossos <span class="title--dest">planos</span> e suas
+          <span class="title--dest">vantagens</span>
         </h2>
 
         <table class="plans__table" data-js="plans-table">
@@ -585,7 +585,7 @@
 
       <aside
         id="matricule-se"
-        class="newsletter respiro"
+        class="newsletter gap"
         aria-label="Cadastro e novidades"
       >
         <div
@@ -635,15 +635,15 @@
 
       <section
         id="modalidades"
-        class="modality respiro"
+        class="modality gap"
         data-js="scroll-reveal"
         data-state="hidden"
       >
-        <h2 class="titulo titulo--alt">Modalidades</h2>
+        <h2 class="title title--alt">Modalidades</h2>
 
-        <p class="titulo modality__text">
-          Conheça <span class="titulo--dest">mais</span> sobre cada
-          <span class="titulo--dest">modalidade</span>
+        <p class="title modality__text">
+          Conheça <span class="title--dest">mais</span> sobre cada
+          <span class="title--dest">modalidade</span>
         </p>
 
         <div class="modality__cards">
@@ -663,7 +663,7 @@
                   alt=""
                   class="modality__image"
                   data-gulp-cheerio
-                  data-sizes="mobile:390x260"
+                  data-sizes="390x260"
                 />
               </picture>
               <div class="modality__front">
@@ -702,7 +702,7 @@
                     alt=""
                     class="modality__image"
                     data-gulp-cheerio
-                    data-sizes="mobile:390x260"
+                    data-sizes="390x260"
                   />
                 </picture>
                 <h3 class="modality__title">Fitdance</h3>
@@ -740,7 +740,7 @@
                     alt=""
                     class="modality__image"
                     data-gulp-cheerio
-                    data-sizes="mobile:390x260"
+                    data-sizes="390x260"
                   />
                 </picture>
                 <h3 class="modality__title">Pilates</h3>
@@ -778,7 +778,7 @@
                     alt=""
                     class="modality__image"
                     data-gulp-cheerio
-                    data-sizes="mobile:390x260"
+                    data-sizes="390x260"
                   />
                 </picture>
                 <h3 class="modality__title">Cardio</h3>
@@ -812,7 +812,7 @@
       </button>
     </main>
 
-    <footer class="footer respiro">
+    <footer class="footer gap">
       <div class="footer__wrapper" data-js="scroll-reveal" data-state="hidden">
         <img
           class="footer__image"
