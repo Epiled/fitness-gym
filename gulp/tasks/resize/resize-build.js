@@ -2,9 +2,7 @@
 
 const gulp = require("gulp");
 
-const { resizeMobile } = require("./resize-mobile");
-const { resizeTablet } = require("./resize-tablet");
-const { resizeDesktop } = require("./resize-desktop");
+const { resizeCustom } = require("./resize-custom");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -33,13 +31,7 @@ function logEnd(cb) {
 }
 logEnd.displayName = "resize:build:log:end";
 
-const resizeBuild = gulp.parallel(
-  logStart,
-  resizeMobile,
-  resizeTablet,
-  resizeDesktop,
-  logEnd,
-);
+const resizeBuild = gulp.parallel(logStart, resizeCustom, logEnd);
 
 resizeBuild.displayName = "resize:build";
 resizeBuild.description = "Resize source images for various devices.";
