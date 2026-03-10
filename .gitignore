@@ -131,5 +131,8 @@ out
 # unnecessary files
 /assets/projetos/converter_formato
 
+# ignore files
 .vercel
 .env*.local
+dist
+temp

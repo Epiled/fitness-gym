@@ -29,7 +29,7 @@ function log(type = "info", message = "") {
 }
 
 // Convenient Shortcut
-log.setsilence = (val = true) => {
+log.setSilence = (val = true) => {
   isSilence = val;
 };
 log.setVerbose = (val = true) => {
