@@ -30,6 +30,8 @@ function iconsCompilePreview(glyphs = []) {
   const previewCompiled = handlebars.compile(previewRaw);
   return previewCompiled({
     fontName: ctx.config.fontName,
+    cssFileName: ctx.config.fontName.toLocaleLowerCase(),
+    cssClass: ctx.config.cssClass,
     glyphs: glyphs.map((g) => ({
       name: g.name,
     })),

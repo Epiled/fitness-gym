@@ -11,7 +11,7 @@
   font-display: swap;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"], [class*=" icon"] {
   font-family: 'Fitness-Gym-Icons' !important;
   speak: none;
   font-style: normal;
@@ -24,74 +24,74 @@
 }
 
 .icon-add-user::before {
-  content: "\ea01";
+  content: "\e001";
 }
 .icon-arrow::before {
-  content: "\ea02";
+  content: "\e002";
 }
 .icon-belt::before {
-  content: "\ea03";
+  content: "\e003";
 }
 .icon-biceps::before {
-  content: "\ea04";
-}
-.icon-check-list::before {
-  content: "\ea05";
+  content: "\e004";
 }
 .icon-check::before {
-  content: "\ea06";
+  content: "\e005";
+}
+.icon-check-list::before {
+  content: "\e006";
 }
 .icon-close::before {
-  content: "\ea07";
+  content: "\e007";
 }
 .icon-dance::before {
-  content: "\ea08";
+  content: "\e008";
 }
 .icon-decoration::before {
-  content: "\ea09";
+  content: "\e009";
 }
 .icon-dumbbell::before {
-  content: "\ea0a";
+  content: "\e00a";
 }
 .icon-gym::before {
-  content: "\ea0b";
+  content: "\e00b";
 }
 .icon-house::before {
-  content: "\ea0c";
+  content: "\e00c";
 }
 .icon-infinity::before {
-  content: "\ea0d";
+  content: "\e00d";
 }
 .icon-instagram::before {
-  content: "\ea0e";
+  content: "\e00e";
 }
 .icon-logo::before {
-  content: "\ea0f";
+  content: "\e00f";
 }
 .icon-lungs::before {
-  content: "\ea10";
+  content: "\e010";
 }
 .icon-medal::before {
-  content: "\ea11";
+  content: "\e011";
 }
 .icon-message::before {
-  content: "\ea12";
+  content: "\e012";
 }
 .icon-people::before {
-  content: "\ea13";
+  content: "\e013";
 }
 .icon-pilates::before {
-  content: "\ea14";
+  content: "\e014";
 }
 .icon-search::before {
-  content: "\ea15";
+  content: "\e015";
 }
 .icon-tik-tok::before {
-  content: "\ea16";
+  content: "\e016";
 }
 .icon-to-top::before {
-  content: "\ea17";
+  content: "\e017";
 }
 .icon-whatsapp::before {
-  content: "\ea18";
+  content: "\e018";
 }
