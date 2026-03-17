@@ -12,7 +12,6 @@
     "gulp-postcss": "^10.0.0",
     "gulp-replace": "^1.1.4",
     "gulp-sharp-responsive": "^0.4.1",
-    "gulp-svgo": "^2.2.1",
     "handlebars": "^4.7.8",
     "html-minifier-terser": "^7.2.0",
     "minimist": "^1.2.8",
@@ -21,7 +20,7 @@
     "prettier-plugin-handlebars": "^0.0.1",
     "require-dir": "^1.2.0",
     "sharp": "^0.34.3",
-    "svgo": "^4.0.0",
+    "svgo": "^4.0.1",
     "tree-cli": "^0.6.7"
   },
   "scripts": {
