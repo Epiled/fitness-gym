@@ -1,4 +1,5 @@
 {
+  "version": "1.1.4",
   "devDependencies": {
     "@epiled/icon-font-builder": "^1.3.2",
     "browser-sync": "^3.0.4",
@@ -25,6 +26,5 @@
   "scripts": {
     "build": "gulp build",
     "tree-cli": "npx tree-cli -l 5 -a --markdown --ignore node_modules/,dist/,build/,.git/,.next/,coverage/,out/,tmp/,temp/ ./ -o structure.md"
-  },
-  "version": "0.1.0"
+  }
 }
