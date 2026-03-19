@@ -2,6 +2,7 @@
 
 const gulp = require("gulp");
 const path = require("path");
+const fs = require("fs/promises");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -45,10 +46,18 @@ function logEnd(cb) {
 }
 logEnd.displayName = "icons:sync:log:end";
 
-function syncFonts() {
-  return gulp
-    .src(srcFontGlob, { allowEmpty: true, base: ctx.paths.icons.dist })
-    .pipe(gulp.dest(outputFonts));
+async function syncFonts() {
+  const files = await fs.readdir(ctx.paths.icons.dist);
+
+  for (const file of files) {
+    if (!file.match(/\.(woff2|woff|ttf|eot)$/)) continue;
+
+    const src = path.join(ctx.paths.icons.dist, file);
+    const dest = path.join(outputFonts, file);
+
+    await fs.mkdir(outputFonts, { recursive: true });
+    await fs.copyFile(src, dest);
+  }
 }
 syncFonts.displayName = "icons:sync:fonts";
 
