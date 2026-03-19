@@ -10,7 +10,7 @@
     "gulp-cheerio": "^1.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-postcss": "^10.0.0",
-    "gulp-replace": "^1.1.4", 
+    "gulp-replace": "^1.1.4",
     "handlebars": "^4.7.8",
     "html-minifier-terser": "^7.2.0",
     "minimist": "^1.2.8",
@@ -25,5 +25,6 @@
   "scripts": {
     "build": "gulp build",
     "tree-cli": "npx tree-cli -l 5 -a --markdown --ignore node_modules/,dist/,build/,.git/,.next/,coverage/,out/,tmp/,temp/ ./ -o structure.md"
-  }
+  },
+  "version": "0.1.0"
 }
