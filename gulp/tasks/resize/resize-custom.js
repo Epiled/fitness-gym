@@ -1,7 +1,7 @@
 // ← tasks to transform images size to custom size.
 
 const gulp = require("gulp");
-const sharpResponsive = require("gulp-sharp-responsive");
+const sharp = require("sharp");
 const path = require("path");
 const fs = require("fs");
 
@@ -36,7 +36,7 @@ function logEnd(cb) {
 }
 logEnd.displayName = "resize:custom:log:end";
 
-function resizeCustomTask() {
+async function resizeCustomTask() {
   if (!fileExists(srcDir)) {
     log.warn(`Source directory not found: ${srcDir}`);
     return Promise.resolve();
@@ -54,28 +54,26 @@ function resizeCustomTask() {
     return Promise.resolve();
   }
 
-  const streams = data.map((image) => {
-    const formats = image.sizes.map((size) => ({
-      width: size.width,
-      format: "webp",
-      rename: {
-        suffix: `-${size.width}`,
-      },
-      webpOptions: {
-        quality: size.quality,
-        effort: 6,
-      },
-    }));
-
+  const tasks = data.flatMap((image) => {
     const filePath = path.join(srcDir, path.basename(image.src));
+    const fileName = path.parse(filePath).name;
 
-    return gulp
-      .src(filePath, { allowEmpty: true, base: srcDir })
-      .pipe(sharpResponsive({ formats }))
-      .pipe(gulp.dest(outputDir));
+    return image.sizes.map(async (size) => {
+      const outputFile = path.join(outputDir, `${fileName}-${size.width}.webp`);
+
+      await fs.promises.mkdir(outputDir, { recursive: true });
+
+      return sharp(filePath)
+        .resize(size.width)
+        .webp({
+          quality: size.quality,
+          effort: 6,
+        })
+        .toFile(outputFile);
+    });
   });
 
-  return Promise.all(streams);
+  return Promise.all(tasks);
 }
 resizeCustomTask.displayName = "resize:custom:run";
 
