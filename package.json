@@ -1,8 +1,8 @@
 {
   "devDependencies": {
-    "@epiled/icon-font-builder": "^1.3.0",
+    "@epiled/icon-font-builder": "^1.3.2",
     "browser-sync": "^3.0.4",
-    "chalk": "^4.1.2",
+    "chalk": "^5.6.2",
     "cssnano": "^7.1.3",
     "del": "^8.0.1",
     "esbuild": "^0.27.4",
@@ -10,8 +10,7 @@
     "gulp-cheerio": "^1.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-postcss": "^10.0.0",
-    "gulp-replace": "^1.1.4",
-    "gulp-sharp-responsive": "^0.4.1",
+    "gulp-replace": "^1.1.4", 
     "handlebars": "^4.7.8",
     "html-minifier-terser": "^7.2.0",
     "minimist": "^1.2.8",
@@ -19,7 +18,7 @@
     "prettier": "^3.8.1",
     "prettier-plugin-handlebars": "^0.0.1",
     "require-dir": "^1.2.0",
-    "sharp": "^0.34.3",
+    "sharp": "^0.34.5",
     "svgo": "^4.0.1",
     "tree-cli": "^0.6.7"
   },
