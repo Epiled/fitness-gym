@@ -21,6 +21,7 @@
     "require-dir": "^1.2.0",
     "sharp": "^0.34.5",
     "svgo": "^4.0.1",
+    "through2": "^4.0.2",
     "tree-cli": "^0.6.7"
   },
   "scripts": {
