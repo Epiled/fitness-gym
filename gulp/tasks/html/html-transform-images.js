@@ -1,7 +1,8 @@
 // ← task to transform images in HTML (responsive replacements).
 
 const gulp = require("gulp");
-const cheerio = require("gulp-cheerio");
+const cheerio = require("cheerio");
+const through = require("through2");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -68,62 +69,65 @@ function htmlTransformImagesTask() {
   return gulp
     .src(inputGlob, { allowEmpty: true, base: baseDir })
     .pipe(
-      cheerio(
-        ($) => {
-          $("[data-gulp-cheerio]").each((_, el) => {
-            if (!el || !el.attribs) return;
-            const $img = $(el);
-            const attrs = { ...el.attribs };
+      through.obj((file, _, cb) => {
+        if (file.isNull()) return cb(null, file);
 
-            const sizes = parseSizes(el.attribs["data-sizes"]);
+        const $ = cheerio.load(file.contents.toString(), {
+          decodeEntities: false,
+        });
 
-            const srcBase = attrs.src.replace();
-            if (!srcBase) return;
+        $("[data-gulp-cheerio]").each((_, el) => {
+          if (!el || !el.attribs) return;
+          const $img = $(el);
+          const attrs = { ...el.attribs };
 
-            const srcWebp = toWebp(srcBase);
+          const sizes = parseSizes(el.attribs["data-sizes"]);
 
-            let imgAttrs = Object.entries(attrs)
-              .filter(([k]) => k !== "data-gulp-cheerio" && k !== "data-sizes")
-              .map(([k, v]) => ` ${k}="${v}"`)
-              .join("");
+          const srcBase = attrs.src.replace();
+          if (!srcBase) return;
 
-            const imgs = sizes.reduceRight((acc, size, index) => {
-              const { width: w, height: h, breakPoint: br } = size;
-              const fixedSrc = toWebp(srcWebp.replace(/\.webp$/, `-${w}.webp`));
+          const srcWebp = toWebp(srcBase);
 
-              if (index === 0) {
-                // remove old src and inject the new
-                const cleanedAttrs = imgAttrs.replace(
-                  /\s*src\s*=\s*"[^"]*"/,
-                  "",
-                );
+          let imgAttrs = Object.entries(attrs)
+            .filter(([k]) => k !== "data-gulp-cheerio" && k !== "data-sizes")
+            .map(([k, v]) => ` ${k}="${v}"`)
+            .join("");
 
-                acc += `
+          const imgs = sizes.reduceRight((acc, size, index) => {
+            const { width: w, height: h, breakPoint: br } = size;
+            const fixedSrc = toWebp(srcWebp.replace(/\.webp$/, `-${w}.webp`));
+
+            if (index === 0) {
+              // remove old src and inject the new
+              const cleanedAttrs = imgAttrs.replace(/\s*src\s*=\s*"[^"]*"/, "");
+
+              acc += `
                 <img                  
                   ${cleanedAttrs}
                   src="${fixedSrc}"
                   width="${w}" 
                   height="${h}" 
                 />`;
-              } else {
-                acc += `
+            } else {
+              acc += `
                 <source
                   media="(min-width: ${br ?? w}px)"
                   width="${w}"
                   height="${h}"
                   srcset="${fixedSrc}"
                 />`;
-              }
+            }
 
-              return acc.trim();
-            }, "");
+            return acc.trim();
+          }, "");
 
-            const nodes = $.parseHTML(imgs);
-            $img.replaceWith(nodes);
-          });
-        },
-        { decodeEntities: true },
-      ),
+          const nodes = $.parseHTML(imgs);
+          $img.replaceWith(nodes);
+        });
+
+        file.contents = Buffer.from($.html());
+        cb(null, file);
+      }),
     )
     .pipe(gulp.dest(outputDir));
 }

@@ -54,7 +54,7 @@ async function iconsOptimizeTask() {
           path.relative(srcDir, filePath),
         );
         await fs.mkdir(path.dirname(outputPath), { recursive: true });
-        await fs.writeFile(outputDir, result.data);
+        await fs.writeFile(outputPath, result.data);
       }),
   );
 
