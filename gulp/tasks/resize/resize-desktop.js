@@ -1,7 +1,9 @@
 // ← tasks to transform images size to desktop size.
 
 const gulp = require("gulp");
-const sharpResponsive = require("gulp-sharp-responsive");
+const sharp = require("sharp");
+const path = require("path");
+const fs = require("fs");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -33,29 +35,45 @@ function logEnd(cb) {
 }
 logEnd.displayName = "resize:desktop:log:end";
 
-function resizeDesktopTask() {
+async function resizeDesktopTask() {
   if (!fileExists(srcDir)) {
     log.warn(`Source directory not found: ${srcDir}`);
     return Promise.resolve();
   }
 
-  return gulp
-    .src(srcGlob, { allowEmpty: true })
-    .pipe(
-      sharpResponsive({
-        formats: [
-          {
-            width: 1440,
-            format: "webp",
-            webpOptions: {
-              quality: 75,
-              effort: 6,
-            },
-          },
-        ],
-      }),
-    )
-    .pipe(gulp.dest(outputDir));
+  const files = fs.readdirSync(srcDir);
+
+  if (files.length <= 0) {
+    throw new Error(`Not found files inside directory: ${srcDir}`);
+  }
+
+  const images = files.filter((file) => /\.(jpg|jpeg|png)$/i.test(file));
+
+  if (images.length === 0) {
+    log.warn("No valid image files found.");
+    return Promise.resolve();
+  }
+
+  const size = { width: 1440, quality: 75, effort: 6 };
+
+  fs.mkdirSync(outputDir, { recursive: true });
+
+  const tasks = images.map((image) => {
+    const filePath = path.join(srcDir, image);
+    const fileName = path.parse(filePath).name;
+
+    const outputFile = path.join(outputDir, `${fileName}-${size.width}.webp`);
+
+    return sharp(filePath)
+      .resize(size.width)
+      .webp({
+        quality: size.quality,
+        effort: size.effort,
+      })
+      .toFile(outputFile);
+  });
+
+  return Promise.all(tasks);
 }
 resizeDesktopTask.displayName = "resize:desktop:run";
 

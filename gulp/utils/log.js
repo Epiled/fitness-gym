@@ -1,7 +1,5 @@
 // ← utils to log messages with colors.
 
-const chalk = require("chalk");
-
 /**
  * Log formatting with colors, timestamps, and types.
  * @param {'info' | 'success' | 'warn' | 'error'} type - The type of log message.
@@ -11,7 +9,8 @@ const chalk = require("chalk");
 let isSilence = process.argv.includes("--silence");
 let isVerbose = process.argv.includes("--verbose");
 
-function log(type = "info", message = "") {
+async function log(type = "info", message = "") {
+  const chalk = (await import("chalk")).default;
   if (isSilence && type === "info") return;
 
   const time = chalk.gray(`[${new Date().toLocaleTimeString("pt-BR")}]`);
