@@ -1,7 +1,8 @@
 // ← task to inject JS critical inline.
 
 const gulp = require("gulp");
-const cheerio = require("gulp-cheerio");
+const cheerio = require("cheerio");
+const through = require("through2");
 const path = require("path");
 const fs = require("fs");
 
@@ -48,55 +49,67 @@ function htmlInjectCriticalJsTask() {
   return gulp
     .src(genGlob, { allowEmpty: true })
     .pipe(
-      cheerio(
-        ($) => {
-          const inlinePath = path.resolve(genDir, "inline.js");
-          const inlineCode = fs.readFileSync(inlinePath, "utf8").trim();
+      through.obj((file, _, cb) => {
+        if (file.isNull()) return cb(null, file);
 
-          const scripTag = `<script type="module">${inlineCode}</script>`;
+        const $ = cheerio.load(file.contents.toString(), {
+          decodeEntities: false,
+        });
 
-          $("*")
-            .contents()
-            .each(function () {
-              if (this.type !== "comment") return;
+        const inlinePath = path.resolve(genDir, "inline.js");
 
-              const data = (this.data ?? "").trim();
-              if (data !== "build:js:inline") return;
+        if (!fs.existsSync(inlinePath)) {
+          log.warn(`File not found: ${inlinePath}`);
+          return cb(null, file);
+        }
 
-              // Search in siblings until find build:end
-              let node = this.next;
-              let endNode = null;
+        const inlineCode = fs.readFileSync(inlinePath, "utf8").trim();
 
-              while (node) {
-                if (
-                  node.type === "comment" &&
-                  (node.data ?? "").trim() === "build:end"
-                ) {
-                  endNode = node;
-                  break;
-                }
-                node = node.next;
+        const scripTag = `<script type="module">${inlineCode}</script>`;
+
+        $("*")
+          .contents()
+          .each(function () {
+            if (this.type !== "comment") return;
+
+            const data = (this.data ?? "").trim();
+            if (data !== "build:js:inline") return;
+
+            // Search in siblings until find build:end
+            let node = this.next;
+            let endNode = null;
+
+            while (node) {
+              if (
+                node.type === "comment" &&
+                (node.data ?? "").trim() === "build:end"
+              ) {
+                endNode = node;
+                break;
               }
+              node = node.next;
+            }
 
-              // If build:end was not found, do not modify (avoid breaking HTML)
-              if (!endNode) return;
+            // If build:end was not found, do not modify (avoid breaking HTML)
+            if (!endNode) return;
 
-              // Remove everything BETWEEN start and end
-              node = this.next;
-              while (node && node !== endNode) {
-                const next = node.next;
-                $(node).remove();
-                node = next;
-              }
+            // Remove everything BETWEEN start and end
+            node = this.next;
+            while (node && node !== endNode) {
+              const next = node.next;
+              $(node).remove();
+              node = next;
+            }
 
-              // Replace the start comment with the inline script
-              // and remove the end comment as well (optional, but usually you want it gone)
-              $(this).replaceWith(scripTag);
-              $(endNode).remove();
-            });
-        },
-        { decodeEntities: true },
-      ),
+            // Replace the start comment with the inline script
+            // and remove the end comment as well (optional, but usually you want it gone)
+            $(this).replaceWith(scripTag);
+            $(endNode).remove();
+          });
+
+        file.contents = Buffer.from($.html());
+        cb(null, file);
+      }),
     )
     .pipe(gulp.dest(outputDir));
 }
