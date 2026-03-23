@@ -36,5 +36,13 @@ finalizeJsTask.displayName = "finalize:js:run";
 const finalizeJs = gulp.series(logStart, finalizeJsTask, logEnd);
 
 finalizeJs.displayName = "finalize:js";
+finalizeJs.description = "";
+finalizeJs.flags = {
+  "--silence": "Hides informational logs, showing only warnings and errors.",
+  "--verbose": "Shows detailed logs for debugging purposes.",
+  "--debug": "Build directly from the source files instead of temp.",
+};
 
-module.exports = finalizeJs;
+gulp.task(finalizeJs.displayName, finalizeJs);
+
+module.exports = { finalizeJs };

@@ -1,7 +1,6 @@
 // ← task to minify HTML.
 
 const gulp = require("gulp");
-const htmlmin = require("gulp-htmlmin");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -10,13 +9,9 @@ const { fileExists } = require("../../utils/fileExists");
 const { getBuildContext } = require("../../utils/context");
 const ctx = getBuildContext();
 
-const srcGlob = ctx.paths.html.glob;
 const srcDir = ctx.paths.html.dir;
 
-const genGlob = ctx.paths.html.temp.artifacts.gen.glob;
 const genDir = ctx.paths.html.temp.artifacts.gen.dir;
-
-const inputGlob = ctx.isDebug ? srcGlob : genGlob;
 
 const baseDir = ctx.isDebug ? srcDir : genDir;
 
@@ -31,7 +26,6 @@ let timer;
 function logStart(cb) {
   timer = startTimer();
   log.info(`Start HTML minification from ${label}...`);
-  log.verbose(`→ Source glob: ${inputGlob}`);
   log.verbose(`→ Source dir: ${baseDir}`);
   log.verbose(`→ Output directory: ${outputDir}`);
   cb();
@@ -44,7 +38,13 @@ function logEnd(cb) {
 }
 logEnd.displayName = "html:minify:log:end";
 
-function minifyTask() {
+async function minifyTask() {
+  const fs = (await import("fs/promises")).default;
+  const path = (await import("path")).default;
+  const { minify } = await import("html-minifier-terser");
+
+  const files = await fs.readdir(baseDir, { recursive: true });
+
   if (!ctx.isDebug && !fileExists(genDir)) {
     log.warn(
       `Temporary directory "${genDir}" does not exist. Please run the "prepare:html" and "html:transform:images" task first to generate the necessary files before minifying HTML.`,
@@ -52,22 +52,31 @@ function minifyTask() {
     return Promise.reject();
   }
 
-  return gulp
-    .src(inputGlob, { allowEmpty: true, base: baseDir })
-    .pipe(
-      htmlmin({
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeEmptyAttributes: false,
-        minifyCSS: false,
-        minifyJS: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true,
+  await Promise.all(
+    files
+      .filter((file) => file.endsWith(".html"))
+      .map(async (file) => {
+        const filePath = path.join(baseDir, file);
+        const content = await fs.readFile(filePath, "utf-8");
+
+        const minified = await minify(content, {
+          collapseWhitespace: true,
+          removeComments: true,
+          removeRedundantAttributes: true,
+          removeEmptyAttributes: false,
+          minifyCSS: true,
+          minifyJS: true,
+          useShortDoctype: true,
+        });
+
+        const outputPath = path.join(
+          outputDir,
+          path.relative(baseDir, filePath),
+        );
+        await fs.mkdir(path.dirname(outputPath), { recursive: true });
+        await fs.writeFile(outputPath, minified);
       }),
-    )
-    .pipe(gulp.dest(outputDir));
+  );
 }
 minifyTask.displayName = "html:minify:run";
 

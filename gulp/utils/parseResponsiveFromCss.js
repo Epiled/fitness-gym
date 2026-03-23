@@ -1,4 +1,4 @@
-// ← utils this file is used to parse the CSS and extract the src and sizes attributes from elements that have the data-gulp-cheerio attribute. The results are returned as an array of objects, each containing the src and sizes values.
+// ← utils this file is used to parse the CSS and extract the src and sizes attributes. The results are returned as an array of objects, each containing the src and sizes values.
 
 const { log } = require("./log");
 

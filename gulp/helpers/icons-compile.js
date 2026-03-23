@@ -14,7 +14,7 @@ const iconsTemplatePath = ctx.isSASS
   ? path.resolve(__dirname, "../templates/icons.scss.hbs")
   : path.resolve(__dirname, "../templates/icons.css.hbs");
 
-function iconsCompileCSS(glyphs = []) {
+function iconsCompileCss(glyphs = []) {
   if (!fileExists(iconsTemplatePath)) {
     log.error(`Template CSS not found: ${iconsTemplatePath}`);
     return "";
@@ -36,12 +36,12 @@ function iconsCompileCSS(glyphs = []) {
     fontPath: ctx.config.fontPath,
     cssClass: ctx.config.cssClass,
     glyphs: glyphs.map((g) => ({
-      name: g.name.replace(/^icon-/, ""),
-      code: "\\" + g.unicode[0].charCodeAt(0).toString(16),
+      name: g.name,
+      unicodeHex: g.unicodeHex,
     })),
   });
 
   return output;
 }
 
-module.exports = { iconsCompileCSS };
+module.exports = { iconsCompileCss };

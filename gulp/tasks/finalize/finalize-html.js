@@ -43,5 +43,13 @@ finalizeHtmlTask.displayName = "finalize:html:run";
 const finalizeHtml = gulp.series(logStart, finalizeHtmlTask, logEnd);
 
 finalizeHtml.displayName = "finalize:html";
+finalizeHtml.description = "";
+finalizeHtml.flags = {
+  "--silence": "Hides informational logs, showing only warnings and errors.",
+  "--verbose": "Shows detailed logs for debugging purposes.",
+  "--debug": "Build directly from the source files instead of temp.",
+};
 
-module.exports = finalizeHtml;
+gulp.task(finalizeHtml.displayName, finalizeHtml);
+
+module.exports = { finalizeHtml };

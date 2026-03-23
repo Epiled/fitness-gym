@@ -4,13 +4,13 @@ const gulp = require("gulp");
 const path = require("path");
 const fs = require("fs");
 const handlebars = require("handlebars");
-const iconfont = require("gulp-iconfont");
 
+const { buildIcons } = require("@epiled/icon-font-builder");
 const { iconsOptimize } = require("./icons-optimize");
 
 const { iconsCompilePreview } = require("../../helpers/icons-preview");
 const { iconsWriteOutputs } = require("../../helpers/icons-write-outputs");
-const { iconsCompileCSS } = require("../../helpers/icons-compile");
+const { iconsCompileCss } = require("../../helpers/icons-compile");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -69,7 +69,7 @@ function logEnd(cb) {
 }
 logEnd.displayName = "icons:log:end";
 
-function iconsFontTask() {
+async function iconsFontTask() {
   log.info("Checking SVGs...");
 
   if (!fileExists(srcDir)) {
@@ -85,28 +85,30 @@ function iconsFontTask() {
     return Promise.resolve();
   }
 
-  return gulp
-    .src(srcGlob, { allowEmpty: true })
-    .pipe(
-      iconfont({
-        fontName: fontName,
-        formats: ["ttf", "woff", "woff2", "svg"],
-        normalize: true,
-        fontHeight: 1000,
-        prependUnicode: false,
-        timestamp: ctx.buildTimestamp,
-      }).on("glyphs", function (glyphs) {
-        const css = iconsCompileCSS(glyphs);
-        const preview = iconsCompilePreview(glyphs);
+  const glyphs = await buildIcons({
+    iconsName: fontName,
+    inputDir: srcDir,
+    stripPrefix: "icon-",
+    templates: {
+      styles: {
+        generation: false,
+      },
+      preview: {
+        generation: false,
+      },
+    },
+  });
 
-        iconsWriteOutputs(css, preview);
+  console.log(glyphs);
 
-        log.verbose(`→ Glyphs: ${glyphs.map((g) => g.name).join(", ")}`);
+  const css = iconsCompileCss(glyphs);
+  const preview = iconsCompilePreview(glyphs);
 
-        glyphCount = glyphs.length;
-      }),
-    )
-    .pipe(gulp.dest(outputDir));
+  iconsWriteOutputs(css, preview);
+
+  log.verbose(`→ Glyphs: ${glyphs.map((g) => g.name).join(", ")}`);
+
+  return glyphs;
 }
 iconsFontTask.displayName = "icons:font:run";
 

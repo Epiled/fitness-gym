@@ -6,12 +6,12 @@
   {{cssClass}}    → Prefix used for classes (ex: icon)
   {{../cssClass}} → Goes up one level in context (inside each)
   {{name}}        → Name of the SVG file
-  {{code}}        → Automatically generated Unicode code (\e900, \e901, etc.)
+  {{unicodeHex}}  → Automatically generated Unicode code (\e900, \e901, etc.)
 --}}
 
 {{> base-icons}}
 
-%{{cssClass}} {
+%{{cssClass}}- {
   font-family: '{{fontName}}' !important;
   speak: none;
   font-style: normal;
@@ -26,6 +26,6 @@
 {{#each glyphs}}
 .{{../cssClass}}-{{name}}::before {
   @extend %{{../cssClass}};
-  content: "{{code}}";
+  content: "\\{{unicodeHex}}";
 }
 {{/each}}

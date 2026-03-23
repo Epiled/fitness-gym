@@ -7,13 +7,14 @@
    - fontName → Font family name
    - glyphs   → Array of icon glyphs with 'name' property
    - name     → Icon CSS class name (applied without prefix)
+   - cssClass → Prefix icon CSS class name
  --}}
 
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <title>Preview — {{fontName}}</title>
-    <link rel="stylesheet" href="./css/{{fontName}}.css" />
+    <link rel="stylesheet" href="./css/{{cssFileName}}.css" />
     <style>
       body {
         font-family: sans-serif;
@@ -42,6 +43,11 @@
         padding: 12px;
         border: 1px solid #eee;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
       }
       .icon-box i {
         font-size: 32px;
@@ -65,9 +71,9 @@
     />
     <div class="grid" id="icons">
       {{#each glyphs}}
-        <div class="icon-box" data-name="{{name}}">
-          <i class="icon {{name}}"></i>
-          <div class="icon-name">{{name}}</div>
+        <div class="icon-box" data-name="{{@root.cssClass}}-{{name}}">
+          <i class="icon {{@root.cssClass}}-{{name}}"></i>
+          <div class="icon-name">{{@root.cssClass}}-{{name}}</div>
         </div>
       {{/each}}
     </div>

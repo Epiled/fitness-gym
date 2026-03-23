@@ -36,5 +36,13 @@ finalizeCssTask.displayName = "finalize:css:run";
 const finalizeCss = gulp.series(logStart, finalizeCssTask, logEnd);
 
 finalizeCss.displayName = "finalize:css";
+finalizeCss.description = "";
+finalizeCss.flags = {
+  "--silence": "Hides informational logs, showing only warnings and errors.",
+  "--verbose": "Shows detailed logs for debugging purposes.",
+  "--debug": "Build directly from the source files instead of temp.",
+};
 
-module.exports = finalizeCss;
+gulp.task(finalizeCss.displayName, finalizeCss);
+
+module.exports = { finalizeCss };

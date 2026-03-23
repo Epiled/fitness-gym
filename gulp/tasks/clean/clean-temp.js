@@ -1,7 +1,6 @@
 // ← task to clear temp directory.
 
 const gulp = require("gulp");
-const clean = require("gulp-clean");
 
 const { log } = require("../../utils/log");
 const { startTimer } = require("../../utils/timer");
@@ -27,13 +26,15 @@ function logEnd(cb) {
 }
 logEnd.displayName = "clean:temp:log:end";
 
-function cleanTempTask() {
+async function cleanTempTask() {
+  const { deleteAsync } = await import("del");
+
   if (!tempDir || tempDir === "." || tempDir === "/" || tempDir.length < 3) {
     log.error(`Refusing to clean suspicious path: "${tempDir}"`);
-    return Promise.resolve();
+    return;
   }
 
-  return gulp.src(tempDir, { read: false, allowEmpty: true }).pipe(clean());
+  await deleteAsync(tempDir, { force: true });
 }
 cleanTempTask.displayName = "clean:temp:run";
 
