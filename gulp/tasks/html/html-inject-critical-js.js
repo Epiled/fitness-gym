@@ -65,7 +65,7 @@ function htmlInjectCriticalJsTask() {
 
         const inlineCode = fs.readFileSync(inlinePath, "utf8").trim();
 
-        const scripTag = `<script type="module">${inlineCode}</script>`;
+        const scripTag = `<script nonce="fitness-gym-2026" type="module">${inlineCode}</script>`;
 
         $("*")
           .contents()
