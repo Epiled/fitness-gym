@@ -64,9 +64,9 @@ async function resizeCustomTask() {
       await fs.promises.mkdir(outputDir, { recursive: true });
 
       return sharp(filePath)
-        .resize(size.width)
+        .resize(size.width, size.height)
         .webp({
-          quality: size.quality,
+          quality: size.quality || 75,
           effort: 6,
         })
         .toFile(outputFile);

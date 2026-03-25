@@ -28,16 +28,24 @@ const outputDir = ctx.isDebug
 
 let timer;
 
-const parseSizes = (str = "") => {
-  const sizes = str.split(";").map((s) => s.trim());
+const parseSizes = (list) => {
+  const parseConfig = list
+    .map((data) => {
+      const { width: w, height: h, quality: q, extract: e } = data;
 
-  const parsedSizes = sizes.map((size) => {
-    const [w, h, q = 75] = size.split("x").map((s) => Number(s.trim()));
+      const newObj = {
+        width: w || null,
+        height: h || null,
+        quality: q || 75,
+      };
 
-    return { width: w, height: h, quality: q };
-  });
+      return newObj;
+    })
+    .filter(Boolean);
 
-  return parsedSizes;
+  if (!parseConfig.length) return;
+
+  return parseConfig;
 };
 
 function logStart(cb) {
@@ -81,7 +89,11 @@ function htmlTransformImagesTask() {
           const $img = $(el);
           const attrs = { ...el.attribs };
 
-          const sizes = parseSizes(el.attribs["data-sizes"]);
+          const data = el.attribs["data-sizes"];
+
+          const dataConfig = JSON.parse(data);
+
+          const parsedConfig = parseSizes(dataConfig);
 
           const srcBase = attrs.src.replace();
           if (!srcBase) return;
@@ -93,7 +105,7 @@ function htmlTransformImagesTask() {
             .map(([k, v]) => ` ${k}="${v}"`)
             .join("");
 
-          const imgs = sizes.reduceRight((acc, size, index) => {
+          const imgs = parsedConfig.reduceRight((acc, size, index) => {
             const { width: w, height: h, breakPoint: br } = size;
             const fixedSrc = toWebp(srcWebp.replace(/\.webp$/, `-${w}.webp`));
 
