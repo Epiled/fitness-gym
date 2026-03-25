@@ -3,7 +3,7 @@
 }
 
 .newsletter__item::before {
-  content: "\ea06";
+  content: "\e005";
   position: absolute;
   top: 50%;
   left: 100%;

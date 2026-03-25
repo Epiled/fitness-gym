@@ -10,21 +10,24 @@ function parseResponsiveFromHtml(content) {
 
   $("[data-gulp-cheerio]").each((_, el) => {
     const src = el.attribs?.src;
-    const rawConfig = el.attribs?.["data-sizes"];
+    const data = el.attribs?.["data-sizes"];
 
-    if (!src || !rawConfig) return;
+    if (!src || !data) return;
     if (seen.has(src)) return;
 
-    const parseConfig = rawConfig
-      .split(";")
-      .map((s) => s.trim())
-      .filter(Boolean)
-      .map((size) => {
-        const [w, h, q] = size.split("x").map(Number);
+    const dataConfig = JSON.parse(data);
 
-        if (!w) return null;
+    const parseConfig = dataConfig
+      .map((data) => {
+        const { width: w, height: h, quality: q, extract: e } = data;
 
-        return { width: w, height: h || null, quality: q || 75 };
+        const newObj = {
+          width: w || null,
+          height: h || null,
+          quality: q || 75,
+        };
+
+        return newObj;
       })
       .filter(Boolean);
 
