@@ -3,55 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Fitness Gym</title>
     <meta
       name="description"
       content="Fitness Gym a maior fabrica de monstro de São Paulo / SP, venha tranforma-se em monstro também."
     />
 
-    <title>Fitness Gym</title>
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#000000"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="manifest" href="manifest.webmanifest" />
 
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="theme-color" content="#ffffff" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ExerciseGym",
-        "name": "Fitness Gym",
-        "description": "Projeto de portfólio front-end de uma academia fictícia, desenvolvido com foco em performance, acessibilidade e SEO técnico.",
-        "image": "https://fitness-gym-pearl.vercel.app/assets/svg/logo.svg",
-        "@id": "https://fitness-gym-pearl.vercel.app/",
-        "url": "https://fitness-gym-pearl.vercel.app/",
-        "telephone": "+5511999999999",
-        "priceRange": "$$",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Avenida Paulista, 1000",
-          "addressLocality": "São Paulo",
-          "addressRegion": "SP",
-          "postalCode": "01310-100",
-          "addressCountry": "BR"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -23.5505,
-          "longitude": -46.6333
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday"
-          ],
-          "opens": "06:00",
-          "closes": "22:00"
-        }
-      }
-    </script>
+    <link rel="apple-touch-icon" href="./assets/pwa/icons/logo-192.png" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
     <link rel="canonical" href="https://fitness-gym-pearl.vercel.app/" />
 
@@ -206,6 +178,46 @@
     <link rel="stylesheet" href="./css/footer/footer-link.css" />
     <link rel="stylesheet" href="./css/footer/footer-copyright.css" />
     <!-- end:build -->
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ExerciseGym",
+        "name": "Fitness Gym",
+        "description": "Projeto de portfólio front-end de uma academia fictícia, desenvolvido com foco em performance, acessibilidade e SEO técnico.",
+        "image": "https://fitness-gym-pearl.vercel.app/assets/svg/logo.svg",
+        "@id": "https://fitness-gym-pearl.vercel.app/",
+        "url": "https://fitness-gym-pearl.vercel.app/",
+        "telephone": "+5511999999999",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Avenida Paulista, 1000",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "postalCode": "01310-100",
+          "addressCountry": "BR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -23.5505,
+          "longitude": -46.6333
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "06:00",
+          "closes": "22:00"
+        }
+      }
+    </script>
   </head>
 
   <body>
