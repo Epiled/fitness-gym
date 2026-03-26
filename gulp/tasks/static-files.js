@@ -62,7 +62,7 @@ function staticFilesTask() {
         // handled by images pipeline
         `!${srcDir}/assets/img/**`,
       ],
-      { base: srcDir, allowEmpty: true },
+      { base: srcDir, allowEmpty: true, encoding: false, buffer: true },
     )
     .pipe(gulp.dest(outputDir));
 }
