@@ -1,0 +1,76 @@
+{
+  "id": "fitness-gym-epiled",
+  "short_name": "FitGym",
+  "name": "Fitness-Gym: Seu Treino",
+  "description": "Acompanhe seus exercícios e evolução no Fitness-Gym.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#ffffff",
+  "background_color": "#000000",
+  "categories": ["fitness", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/pwa/icons/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/pwa/icons/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/pwa/icons/maskable-icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/pwa/screenshots/screenshot-mobile-1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Visualize seu treino de qualquer lugar"
+    },
+    {
+      "src": "assets/pwa/screenshots/screenshot-mobile-2.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Visualize seu treino de qualquer lugar"
+    },
+    {
+      "src": "assets/pwa/screenshots/screenshot-mobile-3.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Visualize seu treino de qualquer lugar"
+    },
+    {
+      "src": "assets/pwa/screenshots/screenshot-desktop-1.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Gerencie sua rotina na tela grande"
+    },
+    {
+      "src": "assets/pwa/screenshots/screenshot-desktop-2.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Gerencie sua rotina na tela grande"
+    },
+    {
+      "src": "assets/pwa/screenshots/screenshot-desktop-3.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Gerencie sua rotina na tela grande"
+    }
+  ]
+}
