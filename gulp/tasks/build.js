@@ -14,6 +14,7 @@ const { cssBuild } = require("./css/css-build");
 const { htmlBuild } = require("./html/html-build");
 const { resizeBuild } = require("./resize/resize-build");
 const { finalizeBuild } = require("./finalize/finalize-build");
+const { pwaBuild } = require("./pwa/pwa-build");
 
 const build = gulp.series(
   cleanBuild,
@@ -26,6 +27,7 @@ const build = gulp.series(
   htmlBuild,
   resizeBuild,
   finalizeBuild,
+  pwaBuild,
 );
 
 build.displayName = "build";
