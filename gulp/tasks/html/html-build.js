@@ -3,6 +3,7 @@
 const gulp = require("gulp");
 
 const { htmlTransformImages } = require("./html-transform-images");
+const { htmlReplaceManifest } = require("./html-replace-manifest");
 const { htmlReplaceCss } = require("./html-replace-css");
 const { htmlInjectCriticalCss } = require("./html-inject-critical-css");
 const { htmlInjectCriticalJs } = require("./html-inject-critical-js");
@@ -25,7 +26,7 @@ function logStart(cb) {
   log.info("Start HTML build...");
   log.verbose(`→ Output directory: ${outputDir}`);
   log.verbose(
-    "→ Pipeline: htmlTransformImages → htmlReplaceCSS → htmlInjectCriticalCss → htmlInjectCriticalJs → htmlMinify",
+    "→ Pipeline: htmlTransformImages → htmlReplaceManifest → htmlReplaceCSS → htmlInjectCriticalCss → htmlInjectCriticalJs → htmlMinify",
   );
   cb();
 }
@@ -40,6 +41,7 @@ logEnd.displayName = "html:build:log:end";
 const htmlBuild = gulp.series(
   logStart,
   htmlTransformImages,
+  htmlReplaceManifest,
   htmlReplaceCss,
   htmlInjectCriticalCss,
   htmlInjectCriticalJs,

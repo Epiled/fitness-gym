@@ -63,8 +63,21 @@ const paths = {
   sass: {
     glob: "src/sass/**/*.sass",
     dir: "src/sass",
-    temp: "temp/sass",
+    temp: {
+      glob: "temp/sass/**/*.sass",
+      staging: "temp/sass",
+      artifacts: {
+        gen: { dir: "temp/.gen/sass", glob: "temp/.gen/sass/**/*.sass" },
+      },
+    },
     dist: "dist/sass",
+  },
+  pwa: {
+    screenshots: {
+      glob: "src/assets/pwa/screenshots/*.{jpg,jpeg,png}",
+      dir: "src/assets/pwa/screenshots",
+      dist: "dist/assets/pwa/screenshots",
+    },
   },
 };
 

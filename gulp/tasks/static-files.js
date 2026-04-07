@@ -40,6 +40,12 @@ function staticFilesTask() {
         // handled by html tasks
         `!${srcDir}/**/*.html`,
 
+        // handled by manifest web tasks
+        `!${srcDir}/**/manifest.webmanifest`,
+
+        // handled by service worker tasks
+        `!${srcDir}/**/sw-template.js`,
+
         // handled by html tasks
         `!${srcDir}/html/**/*`,
         `!${srcDir}/html/**`,
@@ -61,6 +67,10 @@ function staticFilesTask() {
 
         // handled by images pipeline
         `!${srcDir}/assets/img/**`,
+
+        // handled by pwa screenshots pipeline
+        `!${srcDir}/assets/pwa/screenshots/**/*`,
+        `!${srcDir}/assets/pwa/screenshots/**`,
       ],
       { base: srcDir, allowEmpty: true, encoding: false, buffer: true },
     )

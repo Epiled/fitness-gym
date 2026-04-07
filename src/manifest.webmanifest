@@ -3,7 +3,7 @@
   "short_name": "FitGym",
   "name": "Fitness Gym",
   "description": "Acompanhe seus exercícios e evolução no Fitness-Gym.",
-  "start_url": "./index.html",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#ffffff",
@@ -11,19 +11,19 @@
   "categories": ["fitness", "lifestyle"],
   "icons": [
     {
-      "src": "assets/pwa/icons/logo-192.png",
+      "src": "/assets/pwa/icons/logo-192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any"
     },
     {
-      "src": "assets/pwa/icons/logo-512.png",
+      "src": "/assets/pwa/icons/logo-512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any"
     },
     {
-      "src": "assets/pwa/icons/maskable-icon.png",
+      "src": "/assets/pwa/icons/maskable-icon.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
@@ -31,42 +31,42 @@
   ],
   "screenshots": [
     {
-      "src": "assets/pwa/screenshots/screenshot-mobile-1.png",
+      "src": "/assets/pwa/screenshots/screenshot-mobile-1.png",
       "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Torne-se um monstro"
     },
     {
-      "src": "assets/pwa/screenshots/screenshot-mobile-2.png",
+      "src": "/assets/pwa/screenshots/screenshot-mobile-2.png",
       "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Planos pensados nos seus objetivos"
     },
     {
-      "src": "assets/pwa/screenshots/screenshot-mobile-3.png",
+      "src": "/assets/pwa/screenshots/screenshot-mobile-3.png",
       "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Modalidades para todos os gostos"
     },
     {
-      "src": "assets/pwa/screenshots/screenshot-desktop-1.png",
+      "src": "/assets/pwa/screenshots/screenshot-desktop-1.png",
       "sizes": "1920x1080",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Torne-se um monstro"
     },
     {
-      "src": "assets/pwa/screenshots/screenshot-desktop-2.png",
+      "src": "/assets/pwa/screenshots/screenshot-desktop-2.png",
       "sizes": "1920x1080",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Planos pensados nos seus objetivos"
     },
     {
-      "src": "assets/pwa/screenshots/screenshot-desktop-3.png",
+      "src": "/assets/pwa/screenshots/screenshot-desktop-3.png",
       "sizes": "1920x1080",
       "type": "image/png",
       "form_factor": "wide",
