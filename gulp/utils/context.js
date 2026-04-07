@@ -10,6 +10,7 @@ function getBuildContext(argv = process.argv.slice(2)) {
     default: {
       dev: false,
       debug: false,
+      pwaDevDist: false,
       sass: false,
       verbose: false,
       silence: false,
@@ -22,6 +23,7 @@ function getBuildContext(argv = process.argv.slice(2)) {
     paths,
     isDev: args.dev,
     isDebug: args.debug,
+    pwaDevDist: args.pwaDevDist,
     isSASS: args.sass,
     isVerbose: args.verbose && !args.silence,
     isSilence: args.silence,
