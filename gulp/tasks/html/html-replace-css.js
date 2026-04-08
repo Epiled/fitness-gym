@@ -63,8 +63,8 @@ function htmlReplaceCssTask() {
               `;
           } else {
             return [
-              `<link rel='stylesheet' href='./css/${fileName}.css' media='print' onload='this.media="all"'>`,
-              `<noscript><link rel="stylesheet" href="./css/${fileName}.css"></link></noscript>`,
+              `<link rel="preload" href="./css/${fileName}.css" as="style">`,
+              `<link rel="stylesheet" href="./css/${fileName}.css">`,
             ].join("\n");
           }
         },

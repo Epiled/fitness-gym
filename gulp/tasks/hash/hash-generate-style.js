@@ -1,0 +1,84 @@
+// ← task to generate style hash sha-256
+
+const gulp = require("gulp");
+const cheerio = require("cheerio");
+const crypto = require("crypto");
+const fs = require("fs");
+
+const { log } = require("../../utils/log");
+const { startTimer } = require("../../utils/timer");
+
+let timer;
+
+function logStart(cb) {
+  timer = startTimer();
+  log.info("Start generate style hash sha-256...");
+  cb();
+}
+logStart.displayName = "hash:generate:style:log:start";
+
+function logEnd(cb) {
+  log.success(`Finished generate style hash sha-256! ${timer.end()}`);
+  cb();
+}
+logEnd.displayName = "hash:generate:style:log:end";
+
+async function hashGenerateStyleTask() {
+  // 1. Path to the final HTML file after the build
+  const htmlPath = "dist/index.html";
+  const jsonPath = "temp/.gen/stylesHash.json";
+
+  if (!fs.existsSync(htmlPath)) {
+    log.error(
+      "Error: File dist/index.html not found. Please run the build first!",
+    );
+    return Promise.reject();
+  }
+
+  const html = fs.readFileSync(htmlPath, "utf8");
+  const $ = cheerio.load(html);
+  let hashes = [];
+
+  // 2. Locate inline styles
+  $("style").each((i, el) => {
+    const styleContent = $(el).html();
+
+    // Only generate hash if there is content inside the tag (inline) and it's not an external link
+    if (styleContent && !$(el).attr("src")) {
+      const hash = crypto
+        .createHash("sha256")
+        .update(styleContent)
+        .digest("base64");
+
+      hashes.push(`'sha256-${hash}'`);
+    }
+  });
+
+  // 3. Display the result formatted for vercel.json
+  if (hashes.length > 0) {
+    log.info("\n====================================================");
+    log.info("🔒 HASHES Generated for CSP (style-src):");
+    log.info("====================================================");
+    log.info(hashes.join(" "));
+    log.info("====================================================\n");
+  } else {
+    log.info("No inline styles found to generate hashes.");
+  }
+
+  // 4. Save hashes in a JSON file
+  fs.writeFileSync(jsonPath, JSON.stringify(hashes, null, 2));
+}
+hashGenerateStyleTask.displayName = "hash:generate:style:run";
+
+const hashGenerateStyle = gulp.series(logStart, hashGenerateStyleTask, logEnd);
+
+hashGenerateStyle.displayName = "hash:generate:style";
+hashGenerateStyle.description = "Generate SHA-256 hashes for inline styles";
+hashGenerateStyle.flags = {
+  "--silence": "Hides informational logs, showing only warnings and errors.",
+  "--verbose": "Shows detailed logs for debugging purposes.",
+};
+
+gulp.task(hashGenerateStyle.displayName, hashGenerateStyle);
+
+module.exports = { hashGenerateStyle };
