@@ -80,7 +80,6 @@
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/animations.css" />
     <link rel="stylesheet" href="./css/utils.css" />
-    <link rel="stylesheet" href="./css/gap.css" />
     <link rel="stylesheet" href="./css/fitness-gym-icons.css" />
     <link rel="stylesheet" href="./css/btn.css" />
 
@@ -316,7 +315,7 @@
       </section>
 
       <aside
-        class="infos gap"
+        class="infos"
         aria-label="Números da academia"
         data-has-counters
         data-js="scroll-reveal"
@@ -360,12 +359,12 @@
       </aside>
 
       <section class="search">
-        <h2 class="title gap">
+        <h2 class="title title--inner">
           Encontre uma
           <span class="title--dest title--accessibility">unidade</span> perto de
           <span class="title--dest title--accessibility">você</span>
         </h2>
-        <div class="search__field gap">
+        <div class="search__field">
           <form
             method="post"
             action="#"
@@ -401,7 +400,7 @@
 
       <section
         id="academias"
-        class="gym gap"
+        class="gym"
         data-js="scroll-reveal"
         data-state="hidden"
       >
@@ -446,7 +445,7 @@
                   </span>
                 </li>
               </ul>
-              <a href="#planos" class="btn btn--academia"> Assinar Plano! </a>
+              <a href="#planos" class="btn btn--gym"> Assinar Plano! </a>
             </div>
           </article>
 
@@ -487,7 +486,7 @@
                   </span>
                 </li>
               </ul>
-              <a href="#planos" class="btn btn--academia"> Assinar Plano! </a>
+              <a href="#planos" class="btn btn--gym"> Assinar Plano! </a>
             </div>
           </article>
 
@@ -528,7 +527,7 @@
                   </span>
                 </li>
               </ul>
-              <a href="#planos" class="btn btn--academia"> Assinar Plano! </a>
+              <a href="#planos" class="btn btn--gym"> Assinar Plano! </a>
             </div>
           </article>
         </div>
@@ -536,7 +535,7 @@
 
       <section
         id="planos"
-        class="plans gap"
+        class="plans"
         data-js="scroll-reveal"
         data-state="hidden"
       >
@@ -646,12 +645,12 @@
             </tr>
           </tbody>
         </table>
-        <button class="btn btn--planos" type="button">Escolher Plano!</button>
+        <button class="btn btn--plans" type="button">Escolher Plano!</button>
       </section>
 
       <aside
         id="matricule-se"
-        class="newsletter gap"
+        class="newsletter"
         aria-label="Cadastro e novidades"
       >
         <div
@@ -677,7 +676,7 @@
             </ul>
           </div>
 
-          <form method="post" class="newsletter__form" action="#">
+          <form method="post" class="newsletter__form" action="/">
             <fieldset class="newsletter__fields">
               <input
                 id="newsletter-name"
@@ -693,7 +692,9 @@
                 placeholder="E-mail:"
                 type="email"
               />
-              <button class="btn btn--formulario">Fazer Cadastro!</button>
+              <button type="button" class="btn btn--form">
+                Fazer Cadastro!
+              </button>
             </fieldset>
           </form>
         </div>
@@ -701,7 +702,7 @@
 
       <section
         id="modalidades"
-        class="modality gap"
+        class="modality"
         data-js="scroll-reveal"
         data-state="hidden"
       >
@@ -886,7 +887,7 @@
       </button>
     </main>
 
-    <footer class="footer gap">
+    <footer class="footer">
       <div class="footer__wrapper" data-js="scroll-reveal" data-state="hidden">
         <img
           class="footer__image"
@@ -935,11 +936,19 @@
           <div class="footer__section">
             <h3 class="footer__title">Sociais</h3>
             <div class="footer__items">
-              <a href="" class="footer__link">
+              <a
+                href="#footer__instagram"
+                id="footer__instagram"
+                class="footer__link"
+              >
                 <i class="footer__icon icon icon-instagram"></i>
                 Instagram
               </a>
-              <a href="" class="footer__link">
+              <a
+                href="#footer__tiktok"
+                id="footer__tiktok"
+                class="footer__link"
+              >
                 <i class="footer__icon icon icon-tik-tok"></i>
                 Tiktok
               </a>
@@ -949,11 +958,15 @@
           <address class="footer__section footer__section--contact">
             <h3 class="footer__title">Contato</h3>
             <div class="footer__items">
-              <a href="" class="footer__link">
+              <a
+                href="#footer__whatsapp"
+                id="footer__whatsapp"
+                class="footer__link"
+              >
                 <i class="footer__icon icon icon-whatsapp"></i>
                 (XX) X XXXX-XXXX
               </a>
-              <a href="" class="footer__link">
+              <a href="#footer__email" id="footer__email" class="footer__link">
                 <i class="footer__icon icon icon-message"></i>
                 academia@academia.com
               </a>

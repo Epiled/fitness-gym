@@ -26,47 +26,47 @@
   max-width: 28.4rem;
 }
 
-.btn--planos {
+.btn--plans {
   align-self: center;
   margin-top: 3.5rem;
   height: 5rem;
   font-size: 2rem;
 }
 
-.btn--formulario {
+.btn--form {
   background: var(--color-neutral-black);
   color: var(--color-brand-primary);
   margin-top: 0;
 }
 
-.btn--formulario:hover {
+.btn--form:hover {
   background: var(--color-surface-base);
   color: var(--color-neutral-black);
 }
 
 @media screen and (min-width: 834px) {
-  .btn--planos {
+  .btn--plans {
     margin-top: 3rem;
   }
 
-  .btn--formulario {
+  .btn--form {
     font-size: 2.4rem;
     height: 5rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .btn--academia {
+  .btn--gym {
     font-size: 2rem;
     height: 5rem;
     max-width: none;
   }
 
-  .btn--planos {
+  .btn--plans {
     margin-top: 5rem;
   }
 
-  .btn--formulario {
+  .btn--form {
     font-size: 2.4rem;
   }
 }

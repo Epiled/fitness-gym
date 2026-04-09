@@ -1,18 +1,21 @@
 .search {
   display: flex;
+  gap: 5rem;
   justify-content: center;
   flex-direction: column;
-  margin-top: 5rem;
+  padding-top: 5rem;
 }
 
 @media screen and (min-width: 834px) {
   .search {
-    margin-top: 6rem;
+    gap: 6rem;
+    padding-top: 6rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .search {
-    margin-top: 10rem;
+    gap: 10rem;
+    padding-top: 10rem;
   }
 }
