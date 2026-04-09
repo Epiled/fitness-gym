@@ -68,8 +68,6 @@ function htmlReplaceManifestTask() {
   });
   manifestParse = JSON.stringify(manifestParse);
 
-  console.log("Manifest content after processing:", manifestParse);
-
   // 4. Convertemos o texto do JSON para o formato Base64
   const base64Manifest = Buffer.from(manifestParse, "utf-8").toString("base64");
 
