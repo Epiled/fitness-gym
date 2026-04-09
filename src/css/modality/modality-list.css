@@ -1,6 +1,5 @@
 .modality__list {
-  list-style: disc;
-  list-style-position: inside;
+  list-style: none;
   font-size: 1.6rem;
   font-style: italic;
   display: flex;

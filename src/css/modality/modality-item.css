@@ -1,0 +1,10 @@
+.modality__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modality__item::before {
+  content: "•";
+  font-size: 2.5rem;
+}
