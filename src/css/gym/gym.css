@@ -1,11 +1,11 @@
 .gym {
-  margin-top: 3.5rem;
   background-image: url(../../assets/svg/icons-art/section-accent--dark.svg);
   background-repeat: no-repeat;
   background-position: calc(100% + 7rem) center;
   background-size: 16rem;
   opacity: 0;
   text-align: center;
+  padding: 5rem 1.5rem 0 1.5rem;
 }
 
 .gym:where([data-state="visible"]) {
@@ -14,14 +14,14 @@
 
 @media screen and (min-width: 834px) {
   .gym {
-    margin-top: 6rem;
     background-size: 21.5rem;
+    padding: 6rem 2rem 0 2rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .gym {
-    margin-top: 10rem;
     background-size: 28rem;
+    padding: 10rem 6rem 0 6rem;
   }
 }

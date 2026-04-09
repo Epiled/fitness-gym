@@ -6,12 +6,6 @@
   font-family: "Overpass", sans-serif;
 }
 
-.title--dest {
-  color: var(--color-brand-primary);
-  text-decoration: underline;
-  text-underline-offset: 0.5rem;
-}
-
 .title--accessibility {
   color: var(--color-brand-primary-dark);
 }
@@ -41,6 +35,16 @@
   transform: translateX(-50%);
 }
 
+.title--dest {
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
+
+.title--inner {
+  padding: 0 1.5rem;
+}
+
 @media screen and (min-width: 834px) {
   .title {
     font-size: 3.2rem;
@@ -53,6 +57,10 @@
   .title--dest {
     text-underline-offset: 0.75rem;
   }
+
+  .title--inner {
+    padding: 0 2rem;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -60,13 +68,15 @@
     font-size: 4rem;
   }
 
+  .title--alt {
+    font-size: 5.2rem;
+  }
+
   .title--dest {
     text-underline-offset: 1.25rem;
   }
-}
 
-@media screen and (min-width: 1440px) {
-  .title--alt {
-    font-size: 5.2rem;
+  .title--inner {
+    padding: 0 6rem;
   }
 }

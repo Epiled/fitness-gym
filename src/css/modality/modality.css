@@ -4,11 +4,10 @@
     url(../../assets/svg/icons-art/section-accent.svg);
   background-repeat: no-repeat;
   background-position:
-    calc(0% - 5rem) 20%,
+    -5rem 20%,
     calc(100% + 1rem) bottom;
   background-size: 19rem, 16rem;
-  margin-top: 6rem;
-  padding-bottom: 8.5rem;
+  padding: 5rem 1.5rem;
   opacity: 0;
   text-align: center;
 }
@@ -21,17 +20,15 @@
   .modality {
     background-size: 20rem, 22rem;
     background-position:
-      calc(0% - 7.5rem) 13%,
+      -7.5rem 13%,
       calc(100% + 4rem) calc(100% - 3rem);
-    margin-top: 6rem;
-    padding-bottom: 6rem;
+    padding: 6rem 2rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .modality {
     background-size: 21.5rem, 26rem;
-    margin-top: 10rem;
-    padding-bottom: 10rem;
+    padding: 10rem 6rem;
   }
 }
