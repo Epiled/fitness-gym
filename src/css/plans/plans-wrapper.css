@@ -1,0 +1,20 @@
+.plans__wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 1.5rem;
+}
+
+@media screen and (min-width: 834px) {
+  .plans__wrapper {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .plans__wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 0 6rem;
+  }
+}

@@ -6,10 +6,6 @@
   font-family: "Overpass", sans-serif;
 }
 
-.title--accessibility {
-  color: var(--color-brand-primary-dark);
-}
-
 .title--alt {
   color: var(--color-brand-primary);
   font-size: 4rem;
@@ -36,9 +32,10 @@
 }
 
 .title--dest {
-  color: var(--color-brand-primary);
+  color: var(--color-text-primary);
   text-decoration: underline;
   text-underline-offset: 0.5rem;
+  text-decoration-color: var(--color-brand-primary);
 }
 
 .title--inner {
