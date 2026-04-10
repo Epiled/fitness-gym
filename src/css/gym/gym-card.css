@@ -1,4 +1,6 @@
 .gym__card {
+  display: flex;
+  flex-direction: column;
   background: var(--color-surface-muted);
   border-radius: 0.5rem;
   box-shadow: 0 0.3rem 0.3rem 0.2rem var(--color-surface-muted);

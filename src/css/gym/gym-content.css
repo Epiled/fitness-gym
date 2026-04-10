@@ -1,3 +1,7 @@
 .gym__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
   padding: 1.5rem 2rem 2rem 2rem;
 }
