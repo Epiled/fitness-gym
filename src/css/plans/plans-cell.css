@@ -4,7 +4,7 @@
   vertical-align: middle;
 }
 
-.plans__cell:first-of-type {
+.plans__cell:first-child {
   text-align: left;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .plans__cell--accent {
-  color: var(--color-brand-primary);
+  color: var(--color-neutral-black);
   font-weight: 700;
 }
 

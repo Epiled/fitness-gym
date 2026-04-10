@@ -1,6 +1,17 @@
 .plans__table {
+  table-layout: fixed;
   margin-top: 6rem;
   position: relative;
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 41rem;
+}
+
+.plans__table:where[scope="row"] {
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: left;
 }
 
 @media screen and (min-width: 1440px) {
