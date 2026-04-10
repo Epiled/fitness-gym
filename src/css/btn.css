@@ -31,6 +31,7 @@
   margin-top: 3.5rem;
   height: 5rem;
   font-size: 2rem;
+  width: calc(100% - 3rem);
 }
 
 .btn--form {
@@ -42,6 +43,10 @@
 .btn--form:hover {
   background: var(--color-surface-base);
   color: var(--color-neutral-black);
+}
+
+.btn--gym {
+  margin: 0;
 }
 
 @media screen and (min-width: 834px) {
