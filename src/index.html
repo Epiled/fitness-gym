@@ -38,15 +38,6 @@
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <!-- <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,600;0,700;0,900;1,700&display=swap"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    /> -->
 
     <noscript>
       <link
@@ -62,17 +53,6 @@
       type="font/woff2"
       crossorigin
     />
-
-    <!-- <link
-      rel="preload"
-      as="image"
-      href="./assets/img/desktop/banner-fitness-gym.webp"
-      imagesrcset="
-    ./assets/img/mobile/banner-fitness-gym.webp 390w,
-    ./assets/img/tablet/banner-fitness-gym.webp 840w,
-    ./assets/img/desktop/banner-fitness-gym.webp 1440w"
-      imagesizes="100vw"
-    /> -->
 
     <!-- build:css:critical -->
     <link rel="stylesheet" href="./css/reset.css" />
@@ -135,6 +115,7 @@
     <link rel="stylesheet" href="./css/gym/gym-price.css" />
 
     <link rel="stylesheet" href="./css/plans/plans.css" />
+    <link rel="stylesheet" href="./css/plans/plans-wrapper.css" />
     <link rel="stylesheet" href="./css/plans/plans-table.css" />
     <link rel="stylesheet" href="./css/plans/plans-header.css" />
     <link rel="stylesheet" href="./css/plans/plans-title.css" />
@@ -249,7 +230,10 @@
           aria-expanded="false"
           aria-controls="header-navigation"
         >
-          <i class="header__icon header__icon--menu icon icon-dumbbell"></i>
+          <i
+            aria-hidden="true"
+            class="header__icon header__icon--menu icon-dumbbell"
+          ></i>
         </button>
 
         <nav
@@ -259,20 +243,20 @@
           data-js="menu-nav"
           data-state="hidden"
         >
-          <a class="header__link" href="#planos">
-            <i class="header__icon icon icon-check-list"></i>
-            Planos
-          </a>
           <a class="header__link" href="#academias">
-            <i class="header__icon icon icon-gym"></i>
+            <i aria-hidden="true" class="header__icon icon-gym"></i>
             Academias
           </a>
+          <a class="header__link" href="#planos">
+            <i aria-hidden="true" class="header__icon icon-check-list"></i>
+            Planos
+          </a>
           <a class="header__link" href="#matricule-se">
-            <i class="header__icon icon icon-add-user"></i>
+            <i aria-hidden="true" class="header__icon icon-add-user"></i>
             Matricule-se
           </a>
           <a class="header__link" href="#modalidades">
-            <i class="header__icon icon icon-belt"></i>
+            <i aria-hidden="true" class="header__icon icon-belt"></i>
             Modalidades
           </a>
         </nav>
@@ -302,6 +286,7 @@
             width="390"
             height="642"
             alt="#"
+            aria-hidden="true"
             fetchpriority="high"
             loading="eager"
             decoding="async"
@@ -323,8 +308,8 @@
         data-state="hidden"
       >
         <div class="infos__box">
-          <i class="infos__icon icon icon-house"></i>
-          <h2 class="infos__title">Academias</h2>
+          <i aria-hidden="true" class="infos__icon icon-house"></i>
+          <p class="infos__title">Academias</p>
           <span
             class="infos__count"
             data-js="counter"
@@ -335,8 +320,11 @@
         </div>
 
         <div class="infos__box infos__box--alt">
-          <i class="infos__icon infos__icon--alt icon icon-people"></i>
-          <h2 class="infos__title infos__title--alt">Instrutores</h2>
+          <i
+            aria-hidden="true"
+            class="infos__icon infos__icon--alt icon-people"
+          ></i>
+          <p class="infos__title infos__title--alt">Instrutores</p>
           <span
             class="infos__count"
             data-js="counter"
@@ -347,8 +335,8 @@
         </div>
 
         <div class="infos__box">
-          <i class="infos__icon icon icon-medal"></i>
-          <h2 class="infos__title">Prêmios</h2>
+          <i aria-hidden="true" class="infos__icon icon-medal"></i>
+          <p class="infos__title">Prêmios</p>
           <span
             class="infos__count"
             data-js="counter"
@@ -362,8 +350,8 @@
       <section class="search">
         <h2 class="title title--inner">
           Encontre uma
-          <span class="title--dest title--accessibility">unidade</span> perto de
-          <span class="title--dest title--accessibility">você</span>
+          <span class="title--dest">unidade</span> perto de
+          <span class="title--dest">você</span>
         </h2>
         <div class="search__field">
           <form
@@ -392,7 +380,7 @@
                 type="button"
                 aria-label="Buscar uma unidade"
               >
-                <i class="search__icon icon icon-search"></i>
+                <i aria-hidden="true" class="search__icon icon-search"></i>
               </button>
             </fieldset>
           </form>
@@ -416,6 +404,7 @@
                 width="390"
                 height="260"
                 alt=""
+                aria-hidden="true"
                 class="gym__image"
                 data-gulp-cheerio
                 data-sizes='[
@@ -425,39 +414,50 @@
             </picture>
 
             <div class="gym__content">
-              <h3 class="gym__title">Praça do Forró</h3>
-              <p class="gym__text">
-                Praça Padre Aleixo Monteiro Mafra, 19 - São Miguel Paulista, São
-                Paulo - SP
-              </p>
-              <ul class="gym__plans">
-                <li class="gym__item">
-                  <h4 class="gym__plan">Fit</h4>
-                  <span class="gym__price">
-                    <span class="gym__price gym__price--alt">R$</span>
-                    89,90
-                  </span>
-                </li>
-                <li class="gym__item">
-                  <h4 class="gym__plan">Body</h4>
-                  <span class="gym__price">
-                    <span class="gym__price gym__price--alt">R$</span>
-                    129,90
-                  </span>
-                </li>
-              </ul>
-              <a href="#planos" class="btn btn--gym"> Assinar Plano! </a>
+              <div>
+                <h3 class="gym__title">Praça do Forró</h3>
+                <p class="gym__text">
+                  Praça Padre Aleixo Monteiro Mafra, 19 - São Miguel Paulista,
+                  São Paulo - SP
+                </p>
+              </div>
+              <div>
+                <ul class="gym__plans">
+                  <li class="gym__item">
+                    <span class="gym__plan">Fit</span>
+                    <span class="gym__price">
+                      <span class="gym__price gym__price--alt">R$</span>
+                      89,90
+                    </span>
+                  </li>
+                  <li class="gym__item">
+                    <span class="gym__plan">Body</span>
+                    <span class="gym__price">
+                      <span class="gym__price gym__price--alt">R$</span>
+                      129,90
+                    </span>
+                  </li>
+                </ul>
+                <a
+                  aria-label="Assinar plano na unidade Praça do Forró"
+                  href="#planos"
+                  class="btn btn--gym"
+                >
+                  Assinar Plano!
+                </a>
+              </div>
             </div>
           </article>
 
           <article class="gym__card">
             <picture>
               <img
-                src="./assets/img/academia-1.jpg"
+                src="./assets/img/academia-2.jpg"
                 loading="lazy"
                 width="390"
                 height="260"
                 alt=""
+                aria-hidden="true"
                 class="gym__image"
                 data-gulp-cheerio
                 data-sizes='[
@@ -466,38 +466,49 @@
               />
             </picture>
             <div class="gym__content">
-              <h3 class="gym__title">Penha</h3>
-              <p class="gym__text">
-                Rua Dr. João Ribeiro, 304 - Penha de França, São Paulo - SP
-              </p>
-              <ul class="gym__plans">
-                <li class="gym__item">
-                  <h4 class="gym__plan">Fit</h4>
-                  <span class="gym__price">
-                    <span class="gym__price gym__price--alt">R$</span>
-                    89,90
-                  </span>
-                </li>
-                <li class="gym__item">
-                  <h4 class="gym__plan">Body</h4>
-                  <span class="gym__price">
-                    <span class="gym__price gym__price--alt">R$</span>
-                    129,90
-                  </span>
-                </li>
-              </ul>
-              <a href="#planos" class="btn btn--gym"> Assinar Plano! </a>
+              <div>
+                <h3 class="gym__title">Penha</h3>
+                <p class="gym__text">
+                  Rua Dr. João Ribeiro, 304 - Penha de França, São Paulo - SP
+                </p>
+              </div>
+              <div>
+                <ul class="gym__plans">
+                  <li class="gym__item">
+                    <span class="gym__plan">Fit</span>
+                    <span class="gym__price">
+                      <span class="gym__price gym__price--alt">R$</span>
+                      89,90
+                    </span>
+                  </li>
+                  <li class="gym__item">
+                    <span class="gym__plan">Body</span>
+                    <span class="gym__price">
+                      <span class="gym__price gym__price--alt">R$</span>
+                      129,90
+                    </span>
+                  </li>
+                </ul>
+                <a
+                  aria-label="Assinar plano na unidade Penha"
+                  href="#planos"
+                  class="btn btn--gym"
+                >
+                  Assinar Plano!
+                </a>
+              </div>
             </div>
           </article>
 
           <article class="gym__card">
             <picture>
               <img
-                src="./assets/img/academia-1.jpg"
+                src="./assets/img/academia-3.jpg"
                 loading="lazy"
                 width="390"
                 height="260"
                 alt=""
+                aria-hidden="true"
                 class="gym__image"
                 data-gulp-cheerio
                 data-sizes='[
@@ -506,20 +517,30 @@
               />
             </picture>
             <div class="gym__content">
-              <h3 class="gym__title">Tatuapé</h3>
-              <p class="gym__text">
-                Rua Tuiuti, 2500 - Tatuapé, São Paulo - SP
-              </p>
-              <ul class="gym__plans">
-                <li class="gym__item">
-                  <h4 class="gym__plan">Body</h4>
-                  <span class="gym__price">
-                    <span class="gym__price gym__price--alt">R$</span>
-                    129,90
-                  </span>
-                </li>
-              </ul>
-              <a href="#planos" class="btn btn--gym"> Assinar Plano! </a>
+              <div>
+                <h3 class="gym__title">Tatuapé</h3>
+                <p class="gym__text">
+                  Rua Tuiuti, 2500 - Tatuapé, São Paulo - SP
+                </p>
+              </div>
+              <div>
+                <ul class="gym__plans">
+                  <li class="gym__item">
+                    <span class="gym__plan">Body</span>
+                    <span class="gym__price">
+                      <span class="gym__price gym__price--alt">R$</span>
+                      129,90
+                    </span>
+                  </li>
+                </ul>
+                <a
+                  aria-label="Assinar plano na unidade Tatuapé"
+                  href="#planos"
+                  class="btn btn--gym"
+                >
+                  Assinar Plano!
+                </a>
+              </div>
             </div>
           </article>
         </div>
@@ -531,116 +552,163 @@
         data-js="scroll-reveal"
         data-state="hidden"
       >
-        <h2 class="title">
+        <h2 class="title title--inner">
           Conheça nossos <span class="title--dest">planos</span> e suas
           <span class="title--dest">vantagens</span>
         </h2>
 
-        <table class="plans__table" data-js="plans-table">
-          <thead>
-            <tr>
-              <th class="sr-only">Vantagens do Plano</th>
-              <th class="plans__header" data-js="plans-tab">
-                <h3 class="plans__title">Fit</h3>
-                <p class="plans__text">
-                  Começe hoje mesmo a ter uma visa saudavel
-                </p>
-              </th>
-              <th class="plans__header" data-js="plans-tab">
-                <h3 class="plans__title">Body</h3>
-                <p class="plans__text">O plano mais completo que existe</p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="plans__row">
-              <td class="plans__cell">
-                <span class="plans__alignment">
-                  <i class="plans__icon icon icon-biceps"></i>
-                  Musculação
-                </span>
-              </td>
-              <td class="plans__cell">
-                <i class="plans__icon planos__icon--check icon icon-check"></i>
-              </td>
-              <td class="plans__cell">
-                <i class="plans__icon planos__icon--check icon icon-check"></i>
-              </td>
-            </tr>
-            <tr class="plans__row">
-              <td class="plans__cell">
-                <span class="plans__alignment">
-                  <i class="plans__icon icon icon-dance"></i>
-                  Fitdance
-                </span>
-              </td>
-              <td class="plans__cell">
-                <i class="plans__icon planos__icon--check icon icon-check"></i>
-              </td>
-              <td class="plans__cell">
-                <i class="plans__icon planos__icon--check icon icon-check"></i>
-              </td>
-            </tr>
-            <tr class="plans__row">
-              <td class="plans__cell">
-                <span class="plans__alignment">
-                  <i class="plans__icon icon icon-pilates"></i>
-                  Pilates
-                </span>
-              </td>
-              <td class="plans__cell">
-                <i class="plans__icon planos__icon--check icon icon-check"></i>
-              </td>
-              <td class="plans__cell">
-                <i class="plans__icon planos__icon--check icon icon-check"></i>
-              </td>
-            </tr>
-            <tr class="plans__row">
-              <td class="plans__cell">
-                <span class="plans__alignment">
-                  <i class="plans__icon icon icon-lungs"></i>
-                  Cardio
-                </span>
-              </td>
-              <td class="plans__cell">
-                <i class="plans__icon planos__icon--check icon icon-close"></i>
-              </td>
-              <td class="plans__cell">
-                <i class="plans__icon planos__icon--check icon icon-check"></i>
-              </td>
-            </tr>
-            <tr class="plans__row">
-              <td class="plans__cell">
-                <span class="plans__alignment">
-                  <i class="plans__icon icon icon-infinity"></i>
-                  Acesso ilimitado a todas as unidades
-                </span>
-              </td>
-              <td class="plans__cell">
-                <i class="plans__icon planos__icon--check icon icon-close"></i>
-              </td>
-              <td class="plans__cell">
-                <i class="plans__icon planos__icon--check icon icon-check"></i>
-              </td>
-            </tr>
-            <tr class="plans__row">
-              <td class="plans__cell planos__cell--description">
-                Valores mensais válidos para adesão ao plano anual com pagamento
-                via recorrência no cartão de crédito.
-              </td>
-              <td class="plans__cell planos__cell--price">
-                <span class="plans__cell--accent">R$</span> 89,90
-              </td>
-              <td class="plans__cell planos__cell--price">
-                <span class="plans__cell--accent">R$</span> 129,90
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div
+          class="plans__wrapper"
+          tabindex="0"
+          role="region"
+          aria-labelledby="planos-título"
+        >
+          <table class="plans__table" data-js="plans-table">
+            <thead>
+              <tr>
+                <th scope="col" class="sr-only">Vantagens do Plano</th>
+                <th scope="col" class="plans__header" data-js="plans-tab">
+                  <strong class="plans__title">Fit</strong>
+                  <p class="plans__text">
+                    Comece hoje mesmo a ter uma vida saudável
+                  </p>
+                </th>
+                <th scope="col" class="plans__header" data-js="plans-tab">
+                  <strong class="plans__title">Body</strong>
+                  <p class="plans__text">O plano mais completo que existe</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="plans__row">
+                <th scope="row" class="plans__cell">
+                  <span class="plans__alignment">
+                    <i aria-hidden="true" class="plans__icon icon-biceps"></i>
+                    Musculação
+                  </span>
+                </th>
+                <td class="plans__cell">
+                  <i
+                    aria-label="Incluso"
+                    role="img"
+                    class="plans__icon planos__icon--check icon-check"
+                  ></i>
+                </td>
+                <td class="plans__cell">
+                  <i
+                    aria-label="Incluso"
+                    role="img"
+                    class="plans__icon planos__icon--check icon-check"
+                  ></i>
+                </td>
+              </tr>
+              <tr class="plans__row">
+                <th scope="row" class="plans__cell">
+                  <span class="plans__alignment">
+                    <i aria-hidden="true" class="plans__icon icon-dance"></i>
+                    Fitdance
+                  </span>
+                </th>
+                <td class="plans__cell">
+                  <i
+                    aria-label="Incluso"
+                    role="img"
+                    class="plans__icon planos__icon--check icon-check"
+                  ></i>
+                </td>
+                <td class="plans__cell">
+                  <i
+                    aria-label="Incluso"
+                    role="img"
+                    class="plans__icon planos__icon--check icon-check"
+                  ></i>
+                </td>
+              </tr>
+              <tr class="plans__row">
+                <th scope="row" class="plans__cell">
+                  <span class="plans__alignment">
+                    <i aria-hidden="true" class="plans__icon icon-pilates"></i>
+                    Pilates
+                  </span>
+                </th>
+                <td class="plans__cell">
+                  <i
+                    aria-label="Incluso"
+                    role="img"
+                    class="plans__icon planos__icon--check icon-check"
+                  ></i>
+                </td>
+                <td class="plans__cell">
+                  <i
+                    aria-label="Incluso"
+                    role="img"
+                    class="plans__icon planos__icon--check icon-check"
+                  ></i>
+                </td>
+              </tr>
+              <tr class="plans__row">
+                <th scope="row" class="plans__cell">
+                  <span class="plans__alignment">
+                    <i aria-hidden="true" class="plans__icon icon-lungs"></i>
+                    Cardio
+                  </span>
+                </th>
+                <td class="plans__cell">
+                  <i
+                    aria-label="Não Incluso"
+                    role="img"
+                    class="plans__icon planos__icon--check icon-close"
+                  ></i>
+                </td>
+                <td class="plans__cell">
+                  <i
+                    aria-label="Incluso"
+                    role="img"
+                    class="plans__icon planos__icon--check icon-check"
+                  ></i>
+                </td>
+              </tr>
+              <tr class="plans__row">
+                <th scope="row" class="plans__cell">
+                  <span class="plans__alignment">
+                    <i aria-hidden="true" class="plans__icon icon-infinity"></i>
+                    Acesso ilimitado a todas as unidades
+                  </span>
+                </th>
+                <td class="plans__cell">
+                  <i
+                    aria-label="Não Incluso"
+                    role="img"
+                    class="plans__icon planos__icon--check icon-close"
+                  ></i>
+                </td>
+                <td class="plans__cell">
+                  <i
+                    aria-label="Incluso"
+                    role="img"
+                    class="plans__icon planos__icon--check icon-check"
+                  ></i>
+                </td>
+              </tr>
+              <tr class="plans__row">
+                <th scope="row" class="plans__cell planos__cell--description">
+                  Valores mensais válidos para adesão ao plano anual com
+                  pagamento via recorrência no cartão de crédito.
+                </th>
+                <td class="plans__cell planos__cell--price">
+                  <span class="plans__cell--accent">R$</span> 89,90
+                </td>
+                <td class="plans__cell planos__cell--price">
+                  <span class="plans__cell--accent">R$</span> 129,90
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <button class="btn btn--plans" type="button">Escolher Plano!</button>
       </section>
 
-      <aside
+      <section
         id="matricule-se"
         class="newsletter"
         aria-label="Cadastro e novidades"
@@ -651,10 +719,10 @@
           data-state="hidden"
         >
           <div class="newsletter__content">
-            <h3 class="newsletter__title">
+            <h2 class="newsletter__title">
               Torne-se um
               <span class="newsletter__title--highlight">Bodybuilder</span>
-            </h3>
+            </h2>
             <p class="newsletter__text">
               Não aceite menos que a elite. Sua jornada para o corpo dos sonhos
               começa aqui.
@@ -692,7 +760,7 @@
             </fieldset>
           </form>
         </div>
-      </aside>
+      </section>
 
       <section
         id="modalidades"
@@ -722,6 +790,7 @@
                   width="390"
                   height="260"
                   alt=""
+                  aria-hidden="true"
                   class="modality__image"
                   data-gulp-cheerio
                   data-sizes='[
@@ -769,6 +838,7 @@
                     width="390"
                     height="260"
                     alt=""
+                    aria-hidden="true"
                     class="modality__image"
                     data-gulp-cheerio
                     data-sizes='[
@@ -815,6 +885,7 @@
                     width="390"
                     height="260"
                     alt=""
+                    aria-hidden="true"
                     class="modality__image"
                     data-gulp-cheerio
                     data-sizes='[
@@ -861,6 +932,7 @@
                     width="390"
                     height="260"
                     alt=""
+                    aria-hidden="true"
                     class="modality__image"
                     data-gulp-cheerio
                     data-sizes='[
@@ -901,7 +973,7 @@
         data-js="scroll-top"
         data-state="hidden"
       >
-        <i class="scroll__icon icon icon-arrow"></i>
+        <i aria-hidden="true" class="scroll__icon icon-arrow"></i>
       </button>
     </main>
 
@@ -910,40 +982,46 @@
         <img
           class="footer__image"
           src="./assets/svg/logos/logo.svg"
-          alt="Logo Fitness Gym"
+          alt="Logo Fitness Gym rodapé"
           width="352"
           height="218"
         />
 
         <div class="footer__sections">
           <div class="footer__section">
-            <h3 class="footer__title">Links</h3>
-            <nav aria-label="Links do rodapé">
+            <p class="footer__title">Links</p>
+            <nav aria-label="Links rápidos do rodapé">
               <ul class="footer__items">
                 <li>
                   <a href="#academias" class="footer__link">
-                    <i class="footer__icon icon icon-gym"></i>
+                    <i aria-hidden="true" class="footer__icon icon-gym"></i>
                     Academias
                   </a>
                 </li>
 
                 <li>
                   <a href="#planos" class="footer__link">
-                    <i class="footer__icon icon icon-check-list"></i>
+                    <i
+                      aria-hidden="true"
+                      class="footer__icon icon-check-list"
+                    ></i>
                     Planos
                   </a>
                 </li>
 
                 <li>
                   <a href="#matricule-se" class="footer__link">
-                    <i class="footer__icon icon icon-add-user"></i>
+                    <i
+                      aria-hidden="true"
+                      class="footer__icon icon-add-user"
+                    ></i>
                     Matricule-se
                   </a>
                 </li>
 
                 <li>
                   <a href="#modalidades" class="footer__link">
-                    <i class="footer__icon icon icon-belt"></i>
+                    <i aria-hidden="true" class="footer__icon icon-belt"></i>
                     Modalidades
                   </a>
                 </li>
@@ -952,14 +1030,14 @@
           </div>
 
           <div class="footer__section">
-            <h3 class="footer__title">Sociais</h3>
-            <div class="footer__items">
+            <p class="footer__title">Sociais</p>
+            <nav aria-label="Nossas redes sociais" class="footer__items">
               <a
                 href="#footer__instagram"
                 id="footer__instagram"
                 class="footer__link"
               >
-                <i class="footer__icon icon icon-instagram"></i>
+                <i aria-hidden="true" class="footer__icon icon-instagram"></i>
                 Instagram
               </a>
               <a
@@ -967,25 +1045,25 @@
                 id="footer__tiktok"
                 class="footer__link"
               >
-                <i class="footer__icon icon icon-tik-tok"></i>
+                <i aria-hidden="true" class="footer__icon icon-tik-tok"></i>
                 Tiktok
               </a>
-            </div>
+            </nav>
           </div>
 
           <address class="footer__section footer__section--contact">
-            <h3 class="footer__title">Contato</h3>
+            <p class="footer__title">Contato</p>
             <div class="footer__items">
               <a
                 href="#footer__whatsapp"
                 id="footer__whatsapp"
                 class="footer__link"
               >
-                <i class="footer__icon icon icon-whatsapp"></i>
+                <i aria-hidden="true" class="footer__icon icon-whatsapp"></i>
                 (11) 9 8765-4321
               </a>
               <a href="#footer__email" id="footer__email" class="footer__link">
-                <i class="footer__icon icon icon-message"></i>
+                <i aria-hidden="true" class="footer__icon icon-message"></i>
                 contato@fitnessgym.com.br
               </a>
             </div>
