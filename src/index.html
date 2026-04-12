@@ -86,6 +86,9 @@
     <link rel="stylesheet" href="./css/scroll/scroll.css" />
     <link rel="stylesheet" href="./css/scroll/scroll-icon.css" />
 
+    <link rel="stylesheet" href="./css/toast/toast.css" />
+    <link rel="stylesheet" href="./css/toast/toast-message.css" />
+
     <link rel="stylesheet" href="./css/infos/infos.css" />
     <link rel="stylesheet" href="./css/infos/infos-box.css" />
     <link rel="stylesheet" href="./css/infos/infos-icon.css" />
@@ -587,14 +590,14 @@
                     Musculação
                   </span>
                 </th>
-                <td class="plans__cell">
+                <td class="plans__cell" data-js="plans-tab">
                   <i
                     aria-label="Incluso"
                     role="img"
                     class="plans__icon planos__icon--check icon-check"
                   ></i>
                 </td>
-                <td class="plans__cell">
+                <td class="plans__cell" data-js="plans-tab">
                   <i
                     aria-label="Incluso"
                     role="img"
@@ -609,14 +612,14 @@
                     Fitdance
                   </span>
                 </th>
-                <td class="plans__cell">
+                <td class="plans__cell" data-js="plans-tab">
                   <i
                     aria-label="Incluso"
                     role="img"
                     class="plans__icon planos__icon--check icon-check"
                   ></i>
                 </td>
-                <td class="plans__cell">
+                <td class="plans__cell" data-js="plans-tab">
                   <i
                     aria-label="Incluso"
                     role="img"
@@ -631,14 +634,14 @@
                     Pilates
                   </span>
                 </th>
-                <td class="plans__cell">
+                <td class="plans__cell" data-js="plans-tab">
                   <i
                     aria-label="Incluso"
                     role="img"
                     class="plans__icon planos__icon--check icon-check"
                   ></i>
                 </td>
-                <td class="plans__cell">
+                <td class="plans__cell" data-js="plans-tab">
                   <i
                     aria-label="Incluso"
                     role="img"
@@ -653,14 +656,14 @@
                     Cardio
                   </span>
                 </th>
-                <td class="plans__cell">
+                <td class="plans__cell" data-js="plans-tab">
                   <i
                     aria-label="Não Incluso"
                     role="img"
                     class="plans__icon planos__icon--check icon-close"
                   ></i>
                 </td>
-                <td class="plans__cell">
+                <td class="plans__cell" data-js="plans-tab">
                   <i
                     aria-label="Incluso"
                     role="img"
@@ -675,14 +678,14 @@
                     Acesso ilimitado a todas as unidades
                   </span>
                 </th>
-                <td class="plans__cell">
+                <td class="plans__cell" data-js="plans-tab">
                   <i
                     aria-label="Não Incluso"
                     role="img"
                     class="plans__icon planos__icon--check icon-close"
                   ></i>
                 </td>
-                <td class="plans__cell">
+                <td class="plans__cell" data-js="plans-tab">
                   <i
                     aria-label="Incluso"
                     role="img"
@@ -695,10 +698,10 @@
                   Valores mensais válidos para adesão ao plano anual com
                   pagamento via recorrência no cartão de crédito.
                 </th>
-                <td class="plans__cell planos__cell--price">
+                <td class="plans__cell planos__cell--price" data-js="plans-tab">
                   <span class="plans__cell--accent">R$</span> 89,90
                 </td>
-                <td class="plans__cell planos__cell--price">
+                <td class="plans__cell planos__cell--price" data-js="plans-tab">
                   <span class="plans__cell--accent">R$</span> 129,90
                 </td>
               </tr>
@@ -975,6 +978,13 @@
       >
         <i aria-hidden="true" class="scroll__icon icon-arrow"></i>
       </button>
+
+      <div class="toast" data-js="toast-pwa" data-state="hidden">
+        <span class="toast__message">Nova versão disponível</span>
+        <button class="btn btn--gym" data-js="toast-pwa-button">
+          Atualizar página!
+        </button>
+      </div>
     </main>
 
     <footer class="footer">

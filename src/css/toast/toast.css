@@ -1,0 +1,21 @@
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--color-neutral-black);
+  color: var(--color-neutral-white);
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.1rem 0.1rem var(--color-surface-muted);
+  z-index: 2;
+}
+
+.toast:where([data-state="hidden"]) {
+  display: none;
+}
+
+.toast:where([data-state="visible"]) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}

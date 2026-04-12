@@ -1,0 +1,5 @@
+.toast__message {
+  color: var(--color-neutral-white);
+  font-size: 1.6rem;
+  font-weight: 700;
+}

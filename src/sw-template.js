@@ -1,4 +1,4 @@
-const CACHE_NAME = "fitness-gym-dynamic-v1";
+const CACHE_NAME = "fitness-gym-dynamic-v2";
 
 // o Gulp vai substituir a string abaixo pelo array gigante com os Hashes!
 const ASSETS_TO_CACHE = "[INJECT_ASSETS]";
@@ -6,7 +6,34 @@ const ASSETS_TO_CACHE = "[INJECT_ASSETS]";
 self.addEventListener("install", (event) => {
   console.log("[SW] Instalando e fazendo o Pre-Cache com Revisões...");
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
+    caches.open(CACHE_NAME).then(async (cache) => {
+      // 1. Pegamos todos os arquivos que já estão no cache atual
+      const existingRequests = await cache.keys();
+
+      // 2. Criamos um conjunto de caminhos "limpos" (sem o ?v=) que vamos baixar agora
+      const newPaths = ASSETS_TO_CACHE.map(
+        (url) => new URL(url, self.location.origin).pathname,
+      );
+
+      // 3. Deletamos do cache apenas os arquivos antigos que batem com os novos caminhos
+      for (const request of existingRequests) {
+        const existingPath = new URL(request.url).pathname;
+
+        // 1. Criamos a URL absoluta do que o Gulp nos mandou para comparar "maçã com maçã"
+        const isFileInNewList = ASSETS_TO_CACHE.some(
+          (assetUrl) =>
+            new URL(assetUrl, self.location.origin).href === request.url,
+        );
+
+        // 2. Agora a lógica fica blindada:
+        if (newPaths.includes(existingPath) && !isFileInNewList) {
+          console.log(`[SW] Removendo arquivo obsoleto: ${request.url}`);
+          await cache.delete(request);
+        }
+      }
+
+      // 4. Agora baixamos os novos (isso economiza banda, baixando só o que mudou)
+      console.log("[SW] Cacheando novos assets...");
       return cache.addAll(ASSETS_TO_CACHE);
     }),
   );
@@ -16,15 +43,22 @@ self.addEventListener("install", (event) => {
 self.addEventListener("activate", (event) => {
   console.log("[SW] Ativado! Limpando caches velhos...");
   event.waitUntil(
-    caches.keys().then((keys) => {
-      return Promise.all(
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) return caches.delete(key);
         }),
       );
-    }),
+
+      await self.clients.claim();
+
+      const allClients = await self.clients.matchAll();
+      allClients.forEach((client) =>
+        client.postMessage({ type: "SW_UPDATED" }),
+      );
+    })(),
   );
-  self.clients.claim();
 });
 
 // 3. EVENTO FETCH (Intercepta as requisições de rede)
