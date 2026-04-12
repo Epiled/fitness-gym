@@ -7,6 +7,7 @@
   width: 13rem;
   will-change: transform;
   transition: transform 1s;
+  pointer-events: none;
 }
 
 @media screen and (min-width: 834px) {

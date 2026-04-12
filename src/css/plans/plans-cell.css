@@ -17,6 +17,10 @@
   font-weight: 700;
 }
 
+.plans__cell:where([data-js="plans-tab"]) {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 834px) {
   .plans__cell--description {
     font-size: 1.6rem;

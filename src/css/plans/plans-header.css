@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+.plans__header:where([data-js="plans-tab"]) {
+  cursor: pointer;
+}
+
 @media screen and (min-width: 834px) {
   .plans__header {
     width: 18rem;
