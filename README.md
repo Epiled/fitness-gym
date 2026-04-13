@@ -1,131 +1,151 @@
-![fitness-gym](https://github.com/Epiled/fitness-gym/assets/55258483/06dab758-24e7-447c-8858-6915b724c470)
+![Social Preview](./design/github/social-preview.png)
 
-<h1 align="center" id="sobre"> 🔸 💪 Fitness Gym 🦵 🔸 </h1>
+<h1 style="text-align: center;"> 🔸 💪 Fitness Gym 🦵 🔸 </h1>
 
-<p>
-  Projeto pessoal, este repositório foi um dos primeiros que criei no GitHub e ele era basicamente uma página HTML com alguns textos aleto rios, sem qualquer estilo ou propósito
-</p>
-<p>
-  Decidi criar algo novo para esse repositório, afinal ele é um dos mais antigos aqui, e merece um projeto de valor
-</p>
-<p>
-  Escolhi fazer um site autoral sobre academia, originalmente o projeto seria bem mais simples, nem precisaria de Javascript e o layout também seria simples, sua otimização praticamente não existiria, porém, não me contive e fiz um projeto do qual sentiria orgulho em fazer, com grandes níveis de otimização e animações para torna o site mais interativo e convidativo.
-</p>
-<p>
-  Para se ter uma noção do nível de otimização configurei uma série de Tasks no Gulp para automatizar certos processos
-</p>
-<p>
-  Utilizei o conhecimento de diversas áreas para adicionar melhorias e extrair o máximo de performance e qualidade da página.
-</p>
+## 📖 Overview
 
-![Badge](https://img.shields.io/github/last-commit/Epiled/fitness-gym?style=for-the-badge)
-![Badge](https://img.shields.io/github/languages/code-size/Epiled/fitness-gym?style=for-the-badge)
-![Badge](https://img.shields.io/github/languages/count/Epiled/fitness-gym?style=for-the-badge)
-![Bagde](https://img.shields.io/badge/repo%20status-Beta-cyan?style=for-the-badge)
-![Bagde](https://img.shields.io/github/v/release/Epiled/fitness-gym?style=for-the-badge)
-![Bagde](https://img.shields.io/github/license/Epiled/fitness-gym?style=for-the-badge)
+Fitness Gym is a high-performance Progressive Web App (PWA) developed to showcase modern application automation workflows and advanced offline caching strategies. The project's core focus is to deliver a fluid interface with minimal loading times and total availability without a network connection.
 
-![Badge](https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![Badge](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Badge](https://img.shields.io/badge/-JS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Badge](https://img.shields.io/badge/-Gulp-CF4647?style=for-the-badge&logo=gulp&logoColor=white)
+![Vercel Deploy](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)
+![GitHub release](https://img.shields.io/github/v/release/Epiled/fitness-gym?style=for-the-badge)
+![GitHub license](https://img.shields.io/github/license/Epiled/fitness-gym?style=for-the-badge)
 
-<h2> 📑 Tabela de Conteúdos </h2>
+![GitHub last commit](https://img.shields.io/github/last-commit/Epiled/fitness-gym?style=for-the-badge)
+![Code Size](https://img.shields.io/github/languages/code-size/Epiled/fitness-gym?style=for-the-badge)
 
-<!--ts-->
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Gulp](https://img.shields.io/badge/Gulp-CF4647?style=for-the-badge&logo=gulp&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node\.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
 
-- [Sobre](#sobre)
-- [Referência](#referencia)
-  - [Sites de inspiração](#inspiracao)
-- [Demonstração](#demonstracao)
-- [Performance](#performance)
-- [Instalação](#instalacao)
-- [Como usar](#como-usar)
-  - [Arquivos Locais](#arquivos_locais)
-- [Tecnologias](#tecnologias)
-- [Autor](#autor)
-<!--te-->
+## 📑 Table of Contents
 
-<h2 id="referencia"> 🔖 Referência </h2>
-<p>
-  Os arquivos de wireframes podem ser visto ou editador no seguinte link do Figma, você também encontrara os sites que usei como referência para criar meus wireframes.
-<p>
-<p>
-  Figma: <a target="_blank" href="https://www.figma.com/file/FodXub9KWw9YjUF2Zfl1GZ/Linkdlin-Projeto-%2F-GitHub-Organizar?type=design&node-id=0%3A1&mode=design&t=RONnshCJTvwMx9t2-1">
-    Fitness Gym
-  </a>
-</p>
-<h3 id="inspiracao">Sites que usei como inspiração</h3>
-<p>
-  <a target="_blank" href="https://www.smartfit.com.br/?gclid=Cj0KCQjwjt-oBhDKARIsABVRB0wsnAjS--OiIMrzNjklx9nR3w0rXAZM46lWLefnmjgkCP2UW0fC0EEaApkPEALw_wcB">
-    SmartFit
-  </a>
-</p>
-<p>
-   <a target="_blank" href="https://www.panobiancoacademia.com.br/">
-     Panobianco
-   </a>
-</p>
-<p>
-   <a target="_blank" href="https://www.koatch.com/">
-     Koatch
-   </a>
-</p>
+- [📖 Overview](#-overview)
+- [🛠️ Technologies](#-technologies)
+- [⚡ Performance & PWA](#-performance--pwa)
+- [🚀 Demo](#-demo)
+- [📦 Install and Use](#-install-and-use)
+- [📂 File Structure](#-file-structure)
+- [🎨 Reference & Inspiration](#-reference--inspiration)
+- [👨‍💻 Author and Contact](#-author-and-contact)
 
-<h2 id="demonstracao"> 👀 Demonstração </h2>
+## 🛠 Technologies
 
-<p>No link abaixo você pode ver a página no ar e rodar seus próprios teste de perfomance ou desempenho</p>
-<p>Fitness Gym: <a href="https://epiled.github.io/fitness-gym/dist/">https://epiled.github.io/fitness-gym/dist/</a></p>
+The following technologies were used to build this project:
 
-https://github.com/Epiled/fitness-gym/assets/55258483/5e89e3d0-5481-4a02-8140-23fe7e54c18a
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Gulp](https://gulpjs.com/)
+- [Node.js](https://nodejs.org/pt-br)
+- [PWA](https://web.dev/learn/pwa/)
 
-https://github.com/Epiled/fitness-gym/assets/55258483/94fb9968-dc94-4427-8ae4-bb6061ee46fa
+* **CSS Architecture:** BEM (Block Element Modifier) & Atomic Design principles.
+* **Automation:** Gulp.js to minify, concatenate, and inject critical CSS and Javascript.
 
-<h2 id="performance"> 📈 Performance Lighthouse </h2>
+## ⚡ Performance & PWA
 
-![lighthouse-01](https://github.com/Epiled/fitness-gym/assets/55258483/eb26375c-1257-458f-ad1c-34e03948ed17)
+![Lighthouse Performance](./design/github/lighthouse-report-dark.png)
 
-<h2 id="instalacao"> ⚙ Instalação </h2>
+* **Smart Caching Strategy** (Service Worker with obsolete asset deletion).
+* **Optimized images** via Gulp (WebP) and lazy loading.
+* **Critical CSS injection** to reduce First Contentful Paint (FCP) 
 
+## 🚀 Demo
+
+Access the live application below to interact with the interface and run your own performance tests
+
+Fitness Gym: [https://fitness-gym-pearl.vercel.app/](https://fitness-gym-pearl.vercel.app/)
+
+#### Desktop
+<video src="./design/github/preview-videos/2026/desktop.webm" width="100%" controls></video>
+
+#### Mobile
+<video src="./design/github/preview-videos/2026/mobile.webm" width="390px" controls></video>
+
+## 📦 Install and Use
+
+**Prerequisites:** Node.js (v22.x) or higher installed.
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Epiled/fitness-gym.git
+cd fitness-gym
 ```
-1. git clone https://github.com/Epiled/fitness-gym.git
-2. cd fitness-gym
+2. Install the dependencies:
+```bash
+npm install
 ```
 
-<h2 id="como-usar"> 👩‍🏫 Como usar </h2>
+3. Run the development environment (Build + Watch + Server):
+```bash
+gulp serve
+```
+or
+```bash
+npm run server
+```
 
-<h3 id="arquivos_locais">Arquivos Locais</h3>
-<p>O projeto pode ser executado atraves do arquivo index.html que se encontra na pasta dist que é o que recomendo usar, clicando duas vezes sobre ele ou abrindo diretamnete sobre o navegador</p>
+4. (Optional) Generate minified build for production:
+```bash
+gulp build
+```
+or
+```bash
+npm run build
+```
 
-<h2 id="tecnologias"> 🛠 Tecnologias </h2>
+> **Note:** To update `vercel.json` with the latest asset hashes for deployment, run:
+```bash
+npm run hash:build
+```
 
-As seguintes tecnologias foram usadas na construção deste projeto:
+## 📂 File Structure
 
-<ul>
-  <li><a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML5</a></li>
-  <li><a href="https://www.w3schools.com/css/default.asp" target="_blank">CSS3</a></li>
-  <li><a href="https://www.w3schools.com/js/default.asp" target="_blank">Javascript</a></li>
-  <li><a href="https://gulpjs.com/" target="_blank">Gulp</a></li>
-</ul>
+Below is the project architecture. All development should be done inside the `src/` folder. The `dist/` folder is automatically generated by Gulp and should not be edited manually.
 
-<p>
-  Também foi usado o modelo de organização CSS Atomic Design e a escrita do CSS foi feita seguindo o padrão BEM
-</p>
-<p>
-  Ao final do projeto é gerado um diretório de 'dist' para distribuição e homologação no qual ocorre a minificação e concatenação do CSS
-</p>
+```text
+fitness-gym/
+├── design/             # Wireframes, videos and assets for documentation
+├── src/                # Main source code (Development)
+│   ├── assets/         # Original images and icons
+│   ├── css/            # Styles following architecture BEM and Atomic Design principles
+│   ├── js/             # UI logic and PWA registration
+│   ├── icons-preview.html   # Preview page for the custom icon font
+│   ├── index.html      # Base semantic structure and main markup
+│   ├── manifest.webmanifest # PWA installation settings (App Icon, Colors)
+│   ├── robots.txt      # Guidelines for search engine indexing (SEO)
+│   └── sw-template.js  # Service Worker Template (hashes injected by Gulp)
+├── dist/               # Production build (Generated by Gulp - DO NOT EDIT)
+├── gulpfile.js         # Automation pipeline (Minification and optimization tasks)
+└── package.json        # Project dependencies and npm scripts
+```
 
-<h2 id="autor"> 👨‍💻 Autor </h2>
+## 🎨 Reference & Inspiration
+
+The project's design and wireframes are available for viewing on Figma. Below is a list of the real-world examples that inspired the UI/UX design.
+
+Figma / Wireframe: [Fitness Gym](https://www.figma.com/design/FodXub9KWw9YjUF2Zfl1GZ/Fitness-Gym?node-id=0-1&t=BbKVdxXdebEzU0Xh-1)
+
+
+### Inspiration
+
+* [SmartFit](https://www.smartfit.com.br/?gclid=Cj0KCQjwjt-oBhDKARIsABVRB0wsnAjS--OiIMrzNjklx9nR3w0rXAZM46lWLefnmjgkCP2UW0fC0EEaApkPEALw_wcB)
+* [Panobianco](https://www.panobiancoacademia.com.br/)
+* [Koatch](https://www.koatch.com/)
+
+## 👨‍💻 Author and Contact
 
 <a href="https://github.com/Epiled">
+  <img src="https://user-images.githubusercontent.com/55258483/178338085-2cea8bf2-6d0c-409a-9d0e-23359b7d303e.png" alt="Felindo">
+  <br />
+  <sub><b>Felipe De Andrade</b></sub>
+</a>
 
-![Felindo](https://user-images.githubusercontent.com/55258483/178338085-2cea8bf2-6d0c-409a-9d0e-23359b7d303e.png)
-<br />
-<sub><b>Felipe De Andrade</b></sub></a>
+Made with ❤️ by Felipe De Andrade 👋🏽 Get in touch!
 
-Feito com ❤️ por Felipe De Andrade 👋🏽 Entre em contato!
-
-[![Linkedin Badge](https://img.shields.io/badge/-Felipe-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fademendonca/)](https://www.linkedin.com/in/fademendonca/)
-[![Gmail Badge](https://img.shields.io/badge/-felipe.deam98@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:felipe.deam98@gmail.com)](mailto:felipe.deam98@gmail.com)
-[![Instagram Badge](https://img.shields.io/badge/-Instagram-e4405f?style=flat-square&logo=Instagram&logoColor=white&link=https://www.instagram.com/felipe.deam/)](https://www.instagram.com/felipe.deam/)
-[![Codepen Badge](https://img.shields.io/badge/-Codepen-000000?style=flat-square&logo=Codepen&logoColor=white&link=https://codepen.io/epiled)](https://codepen.io/epiled)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fademendonca/)
+[![CodePen](https://img.shields.io/badge/CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/epiled)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:felipe.deam98@gmail.com)
