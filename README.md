@@ -1,6 +1,6 @@
 ![Social Preview](./design/github/social-preview.png)
 
-<h1 style="text-align: center;"> 🔸 💪 Fitness Gym 🦵 🔸 </h1>
+<h1 align="center"> 🔸 💪 Fitness Gym 🦵 🔸 </h1>
 
 ## 📖 Overview
 
@@ -60,10 +60,10 @@ Access the live application below to interact with the interface and run your ow
 Fitness Gym: [https://fitness-gym-pearl.vercel.app/](https://fitness-gym-pearl.vercel.app/)
 
 #### Desktop
-<video src="./design/github/preview-videos/2026/desktop.webm" width="100%" controls></video>
+[desktop.webm](https://github.com/user-attachments/assets/09fd8433-29a6-4de3-9f4c-fb8df3549af4)
 
 #### Mobile
-<video src="./design/github/preview-videos/2026/mobile.webm" width="390px" controls></video>
+[mobile.webm](https://github.com/user-attachments/assets/1ae8735a-1ace-41ed-9c71-97e8801f367e)
 
 ## 📦 Install and Use
 
@@ -128,7 +128,6 @@ fitness-gym/
 The project's design and wireframes are available for viewing on Figma. Below is a list of the real-world examples that inspired the UI/UX design.
 
 Figma / Wireframe: [Fitness Gym](https://www.figma.com/design/FodXub9KWw9YjUF2Zfl1GZ/Fitness-Gym?node-id=0-1&t=BbKVdxXdebEzU0Xh-1)
-
 
 ### Inspiration
 
