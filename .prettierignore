@@ -1,2 +1,5 @@
 # Ignore all Handlebars templates 
 **/*.hbs
+
+# Ignore md files
+**/*.md
