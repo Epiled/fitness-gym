@@ -26,7 +26,7 @@
 - [📦 Install and Use](#-install-and-use)
 - [📂 File Structure](#-file-structure)
 - [🎨 Reference & Inspiration](#-reference--inspiration)
-- [👨‍💻 Author and Contact](#-author-and-contact)
+- [👨‍💻 Author and Contact](#%E2%80%8D-author-and-contact)
 
 ## 📖 Overview
 
