@@ -8,5 +8,5 @@
   // Garante que o Prettier continue ativo nos outros arquivos
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["gulpfile", "htmlmin", "iconfont", "Wireframes"]
+  "cSpell.words": ["gulpfile", "htmlmin", "iconfont", "vercel", "Wireframes"]
 }
