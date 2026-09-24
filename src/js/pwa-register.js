@@ -20,11 +20,9 @@ if ("serviceWorker" in navigator) {
     ? trustedTypesPolicy.createScriptURL("/sw.js")
     : "/sw.js";
 
-  navigator.serviceWorker.register(serviceWorkerUrl);
-
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("/sw.js")
+      .register(serviceWorkerUrl)
       .then((registration) => {
         console.log(
           "[PWA] Service Worker registrado com sucesso:",
