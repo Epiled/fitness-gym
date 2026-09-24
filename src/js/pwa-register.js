@@ -1,5 +1,27 @@
-// Registro do Service Worker
+// Register Service Worker
+
 if ("serviceWorker" in navigator) {
+  const trustedTypesPolicy = window.trustedTypes?.createPolicy("fitness-gym", {
+    createScriptURL: (url) => {
+      const scriptUrl = new URL(url, window.location.origin);
+
+      if (
+        scriptUrl.origin !== window.location.origin ||
+        scriptUrl.pathname !== "/sw.js"
+      ) {
+        throw new TypeError(`Script URL não permitida: ${scriptUrl.href}`);
+      }
+
+      return scriptUrl.href;
+    },
+  });
+
+  const serviceWorkerUrl = trustedTypesPolicy
+    ? trustedTypesPolicy.createScriptURL("/sw.js")
+    : "/sw.js";
+
+  navigator.serviceWorker.register(serviceWorkerUrl);
+
   window.addEventListener("load", () => {
     navigator.serviceWorker
       .register("/sw.js")
